@@ -1,0 +1,21 @@
+---
+title: "Grāmata “Implementing Reproducible Research”"
+layout: post
+categories: jekyll update
+date: 2014-07-27 12:00:00 +0200
+---
+
+
+Tā kā šogad personīgi vai ar LU BF bibliotēkas palīdzību bija iespēja tikt pie vairākām jaunām grāmatām par R un statistiku, tad nolēmu ieviest mājaslapā jaunu sadaļu: Grāmatu apskats.
+
+![Repro book](/figs/9781466561595.jpg){:style="float: right;margin-right: 7px;margin-top: 7px;"}
+
+Pirmā grāmata ir [“Implementing Reproducible Research”, kuras redaktori V. Stodden, F.Leisch un R.D.Peng (izdevējs CRC Press)](http://www.crcpress.com/product/isbn/9781466561595). Kā jau rāda nosaukums, tad šī grāmata ir par šobrīd ļoti aktuālu tēmu – reproducējamiem pētījumiem. Diemžēl labāku latvisko tulkojumu šim terminam neatradu, jo vārds “atkārtojams” šeit nederēs (ar to apzīmē repeatable). Nezinātājiem mēģināšu ieviest skaidrību, ko tad tieši nozīmē reproducējams pētījums un ar ko tas atšķiras no atkārojama pētījuma. Ar atkārtojamu pētījumu saprot tādu pētījumu, ka izlasot pētījumu aprakstu, es varu paņemt savus datus un izdarīt visu to pašu, kas veikts konkrētajām pētījumā. Reproducējams pētījums savukārt nozīmē, ka es man ir pieejami dati, metodes, aprēķina kodi un es varu veikt tiešu to pašu, kas veikts pētījumā ar tiem pašiem datiem un, ideālā gadījumā, iegūt identisku rezultātu. Ja Jūsu pētījums ir reproducējams, tad citiem ir iespēja jebkurā laikā pārliecināties, vai visi Jūsu veiktie aprēķini ir pareizi.
+
+Tagad par pašu grāmatu. Tā ir kā rakstu krājums, kur katrai grāmatas nodaļai ir savs autors vai autoru kolektīvs. Grāmata ir sadalīta trīs daļās: (a) Rīki (Tools) – šajā daļā ir apskatītas pāris programmas/R pakete, kas var palīdzēt reproducējamu pētījumu ieviešanā; (b) Prakses un vadlīnijas (Practicies un guidelines) – grāmatas plašākā daļa, kurā apskatīti vairāki piemēri tam, kādā veidā dažādās jomās (bioinformātika, lielapjoma skaitļošana, mākoņskaitļošana, u.c.) ir ieviesti reproducējamu pētījumu pamatprincipi; (c) Platformas (Platforms) – divas nodaļas par internetvietnēm, kas var palīdzēt organizēt darbu, kā arī nodaļa par izdevēju lomu reproducējamos pētījumos.
+
+Tā kā šī grāmata ir izdota “The R Series” grāmatu sērīja, nelielu vilšanos sagādāja tas, ka ļoti maz ir veltīts tieši R programmas rīkiem/iespējām reproducējamu pētījumu veikšanā, jo ir zināms, ka R ir viena no piemērotākajām programmām šāda veidam procesam. Tā rezultātā bija pāris nodaļas, kurām ļoti ātri pārskrēju pāri, jo sapratu, ka tās uz mani galīgi neattiecas. Otra lieta, kas nedaudz “kaitināja”, ir atkārtošanās, sevišķi prakses sadaļā. Vairumā nodaļu atkal un atkal tiek minēts, ka jāizmanto versiju kontroles sistēmu (kas protams ir atbalstāma un pareiza ideja), turklāt bieži piedāvātais risinājums bija identisks.
+
+No šīs grāmatas gribētos īpaši izcelt divas nodaļas: (a) “Practicing Open Sciences” (L.Ibanez, W.J.Schroeder, M.D.Hanwell) – sniegts ieskats dažādos “atvērtās” zinātnes (pētījumu) aspektos, gan runājot par atvērtiem datiem un kodiem, gan arī brīvpieeju un atvērtiem standartiem. Daudzi no šiem aspektiem, piemēram, Latvijas zinātnē ir tiešām vēl tikai attīstības sākumā, jo ik pa laikam saskaramies ar zinātniekiem, kas visus savus datus/darbus tur zem “atslēgas”, lai tik kāds nenozog; (b) “Open Science and the Role of Publishers in Reproducible Research” (I.Hrynaszkiewicz, P.Li, S.Edmunds) – šajā nodaļā apskatītas vairākas būtiskas lietas saistībā ar “atvērto” zinātni, tai skaitā juridiskie aspekti, dažādi licenzēšanas veidi, kā arī aizskarta samērā “sāpīgā” tēma par žurnālu izdevējiem, kuriem bieži esam spiesti atdot visas savas tiesības uz publicēto darbu.
+
+Kāds tad ir kopējais secinājums par šo grāmatu – izlasot šo grāmatu, Jūs nevarēsiet uzreiz ķerties klāt reproducējamu pētījumu ieviešanai savā darba vietā, jo tā nav soli-pa-solim pamācība, bet šī grāmata  ir ļoti labs apkopojošais materiāls par to, kas reproducējams pētījums tāds ir, kādi ir virzieni, kuros skatīties, lai to ieviestu, kā arī kādas ir galvenās problēmas, ar kurām varat saskarties šī procesa ieviešanā.
