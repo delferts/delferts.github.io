@@ -17,3 +17,9 @@ github_username:  delferts
 
 # Build settings
 markdown: kramdown
+
+# Analitics settings
+analytics :
+  provider : google
+  google : 
+      tracking_id : 'UA-74266818-1'
