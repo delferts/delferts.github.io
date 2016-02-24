@@ -45,6 +45,7 @@ summary(mod)
 Problēmas rodas tajā brīdī, kad mums šos rezultātus vajag dabūt kā datu tabulu, lai eksportētu vai arī izmantotu kādās citās analīzes/attēlu veidošanā. Vairumā gadījumu statistisko testu rezultāti ir saglabāti kā saraksti (list) ar ļoti daudz apakšelementiem, kas apgrūtina rezultātu tālāku izmantošanu.
 
 ## Risinājums
+
 ### broom pakete
 Ar šo problēmu veiksmīgi var tikt galā izmantojot paketi `broom`, kuras trīs galvenās funkcijas ir `tidy()`, `augment()` un `glance()`.
 
@@ -83,7 +84,7 @@ tidy(t.test(Sepal.Width~Species,data=subset(iris,Species!="setosa")))
 
 ### glance()
 
-Ja ir nepieciešams kā datu tabulu saglabāt dažādus modeļa kopējos novērtējuma radītājus, piemēram, $R^2$, p vērtību, AIC, tad ir jāizmanto funkcija `glance()`.
+Ja ir nepieciešams kā datu tabulu saglabāt dažādus modeļa kopējos novērtējuma radītājus, piemēram, R<sup>2</sup>, p vērtību, AIC, tad ir jāizmanto funkcija `glance()`.
 
 
 {% highlight r %}
