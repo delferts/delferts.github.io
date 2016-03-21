@@ -1,7 +1,7 @@
 ---
 title: "Statistisko modeļu rezultātu pārvēršana par datu tabulām ar paketi broom"
 layout: post
-categories: jekyll update
+categories: blogs update
 date: 2016-02-24 12:00:00 +0200
 ---
 
