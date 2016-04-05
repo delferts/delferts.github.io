@@ -16,6 +16,7 @@ Pirms uzsākat sadarbību ar kādu, nodefinējiet gan sev, gan viņam kāds ir s
 2. Vienojaties par sadarbības veidu – vai tās būs attiecības “darba devējs – darbinieks”, kur “datu analītiķis” dara visu, ko Jūs liekat, vai arī tās būs attiecības, kur Jūs paļaujaties uz “datu analītiķa” kompetenci un ieklausāties arī viņa viedoklī.
 3. Vienojaties par “samaksas” veidu – vai tā būs reāla samaksa, kopīga publikācija, vienkārši “paldies” par palīdzēšanu. Pēdējo divu variantu gadījumā vajadzētu saprast, ka tiek brīvprātīgi ieguldīts laiks, attiecīgi negaidiet, ka viss tiks izdarīts uzreiz pēc Jūsu lūguma.
 4. Kārtīgi apdomājiet un izrunājaties par lietām, kas ir jāizdara. Skaidrs, ka nav iespējams uzreiz izdomāt visu, bet arī vairākas reizes pārtaisīt visas analīzes, jo maināt domas, ir apgrūtinoši.
+5. Atceraties, ka arī "datu analītiķis" ir tikai cilvēks, tāpēc reizēm vienkārši ir cilvēki, ar kuriem ir grūti sastrādāties (pārāk atšķirīgi raksturi). 
 
 ### Dati
 
