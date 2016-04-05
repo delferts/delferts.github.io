@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Praktiskā biometrija</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
+  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Praktiskā biometrija" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktiskā biometrija" />
+  
+  <meta name="twitter:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+<meta name="author" content="Didzis Elferts">
+
+<meta name="date" content="2016-04-05">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="ievads-darba-ar-programmu-r.html">
+<link rel="next" href="datu-izzinasana-un-normalitates-testi.html">
+
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p>Praktiskā biometrija</p></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Ievads</a></li>
+<li class="chapter" data-level="2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html"><i class="fa fa-check"></i><b>2</b> Biometrija un datu analīze</a><ul>
+<li class="chapter" data-level="2.1" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#kas-ir-biometrija"><i class="fa fa-check"></i><b>2.1</b> Kas ir biometrija?</a></li>
+<li class="chapter" data-level="2.2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#paraugkopa-un-generalkopa"><i class="fa fa-check"></i><b>2.2</b> Paraugkopa un ģenerālkopa</a></li>
+<li class="chapter" data-level="2.3" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#hipotezu-parbaude"><i class="fa fa-check"></i><b>2.3</b> Hipotēžu pārbaude</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html"><i class="fa fa-check"></i><b>3</b> Ievads darbā ar programmu R</a><ul>
+<li class="chapter" data-level="3.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kas-ir-programma-r-un-ka-uzsakt-darbu"><i class="fa fa-check"></i><b>3.1</b> Kas ir programma R un kā uzsākt darbu?</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-vide"><i class="fa fa-check"></i><b>3.1.1</b> R vide</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-instalacija-un-papildus-paketes"><i class="fa fa-check"></i><b>3.1.2</b> R instalācija un papildus paketes</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#palidzibas-iegusana"><i class="fa fa-check"></i><b>3.1.3</b> Palīdzības iegūšana</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-r"><i class="fa fa-check"></i><b>3.2</b> Darbs ar R</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#komandu-veidosana"><i class="fa fa-check"></i><b>3.2.1</b> Komandu veidošana</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kalkulators"><i class="fa fa-check"></i><b>3.2.2</b> Kalkulators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-veidi"><i class="fa fa-check"></i><b>3.2.3</b> Datu veidi</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-strukturas"><i class="fa fa-check"></i><b>3.2.4</b> Datu struktūras</a></li>
+<li class="chapter" data-level="3.2.5" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-importesana"><i class="fa fa-check"></i><b>3.2.5</b> Datu importēšana</a></li>
+<li class="chapter" data-level="3.2.6" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-eksportesana"><i class="fa fa-check"></i><b>3.2.6</b> Datu eksportēšana</a></li>
+<li class="chapter" data-level="3.2.7" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-datiem"><i class="fa fa-check"></i><b>3.2.7</b> Darbs ar datiem</a></li>
+<li class="chapter" data-level="3.2.8" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darba-vides-sakartosana"><i class="fa fa-check"></i><b>3.2.8</b> Darba vides sakārtošana</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html"><i class="fa fa-check"></i><b>4</b> Grafiskās iespējas programmā R</a><ul>
+<li class="chapter" data-level="4.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#pamatgrafiki"><i class="fa fa-check"></i><b>4.1</b> Pamatgrafiki</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot"><i class="fa fa-check"></i><b>4.1.1</b> plot()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#boxplot"><i class="fa fa-check"></i><b>4.1.2</b> boxplot()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#hist"><i class="fa fa-check"></i><b>4.1.3</b> hist()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#barplot"><i class="fa fa-check"></i><b>4.1.4</b> barplot()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#dati-grafiku-veidosanai"><i class="fa fa-check"></i><b>4.2</b> Dati grafiku veidošanai</a></li>
+<li class="chapter" data-level="4.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-parametru-noteiksana"><i class="fa fa-check"></i><b>4.3</b> Grafiku parametru noteikšana</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-izvietojums-lapa"><i class="fa fa-check"></i><b>4.3.1</b> Grafiku izvietojums lapā</a></li>
+<li class="chapter" data-level="4.3.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot-grafiku-tipi"><i class="fa fa-check"></i><b>4.3.2</b> plot() grafiku tipi</a></li>
+<li class="chapter" data-level="4.3.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#liniju-parametri"><i class="fa fa-check"></i><b>4.3.3</b> Līniju parametri</a></li>
+<li class="chapter" data-level="4.3.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#simbolu-veidi"><i class="fa fa-check"></i><b>4.3.4</b> Simbolu veidi</a></li>
+<li class="chapter" data-level="4.3.5" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#virsraksti-un-teksti-pie-asim"><i class="fa fa-check"></i><b>4.3.5</b> Virsraksti un teksti pie asīm</a></li>
+<li class="chapter" data-level="4.3.6" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#teksts-grafika-ieksiene"><i class="fa fa-check"></i><b>4.3.6</b> Teksts grafika iekšienē</a></li>
+<li class="chapter" data-level="4.3.7" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#tekstu-parametri"><i class="fa fa-check"></i><b>4.3.7</b> Tekstu parametri</a></li>
+<li class="chapter" data-level="4.3.8" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#asis"><i class="fa fa-check"></i><b>4.3.8</b> Asis</a></li>
+<li class="chapter" data-level="4.3.9" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#divas-y-asis"><i class="fa fa-check"></i><b>4.3.9</b> Divas y asis</a></li>
+<li class="chapter" data-level="4.3.10" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#krasas"><i class="fa fa-check"></i><b>4.3.10</b> Krāsas</a></li>
+<li class="chapter" data-level="4.3.11" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#legenda"><i class="fa fa-check"></i><b>4.3.11</b> Leģenda</a></li>
+<li class="chapter" data-level="4.3.12" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#linijas-grafikos"><i class="fa fa-check"></i><b>4.3.12</b> Līnijas grafikos</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-saglabasana"><i class="fa fa-check"></i><b>4.4</b> Grafiku saglabāšana</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html"><i class="fa fa-check"></i><b>5</b> Datu izzināšana un normalitātes testi</a><ul>
+<li class="chapter" data-level="5.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#datu-izzinasana"><i class="fa fa-check"></i><b>5.1</b> Datu izzināšana</a></li>
+<li class="chapter" data-level="5.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#normalitates-testi"><i class="fa fa-check"></i><b>5.2</b> Normalitātes testi</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#grafiska-analize"><i class="fa fa-check"></i><b>5.2.1</b> Grafiskā analīze</a></li>
+<li class="chapter" data-level="5.2.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#analitiska-analize"><i class="fa fa-check"></i><b>5.2.2</b> Analītiskā analīze</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i><b>6</b> Literatūra</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Praktiskā biometrija</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="grafiskas-iespejas-programma-r" class="section level1">
+<h1><span class="header-section-number">4. nodaļa.</span> Grafiskās iespējas programmā R</h1>
+<p>Programmā R ir iespējams veidot ļoti augstas kvalitātes grafikus, kuriem ir iespējams definēt jebkuru no interesējošiem parametriem. Grafiku veidošanai ir pieejamas vairākas grafiskās sistēmas, no kurām populārās trīs ir:</p>
+<ul>
+<li>Tradicionālie grafiki <span class="citation">(Murrell <a href="literatura.html#ref-murrell2006r">2006</a>)</span></li>
+<li>Trellis jeb Lattice grafiki <span class="citation">(Sarkar <a href="literatura.html#ref-sarkar2008">2008</a>)</span></li>
+<li>ggplot2 grafiki <span class="citation">(Wicham <a href="literatura.html#ref-wicham2009">2009</a>)</span></li>
+</ul>
+<p>Šajā grāmatā apskatīti tikai tradicionālo grafiku veidošana.</p>
+<div id="pamatgrafiki" class="section level2">
+<h2><span class="header-section-number">4.1</span> Pamatgrafiki</h2>
+<p>Grafikus līdzīgi kā jebkuras citas darbības programmā R veic ar komandu rindām. Ir pieejamas funkcijas, kas izveido jau nodefinētu grafika veidu, vai arī var izveidot grafiku izmantojot atsevišķas funkcijas dažādu parametru definēšanai.</p>
+<p>R specifika ir tā, ka, izveidojot grafiku, parādās grafiskais logs, kurā ir attēlots konkrētais grafiks. Ja tiek izsaukta jauna funkcija, kas arī veido grafiku, iepriekšējais grafiks tiek aizstāts. Ja ir nepieciešams, ka uz ekrāna vienlaicīgi ir redzami vairāki grafiki, tad pirms katra jauan grafika ir jāraksta funkcija <code>windows()</code> (Windows vidē) vai <code>quartz()</code> (MacOS vidē).</p>
+<p>Lai veidotu grafiku, ir nepieciešami dati. Šajā nodaļā kā piemērs izmantots datu fails <code>niedres.txt</code>, kas satur informāciju par 50 niedru lapu garumu un platumu. Ar funkciju <code>read.table()</code> fails tiek importēts, pēc tam funkciju <code>str()</code> apskatīta tā struktūra.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niedres&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;niedres.txt&quot;</span>,<span class="dt">header=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+<span class="kw">str</span>(niedres)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  2 variables:
+##  $ garums : num  31.6 23.2 39.2 37.4 21.1 37 24.7 31.3 37.4 39.7 ...
+##  $ platums: num  2.5 2.3 2.1 5.8 2.2 4.1 3.5 4.2 2.5 2.8 ...</code></pre>
+<div id="plot" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> plot()</h3>
+<p>Visbiežāk pielietotā funkcija grafiku veidošanai ir <code>plot()</code>. Ja šajā funkcijā norāda vienu vai divas skaitļu rindas, tad tā veido izkliedes grafiku (scatterplot) (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-001">4.1</a> attēls). Šai funkcijai ir iespējams norādīt ļoti daudz papildus argumentus, kas maina izveidoto grafiku. Turklāt liekot šajā funkcijā atšķirīgus datus objektu, var iegūt ļoti atšķirīgu rezultātu.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$platums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-001"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-001-1.png" alt="Izkliedes grafika piemērs"  />
+<p class="caption">
+Figure 4.1: Izkliedes grafika piemērs
+</p>
+</div>
+</div>
+<div id="boxplot" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> boxplot()</h3>
+<p>Funkcija <code>boxplot()</code> izveido Box-plot grafiku (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-002">4.2</a> attēls). Šai funkcijai var norādīt vienu datu rindu, kas satur skaitļus, vai arī divas datu rindas, kur vienā ir skaiļi, bet otrā ir apzīmējumi dalījuma līmeņiem. Otrajā gadījumā attsevišķš Box-plot grafiks tiks izveidots katram no dalījuma līmeņiem.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(niedres$platums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-002"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-002-1.png" alt="Box-plot grafika piemērs"  />
+<p class="caption">
+Figure 4.2: Box-plot grafika piemērs
+</p>
+</div>
+</div>
+<div id="hist" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> hist()</h3>
+<p>Ar funkcijas <code>hist()</code> palīdzību ir iespējams izveidot histogrammu datiem, kas vēl nav sagarupēti klasēs (izejas datiem) (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-003">4.3</a> attēls). Šajā funkcijā ir jānorāda tikai viena datu rinda, kuru ir nepieciešams attēlot. Ar papildus argumentiem ir iespējams mainīt to, cik daļās dati tiek dalīti.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(niedres$platums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-003"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-003-1.png" alt="Histogrammas piemērs"  />
+<p class="caption">
+Figure 4.3: Histogrammas piemērs
+</p>
+</div>
+</div>
+<div id="barplot" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> barplot()</h3>
+<p>Funkcija <code>barplot()</code> veido slokšņu jeb stabiņu grafiku (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-004">4.4</a> attēls). Šī funkcija ir īpaši noderīga gadījumā, ja dati jau ir apkopoti pa klasēm, jo funkcija attēlo datus tādā veidā kā tie norādīti mainīgajā.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(niedres$platums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-004"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-004-1.png" alt="Slokšņu/stabiņu grafika piemērs"  />
+<p class="caption">
+Figure 4.4: Slokšņu/stabiņu grafika piemērs
+</p>
+</div>
+</div>
+</div>
+<div id="dati-grafiku-veidosanai" class="section level2">
+<h2><span class="header-section-number">4.2</span> Dati grafiku veidošanai</h2>
+<p>Lai veidotu grafikus, esošos datus no gatavām datu tabulām nav jāsaglabā kā atsevišķus mainīgos -tos uzreiz var izmantot grafiku veidošanai. Ir vismaz trīs dažādi veidi kā norādīt attēlojamos mainīgos: (a) norādot pilnu datu objektu nosaukumu un tad kolonnas nosaukumu, kuru vēlas attēlot; (b) grafika veidošanas funkciju likt kā argumentu funkcijai <code>with()</code>. Visos šajos gadījumos izveidosies līdzīgs attēls (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-001">4.1</a> attēls), var atšķirties tikai paraksti zem asīm.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$platums)
+<span class="kw">with</span>(niedres,<span class="kw">plot</span>(platums))</code></pre></div>
+<p>Ja ir nepieciešams uz x un y ass attēlot divu mainīgo datus, tad ir divi iespējamie risinājumi: (a) kā pirmo argumentu raksta uz x ass attēlojamo mainīgo, tad komats un uz y ass attēlojamais mainīgais; (b) kā pirmo raksta uz y ass attēlojamo mainīgo, tad tildes zīme <code>~</code> un uz x ass attēlojamais mainīgais. Abi varianti izveido identisku grafiku (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-006">4.5</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$platums,niedres$garums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-006"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-006-1.png" alt="Grafiks ar diviem mainīgajiem"  />
+<p class="caption">
+Figure 4.5: Grafiks ar diviem mainīgajiem
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums~niedres$platums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-006"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-006-2.png" alt="Grafiks ar diviem mainīgajiem"  />
+<p class="caption">
+Figure 4.6: Grafiks ar diviem mainīgajiem
+</p>
+</div>
+</div>
+<div id="grafiku-parametru-noteiksana" class="section level2">
+<h2><span class="header-section-number">4.3</span> Grafiku parametru noteikšana</h2>
+<p>Programmā R grafikiem mainīt paramtrus var divos veidos – izmantojot speciālu funkciju <code>par()</code> vai arī rakstot argumentus iekavās pie citām grafiku veidošanas funkcijām. Funkciju <code>par()</code> lieto, lai noteiktu parametrus, kas ietekmē visus turpmākos grafikus, kāmēr konkrētais grafiskais ekrāns vai vide ir atvērta. Šī funkcija ir jāizsauc kā pirmā pirms grafika veidošanas funkcijas izsaukšanas. Daļu no parametriem var noteikt tikai kopā ar funkciju <code>par()</code>.</p>
+<div id="grafiku-izvietojums-lapa" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Grafiku izvietojums lapā</h3>
+<p>R piedāvā iespēju izvietot vienā lapā vairākus attēlus, kas tiek panākts izmantojot argumentus <code>mfrow=</code>, <code>mfcol</code> kopā ar funkciju <code>par()</code>, vai arī izmantojot unkciju <code>layout()</code>. Visi šie argumenti vai funkcija ir jānodefinē pirms grafiku funkcijām, kā arī jāņem vērā tas, ka šīs funkcijas zaudē spēku, ja tiek izmantota funkcija <code>dev.off()</code> vai arī grafiku logs tiek aizvērts.</p>
+<p>Argumenti <code>mfrow=</code> un <code>mfcol=</code> tiek izmantoti kopā ar funkciju <code>par()</code>, pēc sekojoša principa <code>par(mfrow=c(rinduskaits,kolonnuskaits))</code>. <code>mfrow=</code> un <code>mfcol=</code> atšķirība ir tā, ka pirmajā gadījumā grafiki tiek aizpildīta pēc rindu principa (pirmā rinda, tad otrā rinda), bet otrajā gadījumā aizpilda pēc kolonnu principa (pirmā kolonna, tad otrā kolonna).</p>
+<p>Funkcija <code>layout()</code> strādā pēc līdzīga principa (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-007">4.7</a> attēls), tikai šajā gadījumā ir iespējams nodefinēt kādā secībā grafiki izvietosies – secīgi vai jauktā veidā, kā arī ar šo funkciju iespējams nodefinēt arī izmērus katram no atsevišķajiem grafikiem. Zemāk minētajā piemērā visas trīs pirmās rindas dod vienādu rezultātu (reāli jāizmanto tikai viena).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">par</span>(<span class="dt">mfcol=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">ncol=</span><span class="dv">2</span>))
+<span class="kw">plot</span>(niedres$garums)
+<span class="kw">hist</span>(niedres$garums)
+<span class="kw">boxplot</span>(niedres$garums)
+<span class="kw">barplot</span>(niedres$garums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-007"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-007-1.png" alt="Vairāku grafiku izvietojums vienā lapā"  />
+<p class="caption">
+Figure 4.7: Vairāku grafiku izvietojums vienā lapā
+</p>
+</div>
+<p>Ja funkcijā <code>layout()</code> kāds no skaitļiem tiek atkārtots, tad grafiks tiks izvietot nevis vienā “rūtiņā”, bet gan divās, kāmēr pārējie grafiki izvietosies vienā rūtiņā (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-008">4.8</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">ncol=</span><span class="dv">2</span>))
+<span class="kw">plot</span>(niedres$garums)
+<span class="kw">hist</span>(niedres$garums)
+<span class="kw">boxplot</span>(niedres$garums)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-008"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-008-1.png" alt="Vairāku grafiku izvietojums vienā lapā"  />
+<p class="caption">
+Figure 4.8: Vairāku grafiku izvietojums vienā lapā
+</p>
+</div>
+</div>
+<div id="plot-grafiku-tipi" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> plot() grafiku tipi</h3>
+<p>Pēc noklusējuma funkcija <code>plot()</code> veido izkliedes grafiku, bet to ir iespējams mainīt norādot papildus argumentu <code>type=</code> iekavās pie šīs funkcijas. Rezultātā var iegūt sešus dažādus grafiku veidus (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-009">4.9</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">main=</span><span class="st">&quot;type=</span><span class="ch">\&quot;</span><span class="st">l</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;h&quot;</span>,<span class="dt">main=</span><span class="st">&quot;type=</span><span class="ch">\&quot;</span><span class="st">h</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;b&quot;</span>,<span class="dt">main=</span><span class="st">&quot;type=</span><span class="ch">\&quot;</span><span class="st">b</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;o&quot;</span>,<span class="dt">main=</span><span class="st">&quot;type=</span><span class="ch">\&quot;</span><span class="st">o</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;s&quot;</span>,<span class="dt">main=</span><span class="st">&quot;type=</span><span class="ch">\&quot;</span><span class="st">s</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;p&quot;</span>,<span class="dt">main=</span><span class="st">&quot;type=</span><span class="ch">\&quot;</span><span class="st">p</span><span class="ch">\&quot;</span><span class="st">&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-009"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-009-1.png" alt="Funkcijas plot() grafiku veidi"  />
+<p class="caption">
+Figure 4.9: Funkcijas plot() grafiku veidi
+</p>
+</div>
+</div>
+<div id="liniju-parametri" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Līniju parametri</h3>
+<p>Līnijām, kas tiek attēlotas grafikos, ir iespējams nodefinēt vairākus parametrus. Tas tiek panākts ar atsevišķiem argumentiem, kurus lieto kopā ar funkcijām grafika izveidošanai. Pirmais no parametriem, kuru var mainīt, ir līnijas veids. To dara ar argumentu <code>lty=</code>, norādot skaitli no 0 līdz 6 (bez pēdiņām), vai arī lietojot līnijas veida anglisko nosaukumu (attiecīgi “blank”,“solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”). Ir iespējams nodefinēt arī savu līnijas veidu - pēdiņās aiz <code>lty=</code> jāraksta skaitļi, kur attiecīgi pirmais skaitlis apzīmē līnijas garumu un otrais skaitlis atstarpes garumu (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-010">4.10</a> attēls). Šaja piemērā funkcija <code>lines()</code> tiek izmantota, lai grafikam pievienotu papildus līnijas. Funkcija ir lietojama tikai tad, ja pamatgrafiks jau ir izveidots.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">10</span>)
+<span class="kw">plot</span>(x,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">11</span>),<span class="dt">axes=</span>F,<span class="dt">ann=</span>F,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(x<span class="dv">-1</span>,<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(x<span class="dv">-2</span>,<span class="dt">lty=</span><span class="dv">3</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(x<span class="dv">-3</span>,<span class="dt">lty=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(x<span class="dv">-4</span>,<span class="dt">lty=</span><span class="dv">5</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(x<span class="dv">-5</span>,<span class="dt">lty=</span><span class="dv">6</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">lines</span>(x<span class="dv">-6</span>,<span class="dt">lty=</span><span class="st">&quot;664422&quot;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">box</span>()</code></pre></div>
+<div class="figure"><span id="fig:rgraf-010"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-010-1.png" alt="Iespējamie līniju tipi grafikos"  />
+<p class="caption">
+Figure 4.10: Iespējamie līniju tipi grafikos
+</p>
+</div>
+<p>Lai noteiktu līniju platumu, lieto argumentu <code>lwd=</code>, norādot līnijas biezumu kā skaitli. Līnijas platums būs atkarīgs no tā, kur grafiks tiks attēlots, tas ir, ja grafiku apskatīsies uz ekrāna vai eksportēsiet kā failu, līniju platums var atšķirties.</p>
+<p>Ar argumentu <code>lend=</code> nosaka kāds būs līnijas nobeigums: apaļš (<code>&quot;round&quot;</code>) vai taisns (<code>&quot;square&quot;</code>&quot; vai <code>&quot;butt&quot;</code>). Arguments <code>ljoin=</code> nosaka kādā veidā līnijas savienojas savā starpā (ja ir lauzta līnija). Savienojums var būt punktveida (<code>&quot;mitre&quot;</code>), apaļš (<code>&quot;round&quot;</code>) un ass leņķis (<code>&quot;bevel&quot;</code>). Attēlā <a href="grafiskas-iespejas-programma-r.html#fig:rgraf-011">4.11</a> var sekot tam, kā mainās līnijas izskats, mainot dažādus tās parametrus (platumu, veidu, savienojumu vietas).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="dt">ncol=</span><span class="dv">2</span>))
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lty=</span><span class="dv">4</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lty=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">12</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lty=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">12</span>,<span class="dt">lend=</span><span class="st">&quot;butt&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lty=</span><span class="dv">4</span>,<span class="dt">lwd=</span><span class="dv">12</span>,<span class="dt">lend=</span><span class="st">&quot;butt&quot;</span>,<span class="dt">ljoin=</span><span class="st">&quot;bevel&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-011"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-011-1.png" alt="Līnijas izmaiņas, mainot dažādus parametrus"  />
+<p class="caption">
+Figure 4.11: Līnijas izmaiņas, mainot dažādus parametrus
+</p>
+</div>
+</div>
+<div id="simbolu-veidi" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Simbolu veidi</h3>
+<p>Tradicionālajiem grafikiem ir pieejami 26 iepriekš nodefinēti simbolu veidi datu attēlošanai, kurus var mainīt izmantojot argumentu <code>pch=</code> un norādot skaitli no 0 līdz 25 (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-012">4.12</a> attēls). Papildus ir iespējams norādīt arī burtus vai citus simbolus, tos liekot pēdīņās aiz argumenta <code>pch=</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))
+<span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">9</span>,<span class="dt">ncol=</span><span class="dv">3</span>))
+x&lt;-<span class="kw">rnorm</span>(<span class="dv">10</span>)
+<span class="kw">plot</span>(x,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="dv">0</span>,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="dv">5</span>,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="dv">8</span>,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="dv">12</span>,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="dv">17</span>,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="dv">23</span>,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="st">&quot;.&quot;</span>,<span class="dt">ann=</span>F)
+<span class="kw">plot</span>(x,<span class="dt">pch=</span><span class="st">&quot;A&quot;</span>,<span class="dt">ann=</span>F)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-012"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-012-1.png" alt="Simbolu veidi"  />
+<p class="caption">
+Figure 4.12: Simbolu veidi
+</p>
+</div>
+</div>
+<div id="virsraksti-un-teksti-pie-asim" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Virsraksti un teksti pie asīm</h3>
+<p>Virsrakstus un tekstus pie asīm var noteikt gan ar argumentiem, gan ar atsevišķām funkcijām. Kā argumenti (piemēram, funkcijai <code>plot()</code>) nāk <code>xlab=</code> (izveido parakstu zem x ass), <code>ylab=</code> (izveido parakstu zem y ass) un <code>main=</code> (izveido virsrakstu), aiz vienādības zīmes pēdiņās rakstot atbilstošo tekstu (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-013">4.13</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums,<span class="dt">main=</span><span class="st">&quot;Parastā niedre&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Kārtas skaitlis&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Lapas garums (cm)&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-013"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-013-1.png" alt="Grafiks, kuram teksti definēti kā argumenti"  />
+<p class="caption">
+Figure 4.13: Grafiks, kuram teksti definēti kā argumenti
+</p>
+</div>
+<p>Lai varētu ietekmēt vairāk parametrus, tekstus var norādīt arī ar atsevišķām funkcijām, bet šajā gadījumā, piemēram, pie <code>plot()</code> funkcijas jānorāda arguments <code>ann=FALSE</code>, lai programma pati neveidotu parakstus zem asīm.</p>
+<p>Virsrakstu definē ar funkciju <code>title()</code>, kur pēdiņās raksta nepieciešamo tekstu.</p>
+<p>Vispārīgā gadījumā tekstus pie asīm nosaka ar funkciju <code>mtext(&quot;ko gribam redzēt&quot;, side=kurā.pusē, line=kurā.līnijā)</code>. Izvietojums (puse) atbilst asu izvietojumam (1 - x ass, 2 - y ass, 3 - augšējā ass, 4 - otrā y ass), teksta līnijas rēķina attiecībā pret asīm, tas ir, ja norādīs <code>line=1</code>, tad teksts būs pie pašas ass un, jo lielāks skaitlis, jo tālāk no ass atradīsies teksts (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-014">4.14</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums,<span class="dt">ann=</span><span class="ot">FALSE</span>)
+<span class="kw">title</span>(<span class="st">&quot;Parastā niedre&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;Kārtas skaitlis&quot;</span>,<span class="dt">side=</span><span class="dv">1</span>,<span class="dt">line=</span><span class="dv">1</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;Lapas garums (cm)&quot;</span>,<span class="dt">side=</span><span class="dv">2</span>,<span class="dt">line=</span><span class="dv">3</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-014"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-014-1.png" alt="Grafiks, kuram teksti definēti kā atsevišķas funkcijas"  />
+<p class="caption">
+Figure 4.14: Grafiks, kuram teksti definēti kā atsevišķas funkcijas
+</p>
+</div>
+</div>
+<div id="teksts-grafika-ieksiene" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> Teksts grafika iekšienē</h3>
+<p>a nepieciešams izvietot tekstu grafika iekšienē, ir jāizmanto funkcija <code>text()</code>. Šai funkcijai kā argumentus jānorāda x un y koordinātes (atbilstoši asu skalām), kur jānovieto teksts un jānorāda pats teksts, kuru vēlas ievietot. Ir jāņem vērā, ka pēc noklusējuma teksts tiks izveitots tā, ka norādītās koordinātes ir teksts viduspunkts. Lai to mainītu, ir jānorāda papildus arguments <code>pos=</code> ar iespējamām vērtībām: 1 - teksts atrodas zem šī punkta; 2 - teksts atrodas pa kreisi no šī punkta; 3 - teksts atrodas virs šī punkta; 4 - teksts atrodas pa labi no šī punkta. Ja tekstam vajag mainīt orientāciju (lai tas nebūtu novietots horizontāli), jāizmanto papildus arguments <code>srt=</code>, kuram jānorāda teksta novietojums grādos.</p>
+<p>Piemērā grafikā (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-015">4.15</a> attēls) ir izvietoti divi uzraksti: <code>&quot;pirmais&quot;</code> - bez papildus argumentiem; <code>&quot;otrais&quot;</code> - novietots virs koordināšu punkta un 25 grādu slīpumā.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums)
+<span class="kw">text</span>(<span class="dv">20</span>,<span class="dv">20</span>,<span class="st">&quot;pirmais&quot;</span>)
+<span class="kw">text</span>(<span class="dv">40</span>,<span class="dv">40</span>,<span class="st">&quot;otrais&quot;</span>,<span class="dt">pos=</span><span class="dv">3</span>,<span class="dt">srt=</span><span class="dv">25</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-015"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-015-1.png" alt="Tekstu novietojuma piemērs"  />
+<p class="caption">
+Figure 4.15: Tekstu novietojuma piemērs
+</p>
+</div>
+</div>
+<div id="tekstu-parametri" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> Tekstu parametri</h3>
+<p>Tekstam var definēt dažādus parametrus, no kuriem svarīgākie būtu fonts, fontu grupa un burtu izmērs. Nosakot fontu, jānosaka kādai fontu grupai tas piederēs ar argumentu <code>family=</code>. Fontu grupas ir, piemēram, <code>&quot;mono&quot;</code>, <code>&quot;serif&quot;</code>, <code>&quot;sans&quot;</code>. Fontu tipu nosaka ar argumentu <code>font=</code> ar iespējamo vērību no 1 līdz 5, kur 1 apzīmē parastus burtus, 2 - bold, 3 - italic, 4 – bold italic un 5 - simboli. Argumentu <code>family=</code> var lietot tikai kopā ar funkciju <code>par()</code>, bet <code>font=</code> var izmantot kopā arī ar citām funkcijām. Lai definētu fonta tipu asīm, asu parakstiem un virsrakstiem, attiecīgi var lietot argumentus <code>font.axis=</code>, <code>font.lab=</code> un <code>font.main=</code>.</p>
+<p>Burtu izmēru var noteikt ar diviem argmentiem <code>ps=</code> un <code>cex=</code>. Arguments <code>ps=</code> nosaka absolūto burtu izmēru punktos. <code>cex=</code> nosaka relatīvo burtu izmēru, piemēram, <code>cex=1.5</code> nozīmēs, ka burtiem ir jābūt 1.5 reizes lielākiem nekā ir standarta izmēra burti. <code>ps=</code> lieto tikai kopā ar <code>par()</code>, bet <code>cex=</code> var izmantot kopā arī ar citām funkcijām. <code>cex.axis=</code>, <code>cex.lab=</code> un <code>cex.main=</code> attiecīgi izmanto, lai apzīmētu asu simbolu, asu parakstu un virsrakstu relatīvo izmēru.</p>
+<p>Piemērā (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-016">4.16</a> attēls) ir izmainīti izmēri virsrakstiem, parakstiem un skaitļiem pie asīm, kā arī katram no šiem parametriem ir izmantots cits fonta tips.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums,<span class="dt">main=</span><span class="st">&quot;Parasta niedre&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Kartas skaitlis&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Lapas garums (cm)&quot;</span>,<span class="dt">cex.main=</span><span class="dv">3</span>,<span class="dt">cex.lab=</span><span class="fl">1.5</span>,<span class="dt">cex.axis=</span><span class="fl">0.8</span>,
+     <span class="dt">font.main=</span><span class="dv">3</span>,<span class="dt">font.axis=</span><span class="dv">4</span>,<span class="dt">font.lab=</span><span class="dv">2</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-016"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-016-1.png" alt="Teksta parametru izmaiņas"  />
+<p class="caption">
+Figure 4.16: Teksta parametru izmaiņas
+</p>
+</div>
+</div>
+<div id="asis" class="section level3">
+<h3><span class="header-section-number">4.3.8</span> Asis</h3>
+<p>Ja ir nepieciešams noteikt asu garumu (to ierobežojot kādā intervālā, vai arī tieši otrādi - padarot asi garāku, nekā tā tiek automātiski veidota) (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-017">4.17</a> attēls), var izmantot argumentus <code>xlim=</code> un <code>ylim=</code>, ko lieto, piemēram, ar funkciju <code>plot()</code>. Abiem argumentiem pieraksts ir vienāds <code>xlim=c(sākuma.vērtība,beigu.vērtība)</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfcol=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(niedres$garums)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">40</span>),<span class="dt">ylim=</span><span class="kw">c</span>(-<span class="dv">10</span>,<span class="dv">80</span>))</code></pre></div>
+<div class="figure"><span id="fig:rgraf-017"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-017-1.png" alt="Asu garuma izmaiņu piemērs"  />
+<p class="caption">
+Figure 4.17: Asu garuma izmaiņu piemērs
+</p>
+</div>
+<p>Ja grib ietekmēt vairākus ass parametrus, tad jāizmanto funkcija <code>axis()</code>, bet pirms tam, piemēram, kā arguments pie <code>plot()</code>, jāraksta <code>axes=FALSE</code>, lai programma automātiski pati neveidotu asis. Funkcijas pieraksts ir <code>axis(kura.ass, at=seq(sākuma.vērtība,beigu.vērtība,intervāls), labels=c(ko.attēlot))</code>.</p>
+<p>Asu numerācija ir sekojošā: apakšējā ir 1, kreisā ir 2, augšējā 3 un labā ir 4. Ja argumentu <code>labels=</code> nenorāda, tad tiek attēloti tie paši skaitļi, kas ir pie argumenta <code>at=</code>. Ar argumentu <code>las=</code> var mainīt skaitļu/tekstu novietojumu pie ass, kur 0 nozīmē parallēls asij, 1 - horizontāls, 2 - perpendikulārs asij, 3 - vertikāls.</p>
+<p>Piemērā (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-018">4.18</a> attēls) x asij nodefinēts, ka skaitļiem pie ass jābūt no 0 ik pēc 15, toties y asij pie skaitļiem 20, 40 un 60 ir jāparādas tekstam, nevis skaitļiem.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfcol=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(niedres$garums)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">axes=</span><span class="ot">FALSE</span>)
+<span class="kw">axis</span>(<span class="dv">1</span>,<span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">15</span>),<span class="dt">las=</span><span class="dv">2</span>)
+<span class="kw">axis</span>(<span class="dv">2</span>,<span class="dt">at=</span><span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>),<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;aa&quot;</span>,<span class="st">&quot;bb&quot;</span>,<span class="st">&quot;cc&quot;</span>),<span class="dt">las=</span><span class="dv">1</span>)
+<span class="kw">box</span>()</code></pre></div>
+<div class="figure"><span id="fig:rgraf-018"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-018-1.png" alt="Asu definēšanas piemērs"  />
+<p class="caption">
+Figure 4.18: Asu definēšanas piemērs
+</p>
+</div>
+</div>
+<div id="divas-y-asis" class="section level3">
+<h3><span class="header-section-number">4.3.9</span> Divas y asis</h3>
+<p>Lai arī daļa speciālistu atzīst, ka grafiki ar y asīm nav labi, reizēm tādus ir nepieciešamas izveidot. Pirmkārt, ar funkciju <code>par()</code> un argumentu <code>mar=</code> jāizmaina malu izmēri, lai otrai y asij būtu vietas. Pēc tam jāuzzīmē pamatgrafiks, aiz kura nāk funkcija <code>par(new=TRUE)</code>, kas ļauj pa “virsu” zīmēt otru grafiku. Otrajam grafikam jālieto argumenti <code>axes=FALSE</code> un <code>ann=FALSE</code>, lai apzīmējumi nepārklātos. Tālāk jau ar funkcijām <code>axis()</code> un <code>mtext()</code> iegūst vēlamos apzīmējumus pie atbilstošās ass (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-019">4.19</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">5</span>))
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)
+<span class="kw">par</span>(<span class="dt">new=</span><span class="ot">TRUE</span>)
+<span class="kw">plot</span>(niedres$platums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lty=</span><span class="dv">3</span>,<span class="dt">axes=</span>F,<span class="dt">ann=</span>F)
+<span class="kw">axis</span>(<span class="dv">4</span>,<span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dv">2</span>))
+<span class="kw">mtext</span>(<span class="dt">side=</span><span class="dv">4</span>,<span class="dt">line=</span><span class="dv">2</span>,<span class="st">&quot;platums&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-019"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-019-1.png" alt="Grafiks ar divām y asīm"  />
+<p class="caption">
+Figure 4.19: Grafiks ar divām y asīm
+</p>
+</div>
+</div>
+<div id="krasas" class="section level3">
+<h3><span class="header-section-number">4.3.10</span> Krāsas</h3>
+<p>Ir iespējams mainīt krāsas visām grafika sastāvdaļām, izmantojot dažādus argumentus (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-020">4.20</a> attēls). Šos argumentus var rakstīt kā daļu no funkcijas <code>par()</code> un šajā gadījumā krāsas būs noteiktas visiem grafikiem, vai arī lietot kā daļu, piemēram, no funkcijas <code>plot()</code> un šajā gadījumā krāsas mainīsies tikai konkrētajam grafikam. Vieglākais veids kā apzīmēt krāsu, ir lietot tās anglisko nosaukumu, piemēram, <code>&quot;red&quot;</code> vai <code>&quot;darkgreen&quot;</code>. Lai redzētu visu pieejamo krāsu nosaukumus, jāraksta komanda <code>colors()</code>.</p>
+<p>Pamatā ir trīs argumenti krāsu maiņai: <code>col=</code>, <code>bg=</code> un <code>fg=</code>. <code>col=&quot;krāsas.nosaukums&quot;</code> ir visbiežāk lietotais krāsas parametrs, ar kuru pārsvarā tiek noteikta datu simbolu, līniju, tekstu un citu sastāvdaļu, kas atrodas grafikā krāsa. Lai noteiktu asu, asu parakstu, virsrakstu un apakšvirsrakstu krāsas, jālieto attiecīgi argumenti <code>col.axis=</code>, <code>col.lab=</code>, <code>col.main=</code> un <code>col.sub=</code>. <code>fg=&quot;krāsas.nosaukums&quot;</code> izmanto, lai mainītu asu un grafika malu krāsu, un daļēji tas sakrīt ar <code>col.axis=</code> un <code>col.main=</code> argumentiem. <code>bg=&quot;krāsas.nosaukums&quot;</code> nosaka fona krāsu, šo argumentu var lietot kopā tikai ar funkciju <code>par()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">bg=</span><span class="st">&quot;lightblue&quot;</span>)
+<span class="kw">plot</span>(niedres$garums,<span class="dt">fg=</span><span class="st">&quot;red&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Slikts grafiks&quot;</span>,<span class="dt">col.main=</span><span class="st">&quot;green&quot;</span>,<span class="dt">col.axis=</span><span class="st">&quot;yellow&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-020"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-020-1.png" alt="Krāsu izmantošanas piemērs"  />
+<p class="caption">
+Figure 4.20: Krāsu izmantošanas piemērs
+</p>
+</div>
+</div>
+<div id="legenda" class="section level3">
+<h3><span class="header-section-number">4.3.11</span> Leģenda</h3>
+<p>Tradicionālajiem grafikiem leģendas programmā R veido ar atsevišķu funkciju <code>legend()</code>. Leģenda parasti ir novietota grafika iekšējā daļā (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-021">4.21</a> attēls). Dotajai funkcijai kā argumentus jānorāda: (a) leģendas novietojums - to nosaka ar x un y koordināti leģendas rāmīša augšējam kreisajam stūrim (koordinātes nosaka atbilstoši asu vērtībām, piemēram, ja uz x ass vērtības ir robežās no 5 līdz 10, bet uz y ass no 100 līdz 200, tad leģenas koordināte varētu būt 6 un 125); (b) nosaukumi, kuriem jāparādās leģendā; (c) datu simbolu/līniju veidu apzīmējumi (tiem ir jāsakrīt ar apzīmējumiem, kas izmantoti, lai definētu grafiku).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">5</span>))
+<span class="kw">plot</span>(niedres$garums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)
+<span class="kw">par</span>(<span class="dt">new=</span><span class="ot">TRUE</span>)
+<span class="kw">plot</span>(niedres$platums,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">lty=</span><span class="dv">3</span>,<span class="dt">axes=</span>F,<span class="dt">ann=</span>F)
+<span class="kw">axis</span>(<span class="dv">4</span>,<span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dv">2</span>))
+<span class="kw">mtext</span>(<span class="dt">side=</span><span class="dv">4</span>,<span class="dt">line=</span><span class="dv">2</span>,<span class="st">&quot;platums&quot;</span>)
+<span class="kw">legend</span>(<span class="dv">0</span>,<span class="dv">7</span>,<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),<span class="kw">c</span>(<span class="st">&quot;garums&quot;</span>,<span class="st">&quot;platums&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:rgraf-021"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-021-1.png" alt="Grafiks ar leģendu"  />
+<p class="caption">
+Figure 4.21: Grafiks ar leģendu
+</p>
+</div>
+</div>
+<div id="linijas-grafikos" class="section level3">
+<h3><span class="header-section-number">4.3.12</span> Līnijas grafikos</h3>
+<p>Ja grafikā ir nepieciešams izvietot taisnu līniju, var izmantot funkciju <code>abline()</code>. Ja ir nepieciešams uzzīmēt slīpu līniju, tad ir jānorāda divi skaitļi, kas attiecīgi norāda puktu, kurā līnija krusto x asi un līnijas slīpumu (intercept), vai arī jāizmanto papildus funkcija <code>lm()</code>, kas izveidos regresijas līkni grafikā attēlotajiem mainīgajiem (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-022">4.22</a> attēls). Ja nepieciešams izveidot horizontālas līnijas, tad jānorāda arguments <code>h=</code> un vērtības (viena vai vairākas), kurās vietās horizontālās līnijas krustos y asi. Attiecīgi vertikālām līnijām ir jānorāda arguments <code>v=</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums~niedres$platums)
+<span class="kw">abline</span>(<span class="kw">lm</span>(niedres$garums~niedres$platums))
+<span class="kw">abline</span>(<span class="dt">h=</span><span class="kw">c</span>(<span class="dv">30</span>,<span class="dv">40</span>),<span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))
+<span class="kw">abline</span>(<span class="dt">v=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>),<span class="dt">col=</span><span class="st">&quot;grey55&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:rgraf-022"></span>
+<img src="PBB_gramata_files/figure-html/rgraf-022-1.png" alt="Grafiks ar papildus līnijām"  />
+<p class="caption">
+Figure 4.22: Grafiks ar papildus līnijām
+</p>
+</div>
+</div>
+</div>
+<div id="grafiku-saglabasana" class="section level2">
+<h2><span class="header-section-number">4.4</span> Grafiku saglabāšana</h2>
+<p>Programmā R iegūtos grafikus ir iespējams saglabāt dažādos formātos, izmantošanai citās programmās. Jau izveidotu grafiku, kas redzams uz ekrāna, ir iespējams saglabāt izmantojot opciju <code>File/Save as...</code> un izvēloties nepieciešamo faila veidu (Metafile, Postcript, PDF, Png, Bmp, Jpeg (kvalitāte 50%, 75% vai 100%), kā arī grafiku ir iespējams ielikt atmiņa <code>File/Copy to clipboard...</code> Saglabājot jau izveidotu grafiku, ir jāņem vērā, ka uz ekrāna grafiks ne vienmēr tiek attēlots pareizākajās proporcijās, sevišķi, ja ekrāna izmērus esat pielāgojuši paši.</p>
+<p>Grafikus ir iespējams uzreiz saglabāt nepieciešamajā formātā ar atbilstošu komandu rindu, tikai šajā gadījumā grafiks netiks parādīts uz ekrāna. Lai grafikus uzreiz saglabātu, pirms visām komandu rindām, ar kurām nosaka grafika parametrus, ir jāraksta atbilstoša komanda, kas nosaka saglabājamā faila formātu un faila nosaukumu:</p>
+<p><code>postscript(file=&quot;nosaukums.ps&quot;)</code></p>
+<p><code>png(file=&quot;nosaukums.png&quot;)</code></p>
+<p><code>pdf(file=&quot;nosaukums.pdf&quot;)</code></p>
+<p><code>jpeg(file=&quot;nosaukums.jpg&quot;)</code></p>
+<p><code>bmp(file=&quot;nosaukums.bmp&quot;)</code></p>
+<p>Pēc tam, kad ir uzrakstītas visas vajadzīgās grafika komandu rindas, ir “jāatslēdz” komanda, ar kuru noteica faila formātu un faila nosaukumu. Pretējā gadījumā visi nākamie grafiki arī tiks saglabāti konkrētajā failā, aizstājot iepriekšējo. Lai to izdarītu, raksta komandu <code>dev.off()</code>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ievads-darba-ar-programmu-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datu-izzinasana-un-normalitates-testi.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+</body>
+
+</html>

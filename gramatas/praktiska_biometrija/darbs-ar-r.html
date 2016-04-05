@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Praktiskā biometrija</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
+  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Praktiskā biometrija" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktiskā biometrija" />
+  
+  <meta name="twitter:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+<meta name="author" content="Didzis Elferts">
+
+<meta name="date" content="2016-04-05">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="ievads-darba-ar-programmu-r.html">
+<link rel="next" href="literatura.html">
+
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p>Praktiskā biometrija</p></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Ievads</a></li>
+<li class="chapter" data-level="2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html"><i class="fa fa-check"></i><b>2</b> Biometrija un datu analīze</a><ul>
+<li class="chapter" data-level="2.1" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#kas-ir-biometrija"><i class="fa fa-check"></i><b>2.1</b> Kas ir biometrija?</a></li>
+<li class="chapter" data-level="2.2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#paraugkopa-un-generalkopa"><i class="fa fa-check"></i><b>2.2</b> Paraugkopa un ģenerālkopa</a></li>
+<li class="chapter" data-level="2.3" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#hipotezu-parbaude"><i class="fa fa-check"></i><b>2.3</b> Hipotēžu pārbaude</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html"><i class="fa fa-check"></i><b>3</b> Ievads darbā ar programmu R</a><ul>
+<li class="chapter" data-level="3.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kas-ir-programma-r-un-ka-uzsakt-darbu"><i class="fa fa-check"></i><b>3.1</b> Kas ir programma R un kā uzsākt darbu?</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-vide"><i class="fa fa-check"></i><b>3.1.1</b> R vide</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-instalacija-un-papildus-paketes"><i class="fa fa-check"></i><b>3.1.2</b> R instalācija un papildus paketes</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#palidzibas-iegusana"><i class="fa fa-check"></i><b>3.1.3</b> Palīdzības iegūšana</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html"><i class="fa fa-check"></i><b>4</b> Darbs ar R</a><ul>
+<li class="chapter" data-level="4.1" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html#komandu-veidosana"><i class="fa fa-check"></i><b>4.1</b> Komandu veidošana</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html#kalkulators"><i class="fa fa-check"></i><b>4.1.1</b> Kalkulators</a></li>
+<li class="chapter" data-level="4.1.2" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html#datu-strukturas"><i class="fa fa-check"></i><b>4.1.2</b> Datu struktūras</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html#datu-importesana"><i class="fa fa-check"></i><b>4.2</b> Datu importēšana</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html#datu-eksportesana"><i class="fa fa-check"></i><b>4.2.1</b> Datu eksportēšana</a></li>
+<li class="chapter" data-level="4.2.2" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html#darbs-ar-datiem"><i class="fa fa-check"></i><b>4.2.2</b> Darbs ar datiem</a></li>
+<li class="chapter" data-level="4.2.3" data-path="darbs-ar-r.html"><a href="darbs-ar-r.html#darba-vides-sakartosana"><i class="fa fa-check"></i><b>4.2.3</b> Darba vides sakārtošana</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i><b>5</b> Literatūra</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Praktiskā biometrija</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="darbs-ar-r" class="section level1">
+<h1><span class="header-section-number">4. nodaļa.</span> Darbs ar R</h1>
+<div id="komandu-veidosana" class="section level2">
+<h2><span class="header-section-number">4.1</span> Komandu veidošana</h2>
+<p>R vidē visas komandas tiek rakstītas pēc <code>&gt;</code> zīmes (tā nav pašam jāraksta). Ja komandu rinda ir pārāk gara, tad pēc jebkura argumeta, vai arī pēc iekavām, komata, utt var spiest Enter taustiņu un turpināt pierakstu jaunā rindā. Šajā gadījumā automātiski parādīsies <code>+</code> zīme. Ja komanda tiek uzrakstīta pilnībā un nospiests Enter, šī komanda tiek izpildīta. Ja komanda neizpildās, bet parādās <code>+</code> zīme, tas nozīmē, ka komandas pierakstā ir kļūda un trūkst, piemēram, kādas iekavas.</p>
+<p>Komandu rindas galā var pievienot arī komentāru, pirms komentāra ir jāraksta ``#’’ zīme.</p>
+<p>R vidē atstarpes starp dažādiem objektiem, iekavām tiek ignorētas, izņēmums ir kombinācija ``&lt;-’’, ar kuru objektiem piešķir noteiktu vērtību.</p>
+<p>Rakstot komandas ir būtiski ievērot lielo un mazo burtu izvietojumu, jo šajā gadījumā apzīmējums <code>AA'' nebūs tas pats, kas</code>aa’’.</p>
+<div id="kalkulators" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Kalkulators</h3>
+<p>Programmu R savā veidā var izmantot kā kalkulatoru, ar kura palīdzību ir iespējams veikt dažādus aprēķinus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4+7</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="dv">8</span>,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 7.389056</code></pre>
+\subsection{Datu veidi}
+<p>R vidē pārsvarā lieto trīs veidu datus: skaitliskos (numeric), rakstu zīmes (character) un loģiskos (logical).</p>
+<p>Skaitliskie dati ir skaitļi, un tikai šāda veida objektus var izmantot, lai veiktu aprēķinus.</p>
+<p>Rakstu zīmju datus parasti izmanto, lai norādītu mainīgajiem nosaukumus, kā arī, lai veiktu datu grupēšanu.</p>
+<p>Loģiskajiem datiem var būt divas vērtības TRUE vai FALSE (jeb T un F).</p>
+</div>
+<div id="datu-strukturas" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Datu struktūras</h3>
+<p>Četras galvenās datu struktūras R vidē: vektors (vector), matrice (matrix), saraksts (list) un datu tabula (data frame).</p>
+<div id="vektors" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> Vektors</h4>
+<p>Vektors ir viendimensionāla datu struktūra, kas var sastāvēt tikai no viena tipa datiem –- skaitļiem vai rakstu zīmēm. Vektora garums nav ierobežots – tas var būt tikai vienu zīmi liels, vai arī sastāv no ļoti daudz zīmēm vai skaitļiem.</p>
+<p>Lai nodefinētu vektoru, kas sastāv tikai no vairāk kā viena mainīgā, jāraksta vēlamais objekta (vektora) nosaukums un aiz apzīmējuma <code>&lt;-</code> jāraksta funkcija <code>c()</code>, kurai iekavās norāda mainīgos:</p>
+<p>Rezultātā izveidotais objekts tiek saglabāts R atmiņā. Lai apskatītu izveidoto objektu, ir jāuzraksta tā nosaukums un jānospiež Enter.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pirmais&lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">10</span>)
+pirmais</code></pre></div>
+<pre><code>## [1]  1  5  7  4  8 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">otrais&lt;-<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>)
+otrais</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
+</div>
+<div id="matrice" class="section level4">
+<h4><span class="header-section-number">4.1.2.2</span> Matrice</h4>
+<p>Matrice ir divdimensionāla datu struktūra, kas līdzīgi vektoram var saturēt tikai viena tipa datus. Matrici var izveidot izmantojot trīs funkcijas: <code>cbind()</code>, <code>rbind()</code> vai <code>matrix()</code>.</p>
+<p>Funkcijā <code>matrix()</code> norāda visus matricē iekļaujamos elementus, kā arī norāda rindu skaitu (<code>nrow</code>) vai arī kolonnu skaitu (<code>ncol</code>); abus nevajag norādīt, jo, ja ir norādīts, piemēram, kolonnu skaits, tad rindu skaits tiks aprēķināts automātiski, ņemot vērā elementu skaitu matricē:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tresais&lt;-<span class="kw">matrix</span>(<span class="dv">1</span>:<span class="dv">15</span>,<span class="dt">ncol=</span><span class="dv">3</span>)
+tresais</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    6   11
+## [2,]    2    7   12
+## [3,]    3    8   13
+## [4,]    4    9   14
+## [5,]    5   10   15</code></pre>
+<p>Funkciju <code>cbind()</code> izmanto, lai izveidotu matrici, tās elementus secīgi rakstot kolonnās (iekavās aiz funkcijas jānorāda elementi, kas atradīsies katrā no kolonnām), attiecīgi funkciju <code>rbind()</code> izmanto matrices veidošanai pa rindiņām.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ceturtais&lt;-<span class="kw">cbind</span>(pirmais,otrais)
+ceturtais</code></pre></div>
+<pre><code>##      pirmais otrais
+## [1,] &quot;1&quot;     &quot;A&quot;   
+## [2,] &quot;5&quot;     &quot;B&quot;   
+## [3,] &quot;7&quot;     &quot;C&quot;   
+## [4,] &quot;4&quot;     &quot;D&quot;   
+## [5,] &quot;8&quot;     &quot;E&quot;   
+## [6,] &quot;10&quot;    &quot;F&quot;</code></pre>
+\subsubsection{Saraksts}
+<p>Saraksts ir datu struktūras, kas var saturēt jebkuru citu datu struktūru, tai skaitā arī apakšsarakstus. Saraksts ir ļoti ērts, lai vienā objektā apvienu dimensionāli atšķirīgus elementus, piemēram, no vienas analīzes rezultātiem. Sarakstu veido ar funkciju <code>list()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">piektais&lt;-<span class="kw">list</span>(<span class="dt">vekt1=</span>pirmais,<span class="dt">matr1=</span>tresais,<span class="dt">matr2=</span>ceturtais)
+piektais</code></pre></div>
+<pre><code>## $vekt1
+## [1]  1  5  7  4  8 10
+## 
+## $matr1
+##      [,1] [,2] [,3]
+## [1,]    1    6   11
+## [2,]    2    7   12
+## [3,]    3    8   13
+## [4,]    4    9   14
+## [5,]    5   10   15
+## 
+## $matr2
+##      pirmais otrais
+## [1,] &quot;1&quot;     &quot;A&quot;   
+## [2,] &quot;5&quot;     &quot;B&quot;   
+## [3,] &quot;7&quot;     &quot;C&quot;   
+## [4,] &quot;4&quot;     &quot;D&quot;   
+## [5,] &quot;8&quot;     &quot;E&quot;   
+## [6,] &quot;10&quot;    &quot;F&quot;</code></pre>
+</div>
+<div id="datu-tabula" class="section level4">
+<h4><span class="header-section-number">4.1.2.3</span> Datu tabula</h4>
+<p>Datu tabula ir divdimensionāla datu struktūra, kas var saturēt dažāda tipa datus atsevišķās kolonnās (visām kolonnām vienā datu tabulā ir jābūt ar vienādu garumu). Datu tabulu izveido ar funkciju <code>data.frame()</code>. Funkcijas iekavās norāda kolonnu nosaukumus, kā arī datus, kas būs katrā no kolonnām. Dati var būt kā atsevišķi vektori, kas izveidoti jau iepriekš, vai arī datus var ierakstīt pašā funkcijā:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sestais&lt;-<span class="kw">data.frame</span>(pirmais,otrais)
+sestais</code></pre></div>
+<pre><code>##   pirmais otrais
+## 1       1      A
+## 2       5      B
+## 3       7      C
+## 4       4      D
+## 5       8      E
+## 6      10      F</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">septitais&lt;-<span class="kw">data.frame</span>(<span class="dt">kol1=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">kol2=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>))
+septitais</code></pre></div>
+<pre><code>##   kol1 kol2
+## 1    1    5
+## 2    2    6
+## 3    3    7
+## 4    4    8</code></pre>
+<p>Vēl datu tabulu var izveidot izmantojot datu tabulu veidotāju pašā programmā R. Šajā gadījumā no sākuma ar kādu Jums vēlamu nosaukumu ir jāizveido datu tabula ar funkciju <code>data.frame()</code>, kurai netiek norādīti nekādi papildus argumenti. Pēc tam jāizmanto funkcija <code>fix()</code>, kurai kā arguments jānorāda jaunās datu tabulas nosaukums. Rezultātā parādīsies datu tabulu veidošanas logs, kurā var ievadīt datus. Lai mainītu kolonnu nosaukumus, ir jāuzklikšķina uz tā - šajā brīdī ir iespējams arī norādīt vai dati būs skaitliski vai rakstu zīmes. Ir jāatceras, ka vienā kolonnā var atrasties tikai viena veida dati, kā arī, ka visu kolonnu garumiem ir jābūt vienādiem.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">jauna.tabula&lt;-<span class="kw">data.frame</span>()
+<span class="kw">fix</span>(jauna.tabula)</code></pre></div>
+<p>Ar funkcijas <code>fix()</code> palīdzību ir iespējams labot arī citas jau esošās tabulas.</p>
+</div>
+</div>
+</div>
+<div id="datu-importesana" class="section level2">
+<h2><span class="header-section-number">4.2</span> Datu importēšana</h2>
+<p>R vidē ir iespējams importēt dažāda formāta datu failus (datu tabulas), piemēram, no programmām Excell, SPSS, SAS. Vienkāršākais veids ir izmantot .txt vai .csv failus. Lai importētu .txt failus, tiek izmantota funkcija <code>read.table()</code>, attiecīgi .csv failus var importēt ar funkcijām <code>read.csv()</code> un <code>read.csv2()</code>. Funkcijā norāda faila nosaukumu un ceļu uz to (<code>file=</code>). Ja pirmā tabulas rinda satur kolonnu nosaukumus, tad kā papildus arguments jānorāda <code>header=TRUE</code>. Vēl jānorāda skaitļu decimāldaļu atdalītājs (komats vai punkts), izmantojot papildus argumentu <code>dec=&quot;.&quot;</code>. Tā kā .txt failiem mēdz būt dažādi kolonnu atdalīšanas veidi, tad jānorāda atbilstošais, izmantojot papildus argumentu <code>sep=</code>, iespējamās vērtības ir <code>&quot;\t&quot;</code> - tab delimited; <code>&quot;,&quot;</code>- kolonnu atdalītājs ir komats; <code>&quot;;&quot;</code> - kolonnu atdalītājs ir semikols. Pilno ceļu uz importējamo failu var nenorādīt, ja fails atrodas darba direktorijā (Working directory) (var nomainīt ar funkciju <code>setwd()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dati&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;niedres.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+dati2&lt;-<span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;niedres.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+dati3&lt;-<span class="kw">read.csv2</span>(<span class="dt">file=</span><span class="st">&quot;niedres.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+dati[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
+<pre><code>##    garums platums
+## 1    31.6     2.5
+## 2    23.2     2.3
+## 3    39.2     2.1
+## 4    37.4     5.8
+## 5    21.1     2.2
+## 6    37.0     4.1
+## 7    24.7     3.5
+## 8    31.3     4.2
+## 9    37.4     2.5
+## 10   39.7     2.8</code></pre>
+<p>Pašā programmā R ir iekļautas daudzas datu tabulas, kas ir ļoti noderīgas, piemēram, lai izmēģinātu kādas funkcijas, vai arī sekotu līdzi piemēriem mācību materiāliem.</p>
+<p>Lai redzētu, kuras datu tabulas ir pieejamas konkrētajā darba sesijā (atkarīgs no pievienoto pakešu daudzuma), jāizmanto funkcija <code>data()</code>, pēc kā parādīsies jauns logs, kurā uzskaitītas pieejamās datu tabulas un to apraksts. Lai redzētu visas pieejamās datu tabulas, jāraksta <code>data(package = .packages(all.available = TRUE))</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>()
+<span class="kw">data</span>(<span class="dt">package =</span> <span class="kw">.packages</span>(<span class="dt">all.available =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>Lai pievienotu darba sesijai kādu no šīm datu tabulām, jāizmanto funkcija <code>data()</code>, kurai iekavās norādīts datu tabulas nosaukums. Ja pakete, kurā atrodas šī datu tabula jau ir pievienota darba sesijai, tad papildus argumenti nav vajadzīgi, bet ja pakete nav pievienota, tad funkcijai ir jāliek klāt papildus arguments <code>package=</code>}. Pēc tam datu tabula ir pievienota darba sesijai ar tādu nosaukumu, kāds ir pašai datu tabulai.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(cars)
+<span class="kw">data</span>(cars, <span class="dt">package =</span> <span class="st">&quot;datasets&quot;</span>)
+cars[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
+<pre><code>##    speed dist
+## 1      4    2
+## 2      4   10
+## 3      7    4
+## 4      7   22
+## 5      8   16
+## 6      9   10
+## 7     10   18
+## 8     10   26
+## 9     10   34
+## 10    11   17</code></pre>
+<div id="datu-eksportesana" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Datu eksportēšana</h3>
+<p>Datu eksportēšanu veic ar funkciju <code>write.table()</code>, kurā jānorāda objekts, kuru vēlas eksportēt (<code>x=</code>), izveidojamā faila nosaukums un saite uzto (<code>file=</code>), kolonnu atdalītājs (<code>sep=</code>), decimālatdalītājs (<code>dec=</code>) un vai rindu nosaukumus iekļaut (<code>row.names=TRUE</code> vai <code>FALSE</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.table</span>(<span class="dt">x=</span>dati,<span class="dt">file=</span><span class="st">&quot;eksports.txt&quot;</span>,<span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)</code></pre></div>
+</div>
+<div id="darbs-ar-datiem" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Darbs ar datiem</h3>
+<p>Ar funkcijas <code>str()</code> palīdzību ir iespējams apskatīt jebkura datu objekta struktūru, tajā ejošos datus un to veidu. Rezultāts ir atkarīgs no tā, kāda veida datu objekts tiek apskatīts.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(dati)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  2 variables:
+##  $ garums : num  31.6 23.2 39.2 37.4 21.1 37 24.7 31.3 37.4 39.7 ...
+##  $ platums: num  2.5 2.3 2.1 5.8 2.2 4.1 3.5 4.2 2.5 2.8 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(sestais)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    6 obs. of  2 variables:
+##  $ pirmais: num  1 5 7 4 8 10
+##  $ otrais : Factor w/ 6 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,..: 1 2 3 4 5 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(piektais)</code></pre></div>
+<pre><code>## List of 3
+##  $ vekt1: num [1:6] 1 5 7 4 8 10
+##  $ matr1: int [1:5, 1:3] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ matr2: chr [1:6, 1:2] &quot;1&quot; &quot;5&quot; &quot;7&quot; &quot;4&quot; ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : NULL
+##   .. ..$ : chr [1:2] &quot;pirmais&quot; &quot;otrais&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(tresais)</code></pre></div>
+<pre><code>##  int [1:5, 1:3] 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(otrais)</code></pre></div>
+<pre><code>##  chr [1:6] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
+<p>Datu tabulu un matricu apskatīšanai noderīgas ir funkcijas <code>head()</code> un <code>tail()</code>, kas attiecīgi parāda datu objekta pirmās sešas un pēdējās sešas rindiņas. Rindiņu skaitu ir iespējams mainīt, norādot papildus argumentu <code>n=</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(dati)</code></pre></div>
+<pre><code>##   garums platums
+## 1   31.6     2.5
+## 2   23.2     2.3
+## 3   39.2     2.1
+## 4   37.4     5.8
+## 5   21.1     2.2
+## 6   37.0     4.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(dati)</code></pre></div>
+<pre><code>##    garums platums
+## 45   46.1     5.3
+## 46   29.1     3.5
+## 47   33.7     4.6
+## 48   43.1     3.7
+## 49   38.8     3.9
+## 50   46.9     5.4</code></pre>
+<div id="dalas-no-objekta-atlasisana" class="section level4">
+<h4><span class="header-section-number">4.2.2.1</span> Daļas no objekta atlasīšana</h4>
+<p>Ja ir nepieciešams atlasīt tikai daļu no objekta, veids kā to darīt ir atkarīgs no objekta veida. Tā kā vektors ir viendimensionāla datu struktūra, tad vien elementa atlsīšanai aiz objekta nosaukuma ir jāliek kvadrtātiskās iekavas, kurās jānorāda atlasāma elementa kārta numurs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">otrais[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot;</code></pre>
+<p>Vairāku vektora elementu alasīšanai kvadrātiskajās iekavās jāizmanto funkcija <code>c()</code>, kurā norāda atlasāmo elemntu kārtas numurus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">otrais[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;D&quot;</code></pre>
+<p>Ja ir nepieciešams atlasīt visus elementu, izņemot kādu konkrētu elementu, tad ‘’nevēlamā’’ elementa kārtas numuru kvadrātiskajās iekavās norāda ar mīnus zīmi.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">otrais[-<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;</code></pre>
+<p>No matrices, kas ir divdimensionāla datu struktūra, konkrētu elementu var atlasīt kvadrātiskajās iekavās norādot divus skaitļus, kur pirmais nozīmē rindiņas numuru, bet otrais nozīmē kolonnas numuru.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tresais[<span class="dv">2</span>,<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>Ja kvadrātiskajās iekavās norāda tikai vienu skaitli, bet otra vietu atstāj tukšu, tad attiecīgi tiek atlasīta visa rindiņa, vai arī visa kolonna.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tresais[<span class="dv">1</span>,]</code></pre></div>
+<pre><code>## [1]  1  6 11</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tresais[,<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1]  6  7  8  9 10</code></pre>
+<p>Elementus no saraksta var atlasīt vairākos veidos, piemēram, rakstot objekta nosaukumu, tad $ zīmi un saraksta elementa nosaukumu. Otrs variants ir izmantot dubultās kvadrātiskās iekavas un norādīt saraksta elementa kārtas numuru.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">piektais$vekt1</code></pre></div>
+<pre><code>## [1]  1  5  7  4  8 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">piektais[[<span class="dv">2</span>]]</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    6   11
+## [2,]    2    7   12
+## [3,]    3    8   13
+## [4,]    4    9   14
+## [5,]    5   10   15</code></pre>
+<p>Ar iepriekšējām divām metodēm no saraksta ir iespējams atlasīt tikai visu elementu. Ja ir nepieciešams atlasīt kaut ko no paša saraksta elementa, tad jāizmanto otras kvadrātiskās iekavas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">piektais[[<span class="dv">2</span>]][<span class="dv">1</span>,]</code></pre></div>
+<pre><code>## [1]  1  6 11</code></pre>
+<p>No datu tabulas visu kolonnu var atlasīt tās nosaukumu norādot ar <code>$</code> zīmes vai arī pēdiņās ierakstot kvadrātiskajās iekavās.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sestais$pirmais</code></pre></div>
+<pre><code>## [1]  1  5  7  4  8 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sestais[<span class="st">&quot;pirmais&quot;</span>]</code></pre></div>
+<pre><code>##   pirmais
+## 1       1
+## 2       5
+## 3       7
+## 4       4
+## 5       8
+## 6      10</code></pre>
+<p>Viena elementa atlasīšanai ir jāizmanto tāds pats pieraksts kā matricai - kvadrātiskajās iekavās jānorāda divi skaitļis, kas apzīmē rindiņas un kolonnas numuru.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sestais[<span class="dv">5</span>,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Viena no programmas R specifikām ir tā, ka datu tabulām esošos kolonnu nosaukumus nav iespējams uzreiz izmantot kā mainīgos. Piemēram, ja uzrakstīsim mainīgo <code>garums</code>, kas atrodas pievienotājā datu tabulā <code>dati</code>, parādīsies paziņojums, ka tāda mainīgā nav. R ,veidojot datus tabulas un importējot failus ,katru no kolonnām neuztver kā atsevišķu objektu.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">garums</code></pre></div>
+</div>
+</div>
+<div id="darba-vides-sakartosana" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Darba vides sakārtošana</h3>
+<p>Ja darba sesijā rada dažādus objektus, pievieno daudz paketes, ar laiku var rasties apjukums par to, kādi objekti šobrīd ir aktīvi. Ar funkcijas <code>ls()</code> palīdzību, ir iespējams iegūt sarakstu ar visiem objektiem, kas šobrīd ir aktīvi:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
+<pre><code>##  [1] &quot;cars&quot;      &quot;ceturtais&quot; &quot;dati&quot;      &quot;dati2&quot;     &quot;dati3&quot;    
+##  [6] &quot;otrais&quot;    &quot;piektais&quot;  &quot;pirmais&quot;   &quot;septitais&quot; &quot;sestais&quot;  
+## [11] &quot;tresais&quot;</code></pre>
+<p>Lai kādu no šiem objektiem noņemtu no darba sesijas, jāizmanto funkcija , kurai kā arguments jānorāda objekts, kuru vēlaties noņemt no darba sesijas. Šī metode gan attiecas tikai uz tiem objektiem, kurus esat radījuši paši, nevis uz datu tabulām, kas atrodas paketēs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(pirmais)</code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ievads-darba-ar-programmu-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literatura.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+</body>
+
+</html>
