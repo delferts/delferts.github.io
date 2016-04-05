@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Praktiskā biometrija</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
+  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Praktiskā biometrija" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktiskā biometrija" />
+  
+  <meta name="twitter:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+<meta name="author" content="Didzis Elferts">
+
+<meta name="date" content="2016-04-05">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="datu-izzinasana-un-normalitates-testi.html">
+<link rel="next" href="literatura.html">
+
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p>Praktiskā biometrija</p></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Ievads</a></li>
+<li class="chapter" data-level="2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html"><i class="fa fa-check"></i><b>2</b> Biometrija un datu analīze</a><ul>
+<li class="chapter" data-level="2.1" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#kas-ir-biometrija"><i class="fa fa-check"></i><b>2.1</b> Kas ir biometrija?</a></li>
+<li class="chapter" data-level="2.2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#paraugkopa-un-generalkopa"><i class="fa fa-check"></i><b>2.2</b> Paraugkopa un ģenerālkopa</a></li>
+<li class="chapter" data-level="2.3" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#hipotezu-parbaude"><i class="fa fa-check"></i><b>2.3</b> Hipotēžu pārbaude</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html"><i class="fa fa-check"></i><b>3</b> Ievads darbā ar programmu R</a><ul>
+<li class="chapter" data-level="3.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kas-ir-programma-r-un-ka-uzsakt-darbu"><i class="fa fa-check"></i><b>3.1</b> Kas ir programma R un kā uzsākt darbu?</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-vide"><i class="fa fa-check"></i><b>3.1.1</b> R vide</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-instalacija-un-papildus-paketes"><i class="fa fa-check"></i><b>3.1.2</b> R instalācija un papildus paketes</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#palidzibas-iegusana"><i class="fa fa-check"></i><b>3.1.3</b> Palīdzības iegūšana</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-r"><i class="fa fa-check"></i><b>3.2</b> Darbs ar R</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#komandu-veidosana"><i class="fa fa-check"></i><b>3.2.1</b> Komandu veidošana</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kalkulators"><i class="fa fa-check"></i><b>3.2.2</b> Kalkulators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-veidi"><i class="fa fa-check"></i><b>3.2.3</b> Datu veidi</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-strukturas"><i class="fa fa-check"></i><b>3.2.4</b> Datu struktūras</a></li>
+<li class="chapter" data-level="3.2.5" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-importesana"><i class="fa fa-check"></i><b>3.2.5</b> Datu importēšana</a></li>
+<li class="chapter" data-level="3.2.6" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-eksportesana"><i class="fa fa-check"></i><b>3.2.6</b> Datu eksportēšana</a></li>
+<li class="chapter" data-level="3.2.7" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-datiem"><i class="fa fa-check"></i><b>3.2.7</b> Darbs ar datiem</a></li>
+<li class="chapter" data-level="3.2.8" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darba-vides-sakartosana"><i class="fa fa-check"></i><b>3.2.8</b> Darba vides sakārtošana</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html"><i class="fa fa-check"></i><b>4</b> Grafiskās iespējas programmā R</a><ul>
+<li class="chapter" data-level="4.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#pamatgrafiki"><i class="fa fa-check"></i><b>4.1</b> Pamatgrafiki</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot"><i class="fa fa-check"></i><b>4.1.1</b> plot()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#boxplot"><i class="fa fa-check"></i><b>4.1.2</b> boxplot()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#hist"><i class="fa fa-check"></i><b>4.1.3</b> hist()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#barplot"><i class="fa fa-check"></i><b>4.1.4</b> barplot()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#dati-grafiku-veidosanai"><i class="fa fa-check"></i><b>4.2</b> Dati grafiku veidošanai</a></li>
+<li class="chapter" data-level="4.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-parametru-noteiksana"><i class="fa fa-check"></i><b>4.3</b> Grafiku parametru noteikšana</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-izvietojums-lapa"><i class="fa fa-check"></i><b>4.3.1</b> Grafiku izvietojums lapā</a></li>
+<li class="chapter" data-level="4.3.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot-grafiku-tipi"><i class="fa fa-check"></i><b>4.3.2</b> plot() grafiku tipi</a></li>
+<li class="chapter" data-level="4.3.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#liniju-parametri"><i class="fa fa-check"></i><b>4.3.3</b> Līniju parametri</a></li>
+<li class="chapter" data-level="4.3.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#simbolu-veidi"><i class="fa fa-check"></i><b>4.3.4</b> Simbolu veidi</a></li>
+<li class="chapter" data-level="4.3.5" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#virsraksti-un-teksti-pie-asim"><i class="fa fa-check"></i><b>4.3.5</b> Virsraksti un teksti pie asīm</a></li>
+<li class="chapter" data-level="4.3.6" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#teksts-grafika-ieksiene"><i class="fa fa-check"></i><b>4.3.6</b> Teksts grafika iekšienē</a></li>
+<li class="chapter" data-level="4.3.7" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#tekstu-parametri"><i class="fa fa-check"></i><b>4.3.7</b> Tekstu parametri</a></li>
+<li class="chapter" data-level="4.3.8" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#asis"><i class="fa fa-check"></i><b>4.3.8</b> Asis</a></li>
+<li class="chapter" data-level="4.3.9" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#divas-y-asis"><i class="fa fa-check"></i><b>4.3.9</b> Divas y asis</a></li>
+<li class="chapter" data-level="4.3.10" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#krasas"><i class="fa fa-check"></i><b>4.3.10</b> Krāsas</a></li>
+<li class="chapter" data-level="4.3.11" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#legenda"><i class="fa fa-check"></i><b>4.3.11</b> Leģenda</a></li>
+<li class="chapter" data-level="4.3.12" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#linijas-grafikos"><i class="fa fa-check"></i><b>4.3.12</b> Līnijas grafikos</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-saglabasana"><i class="fa fa-check"></i><b>4.4</b> Grafiku saglabāšana</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html"><i class="fa fa-check"></i><b>5</b> Datu izzināšana un normalitātes testi</a><ul>
+<li class="chapter" data-level="5.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#datu-izzinasana"><i class="fa fa-check"></i><b>5.1</b> Datu izzināšana</a></li>
+<li class="chapter" data-level="5.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#normalitates-testi"><i class="fa fa-check"></i><b>5.2</b> Normalitātes testi</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#grafiska-analize"><i class="fa fa-check"></i><b>5.2.1</b> Grafiskā analīze</a></li>
+<li class="chapter" data-level="5.2.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#analitiska-analize"><i class="fa fa-check"></i><b>5.2.2</b> Analītiskā analīze</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html"><i class="fa fa-check"></i><b>6</b> Statistiskie rādītāji un ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistiskie-raditaji"><i class="fa fa-check"></i><b>6.1</b> Statistiskie rādītāji</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums"><i class="fa fa-check"></i><b>6.1.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.1.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistisko-raditaju-aprekinasana-programma-r"><i class="fa fa-check"></i><b>6.1.2</b> Statistisko rādītāju aprēķināšana programmā R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervali"><i class="fa fa-check"></i><b>6.2</b> Ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums-1"><i class="fa fa-check"></i><b>6.2.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-aprekinasana"><i class="fa fa-check"></i><b>6.2.2</b> Ticamības intervālu aprēķināšana</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#bootstrap-ticamibas-intervali"><i class="fa fa-check"></i><b>6.2.3</b> Bootstrap ticamības intervāli</a></li>
+<li class="chapter" data-level="6.2.4" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-grafiskais-attelojums"><i class="fa fa-check"></i><b>6.2.4</b> Ticamības intervālu grafiskais attēlojums</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i><b>7</b> Literatūra</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Praktiskā biometrija</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistiskie-raditaji-un-ticamibas-intervali" class="section level1">
+<h1><span class="header-section-number">6. nodaļa.</span> Statistiskie rādītāji un ticamības intervāli</h1>
+<div id="statistiskie-raditaji" class="section level2">
+<h2><span class="header-section-number">6.1</span> Statistiskie rādītāji</h2>
+<div id="teoretiskais-pamatojums" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Teorētiskais pamatojums</h3>
+<p>Paraugkopas un ģenerālkopas raksturošanai un informācijas apkopošanai izmanto statistiskos rādītājus. Tos iedala vairākās grupās, no kurām svarīgākās ir vidējie rādītāji un izkliedes radītāji.</p>
+<div id="videjie-raditaji" class="section level4">
+<h4><span class="header-section-number">6.1.1.1</span> Vidējie rādītāji</h4>
+<p>Vidējie rādītāji parāda kāda ir vidējā vērtība paraugkopas datiem katrai konkrētajai pazīmei.</p>
+</div>
+<div id="videjais-aritmetiskais-overlinex" class="section level4">
+<h4><span class="header-section-number">6.1.1.2</span> Vidējais aritmētiskais (<span class="math inline">\(\overline{x}\)</span>)</h4>
+<p>Visbiežāk lietotais vidējais rādītājs ir vidējais aritmētiskais, kas, atbilstoši tā nosaukumam, parāda kāda ir vidēja vērtība. Tā aprēķināšanu veic pēc formulas (\ref{eq:vvarit}):</p>
+\begin{equation}
+\overline{x}=\frac{\sum\limits_{i=1}^{n}x_i}{n}
+\label{eq:vvarit}
+\end{equation}
+<p>kur <span class="math inline">\(x_i\)</span> - i-tā paraugkopas vērtībā, i=1, 2, …, n, n - paraugkopas apjoms.</p>
+<p>Attiecībā uz vidējo aritmētisko ir jāņem vērā, ka tā vērtība ir atkarīga no katras variantes datos, tāpēc vidējais aritmētiskais ir jutīgs pret ekstremāli mazām vai lielām vērtībām. Piemēram, ja datos ir viena ļoti liela vērtība, tad ir iespējama situācija, ka vidējais aritmētiskais ir mazāks tikai par šo ekstremāli lielo vērtību, bet lielāks par visām pārējām vērtībām.</p>
+</div>
+<div id="mediana-m_e" class="section level4">
+<h4><span class="header-section-number">6.1.1.3</span> Mediāna (<span class="math inline">\(M_e\)</span>)</h4>
+<p>Mediāna ir tā konkrētās paraugkopas vērtība līdz kurai atrodas 50% no visām vērtībām (ja tās sakārtotas augošā vai dilstošā secībā). Piemēram, ja paraugkopā ir nepāra skaits novērojumu, pieņemsim, pieci, tad mediāna būs trešā vērtība. Ja paraugkopā ir pāra skaits novērojumu, pieņemsim seši, tad mediāna būs vidējais aritmētiskais starp trešo un ceturto vērtību. Atšķirībā no vidējā aritmētiskā, mediāna nav jutīga pret ekstremālām vērtībām, jo tās aprēķins balstās uz vērtību izkārtojumu, nevis uz to absolūtajām vērtībām.</p>
+</div>
+<div id="kvartiles-q_i" class="section level4">
+<h4><span class="header-section-number">6.1.1.4</span> Kvartiles (<span class="math inline">\(Q_i\)</span>)</h4>
+<p>Kvartiles augošā/dilstošā secibā sakārtotas paraugkopas vērtības sadala četrās vienādās daļās. 0. kvartile atbilst minimālajai vērtībai, līdz 1. kvartilei atrodas 25% no visiem novērojumiem,līdz 2. kvartilei atrodas 50% novērojumu un tā ir vienāda ar mediānu. Līdz 3. kvartilei atrodas 75% no visiem novērojumiem, un 4. kvartile ir vienāda ar maksimālo vērtību.</p>
+</div>
+<div id="procentile-p_i" class="section level4">
+<h4><span class="header-section-number">6.1.1.5</span> Procentile (<span class="math inline">\(P_i\)</span>)</h4>
+<p>Procentiles augošā/dilstošā secībā sakārtotas paraugkopas vērtības sadala 100 vienādās daļās.</p>
+</div>
+<div id="izkliedes-raditaji" class="section level4">
+<h4><span class="header-section-number">6.1.1.6</span> Izkliedes rādītāji</h4>
+<p>Vidējie rādītāji sniedz informāciju par vidējo tendenci datos, bet, lai iegūtu pilnu ainu par datiem, ir jāizmanto arī izkliedes rādītāji, kas parāda kādā veidā paraugkopas vērtības ir izkliedētas ap vidējo vērtību.</p>
+</div>
+<div id="standartnovirze-s-un-dispersija-s2" class="section level4">
+<h4><span class="header-section-number">6.1.1.7</span> Standartnovirze (s) un dispersija (<span class="math inline">\(s^2\)</span>)</h4>
+<p>Svarīgākie izkliedes rādītāji ir dispersija un standartnovirze. Dispersiju paraugkopai aprēķina pēc formulas (\ref{eq:disneg}) un tā parāda, kāda ir vidējā kvadrātiskā novirze no vidējā aritmētiskā. Standartnovirze (\ref{eq:stand}) attiecīgi ir kvadrātsakne no dispersijas. Standartnovirzei ir tāda paša mērvienība kā paraugkopas datiem. Jo lielākas ir dispersijas un standartnovirzes vērtības, jo lielāka ir datu izkliede ap vidējo aritmētisko.</p>
+\begin{equation}
+s^2=\frac{\sum\limits_{i=1}^{n}(x_i-\overline{x})^2}{n-1}
+\label{eq:disneg}
+\end{equation}\begin{equation}
+s=\sqrt{\frac{\sum\limits_{i=1}^{n}(x_i-\overline{x})^2}{n-1}}
+\label{eq:stand}
+\end{equation}
+<p>kur <span class="math inline">\(x_i\)</span> - i-tā paraugkopas vērtībā, i=1, 2, …, n, n - paraugkopas apjoms, <span class="math inline">\(\overline{x}\)</span> - paraugkopas vidējais aritmētiskais.</p>
+</div>
+<div id="variacijas-koeficients-v" class="section level4">
+<h4><span class="header-section-number">6.1.1.8</span> Variācijas koeficients (v)</h4>
+<p>Standartnovirze ne vienmēr ir labākais rādītājs, lai salīdzinātu vērtību izkliedi starp dažādiem rādītājiem, sevišķi, ja tiem atšķiras mērvienības. Šajā gadījumā labāks rādītājs ir variācijas koeficients (\ref{eq:varkoe}). Variācijas koeficients ir rādītājs bez mērvienības, jo to iegūst dalot standartnovirzi ar vidējo aritmētisko. Variācijas koeficientu var izteikt arī procentos, attiecīgi sareizinot tā vērtību ar 100%.</p>
+\begin{equation}
+v=\frac{s}{\overline{x}}
+\label{eq:varkoe}
+\end{equation}
+<p>kur s - paraugkopas standartnovirze, <span class="math inline">\(\overline{x}\)</span> - paraugkopas vidējais aritmētiskais.</p>
+</div>
+</div>
+<div id="statistisko-raditaju-aprekinasana-programma-r" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Statistisko rādītāju aprēķināšana programmā R</h3>
+<p>Piemēram par statistisko rādītāju aprēķināšanu izmantot datu fails <code>niedres2.txt</code>, kas satur informāciju par niedru lapu garumu un platumu trīs parauglaukumos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niedr&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;niedres2.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+<span class="kw">str</span>(niedr)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  3 variables:
+##  $ garums : num  31.6 23.2 39.2 37.4 21.1 37 24.7 31.3 37.4 39.7 ...
+##  $ platums: num  2.5 2.3 2.1 5.8 2.2 4.1 3.5 4.2 2.5 2.8 ...
+##  $ paraug : Factor w/ 3 levels &quot;Austr&quot;,&quot;Riet&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p>Pamatstatistisko rādītāju aprēķināšanai ir jau definētas funkcijas: <code>mean()</code> - vidējais aritmētiskais, <code>sd()</code> - standartnovirze, <code>var()</code> - dispersija, <code>median()</code> - mediāna. Visām šīm funkcijām kā mainīgais jānorada viena kolonna/vektors un tiks aprēķināts vēlamais rādītājs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(niedr$garums)</code></pre></div>
+<pre><code>## [1] 37.594</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(niedr$garums)</code></pre></div>
+<pre><code>## [1] 10.31332</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var</span>(niedr$garums)</code></pre></div>
+<pre><code>## [1] 106.3647</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(niedr$garums)</code></pre></div>
+<pre><code>## [1] 38.4</code></pre>
+<p>Veicot aprēķinus rezultātam ciparu skaits aiz komata ir atkarīgs no tā, kādi ir sesijas uzstādījumi. Ja ir nepieciešams noapaļot skaitļus, var izmantot papildus funkciju <code>round()</code>, kurā norāda apaļojamo mainīgo vai visu funkciju, kā arī jānorāda vēlamais ciparu skaits aiz komata. Ir jāatceras, ka noapaļot drīkst tikai gala rezultātus - ja noapaļo skaitļus, kurus vēlāk izmanto citos aprēķinos, tas samazina iegūtā rezultāta precizitāti.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(niedr$garums),<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 37.59</code></pre>
+<p>Viena no daudzu programmas R funkciju īpatnībām ir tā, ka nav iespējams iegūt rezultātu, ja dati satur kādu iztrūkstošu vērtību. Piemēram, radam vektoru <code>x</code>, kas satur 20 skaitļus no normālā sadalījuma un vienu iztrūkstošu vērtību, ko R apzīmē ar NA. Ja šādam vektoram cenšas aprēķināt vidējo aritmētisko ar funkciju <code>mean()</code>, iegūst rezultātu NA, jo nezināmā vērtība var būt jebkas, attiecīgi arī vidējais var būt jebkas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1234</span>)
+x&lt;-<span class="kw">c</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>),<span class="ot">NA</span>)
+<span class="kw">mean</span>(x)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Šādā situācijā var norādīt, ka NA vērtības ir jāignorē. To panāk funkcijai kā papildus argumentu norādot <code>na.rm=TRUE</code>. Daļai funkciju šī argumenta pieraksts var būt atšķirīgs, to var precizēt funkcijas aprakstā.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(x,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] -0.2506641</code></pre>
+<p>Minimālās un maksimālās vērtības aprēķināšanai var izmantot attiecīgi funkcijas <code>min()</code> un <code>max()</code>, vai arī funkciju <code>range()</code>, kas aprēķina uzreiz abus šos rādītājus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">min</span>(niedr$garums)</code></pre></div>
+<pre><code>## [1] 11.9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(niedr$garums)</code></pre></div>
+<pre><code>## [1] 59</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">range</span>(niedr$garums)</code></pre></div>
+<pre><code>## [1] 11.9 59.0</code></pre>
+<p>Kvartiļu aprēķināšanai izmanto funkciju <code>quantile()</code>, kas pārādīs uzreiz visas kvartiles tās izsakot kā procentiles.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(niedr$garums)</code></pre></div>
+<pre><code>##     0%    25%    50%    75%   100% 
+## 11.900 31.075 38.400 45.300 59.000</code></pre>
+<p>Ja ir nepieciešams aprēķināt procentiles, vai arī tikai kādu noteiktu kvartili, funkcijai <code>quantile()</code> kā papildus arguments jānorāda <code>probs=</code> un nepieciešamā procentile izteikta decimāldaļās.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quantile</span>(niedr$garums,<span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.025</span>,<span class="fl">0.975</span>))</code></pre></div>
+<pre><code>##   2.5%  97.5% 
+## 18.465 55.770</code></pre>
+<p>Ar funkciju <code>summary()</code> ir iespējams aprēķināt uzreiz vairākus statistiskos radītājus, kas raksturo mainīgo. Šie rādītāji ir minimālā vērtība, 1. kvartile, mediāna, vidējais aritmētiskais, 3. kvartile un maksimālā vērtība. Šai funkcijai kā mainīgo var norādīt vienu kolonnu vai vektoru.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(niedr$garums)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   11.90   31.08   38.40   37.59   45.30   59.00</code></pre>
+<p>Ja funkcijā <code>summary()</code> kā mainīgo norāda veselu datu tabulu, tad iepriekš minētie rādītāji tiek aprēķināti katrai kolonnai, kas satur skaitlisku informāciju. Kolonnai, kas satur faktoru jeb tekstuālu informāciju, aprēķina cik bieži atkārtojas katra unikālā vērtība.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(niedr)</code></pre></div>
+<pre><code>##      garums         platums        paraug  
+##  Min.   :11.90   Min.   :0.400   Austr:17  
+##  1st Qu.:31.07   1st Qu.:2.500   Riet :17  
+##  Median :38.40   Median :3.900   Ziem :16  
+##  Mean   :37.59   Mean   :3.892             
+##  3rd Qu.:45.30   3rd Qu.:5.100             
+##  Max.   :59.00   Max.   :7.100</code></pre>
+<p>Funkcija <code>tapply()</code> ir ļoti noderīga gadījumos, ja nepieciešams aprēķināt kādu rādītāju viena vektora/kolonnas vērtībām tās sadalot pa līmeņiem, kurus nosaka otrs vektors/kolonna. Funkcijā jānorāda mainīgais, kas satur vērtības, mainīgais, kas satur dalījuma līmeņus, un funkcija, kuru izmantot aprēķinos. Ir iespējams izmantot ne tikai jau definētas funckijas, bet arī definēt jaunas funkcijas, izmantojot <code>function()</code> funkciju. Piemērā aprēķināta standartnovirze kolonnai garums, ka sadalīta pa parauglaukumiem.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(niedr$garums,niedr$paraug,sd)</code></pre></div>
+<pre><code>##     Austr      Riet      Ziem 
+##  8.869876  9.376174 11.706401</code></pre>
+</div>
+</div>
+<div id="ticamibas-intervali" class="section level2">
+<h2><span class="header-section-number">6.2</span> Ticamības intervāli</h2>
+<div id="teoretiskais-pamatojums-1" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Teorētiskais pamatojums</h3>
+<p>Veicot pētījumus vairumā gadījumu tiek strādāts ar paraugkopu, nevis ar visu ģenerālkopu. Attiecīgi no paraugkopas datiem iegūtais, piemēram, vidējais aritmētiskais nebūs vienāds ar ģenerālkopas vidējo aritmētisko, kaut arī daudzos gadījumos tas tā tiek pieņemts. Precīzākai ģenerālkopas vērtējamā rādītāja raksturošanai var izmantot ticamības intervālu. Ticmības intervāla interpretē tā, ka izveiddojot daudzas jaunas paraugkopas un aprēķinot tām ticamības intervālu, tiacamības līmenim atbilstošo reižu gadījumā šajā intervālā atradīsies konkrētais ģenerālkopas rādītājs, kas tiek novērtēts. Ticamības intervālu var aprēķināt ne tikai ģenerālkopu raksturojošiem rādītājiem kā vidējais aritmētiskais un standartnovirze, bet arī jebkuram citam rādītājām, piemēram, korelācijas koeficientam starp divām paraugkopām.</p>
+<div id="videja-aritmetiska-ticamibas-intervals" class="section level4">
+<h4><span class="header-section-number">6.2.1.1</span> Vidējā aritmētiskā ticamības intervāls</h4>
+<p>Vidējā aritmētiskā ticamības intervāla aprēķināšanai ir vairākas formulas, kuras atšķiras pēc tā, vai ir zināma vai nav zināma ģenerālkopas standartnovirze. Tā kā vairumā gadījumu tā nav zināma, tad izmantota formula intervāla aprēķināšanai izmantojot tikai paraugkopas datus. Šai formulai pieņēmums ir, ka paraugkopas dati ir nākuši no ģenerālkopas, kas seko normālajam sadalījumam. Ticamības intervālam aprēķina augšējo un apakšējo robežu pēc formulas (\ref{eq:ticvid}). Stjūdenta kritērija teorētisko vērtību pie atbilstošā būtiskuma līmeņa var atrast speciālās statistiskas tabulās, vai arī aprēķināt.</p>
+\begin{equation}
+\overline{x}-t_{\alpha/2,\nu} \cdot s_{\overline{x}} &lt; \mu &lt; \overline{x}+t_{\alpha/2,\nu} \cdot s_{\overline{x}}
+\label{eq:ticvid}
+\end{equation}
+<p>kur <span class="math inline">\(\overline{x}\)</span> - vidējais aritmētiskais</p>
+<p><span class="math inline">\(t_{\alpha/2,\nu}\)</span> – Stjūdenta kritērija teorētiskā vērtība</p>
+<p><span class="math inline">\(\nu= n-1\)</span> – brīvības pakāpju skaits</p>
+<p><span class="math inline">\(s_{\overline{x}}\)</span> – vidējā aritmētiskā reprezentācijas rādītājs <span class="math inline">\(s_{\overline{x}}=\frac{s}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\mu\)</span> - ģenerālkopas vidējais aritmētiskais.</p>
+<p>Vidējā aritmētiskā reprezentācijas rādītāju sauc arī par vidējā aritmētiskā standartkļūdu, un tas parāda, cik precīzi paraugkopas dati raksturo ģenerālkopas datus.</p>
+</div>
+</div>
+<div id="ticamibas-intervalu-aprekinasana" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Ticamības intervālu aprēķināšana</h3>
+<p>Vidējā aritmētiskā ticamības intervālu var aprēķināt gan izmantojot gatavas funkcijas, gan arī izmantojot aprēķina formulas. Stjūdenta kritērija teorētisko vērtību aprēķina ar funkciju <code>qt()</code>, kurai kā pirmais arguments jānorāda <span class="math inline">\((1-\alpha/2)\)</span> (šoreiz izvēlamies strādāt pie ticamības līmeņa 99%) un otrais arguments ir brīvības pakāpju skaits (49). Vidējā aritmētiskā reprezentācijas rādītāju aprēķina kā standartnovirze dalīts ar kvadrātsakni no novērojumu skaita. Pēc tam ticamības intervāla augšējo un apakšējo robežu iegūst pieskaitot vai atņemot robežas vērtību no vidējā aritmētiskā. Piemēram izmantots niedru lapu garums.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">robeza&lt;-<span class="kw">qt</span>((<span class="dv">1</span><span class="fl">-0.01</span>/<span class="dv">2</span>),<span class="dv">49</span>)*(<span class="kw">sd</span>(niedr$garums))/<span class="kw">sqrt</span>(<span class="dv">50</span>)
+augsa&lt;-<span class="kw">mean</span>(niedr$garums)+robeza
+apaksa&lt;-<span class="kw">mean</span>(niedr$garums)-robeza
+<span class="kw">round</span>(apaksa,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 33.69</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(augsa,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 41.5</code></pre>
+<p><strong>Secinājums:</strong> 99% ticamības intervāls niedru lapu garuma vidējam aritmētiskajam ir ni 33,69 līdz 41,50 cm.</p>
+<p>Ticamības intervālu vidējām aritmētiskajam var aprēķināt arī ar funkciju <code>t.test()</code>, kurai kā argumentus norāda kolonnu/vektoru, kuram jāaprēķina ticamības intervāls, kā arī vēlamais ticamības līmenis (<code>conf.level=</code>). Funkcijas rezultātu ir vēlams saglabāt kā atsevišķu objektu. Ar funkciju <code>names()</code> apskatot objekta struktūru nosaukumus, var redzēt, ka ir atsevišķs objekts ar nosaukumu <code>conf.int</code>. To var atlasīt izmantojot <code>$</code> zīmi. Iegūtais rezultāts ir identisks tam, kuru ieguva izmantojot formulas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tests&lt;-<span class="kw">t.test</span>(niedr$garums,<span class="dt">conf.level=</span><span class="fl">0.99</span>)
+<span class="kw">names</span>(tests)</code></pre></div>
+<pre><code>## [1] &quot;statistic&quot;   &quot;parameter&quot;   &quot;p.value&quot;     &quot;conf.int&quot;    &quot;estimate&quot;   
+## [6] &quot;null.value&quot;  &quot;alternative&quot; &quot;method&quot;      &quot;data.name&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(tests$conf.int,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 33.69 41.50
+## attr(,&quot;conf.level&quot;)
+## [1] 0.99</code></pre>
+</div>
+<div id="bootstrap-ticamibas-intervali" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Bootstrap ticamības intervāli</h3>
+<p>Atsevišķos gadījumos ticamības intervālus nepieciešams aprēķināt rādītājiem, kuriem nav izstrādātā formula, vai arī zināmiem rādītājiem nevar izmantot parastos aprēķina veidus, jo tiek pārkāpti kādi pieņēmumi par datiem, piemēram, to homogenitāti. Šādos gadījumos var izmantot tā saukto bootstrap metodi. Metodes pamātā ir tas, ka no esošajiem datiem veido daudzas jaunas paraugkopas, kuru apjoms ir vienāds ar oriģinālajiem datiem. Jaunu paraugkopu veidošana notiek pēc paraugošanas ar aizvietošanu principa, tas ir, katra no oriģinālajām vērtībām var tik izraudzīta vairāk kā vienu reizi. Pēc tam katrai no jaunajām paraugkopām aprēķina interesējošo rādītāju un tad aprēķina ticamības intervālu, piemēram, balstoties uz procentilēm.</p>
+<p>Lai izmantotu bootstrap metodi programmā R, ir izveidota tam īpaši paredzēta pakete <code>boot</code> <span class="citation">(Canty and Ripley <a href="literatura.html#ref-canty2012">2012</a>)</span>. Piemērā aprēķināts ticamības intervāls tiem pašiem niedru lapu garumiem. Sākumā ar funkciju<code>set.seed()</code> tiek panākts, lai rezultāts būtu identisks piemēram. Tālāk ir jānodefinē funkcija, kas aprēķina vēlamo rādītāju. Šo funkciju nosaucam par <code>videjie</code> un tai būs divi mainīgie - <code>data</code> un <code>indices</code>, kuru radīs funkcija <code>boot()</code>. <code>indices</code> norādīs indeksus, lai atlasītu skaitļus no mainīgā <code>data</code>. Jaunie skaitļi tiks saglabāti mainīgajā d un šim mainīgajam aprēķinās vidējo aritmētisko. Tālāk izmanto funkciju <code>boot()</code>, kurai kā argumentus norādā oriģinālo skaitļu rindu/kolonnu, aprēķināmo rādītāju (funkcija <code>videjie</code>), kā arī veidojamo paraugu skaitu (šoreiz 1000).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1234</span>)
+<span class="kw">library</span>(boot)
+videjie&lt;-function(data,indices){
+   d&lt;-data[indices]
+   <span class="kw">mean</span>(d)
+ }
+dat&lt;-<span class="kw">boot</span>(<span class="dt">data=</span>niedr$garums,<span class="dt">statistic=</span>videjie,<span class="dt">R=</span><span class="dv">1000</span>)</code></pre></div>
+<p>Ar funkciju <code>boot()</code> izveidoto objektu var apskatīt arī grafiski (<a href="statistiskie-raditaji-un-ticamibas-intervali.html#fig:stra-017">6.1</a> attēls) - redzams, ka iegūtie vidējie aritmētiskie apmēram veido normālo sadalījumu</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(dat)</code></pre></div>
+<div class="figure"><span id="fig:stra-017"></span>
+<img src="PBB_gramata_files/figure-html/stra-017-1.png" alt="Bootstrap vidējo aritmētisko histogramma un QQ grafik"  />
+<p class="caption">
+Figure 6.1: Bootstrap vidējo aritmētisko histogramma un QQ grafik
+</p>
+</div>
+<p>Bootstrap ticamības intervālu aprēķināšanai izmanto funkciju <code>boot.ci()</code>, kurai kā argumentus norāda <code>boot()</code> izveidoto objektu, kā arī vēlamo ticamības līmeni (<code>conf=</code>). Funkcija aprēķina vairākus ticamības intervāla veidus <span class="citation">(Manly <a href="literatura.html#ref-manly2007">2007</a>)</span>, kas dod samērā līdzīgus rezultātus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boot.ci</span>(dat,<span class="dt">conf=</span><span class="fl">0.99</span>)</code></pre></div>
+<pre><code>## Warning in boot.ci(dat, conf = 0.99): bootstrap variances needed for
+## studentized intervals</code></pre>
+<pre><code>## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+## Based on 1000 bootstrap replicates
+## 
+## CALL : 
+## boot.ci(boot.out = dat, conf = 0.99)
+## 
+## Intervals : 
+## Level      Normal              Basic         
+## 99%   (34.04, 41.09 )   (33.86, 41.62 )  
+## 
+## Level     Percentile            BCa          
+## 99%   (33.56, 41.33 )   (33.39, 41.11 )  
+## Calculations and Intervals on Original Scale
+## Some basic intervals may be unstable
+## Some percentile intervals may be unstable
+## Some BCa intervals may be unstable</code></pre>
+</div>
+<div id="ticamibas-intervalu-grafiskais-attelojums" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Ticamības intervālu grafiskais attēlojums</h3>
+<p>Izmantojot funkcijas, kas pieejamas paketē <code>plotrix</code> <span class="citation">(Lemon <a href="literatura.html#ref-lemon2006">2006</a>)</span>, ir iespējams izveidot grafiku ar ticamības intervāliem. Pirmkārt, ir nepieciešams objekts, kas satur vidējos aritmētiskos. Piemēram izmantots niedru lapu garums, kas aprēķināts katram no parauglaukumiem.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">videjie&lt;-<span class="kw">tapply</span>(niedr$garums,niedr$paraug,mean)
+videjie</code></pre></div>
+<pre><code>##    Austr     Riet     Ziem 
+## 33.52941 41.05294 38.23750</code></pre>
+<p>Pēc tam jāizveido objekts, kas satur skaitļus Stjūdenta kritērija un videjā aritmētiskā reprezentācijas rādītāja reizinājumus. Tam izmanto atkal funkciju <code>tapply()</code>, tikai beigās norāda paša definētu funkciju.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vid.rob&lt;-<span class="kw">tapply</span>(niedr$garums,niedr$paraug,
+  function(x) (<span class="kw">qt</span>((<span class="dv">1</span><span class="fl">-0.01</span>/<span class="dv">2</span>),<span class="kw">length</span>(x))*<span class="kw">sd</span>(x)/<span class="kw">sqrt</span>(<span class="kw">length</span>(x))))
+vid.rob</code></pre></div>
+<pre><code>##    Austr     Riet     Ziem 
+## 6.234850 6.590739 8.547961</code></pre>
+<p>Grafika ar ticāmības intervāliem izveidošanai (<a href="statistiskie-raditaji-un-ticamibas-intervali.html#fig:stra-021">6.2</a> attēls) jāizmanto funkcija <code>plotCI()</code>, kurai kā argumentus jānorāda x mainīgais (šoreiz skaitļi no 1 līdz 3, jo ir trīs parauglaukumi), pēc tam jānorāda vektors ar vidējiem aritmētiskajiem, vektors ar Stjūdenta kritērija un videjā aritmētiskā reprezentācijas rādītāja reizinājumiem, kā arī var norādīt papildus argumentus grafika izskata uzlabošanai.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotrix)
+<span class="kw">plotCI</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="kw">as.vector</span>(videjie),<span class="kw">as.vector</span>(vid.rob),<span class="dt">axes=</span>F,<span class="dt">xlab=</span><span class="st">&quot;Puse&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Videjais garums&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),<span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">axis</span>(<span class="dv">1</span>,<span class="dt">at=</span><span class="dv">1</span>:<span class="dv">3</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Z&quot;</span>))
+<span class="kw">axis</span>(<span class="dv">2</span>,<span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">10</span>))
+<span class="kw">box</span>()</code></pre></div>
+<div class="figure"><span id="fig:stra-021"></span>
+<img src="PBB_gramata_files/figure-html/stra-021-1.png" alt="Vidējais niedru lapu garums trīs parauglaukumos ar 99% ticamības intervāliem"  />
+<p class="caption">
+Figure 6.2: Vidējais niedru lapu garums trīs parauglaukumos ar 99% ticamības intervāliem
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datu-izzinasana-un-normalitates-testi.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literatura.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+</body>
+
+</html>

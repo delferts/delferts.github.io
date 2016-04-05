@@ -163,7 +163,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#analitiska-analize"><i class="fa fa-check"></i><b>5.2.2</b> Analītiskā analīze</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i><b>6</b> Literatūra</a></li>
+<li class="chapter" data-level="6" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html"><i class="fa fa-check"></i><b>6</b> Statistiskie rādītāji un ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistiskie-raditaji"><i class="fa fa-check"></i><b>6.1</b> Statistiskie rādītāji</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums"><i class="fa fa-check"></i><b>6.1.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.1.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistisko-raditaju-aprekinasana-programma-r"><i class="fa fa-check"></i><b>6.1.2</b> Statistisko rādītāju aprēķināšana programmā R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervali"><i class="fa fa-check"></i><b>6.2</b> Ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums-1"><i class="fa fa-check"></i><b>6.2.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-aprekinasana"><i class="fa fa-check"></i><b>6.2.2</b> Ticamības intervālu aprēķināšana</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#bootstrap-ticamibas-intervali"><i class="fa fa-check"></i><b>6.2.3</b> Bootstrap ticamības intervāli</a></li>
+<li class="chapter" data-level="6.2.4" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-grafiskais-attelojums"><i class="fa fa-check"></i><b>6.2.4</b> Ticamības intervālu grafiskais attēlojums</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i><b>7</b> Literatūra</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -468,9 +480,11 @@ cars[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 <h3><span class="header-section-number">3.2.8</span> Darba vides sakārtošana</h3>
 <p>Ja darba sesijā rada dažādus objektus, pievieno daudz paketes, ar laiku var rasties apjukums par to, kādi objekti šobrīd ir aktīvi. Ar funkcijas <code>ls()</code> palīdzību, ir iespējams iegūt sarakstu ar visiem objektiem, kas šobrīd ir aktīvi:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>##  [1] &quot;cars&quot;      &quot;ceturtais&quot; &quot;dati&quot;      &quot;dati2&quot;     &quot;dati3&quot;    
-##  [6] &quot;niedres&quot;   &quot;otrais&quot;    &quot;piektais&quot;  &quot;pirmais&quot;   &quot;septitais&quot;
-## [11] &quot;sestais&quot;   &quot;tresais&quot;   &quot;x&quot;</code></pre>
+<pre><code>##  [1] &quot;apaksa&quot;    &quot;augsa&quot;     &quot;cars&quot;      &quot;ceturtais&quot; &quot;dat&quot;      
+##  [6] &quot;dati&quot;      &quot;dati2&quot;     &quot;dati3&quot;     &quot;niedr&quot;     &quot;niedres&quot;  
+## [11] &quot;otrais&quot;    &quot;piektais&quot;  &quot;pirmais&quot;   &quot;robeza&quot;    &quot;septitais&quot;
+## [16] &quot;sestais&quot;   &quot;tests&quot;     &quot;tresais&quot;   &quot;vid.rob&quot;   &quot;videjie&quot;  
+## [21] &quot;x&quot;</code></pre>
 <p>Lai kādu no šiem objektiem noņemtu no darba sesijas, jāizmanto funkcija , kurai kā arguments jānorāda objekts, kuru vēlaties noņemt no darba sesijas. Šī metode gan attiecas tikai uz tiem objektiem, kurus esat radījuši paši, nevis uz datu tabulām, kas atrodas paketēs.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(pirmais)</code></pre></div>
 
