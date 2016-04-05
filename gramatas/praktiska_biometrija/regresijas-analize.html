@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Praktiskā biometrija</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
+  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Praktiskā biometrija" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktiskā biometrija" />
+  
+  <meta name="twitter:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+<meta name="author" content="Didzis Elferts">
+
+<meta name="date" content="2016-04-05">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="korelacijas-analize.html">
+<link rel="next" href="kovariacijas-analize.html">
+
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p>Praktiskā biometrija</p></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Ievads</a></li>
+<li class="chapter" data-level="2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html"><i class="fa fa-check"></i><b>2</b> Biometrija un datu analīze</a><ul>
+<li class="chapter" data-level="2.1" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#kas-ir-biometrija"><i class="fa fa-check"></i><b>2.1</b> Kas ir biometrija?</a></li>
+<li class="chapter" data-level="2.2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#paraugkopa-un-generalkopa"><i class="fa fa-check"></i><b>2.2</b> Paraugkopa un ģenerālkopa</a></li>
+<li class="chapter" data-level="2.3" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#hipotezu-parbaude"><i class="fa fa-check"></i><b>2.3</b> Hipotēžu pārbaude</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html"><i class="fa fa-check"></i><b>3</b> Ievads darbā ar programmu R</a><ul>
+<li class="chapter" data-level="3.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kas-ir-programma-r-un-ka-uzsakt-darbu"><i class="fa fa-check"></i><b>3.1</b> Kas ir programma R un kā uzsākt darbu?</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-vide"><i class="fa fa-check"></i><b>3.1.1</b> R vide</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-instalacija-un-papildus-paketes"><i class="fa fa-check"></i><b>3.1.2</b> R instalācija un papildus paketes</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#palidzibas-iegusana"><i class="fa fa-check"></i><b>3.1.3</b> Palīdzības iegūšana</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-r"><i class="fa fa-check"></i><b>3.2</b> Darbs ar R</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#komandu-veidosana"><i class="fa fa-check"></i><b>3.2.1</b> Komandu veidošana</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kalkulators"><i class="fa fa-check"></i><b>3.2.2</b> Kalkulators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-veidi"><i class="fa fa-check"></i><b>3.2.3</b> Datu veidi</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-strukturas"><i class="fa fa-check"></i><b>3.2.4</b> Datu struktūras</a></li>
+<li class="chapter" data-level="3.2.5" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-importesana"><i class="fa fa-check"></i><b>3.2.5</b> Datu importēšana</a></li>
+<li class="chapter" data-level="3.2.6" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-eksportesana"><i class="fa fa-check"></i><b>3.2.6</b> Datu eksportēšana</a></li>
+<li class="chapter" data-level="3.2.7" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-datiem"><i class="fa fa-check"></i><b>3.2.7</b> Darbs ar datiem</a></li>
+<li class="chapter" data-level="3.2.8" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darba-vides-sakartosana"><i class="fa fa-check"></i><b>3.2.8</b> Darba vides sakārtošana</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html"><i class="fa fa-check"></i><b>4</b> Grafiskās iespējas programmā R</a><ul>
+<li class="chapter" data-level="4.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#pamatgrafiki"><i class="fa fa-check"></i><b>4.1</b> Pamatgrafiki</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot"><i class="fa fa-check"></i><b>4.1.1</b> plot()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#boxplot"><i class="fa fa-check"></i><b>4.1.2</b> boxplot()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#hist"><i class="fa fa-check"></i><b>4.1.3</b> hist()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#barplot"><i class="fa fa-check"></i><b>4.1.4</b> barplot()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#dati-grafiku-veidosanai"><i class="fa fa-check"></i><b>4.2</b> Dati grafiku veidošanai</a></li>
+<li class="chapter" data-level="4.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-parametru-noteiksana"><i class="fa fa-check"></i><b>4.3</b> Grafiku parametru noteikšana</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-izvietojums-lapa"><i class="fa fa-check"></i><b>4.3.1</b> Grafiku izvietojums lapā</a></li>
+<li class="chapter" data-level="4.3.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot-grafiku-tipi"><i class="fa fa-check"></i><b>4.3.2</b> plot() grafiku tipi</a></li>
+<li class="chapter" data-level="4.3.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#liniju-parametri"><i class="fa fa-check"></i><b>4.3.3</b> Līniju parametri</a></li>
+<li class="chapter" data-level="4.3.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#simbolu-veidi"><i class="fa fa-check"></i><b>4.3.4</b> Simbolu veidi</a></li>
+<li class="chapter" data-level="4.3.5" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#virsraksti-un-teksti-pie-asim"><i class="fa fa-check"></i><b>4.3.5</b> Virsraksti un teksti pie asīm</a></li>
+<li class="chapter" data-level="4.3.6" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#teksts-grafika-ieksiene"><i class="fa fa-check"></i><b>4.3.6</b> Teksts grafika iekšienē</a></li>
+<li class="chapter" data-level="4.3.7" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#tekstu-parametri"><i class="fa fa-check"></i><b>4.3.7</b> Tekstu parametri</a></li>
+<li class="chapter" data-level="4.3.8" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#asis"><i class="fa fa-check"></i><b>4.3.8</b> Asis</a></li>
+<li class="chapter" data-level="4.3.9" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#divas-y-asis"><i class="fa fa-check"></i><b>4.3.9</b> Divas y asis</a></li>
+<li class="chapter" data-level="4.3.10" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#krasas"><i class="fa fa-check"></i><b>4.3.10</b> Krāsas</a></li>
+<li class="chapter" data-level="4.3.11" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#legenda"><i class="fa fa-check"></i><b>4.3.11</b> Leģenda</a></li>
+<li class="chapter" data-level="4.3.12" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#linijas-grafikos"><i class="fa fa-check"></i><b>4.3.12</b> Līnijas grafikos</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-saglabasana"><i class="fa fa-check"></i><b>4.4</b> Grafiku saglabāšana</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html"><i class="fa fa-check"></i><b>5</b> Datu izzināšana un normalitātes testi</a><ul>
+<li class="chapter" data-level="5.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#datu-izzinasana"><i class="fa fa-check"></i><b>5.1</b> Datu izzināšana</a></li>
+<li class="chapter" data-level="5.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#normalitates-testi"><i class="fa fa-check"></i><b>5.2</b> Normalitātes testi</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#grafiska-analize"><i class="fa fa-check"></i><b>5.2.1</b> Grafiskā analīze</a></li>
+<li class="chapter" data-level="5.2.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#analitiska-analize"><i class="fa fa-check"></i><b>5.2.2</b> Analītiskā analīze</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html"><i class="fa fa-check"></i><b>6</b> Statistiskie rādītāji un ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistiskie-raditaji"><i class="fa fa-check"></i><b>6.1</b> Statistiskie rādītāji</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums"><i class="fa fa-check"></i><b>6.1.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.1.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistisko-raditaju-aprekinasana-programma-r"><i class="fa fa-check"></i><b>6.1.2</b> Statistisko rādītāju aprēķināšana programmā R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervali"><i class="fa fa-check"></i><b>6.2</b> Ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums-1"><i class="fa fa-check"></i><b>6.2.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-aprekinasana"><i class="fa fa-check"></i><b>6.2.2</b> Ticamības intervālu aprēķināšana</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#bootstrap-ticamibas-intervali"><i class="fa fa-check"></i><b>6.2.3</b> Bootstrap ticamības intervāli</a></li>
+<li class="chapter" data-level="6.2.4" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-grafiskais-attelojums"><i class="fa fa-check"></i><b>6.2.4</b> Ticamības intervālu grafiskais attēlojums</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html"><i class="fa fa-check"></i><b>7</b> Paraugkopu salīdzināšana</a><ul>
+<li class="chapter" data-level="7.1" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#teoretiskais-pamatojums-2"><i class="fa fa-check"></i><b>7.1</b> Teorētiskais pamatojums</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#t-tests"><i class="fa fa-check"></i><b>7.1.1</b> T-tests</a></li>
+<li class="chapter" data-level="7.1.2" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#dispersiju-salidzinasana"><i class="fa fa-check"></i><b>7.1.2</b> Dispersiju salīdzināšana</a></li>
+<li class="chapter" data-level="7.1.3" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#wilcoxon-tests-neatkarigiem-noverojumiem"><i class="fa fa-check"></i><b>7.1.3</b> Wilcoxon tests neatkarīgiem novērojumiem</a></li>
+<li class="chapter" data-level="7.1.4" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#wilcoxon-tests-atkarigiem-noverojumiem"><i class="fa fa-check"></i><b>7.1.4</b> Wilcoxon tests atkarīgiem novērojumiem</a></li>
+<li class="chapter" data-level="7.1.5" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#chi2-tests"><i class="fa fa-check"></i><b>7.1.5</b> <span class="math inline">\(\chi^2\)</span> tests</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#paraugkopu-salidzinasana-programma-r"><i class="fa fa-check"></i><b>7.2</b> Paraugkopu salīdzināšana programmā R</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#datu-sagatavosana"><i class="fa fa-check"></i><b>7.2.1</b> Datu sagatavošana</a></li>
+<li class="chapter" data-level="7.2.2" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#divu-neatkarigu-paraugkopu-salidzinasana-ar-parametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.2</b> Divu neatkarīgu paraugkopu salīdzināšana ar parametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.3" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#vairaku-neatkarigu-paraugkopu-salidzinasana-ar-parametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.3</b> Vairāku neatkarīgu paraugkopu salīdzināšana ar parametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.4" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#atkarigu-paraugkopu-salidzinasana-ar-parametriskam-metodem"><i class="fa fa-check"></i><b>7.2.4</b> Atkarīgu paraugkopu salīdzināšana ar parametriskām metodēm</a></li>
+<li class="chapter" data-level="7.2.5" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#vienas-paraugkopas-t-tests"><i class="fa fa-check"></i><b>7.2.5</b> Vienas paraugkopas t-tests</a></li>
+<li class="chapter" data-level="7.2.6" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#divu-neatkarigu-paraugkopu-salidzinasana-ar-neparametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.6</b> Divu neatkarīgu paraugkopu salīdzināšana ar neparametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.7" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#divu-atkarigu-paraugkopu-salidzinasana-ar-neparametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.7</b> Divu atkarīgu paraugkopu salīdzināšana ar neparametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.8" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#chi2-tests-1"><i class="fa fa-check"></i><b>7.2.8</b> <span class="math inline">\(\chi^2\)</span> tests</a></li>
+<li class="chapter" data-level="7.2.9" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#paraugkopu-grafiska-salidzinasana"><i class="fa fa-check"></i><b>7.2.9</b> Paraugkopu grafiskā salīdzināšana</a></li>
+<li class="chapter" data-level="7.2.10" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#permutaciju-un-randomizesanas-tests-paraugkopu-salidzinasanai"><i class="fa fa-check"></i><b>7.2.10</b> Permutāciju un randomizēšanas tests paraugkopu salīdzināšanai</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html"><i class="fa fa-check"></i><b>8</b> Dispersijas analīze</a><ul>
+<li class="chapter" data-level="8.1" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#teoretiskais-pamatojums-3"><i class="fa fa-check"></i><b>8.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="8.2" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#dati"><i class="fa fa-check"></i><b>8.2</b> Dati</a></li>
+<li class="chapter" data-level="8.3" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#dispersiju-homogenitate"><i class="fa fa-check"></i><b>8.3</b> Dispersiju homogenitāte</a></li>
+<li class="chapter" data-level="8.4" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#modelu-definesana"><i class="fa fa-check"></i><b>8.4</b> Modeļu definēšana</a></li>
+<li class="chapter" data-level="8.5" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#gradacijas-klasu-salidzinasana"><i class="fa fa-check"></i><b>8.5</b> Gradācijas klašu salīdzināšana</a></li>
+<li class="chapter" data-level="8.6" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#rezultatu-grafiska-attelosana"><i class="fa fa-check"></i><b>8.6</b> Rezultātu grafiskā attēlošana</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html"><i class="fa fa-check"></i><b>9</b> Korelācijas analīze</a><ul>
+<li class="chapter" data-level="9.1" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#teoretiskais-pamatojums-4"><i class="fa fa-check"></i><b>9.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="9.2" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#korelacijas-analize-programma-r"><i class="fa fa-check"></i><b>9.2</b> Korelācijas analīze programmā R</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#grafiska-parbaude"><i class="fa fa-check"></i><b>9.2.1</b> Grafiskā pārbaude</a></li>
+<li class="chapter" data-level="9.2.2" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#pirsona-korelacijas-analize"><i class="fa fa-check"></i><b>9.2.2</b> Pīrsona korelācijas analīze</a></li>
+<li class="chapter" data-level="9.2.3" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#rangu-korelacijas-analize"><i class="fa fa-check"></i><b>9.2.3</b> Rangu korelācijas analīze</a></li>
+<li class="chapter" data-level="9.2.4" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#autokorelacija"><i class="fa fa-check"></i><b>9.2.4</b> Autokorelācija</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regresijas-analize.html"><a href="regresijas-analize.html"><i class="fa fa-check"></i><b>10</b> Regresijas analīze</a><ul>
+<li class="chapter" data-level="10.1" data-path="regresijas-analize.html"><a href="regresijas-analize.html#teoretiskais-pamatojums-5"><i class="fa fa-check"></i><b>10.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="10.2" data-path="regresijas-analize.html"><a href="regresijas-analize.html#dati-1"><i class="fa fa-check"></i><b>10.2</b> Dati</a></li>
+<li class="chapter" data-level="10.3" data-path="regresijas-analize.html"><a href="regresijas-analize.html#paru-regresija"><i class="fa fa-check"></i><b>10.3</b> Pāru regresija</a></li>
+<li class="chapter" data-level="10.4" data-path="regresijas-analize.html"><a href="regresijas-analize.html#regresijas-analizes-pienemumu-parbaude"><i class="fa fa-check"></i><b>10.4</b> Regresijas analīzes pieņēmumu pārbaude</a></li>
+<li class="chapter" data-level="10.5" data-path="regresijas-analize.html"><a href="regresijas-analize.html#vertibu-prognozesana"><i class="fa fa-check"></i><b>10.5</b> Vērtību prognozēšana</a></li>
+<li class="chapter" data-level="10.6" data-path="regresijas-analize.html"><a href="regresijas-analize.html#daudzfaktoru-regresija"><i class="fa fa-check"></i><b>10.6</b> Daudzfaktoru regresija</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html"><i class="fa fa-check"></i><b>11</b> Kovariācijas analīze</a><ul>
+<li class="chapter" data-level="11.1" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#teoretiskais-pamatojums-6"><i class="fa fa-check"></i><b>11.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="11.2" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#dati-2"><i class="fa fa-check"></i><b>11.2</b> Dati</a></li>
+<li class="chapter" data-level="11.3" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#dispersijas-analize-1"><i class="fa fa-check"></i><b>11.3</b> Dispersijas analīze</a></li>
+<li class="chapter" data-level="11.4" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#kvantitativa-mainiga-ieklausana-modeli"><i class="fa fa-check"></i><b>11.4</b> Kvantitatīva mainīgā iekļaušana modelī</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html"><i class="fa fa-check"></i><b>12</b> Vispārinātie lineārie modeļi</a><ul>
+<li class="chapter" data-level="12.1" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#teoretiskais-pamatojums-7"><i class="fa fa-check"></i><b>12.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="12.2" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#dati-3"><i class="fa fa-check"></i><b>12.2</b> Dati</a></li>
+<li class="chapter" data-level="12.3" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#puasona-regresija"><i class="fa fa-check"></i><b>12.3</b> Puasona regresija</a></li>
+<li class="chapter" data-level="12.4" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#binara-logistiska-regresija"><i class="fa fa-check"></i><b>12.4</b> Binārā loģistiskā regresija</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i><b>13</b> Literatūra</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Praktiskā biometrija</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regresijas-analize" class="section level1">
+<h1><span class="header-section-number">10. nodaļa.</span> Regresijas analīze</h1>
+<div id="teoretiskais-pamatojums-5" class="section level2">
+<h2><span class="header-section-number">10.1</span> Teorētiskais pamatojums</h2>
+<p>Vēl jāuzraksta!</p>
+<p>Plašāku pamatojumu, kā arī piemērus par regrijas analīzi var atrast <span class="citation">Faraway (<a href="literatura.html#ref-faraway2005">2005</a>)</span>, <span class="citation">Vittinghoff et al. (<a href="literatura.html#ref-vittinghoff2005">2005</a>)</span>.</p>
+</div>
+<div id="dati-1" class="section level2">
+<h2><span class="header-section-number">10.2</span> Dati</h2>
+<p>Regresijas analīzes piemēram izmantosim datu no datus faila <code>augi2.txt</code>. Šajā failā ir informācija no augu audzēšanas eksperimenta 45 parauglaukumos. No katra parauglaukuma ir informācija par nokrišņu daudzumu jūnijā, jūlija un augustā, kā arī visā augšanas sezonā kopā, vidējais gaismas daudzums sezonā, augsnes pH un kopējā augu biomasa katrā no parauglaukumiem. Izmantojot funkciju <code>summary()</code> var apskatīt visu parametru vērtību izkliedi un raksturojumu.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">augi2&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;augi2.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+<span class="kw">str</span>(augi2)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    45 obs. of  7 variables:
+##  $ jun.nokr: num  78.2 79.7 76 65.7 82.4 92 64.2 40.1 87.5 66.2 ...
+##  $ jul.nokr: num  48.4 80.2 58.8 103.5 37 ...
+##  $ aug.nokr: num  100.3 34.8 79.6 64.4 70.1 ...
+##  $ sezona  : num  276 252 267 279 239 ...
+##  $ gaisma  : int  57 42 77 89 79 89 86 85 93 72 ...
+##  $ pH      : num  7.19 6.69 6.99 6.7 6.56 6.33 7.01 6.38 6.65 6.95 ...
+##  $ biomasa : num  37.2 30.6 36.3 59.9 32.9 44.7 43.7 51.6 53.8 44.3 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(augi2)</code></pre></div>
+<pre><code>##     jun.nokr         jul.nokr        aug.nokr          sezona     
+##  Min.   : 40.10   Min.   : 26.5   Min.   : 34.80   Min.   :170.6  
+##  1st Qu.: 60.10   1st Qu.: 45.5   1st Qu.: 58.90   1st Qu.:221.4  
+##  Median : 73.40   Median : 51.6   Median : 66.90   Median :248.0  
+##  Mean   : 71.66   Mean   : 55.9   Mean   : 67.59   Mean   :244.4  
+##  3rd Qu.: 82.40   3rd Qu.: 66.9   3rd Qu.: 76.40   3rd Qu.:268.0  
+##  Max.   :106.20   Max.   :103.5   Max.   :100.30   Max.   :303.7  
+##      gaisma            pH           biomasa     
+##  Min.   :35.00   Min.   :6.330   Min.   :14.20  
+##  1st Qu.:55.00   1st Qu.:6.630   1st Qu.:32.90  
+##  Median :72.00   Median :6.820   Median :39.50  
+##  Mean   :68.96   Mean   :6.796   Mean   :38.74  
+##  3rd Qu.:85.00   3rd Qu.:7.010   3rd Qu.:44.30  
+##  Max.   :96.00   Max.   :7.190   Max.   :59.90</code></pre>
+</div>
+<div id="paru-regresija" class="section level2">
+<h2><span class="header-section-number">10.3</span> Pāru regresija</h2>
+<p>Lineārās pāru regresijas veikšanai izmanto funkciju <code>lm()</code>, kurai kā pirmo argumentu norāda regresentu jeb atkarīgo mainīgo, tad nāk tildes zīme un viens vai vairāki regresori jeb atkarīgie mainīgie. Ja ir vairāk kā viens regresors, tad tos atdala ar plus zīmi. Kā pēdējais arguments jānorāda datu tabulu, no kuras jāņem dati. Regresijas analīzes rezultātu apskatīšanai jāizmanto funkcija <code>summary()</code>, kurai kā argumentu norāda objektu, kas satur regresijas analīzes modeli. Analīzes rezultātos ir vairākas sadaļas: (a) Residuals: atlikuma vērtību raksturojums; (b) Coefficients: regresijas vienādojuma koeficientu raksturojums - Estimate ir aprēķinātie regresijas vienādojuma koeficienti - (Intercept) - koeficients b0, vērtība pie regresora nosaukuma ir koeficients b1 jeb slīpuma vērtība (slope); Std.Error - koeficientu standartkļūdas, t value - atbilstošā T vērtība katram koeficientam un Pr(&gt;|t|) ir atbilstošā p-vērtība novērtējot katram koeficienta būtiskumu atsevišķi; (c) apakšējā daļā ir visa modeļa kopējais novērtējums - atlikuma standartkļūda un brīvības pakāpju skaits, determinācijas koeficients un pielāgotais determinācijas koeficients, F vērtība un p-vērtība visam modelim kopumā.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod1&lt;-<span class="kw">lm</span>(biomasa~gaisma,<span class="dt">data=</span>augi2)
+<span class="kw">summary</span>(mod1)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = biomasa ~ gaisma, data = augi2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -15.6391  -3.8922  -0.5067   4.5209  14.7037 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 15.10044    3.86300   3.909 0.000324 ***
+## gaisma       0.34276    0.05411   6.334 1.19e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.709 on 43 degrees of freedom
+## Multiple R-squared:  0.4827, Adjusted R-squared:  0.4707 
+## F-statistic: 40.12 on 1 and 43 DF,  p-value: 1.193e-07</code></pre>
+<p><strong>Secinājumi:</strong> iegūtais regresijas modelis ir <code>biomasa=15,10044 + 0.34276*gaisma</code>, tas ir, gaismas daudzumam ir pozitīva ietekme uz biomasas pieaugumu. Gan viss regresijas modelis, gan arī atsevišķi katrs no regresijas koeficientiem šajā gadījumā ir statistiski būtiski, jo atbilstošās p-vērtības ir mazākas par būtiskuma līmeni. Dotais regresijas modelis izskaidro 47,07% no regresenta jeb biomasas vērtību variēšanas.</p>
+<p>Regresijas analīzes rezultātu attēlošanai vai izveidot grafiku, kur reālie novērojumi ir attēloti kā punkti, bet papildus pievienota regresijas taisne (<a href="regresijas-analize.html#fig:regr-004">10.1</a> attēls). Šīs taisnes pievienošanai jāizmanto funkcija <code>abline()</code> kopā ar funkciju <code>lm()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(augi2$biomasa~augi2$gaisma,<span class="dt">xlab=</span><span class="st">&quot;Gaismas daudzums&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Augu biomasa&quot;</span>)
+<span class="kw">abline</span>(<span class="kw">lm</span>(augi2$biomasa~augi2$gaisma))</code></pre></div>
+<div class="figure"><span id="fig:regr-004"></span>
+<img src="PBB_gramata_files/figure-html/regr-004-1.png" alt="Izkliedes grafiks starp pazīmēm gaisma un biomasa ar pievienotu regresijas līkni"  />
+<p class="caption">
+Figure 10.1: Izkliedes grafiks starp pazīmēm gaisma un biomasa ar pievienotu regresijas līkni
+</p>
+</div>
+</div>
+<div id="regresijas-analizes-pienemumu-parbaude" class="section level2">
+<h2><span class="header-section-number">10.4</span> Regresijas analīzes pieņēmumu pārbaude</h2>
+<p>Lai arī regresijas analīzē tiek konstatēts, ka modelis ir statistiski būtisks, tas nav analīzes noslēdzošais posms. Papildus ir jāpārbauda vai tiek ievēroti visi regresijas analīzes pieņēmumi. Viens no veidiem tā paveikšanai ir izmantot grafiskās iespējas. Ja funkcijā <code>plot()</code> kā argumentu norāda regresijas analīzes modeli, tad iegūst četrus diagnosticējošos grafikus. Visu četru grafiku vienlaicīgai apskatīšanai papildus jāizmanto funkcija <code>par()</code> ar argumentu `mfrow=’. Iegūtajos attēlos (<a href="regresijas-analize.html#fig:regr-003">10.2</a> attēls) pirmajā kolonnā ir redzamas atlikuma vērtības attiecībā pret prognozētajām vērtībām un standartizētās atlikuma vērtības attiecībā pret prognozētajām vērtībām. Šajos divos grafikos nedrīkst parādīties nekādas iezīmes, piemēram, trendi, kā arī punktiem ir jābūt nejauši izkārtotiem. Ja ir redzams trends, tas nozīmē, ka ir vēl kāds būtisks faktors, kas nav ņemts vērā. Ja ir vērojama vērtību izkliedes izmaiņas, vai punktu grupēšanās, tad ir problēmas ar dispersiju homogenitāti. Augšējā labējā stūrī ir grafiks, kas parāda standartizēto atlikuma vērtību QQ grafiku. Tas norāda vai atlikuma vērtības atbilst normālajam sadalījumam. Apakšējā labējā stūrī ir grafiks, pēc kura var spriest par katra novērojuma ietekmi uz kopējo modeli. Ja ir kāds punkts, kurš atrodas ārpus raustītajām Cook’s distance līnijām (vērtības virs 0.5 vai virs 1), tad šim novērojumam ir liela ietekme uz kopējo regresijas modeli un tāpēc ir vērts pievērst uzmanību šim novērojumam.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(mod1)</code></pre></div>
+<div class="figure"><span id="fig:regr-003"></span>
+<img src="PBB_gramata_files/figure-html/regr-003-1.png" alt="Regresijas analīzes diagnosticējošie grafiki"  />
+<p class="caption">
+Figure 10.2: Regresijas analīzes diagnosticējošie grafiki
+</p>
+</div>
+<p>Vēl viens no variantiem, ko var pārbaudīt pēc regresijas analīzes, ir atlikuma vērtību izkliede atkarībā no citiem mainīgajiem, kas netika iekļauti modelī (protams, ja ir dati par šiem citiem mainīgajiem). Arī šajos attēlos nevajadzētu redzēt nekādus trendus, vai punktu grupēšanos. <a href="regresijas-analize.html#fig:regr-007">10.3</a> attēlā ir samērā skaidri redzama saistība starp jūnija, jūlija un augusta nokrišņu daudzumu un atlikuma vērtībām, kas nozīmē, ka šo faktoru iekļaušana modelī to varētu uzlabot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">atlikums&lt;-<span class="kw">resid</span>(mod1)
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(atlikums~augi2$jun.nokr)
+<span class="kw">plot</span>(atlikums~augi2$jul.nokr)
+<span class="kw">plot</span>(atlikums~augi2$aug.nokr)
+<span class="kw">plot</span>(atlikums~augi2$pH)</code></pre></div>
+<div class="figure"><span id="fig:regr-007"></span>
+<img src="PBB_gramata_files/figure-html/regr-007-1.png" alt="Izkliedes grafiki starp regresijas modeļa atlikuma vērtībām un modelī neiekļautajiem mainīgajiem"  />
+<p class="caption">
+Figure 10.3: Izkliedes grafiki starp regresijas modeļa atlikuma vērtībām un modelī neiekļautajiem mainīgajiem
+</p>
+</div>
+</div>
+<div id="vertibu-prognozesana" class="section level2">
+<h2><span class="header-section-number">10.5</span> Vērtību prognozēšana</h2>
+<p>Viens no regresijas modeļu pielietojumiem ir jaunu vērtību prognozēšana. Lai to izdarītu, ir jāizmanto funkcija <code>predict()</code>, kurai kā argumentus jānorāda saglabātais regresijas modelis, kā arī datu tabula, kas satur jaunās vērtības. Papildus var iegūt arī ticamības intervālu šīm prognozētajām vērtībām ar argumentu <code>interval=&quot;prediction&quot;</code>. Veidojot jauno datu tabulu ir jāatceras, ka tajā obligāti ir jābūt tādiem pašiem kolonnu nosaukumiem, kādi bija regresijas modelī izmantotie regresoru nosaukumi (tabulā drīkst būt arī citas kolonnas).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">progn&lt;-<span class="kw">data.frame</span>(<span class="dt">gaisma=</span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">50</span>,<span class="dv">100</span>))
+<span class="kw">predict</span>(mod1,progn,<span class="dt">interval=</span><span class="st">&quot;prediction&quot;</span>)</code></pre></div>
+<pre><code>##        fit       lwr      upr
+## 1 18.52802  3.411995 33.64405
+## 2 32.23837 18.404298 46.07245
+## 3 49.37631 35.284476 63.46814</code></pre>
+</div>
+<div id="daudzfaktoru-regresija" class="section level2">
+<h2><span class="header-section-number">10.6</span> Daudzfaktoru regresija</h2>
+<p>Pirmais solis daudzfaktoru regresijas analīzes veikšanai ir pārliecināšanās vai starp regresoriem nepastāv izteikta kolinearitāte (savstarpējā korelācija), jo tas būtu pārkāpums vienam no daudzfaktoru regresijas pieņēmumiem. Šim uzdevumam var izmantot gan grafisko analīzi, piemēram, ar funkciju <code>pairs()</code>, gan arī aprēķināt korelācijas koeficientus analītiski ar funkciju <code>cor()</code>. Gan no <a href="regresijas-analize.html#fig:regr-006">10.4</a> attēla, gan arī no korelācijas analīzes rezultātiem ir redzams, ka ir būtiska saistība starp veģetācijas sezonas kopējo nokrišņu daudzumu un atsevišķu mēnešu nokrišņu daudzumu, tāpēc nebūtu ieteicams vienlaicīgi visus šos mainīgos iekļaut regresijas modelī.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(augi2)</code></pre></div>
+<div class="figure"><span id="fig:regr-006"></span>
+<img src="PBB_gramata_files/figure-html/regr-006-1.png" alt="Izkliedes grafiki starp visiem datu objekta augi2 mainīgajiem"  />
+<p class="caption">
+Figure 10.4: Izkliedes grafiki starp visiem datu objekta augi2 mainīgajiem
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">cor</span>(augi2),<span class="dv">2</span>)</code></pre></div>
+<pre><code>##          jun.nokr jul.nokr aug.nokr sezona gaisma    pH biomasa
+## jun.nokr     1.00     0.11     0.30   0.73   0.22 -0.18   -0.18
+## jul.nokr     0.11     1.00    -0.05   0.57   0.11 -0.05    0.41
+## aug.nokr     0.30    -0.05     1.00   0.60   0.08 -0.11   -0.08
+## sezona       0.73     0.57     0.60   1.00   0.19 -0.19    0.07
+## gaisma       0.22     0.11     0.08   0.19   1.00 -0.08    0.69
+## pH          -0.18    -0.05    -0.11  -0.19  -0.08  1.00   -0.03
+## biomasa     -0.18     0.41    -0.08   0.07   0.69 -0.03    1.00</code></pre>
+<p>Daudzfaktoru regresijas analīzes veikšanai izmanto to pašu funkciju <code>lm()</code>, tikai papildus norāda nevis vienu, bet vairākus regresorus, kas savā starpā ir atdalīti ar plus zīmi. Piemērā apskatīts kā augu biomasu ietekmē pieci regresori.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod2&lt;-<span class="kw">lm</span>(biomasa~gaisma+jun.nokr+jul.nokr+aug.nokr+pH,<span class="dt">data=</span>augi2)
+<span class="kw">summary</span>(mod2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = biomasa ~ gaisma + jun.nokr + jul.nokr + aug.nokr + 
+##     pH, data = augi2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -10.054  -3.449  -1.333   3.439   8.766 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 22.955554  21.640357   1.061 0.295317    
+## gaisma       0.361933   0.042487   8.519 1.95e-10 ***
+## jun.nokr    -0.221332   0.052954  -4.180 0.000159 ***
+## jul.nokr     0.200221   0.046717   4.286 0.000115 ***
+## aug.nokr    -0.001512   0.055002  -0.027 0.978213    
+## pH          -0.648601   2.942489  -0.220 0.826689    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.115 on 39 degrees of freedom
+## Multiple R-squared:  0.7273, Adjusted R-squared:  0.6923 
+## F-statistic:  20.8 on 5 and 39 DF,  p-value: 4.495e-10</code></pre>
+<p><strong>Secinājumi:</strong> kopējais regresijas modelis ir būtisks, jo p-vērtība ir mazāka par būtiskuma līmeni. Šis modelis spēj izskaidrot 69,23% no biomasas vērtību variēšanas. Tomēr apskatot katru no regresoriem atsevišķi, redzams, ka augsta nokrišņu daudzuma un augsnes pH koeficienti nav būtiski.</p>
+<p>Šajā gadījumā ir iespējami vairāki risinājumi, piemēram, apstāties pie šiem rezultātiem, vai arī veidot jaunu modeli, kurā ir izņemti nebūtiskie faktori. Katrai no pieejām ir savi piekritēji un savi kritiķi. Jāatceras, ka katra koeficienta vērtība modelī ir atkarīga no pārējiem regresoriem, kas ir iekļauti šajā modelī. Šoreiz izmantosim pieeju, ka nepieciešams izveidot modeli, kurā visi koeficienti ir būtiski, tāpēc pakāpeniski ņemsim ārā nebūtiskos regresorus. Kā pirmo izslēgsim augusta nokrišņu summu, jo šim regresoram ir vislielākā p-vērtība (0,978).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod3&lt;-<span class="kw">lm</span>(biomasa~gaisma+jun.nokr+jul.nokr+pH,<span class="dt">data=</span>augi2)
+<span class="kw">summary</span>(mod3)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = biomasa ~ gaisma + jun.nokr + jul.nokr + pH, data = augi2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -10.057  -3.453  -1.302   3.459   8.742 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 22.84355   20.98606   1.089    0.283    
+## gaisma       0.36191    0.04194   8.629 1.13e-10 ***
+## jun.nokr    -0.22175    0.05010  -4.426 7.22e-05 ***
+## jul.nokr     0.20034    0.04592   4.362 8.79e-05 ***
+## pH          -0.64350    2.89971  -0.222    0.826    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.05 on 40 degrees of freedom
+## Multiple R-squared:  0.7273, Adjusted R-squared:    0.7 
+## F-statistic: 26.67 on 4 and 40 DF,  p-value: 8.057e-11</code></pre>
+<p><strong>Secinājumi:</strong> Arī šis modelis kopumā ir statistiski būtisks, turklāt tam ir nedaudz lielāka izskaidrotā variācija (70,0%). Tomēr pH ietekme joprojām nav būtiska, tāpēc veidojam jaunu modeli.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod4&lt;-<span class="kw">lm</span>(biomasa~gaisma+jun.nokr+jul.nokr,<span class="dt">data=</span>augi2)
+<span class="kw">summary</span>(mod4)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = biomasa ~ gaisma + jun.nokr + jul.nokr, data = augi2)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -9.972 -3.318 -1.039  3.191  9.003 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 18.29813    4.51651   4.051 0.000221 ***
+## gaisma       0.36229    0.04142   8.747 6.40e-11 ***
+## jun.nokr    -0.21996    0.04888  -4.500 5.50e-05 ***
+## jul.nokr     0.20066    0.04537   4.423 7.01e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.991 on 41 degrees of freedom
+## Multiple R-squared:  0.7269, Adjusted R-squared:  0.707 
+## F-statistic: 36.38 on 3 and 41 DF,  p-value: 1.242e-11</code></pre>
+<p><strong>Secinājumi:</strong> pēdējā modelī visi atsevišķie koeficienti ir statistiski būtiski, kā arī būtisks ir viss modelis kopā. Izskaidrotā variācija ir 70,7%. Apskatot koeficientu vērtības, var secināt, ka gaismas daudzuma un jūlija nokrišņu daudzuma ietekme ir pozitīva, bet jūnija nokrišņu ietekme ir negatīva.</p>
+<p>Lai salīdzinātu divus vai vairākus modeļus (ar kopīgu regresentu) savā starpā, var izmantot AIC rādītāju, ko aprēķina ar funkciju <code>AIC()</code>. Salīdzinot modeļus, labāks modelis ir tas, kura AIC vērtība ir mazāka. Šajā gadījumā mazākā AIC vērtība ir mod4, kurā bija iekļauti tikai trīs būtiskie regresori.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AIC</span>(mod2,mod4)</code></pre></div>
+<pre><code>##      df      AIC
+## mod2  7 282.1547
+## mod4  5 278.2109</code></pre>
+<p>Pārbaudot labāko modeli ar diagnosticējošiem grafikiem (<a href="regresijas-analize.html#fig:regr-012">10.5</a> attēls), varam izdarīt secinājumu, ka atlikuma vērtības atbilst normālajam sadalījumam, kā arī modelī nav ietekmīgu novērojumu.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(mod4)</code></pre></div>
+<div class="figure"><span id="fig:regr-012"></span>
+<img src="PBB_gramata_files/figure-html/regr-012-1.png" alt="Regresijas analīzes diagnosticējošie grafiki"  />
+<p class="caption">
+Figure 10.5: Regresijas analīzes diagnosticējošie grafiki
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="korelacijas-analize.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kovariacijas-analize.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+</body>
+
+</html>

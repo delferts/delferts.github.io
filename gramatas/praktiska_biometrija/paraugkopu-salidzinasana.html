@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Praktiskā biometrija</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
+  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Praktiskā biometrija" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktiskā biometrija" />
+  
+  <meta name="twitter:description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā." />
+  
+
+<meta name="author" content="Didzis Elferts">
+
+<meta name="date" content="2016-04-05">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="statistiskie-raditaji-un-ticamibas-intervali.html">
+<link rel="next" href="dispersijas-analize.html">
+
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p>Praktiskā biometrija</p></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Ievads</a></li>
+<li class="chapter" data-level="2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html"><i class="fa fa-check"></i><b>2</b> Biometrija un datu analīze</a><ul>
+<li class="chapter" data-level="2.1" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#kas-ir-biometrija"><i class="fa fa-check"></i><b>2.1</b> Kas ir biometrija?</a></li>
+<li class="chapter" data-level="2.2" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#paraugkopa-un-generalkopa"><i class="fa fa-check"></i><b>2.2</b> Paraugkopa un ģenerālkopa</a></li>
+<li class="chapter" data-level="2.3" data-path="biometrija-un-datu-analize.html"><a href="biometrija-un-datu-analize.html#hipotezu-parbaude"><i class="fa fa-check"></i><b>2.3</b> Hipotēžu pārbaude</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html"><i class="fa fa-check"></i><b>3</b> Ievads darbā ar programmu R</a><ul>
+<li class="chapter" data-level="3.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kas-ir-programma-r-un-ka-uzsakt-darbu"><i class="fa fa-check"></i><b>3.1</b> Kas ir programma R un kā uzsākt darbu?</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-vide"><i class="fa fa-check"></i><b>3.1.1</b> R vide</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#r-instalacija-un-papildus-paketes"><i class="fa fa-check"></i><b>3.1.2</b> R instalācija un papildus paketes</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#palidzibas-iegusana"><i class="fa fa-check"></i><b>3.1.3</b> Palīdzības iegūšana</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-r"><i class="fa fa-check"></i><b>3.2</b> Darbs ar R</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#komandu-veidosana"><i class="fa fa-check"></i><b>3.2.1</b> Komandu veidošana</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#kalkulators"><i class="fa fa-check"></i><b>3.2.2</b> Kalkulators</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-veidi"><i class="fa fa-check"></i><b>3.2.3</b> Datu veidi</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-strukturas"><i class="fa fa-check"></i><b>3.2.4</b> Datu struktūras</a></li>
+<li class="chapter" data-level="3.2.5" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-importesana"><i class="fa fa-check"></i><b>3.2.5</b> Datu importēšana</a></li>
+<li class="chapter" data-level="3.2.6" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#datu-eksportesana"><i class="fa fa-check"></i><b>3.2.6</b> Datu eksportēšana</a></li>
+<li class="chapter" data-level="3.2.7" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darbs-ar-datiem"><i class="fa fa-check"></i><b>3.2.7</b> Darbs ar datiem</a></li>
+<li class="chapter" data-level="3.2.8" data-path="ievads-darba-ar-programmu-r.html"><a href="ievads-darba-ar-programmu-r.html#darba-vides-sakartosana"><i class="fa fa-check"></i><b>3.2.8</b> Darba vides sakārtošana</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html"><i class="fa fa-check"></i><b>4</b> Grafiskās iespējas programmā R</a><ul>
+<li class="chapter" data-level="4.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#pamatgrafiki"><i class="fa fa-check"></i><b>4.1</b> Pamatgrafiki</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot"><i class="fa fa-check"></i><b>4.1.1</b> plot()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#boxplot"><i class="fa fa-check"></i><b>4.1.2</b> boxplot()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#hist"><i class="fa fa-check"></i><b>4.1.3</b> hist()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#barplot"><i class="fa fa-check"></i><b>4.1.4</b> barplot()</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#dati-grafiku-veidosanai"><i class="fa fa-check"></i><b>4.2</b> Dati grafiku veidošanai</a></li>
+<li class="chapter" data-level="4.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-parametru-noteiksana"><i class="fa fa-check"></i><b>4.3</b> Grafiku parametru noteikšana</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-izvietojums-lapa"><i class="fa fa-check"></i><b>4.3.1</b> Grafiku izvietojums lapā</a></li>
+<li class="chapter" data-level="4.3.2" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#plot-grafiku-tipi"><i class="fa fa-check"></i><b>4.3.2</b> plot() grafiku tipi</a></li>
+<li class="chapter" data-level="4.3.3" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#liniju-parametri"><i class="fa fa-check"></i><b>4.3.3</b> Līniju parametri</a></li>
+<li class="chapter" data-level="4.3.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#simbolu-veidi"><i class="fa fa-check"></i><b>4.3.4</b> Simbolu veidi</a></li>
+<li class="chapter" data-level="4.3.5" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#virsraksti-un-teksti-pie-asim"><i class="fa fa-check"></i><b>4.3.5</b> Virsraksti un teksti pie asīm</a></li>
+<li class="chapter" data-level="4.3.6" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#teksts-grafika-ieksiene"><i class="fa fa-check"></i><b>4.3.6</b> Teksts grafika iekšienē</a></li>
+<li class="chapter" data-level="4.3.7" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#tekstu-parametri"><i class="fa fa-check"></i><b>4.3.7</b> Tekstu parametri</a></li>
+<li class="chapter" data-level="4.3.8" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#asis"><i class="fa fa-check"></i><b>4.3.8</b> Asis</a></li>
+<li class="chapter" data-level="4.3.9" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#divas-y-asis"><i class="fa fa-check"></i><b>4.3.9</b> Divas y asis</a></li>
+<li class="chapter" data-level="4.3.10" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#krasas"><i class="fa fa-check"></i><b>4.3.10</b> Krāsas</a></li>
+<li class="chapter" data-level="4.3.11" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#legenda"><i class="fa fa-check"></i><b>4.3.11</b> Leģenda</a></li>
+<li class="chapter" data-level="4.3.12" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#linijas-grafikos"><i class="fa fa-check"></i><b>4.3.12</b> Līnijas grafikos</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="grafiskas-iespejas-programma-r.html"><a href="grafiskas-iespejas-programma-r.html#grafiku-saglabasana"><i class="fa fa-check"></i><b>4.4</b> Grafiku saglabāšana</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html"><i class="fa fa-check"></i><b>5</b> Datu izzināšana un normalitātes testi</a><ul>
+<li class="chapter" data-level="5.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#datu-izzinasana"><i class="fa fa-check"></i><b>5.1</b> Datu izzināšana</a></li>
+<li class="chapter" data-level="5.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#normalitates-testi"><i class="fa fa-check"></i><b>5.2</b> Normalitātes testi</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#grafiska-analize"><i class="fa fa-check"></i><b>5.2.1</b> Grafiskā analīze</a></li>
+<li class="chapter" data-level="5.2.2" data-path="datu-izzinasana-un-normalitates-testi.html"><a href="datu-izzinasana-un-normalitates-testi.html#analitiska-analize"><i class="fa fa-check"></i><b>5.2.2</b> Analītiskā analīze</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html"><i class="fa fa-check"></i><b>6</b> Statistiskie rādītāji un ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistiskie-raditaji"><i class="fa fa-check"></i><b>6.1</b> Statistiskie rādītāji</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums"><i class="fa fa-check"></i><b>6.1.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.1.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#statistisko-raditaju-aprekinasana-programma-r"><i class="fa fa-check"></i><b>6.1.2</b> Statistisko rādītāju aprēķināšana programmā R</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervali"><i class="fa fa-check"></i><b>6.2</b> Ticamības intervāli</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#teoretiskais-pamatojums-1"><i class="fa fa-check"></i><b>6.2.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-aprekinasana"><i class="fa fa-check"></i><b>6.2.2</b> Ticamības intervālu aprēķināšana</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#bootstrap-ticamibas-intervali"><i class="fa fa-check"></i><b>6.2.3</b> Bootstrap ticamības intervāli</a></li>
+<li class="chapter" data-level="6.2.4" data-path="statistiskie-raditaji-un-ticamibas-intervali.html"><a href="statistiskie-raditaji-un-ticamibas-intervali.html#ticamibas-intervalu-grafiskais-attelojums"><i class="fa fa-check"></i><b>6.2.4</b> Ticamības intervālu grafiskais attēlojums</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html"><i class="fa fa-check"></i><b>7</b> Paraugkopu salīdzināšana</a><ul>
+<li class="chapter" data-level="7.1" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#teoretiskais-pamatojums-2"><i class="fa fa-check"></i><b>7.1</b> Teorētiskais pamatojums</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#t-tests"><i class="fa fa-check"></i><b>7.1.1</b> T-tests</a></li>
+<li class="chapter" data-level="7.1.2" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#dispersiju-salidzinasana"><i class="fa fa-check"></i><b>7.1.2</b> Dispersiju salīdzināšana</a></li>
+<li class="chapter" data-level="7.1.3" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#wilcoxon-tests-neatkarigiem-noverojumiem"><i class="fa fa-check"></i><b>7.1.3</b> Wilcoxon tests neatkarīgiem novērojumiem</a></li>
+<li class="chapter" data-level="7.1.4" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#wilcoxon-tests-atkarigiem-noverojumiem"><i class="fa fa-check"></i><b>7.1.4</b> Wilcoxon tests atkarīgiem novērojumiem</a></li>
+<li class="chapter" data-level="7.1.5" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#chi2-tests"><i class="fa fa-check"></i><b>7.1.5</b> <span class="math inline">\(\chi^2\)</span> tests</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#paraugkopu-salidzinasana-programma-r"><i class="fa fa-check"></i><b>7.2</b> Paraugkopu salīdzināšana programmā R</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#datu-sagatavosana"><i class="fa fa-check"></i><b>7.2.1</b> Datu sagatavošana</a></li>
+<li class="chapter" data-level="7.2.2" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#divu-neatkarigu-paraugkopu-salidzinasana-ar-parametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.2</b> Divu neatkarīgu paraugkopu salīdzināšana ar parametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.3" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#vairaku-neatkarigu-paraugkopu-salidzinasana-ar-parametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.3</b> Vairāku neatkarīgu paraugkopu salīdzināšana ar parametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.4" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#atkarigu-paraugkopu-salidzinasana-ar-parametriskam-metodem"><i class="fa fa-check"></i><b>7.2.4</b> Atkarīgu paraugkopu salīdzināšana ar parametriskām metodēm</a></li>
+<li class="chapter" data-level="7.2.5" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#vienas-paraugkopas-t-tests"><i class="fa fa-check"></i><b>7.2.5</b> Vienas paraugkopas t-tests</a></li>
+<li class="chapter" data-level="7.2.6" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#divu-neatkarigu-paraugkopu-salidzinasana-ar-neparametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.6</b> Divu neatkarīgu paraugkopu salīdzināšana ar neparametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.7" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#divu-atkarigu-paraugkopu-salidzinasana-ar-neparametriskajam-metodem"><i class="fa fa-check"></i><b>7.2.7</b> Divu atkarīgu paraugkopu salīdzināšana ar neparametriskajām metodēm</a></li>
+<li class="chapter" data-level="7.2.8" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#chi2-tests-1"><i class="fa fa-check"></i><b>7.2.8</b> <span class="math inline">\(\chi^2\)</span> tests</a></li>
+<li class="chapter" data-level="7.2.9" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#paraugkopu-grafiska-salidzinasana"><i class="fa fa-check"></i><b>7.2.9</b> Paraugkopu grafiskā salīdzināšana</a></li>
+<li class="chapter" data-level="7.2.10" data-path="paraugkopu-salidzinasana.html"><a href="paraugkopu-salidzinasana.html#permutaciju-un-randomizesanas-tests-paraugkopu-salidzinasanai"><i class="fa fa-check"></i><b>7.2.10</b> Permutāciju un randomizēšanas tests paraugkopu salīdzināšanai</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html"><i class="fa fa-check"></i><b>8</b> Dispersijas analīze</a><ul>
+<li class="chapter" data-level="8.1" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#teoretiskais-pamatojums-3"><i class="fa fa-check"></i><b>8.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="8.2" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#dati"><i class="fa fa-check"></i><b>8.2</b> Dati</a></li>
+<li class="chapter" data-level="8.3" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#dispersiju-homogenitate"><i class="fa fa-check"></i><b>8.3</b> Dispersiju homogenitāte</a></li>
+<li class="chapter" data-level="8.4" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#modelu-definesana"><i class="fa fa-check"></i><b>8.4</b> Modeļu definēšana</a></li>
+<li class="chapter" data-level="8.5" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#gradacijas-klasu-salidzinasana"><i class="fa fa-check"></i><b>8.5</b> Gradācijas klašu salīdzināšana</a></li>
+<li class="chapter" data-level="8.6" data-path="dispersijas-analize.html"><a href="dispersijas-analize.html#rezultatu-grafiska-attelosana"><i class="fa fa-check"></i><b>8.6</b> Rezultātu grafiskā attēlošana</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html"><i class="fa fa-check"></i><b>9</b> Korelācijas analīze</a><ul>
+<li class="chapter" data-level="9.1" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#teoretiskais-pamatojums-4"><i class="fa fa-check"></i><b>9.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="9.2" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#korelacijas-analize-programma-r"><i class="fa fa-check"></i><b>9.2</b> Korelācijas analīze programmā R</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#grafiska-parbaude"><i class="fa fa-check"></i><b>9.2.1</b> Grafiskā pārbaude</a></li>
+<li class="chapter" data-level="9.2.2" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#pirsona-korelacijas-analize"><i class="fa fa-check"></i><b>9.2.2</b> Pīrsona korelācijas analīze</a></li>
+<li class="chapter" data-level="9.2.3" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#rangu-korelacijas-analize"><i class="fa fa-check"></i><b>9.2.3</b> Rangu korelācijas analīze</a></li>
+<li class="chapter" data-level="9.2.4" data-path="korelacijas-analize.html"><a href="korelacijas-analize.html#autokorelacija"><i class="fa fa-check"></i><b>9.2.4</b> Autokorelācija</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regresijas-analize.html"><a href="regresijas-analize.html"><i class="fa fa-check"></i><b>10</b> Regresijas analīze</a><ul>
+<li class="chapter" data-level="10.1" data-path="regresijas-analize.html"><a href="regresijas-analize.html#teoretiskais-pamatojums-5"><i class="fa fa-check"></i><b>10.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="10.2" data-path="regresijas-analize.html"><a href="regresijas-analize.html#dati-1"><i class="fa fa-check"></i><b>10.2</b> Dati</a></li>
+<li class="chapter" data-level="10.3" data-path="regresijas-analize.html"><a href="regresijas-analize.html#paru-regresija"><i class="fa fa-check"></i><b>10.3</b> Pāru regresija</a></li>
+<li class="chapter" data-level="10.4" data-path="regresijas-analize.html"><a href="regresijas-analize.html#regresijas-analizes-pienemumu-parbaude"><i class="fa fa-check"></i><b>10.4</b> Regresijas analīzes pieņēmumu pārbaude</a></li>
+<li class="chapter" data-level="10.5" data-path="regresijas-analize.html"><a href="regresijas-analize.html#vertibu-prognozesana"><i class="fa fa-check"></i><b>10.5</b> Vērtību prognozēšana</a></li>
+<li class="chapter" data-level="10.6" data-path="regresijas-analize.html"><a href="regresijas-analize.html#daudzfaktoru-regresija"><i class="fa fa-check"></i><b>10.6</b> Daudzfaktoru regresija</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html"><i class="fa fa-check"></i><b>11</b> Kovariācijas analīze</a><ul>
+<li class="chapter" data-level="11.1" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#teoretiskais-pamatojums-6"><i class="fa fa-check"></i><b>11.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="11.2" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#dati-2"><i class="fa fa-check"></i><b>11.2</b> Dati</a></li>
+<li class="chapter" data-level="11.3" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#dispersijas-analize-1"><i class="fa fa-check"></i><b>11.3</b> Dispersijas analīze</a></li>
+<li class="chapter" data-level="11.4" data-path="kovariacijas-analize.html"><a href="kovariacijas-analize.html#kvantitativa-mainiga-ieklausana-modeli"><i class="fa fa-check"></i><b>11.4</b> Kvantitatīva mainīgā iekļaušana modelī</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html"><i class="fa fa-check"></i><b>12</b> Vispārinātie lineārie modeļi</a><ul>
+<li class="chapter" data-level="12.1" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#teoretiskais-pamatojums-7"><i class="fa fa-check"></i><b>12.1</b> Teorētiskais pamatojums</a></li>
+<li class="chapter" data-level="12.2" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#dati-3"><i class="fa fa-check"></i><b>12.2</b> Dati</a></li>
+<li class="chapter" data-level="12.3" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#puasona-regresija"><i class="fa fa-check"></i><b>12.3</b> Puasona regresija</a></li>
+<li class="chapter" data-level="12.4" data-path="visparinatie-linearie-modeli.html"><a href="visparinatie-linearie-modeli.html#binara-logistiska-regresija"><i class="fa fa-check"></i><b>12.4</b> Binārā loģistiskā regresija</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i><b>13</b> Literatūra</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Praktiskā biometrija</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="paraugkopu-salidzinasana" class="section level1">
+<h1><span class="header-section-number">7. nodaļa.</span> Paraugkopu salīdzināšana</h1>
+<div id="teoretiskais-pamatojums-2" class="section level2">
+<h2><span class="header-section-number">7.1</span> Teorētiskais pamatojums</h2>
+<p>Viens no biežākajiem uzdevumiem eksperimentos vai pētījumos, ir salīdzināt divu vai vairāku paraugkopu datus savā starpā, lai varētu izdarīt secinājumus par to līdzību vai atšķirību. Piemēri varētu būt augu biomasas salīdzināšana starp divām augšanas vietām, mātīšu un tēviņu proporcijas salīdzināšana starp divām populācijām, utt. Paraugkopu salīdzināšanai ir jāizvēlas pareizās metodes, jo katram datu veidam atbilstošāks kāds konkrēts tests. Pirmais dalījums statistiskajiem testiem ir parametriskajās un neparametriskajās metodēs. Parametriskās metodes pieņem, ka dati nāk no ģenerālkopas, kas normālajam sadalījumam, toties neparemetriskajiem testiem normalitāte nav būtiska. Parametriskās metodes strādā ar novērojumu vērtībām, bet neparemetriskās metodes ar šo vērtību rangiem, tāpēc parametriskās vērtības parasti ir jutīgas pret ekstrēmām vērtībām. Kā svarīgākās paramtriskās metodes paraugkopu salīdzināšanai jāizceļ T-tests, F-tests un Levena tests. No neparametriskajiem testiem jāmin Mann-Whitney-Wilcoxon tests un Wilcoxon tests atkarīgiem novērojumiem. Kvalitatīvu (kategorijas) datu analīzei būtiskākais tests ir <span class="math inline">\(\chi^2\)</span> tests.</p>
+<div id="t-tests" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> T-tests</h3>
+<p>Visbiežāk lietotais tests divu paraugkopu salīdzināšanai ir T-tests jeb Stjūdenta t-tests. Tomēr pirms šī tests pielietošanas ir jāņem vērā vairāki tā pieņēmumi:</p>
+<ul>
+<li>Paraugkopas dati nāk no ģenerālkopas, kas atbilst normālajam sadalījumam. Nelielas nobīdes no normālā sadalījuma varētu neietekmēt rezultātu interpetāciju, bet jāņem vērā, ka tests ir ļoti jutīgs pret ekstrēmām vērtībām.</li>
+<li>Paraugkopu dispersijas ir homogēnas (līdzīgas). Ja dispersijas ir atšķirīgas, tad var izmantot T-testu ar Welch modifikāciju.</li>
+<li>Paraugkopu novērojumi ir neatkarīgi. Ja paraugkopu novērojumi ir atkarīgi, tad jāizmanto speciāla T-testa modifikācija atkarīgiem novērojumiem.</li>
+</ul>
+<p>T-testa gadījumā Nulles hipotēze apgalvo, ka starp divu paraugkopu vidējie aritmētiskie ir vienādi (to starpība ir 0). Testa veikšanai aprēķina lielumu t (\ref{eq:tte}), ko pēc tam salīdzina ar teorētiski sagaidāmo t vērtību no Stjūdenta sadalījuma pie noteiktā brīvības pakāpju skaita.</p>
+\begin{equation}
+t=\frac{\overline{X_1}-\overline{X_2}}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}
+\label{eq:tte}
+\end{equation}
+<p>, kur <span class="math inline">\(\overline{X_1}\)</span> un <span class="math inline">\(\overline{X_2}\)</span> - pirmās un otrās paraugkopas vidējie aritmētiskie, <span class="math inline">\(s_1^2\)</span> un <span class="math inline">\(s_2^2\)</span> - pirmās un otrās paraugkopas dispersijas, <span class="math inline">\(n_1\)</span> un <span class="math inline">\(n_2\)</span> - pirmās un otrās paraugkopas paraugkopas apjoms.</p>
+<p>Nulles hipotēze ir spēkā, ja <span class="math inline">\(t_{n_1+n_2-2,\alpha/2}&lt;t&lt;t_{n_1+n_2-2,1-\alpha/2}\)</span>, vai arī, ja testā iegūtā p-vērtība ir lielāka par noteikto <span class="math inline">\(\alpha\)</span> vērtību. Pretējā gadījumā ir jāakceptē alternatīvā hipotēze par to, ka pastāv statistiski būtiska atšķirība starp abu paraugkopu vidējiem aritmētiskajiem.</p>
+<div id="t-tests-atkarigam-paraugkopam" class="section level4">
+<h4><span class="header-section-number">7.1.1.1</span> T-tests atkarīgām paraugkopām</h4>
+Gadījumos, ja paraugkopas savā starpā ir atkarīgas vai saistītas, tad ir jāizmanto tam pielāgots t-tests (\ref{eq:tteatk}). Piemēri atkarīgām vai saistītām paraugkopām būtu, vienu un to pašu cilvēku asinsspiediens pirms un pēc fiziskās slodzes, vai arī asinsspiedens labajā un kreisajā rokā tiem pašiem cilvēkiem. Saistītu pāru dati būtu bērna un vecāka asinsspiedieni vairākiem šādiem pāriem. Atkarīgu paraugkopu gadījumā ir jāaprēķina starpības starp katriem diviem atkarīgajiem/saistītajiem novērojumiem - d. Nulles hipotēze apgalvo, ka vidējā starpība starp pāriem ir vienāda ar 0.
+\begin{equation}
+t=\frac{\overline{d}}{s_d/\sqrt{n}}
+\label{eq:tteatk}
+\end{equation}
+<p>,kur <span class="math inline">\(\overline{d}\)</span> - vidējā vērtība pāru starpībām, n - pāru skaits, <span class="math inline">\(s_d\)</span> - pāru starpības standartnovirze, kuru aprēķina pēc formulas <span class="math inline">\(s_d=\sqrt{\sum(d_i-\overline{d})^2/(n-1)}\)</span>.</p>
+<p>Nulles hipotēze ir spēkā, ja <span class="math inline">\(t_{n-1,\alpha/2}&lt;t&lt;t_{n-1,1-\alpha/2}\)</span>, vai arī, ja testā iegūtā p-vērtība ir lielāka par noteikto <span class="math inline">\(\alpha\)</span> vērtību. Pretējā gadījumā ir jāakceptē alternatīvā hipotēze par to, ka atkarīgo/saistīto pāru vidējā starpība būtiski atšķiras no 0.</p>
+</div>
+<div id="t-tests-vienai-paraugkopai" class="section level4">
+<h4><span class="header-section-number">7.1.1.2</span> T-tests vienai paraugkopai</h4>
+T-testu ir iespējams ir iespējams veikt arī vienai paraugkopai, ja merķis ir noskaidrot vai paraugkopas vidējais aritmētiskais ir vienāds ar iepriekš zināmi vidējā aritmētiskā vērtību (ģenerālkopas) vidējais aritmētiskais). Šajā gadījumā izmanto modificētu T-testa formulu ().
+\begin{equation}\label{ttevie}
+t=\frac{\overline{x}-\mu}{\frac{s}{\sqrt(n)}}
+\end{equation}
+<p>,kur <span class="math inline">\(\overline{x}\)</span> – paraugkopas vidējais aritmētiskais, <span class="math inline">\(\mu\)</span> – ģenerālkopas vidējais aritmētiskais, s – paraugkopas standartonivrze, n – paraugkopas novērojumu skaits.</p>
+<p>Nulles hipotēze ir spēkā, ja <span class="math inline">\(t_{n-1,\alpha/2}&lt;t&lt;t_{n-1,1-\alpha/2}\)</span>, vai arī, ja testā iegūtā p-vērtība ir lielāka par noteikto <span class="math inline">\(\alpha\)</span> vērtību. Pretējā gadījumā ir jāakceptē alternatīvā hipotēze par to, ka pastāv statistiski būtiska atšķirība starp paraugkopas un ģenerālkopas vidējiem aritmētiskajiem.</p>
+</div>
+</div>
+<div id="dispersiju-salidzinasana" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Dispersiju salīdzināšana</h3>
+Lai salīdzinātu variēšanu (dispersiju) starp divām paraugkopām, biežāk izmantotais tests ir F-tests (\ref{eq:Ftes}). Nulles hipotēze šajā gadījumā apgalvo, ka divām paraugkopām variēšana (dispersija) ir vienāda. Nulles hipotēzes pārbaudīšanai, iegūta F vērtība tiek salīdzināta ar teorētisko F vērtību no atbilstošā sadalījuma. F testa pieņēmums ir, ka paraugkopu dati atbilst normālajam sadalījumam. Attiecīgi uz testa rezultātiem ir jāskatās uzmanīgi, ja atbilstība normālajam sadalījumam ir aptuvena.
+\begin{equation}
+F=\frac{s_1^2}{s_2^2}
+\label{eq:Ftes}
+\end{equation}
+<p>,kur <span class="math inline">\(s_1^2\)</span> un <span class="math inline">\(s_2^2\)</span> attiecīgi pirmās un otrās paraugkopas dispersijas.</p>
+<p>Nulles hipotēze ir spēkā, ja <span class="math inline">\(F_{n_1-1,n_2-1,\alpha/2}&lt;F&lt;F_{n_1-1,n_2-1,1-\alpha/2}\)</span>, vai arī, ja testā iegūtā p-vērtība ir lielāka par noteikto <span class="math inline">\(\alpha\)</span> vērtību. Pretējā gadījumā ir jāakceptē alternatīvā hipotēze par to, ka pastāv statistiski būtiska atšķirība starp paraugkopu dispersijām.</p>
+<p>Gadījumā, ja ir jāsalīdzina vairāk kā divu paraugkopu dispersijas, tad var izmantot, piemēram, Levene testu. Šī testa priekšrocība ir tā, ka datiem nav jāseko normālajam sadalījumam.</p>
+</div>
+<div id="wilcoxon-tests-neatkarigiem-noverojumiem" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Wilcoxon tests neatkarīgiem novērojumiem</h3>
+<p>Gadījumos, ja dati neatbilst normālajam sadalījumam, bet nepieciešams salīdzināt vērtības starp divām paraugkopām, var izmantot neparmetrisko Mann-Whitney-Wilcox testu, sauktu arī par Mann-Whitney U testu, vai arī Wilcoxon testu neatkarīgiem novērojumiem. Testam ir divi galvenie pieņēmumi: (a) novērojumi abās paraugkopas ir neatkarīgi; (b) novērojumu datus ir iespējams saranžēt (sakārtot no augošā/dilstošā secībā).</p>
+<p>Testu pamatā ir vērtību sarenžēšana starp abām paraugkopām un šo rangu salīdzināšana. Nulles hipotēze apgalvo, ka starp abām paraugkopām rangu izvietojums ir nejauš un šīs paraugkopas ir līdzīgas (to mediānas ir vienādas).</p>
+<p>Lai pārbaudīti Nulles hipotēzi, tiek saskaitīti rangi mazākajā paraugkopā –T. Ja nulles hipotēze ir spēkā, tad T piederēs pie normālā sadalījuma ar vidējo vērtību <span class="math inline">\(n_1 \overline{R}\)</span> un standartnovirzi <span class="math inline">\(s_R\)</span>, kur <span class="math inline">\(\overline{R}\)</span> ir vidējā rangu vērtība, <span class="math inline">\(n_1\)</span> un <span class="math inline">\(n_2\)</span> - pirmās un otrās paraugkopas apjoms.</p>
+</div>
+<div id="wilcoxon-tests-atkarigiem-noverojumiem" class="section level3">
+<h3><span class="header-section-number">7.1.4</span> Wilcoxon tests atkarīgiem novērojumiem</h3>
+<p>Īpaša Wilcoxon testa formula ir jāizmanto gadījumos, ja dati starp abām paraugkopām ir atkarīgas. Šajā gadījumā ranžētas tiek novērojumu starpības (to absolūtās vērtības), nevis paši novērojumi.</p>
+</div>
+<div id="chi2-tests" class="section level3">
+<h3><span class="header-section-number">7.1.5</span> <span class="math inline">\(\chi^2\)</span> tests</h3>
+<p><span class="math inline">\(\chi^2\)</span> testu izmanto gadījumos, ja jāparbauda kvalitatīvu (kategorijas) datu atbilstību iepriekš zināmam sadalījumam, vai arī jāsalīdzina savā starpā kvalitātīvu datu paraugkopas. Piemēri kvalitatīviem datiem būtu mātīšu un tēviņu skaits populācijā, zirņu pazīmju attiecībā ģenētiskos pētījumos. Visos gadījumos no sākuma dati ir jāapkopo pa kategorijām, jāiegūst empīriskais sadalījums.</p>
+<p>Testam ir vairāki pieņēmumi: (a) paraugkopas apjoms ir pietiekami liels (diemžēl nav vienota viedokļa, bet vēlams būtu tuvu vismaz 100); (b) pietiekami liels novērojumu skaits katrā “šūnā” - ja ir 2*2 tabula, tad vismaz 5 novērojumi katrā šūnā, ja lielāka tabula, tad vismaz 80% šūnu jābūt vismaz 5 novērojumiem. Ja šos pieņēmumus nav iespējams izpildīt, tad jāizmanto precīzāki testi.</p>
+<div id="atbilstiba-sadalijumam" class="section level4">
+<h4><span class="header-section-number">7.1.5.1</span> Atbilstība sadalījumam</h4>
+Ja ir nepieciešams pārbaudīt empīriskā sadalījuma atbilstību sagaidāmajam sadalījumam, tad Nulles hipotēze apgalvos, ka empīriskias sadalījums atbilst sagaidāmajam sadalījumam (starp tiem nav atšķirības). Nulles hipotēzes pārbaudīšanai ir jāaprēķina <span class="math inline">\(\chi^2\)</span> vērtība (\ref{eq:chisad}) un jāsalīdzina to ar teorētisko vērtību.
+\begin{equation}
+\chi^2=\sum\limits_{i=1}^n \frac{(O_i-E_i)^2}{E_i}
+\label{eq:chisad}
+\end{equation}
+<p>, kur <span class="math inline">\(O_i\)</span> - empīriskā (novērotā) frekvence konkrētajā klasē, <span class="math inline">\(E_i\)</span> - sagaidāmā (teorētiskā) frekvence konkrētajā klasē, n - klašu skaits.</p>
+<p>Nulles hipotēze ir spēkā, ja <span class="math inline">\(\chi^2&lt;\chi^2_{(R-1)(C-1),1-\alpha}\)</span> (R - rindiņu skaits, C - kolonnu skaits), vai arī, ja testā iegūtā p-vērtība ir lielāka par noteikto <span class="math inline">\(\alpha\)</span> vērtību. Pretējā gadījumā ir jāakceptē alternatīvā hipotēze par to, ka pastāv statistiski būtiska atšķirība starp empīrisko un teorētisko sadalījumu.</p>
+</div>
+<div id="paraugkopu-salidzinajums" class="section level4">
+<h4><span class="header-section-number">7.1.5.2</span> Paraugkopu salīdzinājums</h4>
+<p>Divi vai vairāku paraugkopu sadalīdzināšanai, izmanto to pašu formulu (\ref{eq:chisad}), tikai šajā gadījumā sagaidāmās frekvences E aprēķina, kā <span class="math inline">\((n_R \cdot n_C)/n\)</span>, kur <span class="math inline">\(n_R\)</span> un <span class="math inline">\(n_C\)</span> attiecīgi ir atbilstošās rindiņas un kolonnas frekvenču summa, bet n ir kopējā frekvenču summa. Nulles hipotēze nosaka, ka novērojumi ir neatkarīgi un starp tiem nav saistības.</p>
+</div>
+</div>
+</div>
+<div id="paraugkopu-salidzinasana-programma-r" class="section level2">
+<h2><span class="header-section-number">7.2</span> Paraugkopu salīdzināšana programmā R</h2>
+<div id="datu-sagatavosana" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Datu sagatavošana</h3>
+<p>Kā pirmais fails piemēriem izmantots <code>niedres2.txt</code>, kas satur informāciju par niedru lapu garumu un platumu trīs parauglaukumos - divos parauglaukumos ir pa 17 novērojumiem, bet vienā parauglaukumā ir 16 novērojumi.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niedr&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;niedres2.txt&quot;</span>,<span class="dt">header=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+<span class="kw">str</span>(niedr)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  3 variables:
+##  $ garums : num  31.6 23.2 39.2 37.4 21.1 37 24.7 31.3 37.4 39.7 ...
+##  $ platums: num  2.5 2.3 2.1 5.8 2.2 4.1 3.5 4.2 2.5 2.8 ...
+##  $ paraug : Factor w/ 3 levels &quot;Austr&quot;,&quot;Riet&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(niedr)</code></pre></div>
+<pre><code>##      garums         platums        paraug  
+##  Min.   :11.90   Min.   :0.400   Austr:17  
+##  1st Qu.:31.07   1st Qu.:2.500   Riet :17  
+##  Median :38.40   Median :3.900   Ziem :16  
+##  Mean   :37.59   Mean   :3.892             
+##  3rd Qu.:45.30   3rd Qu.:5.100             
+##  Max.   :59.00   Max.   :7.100</code></pre>
+<p>No datu objekta <code>niedr</code> izveidots otrs objekts <code>niedr2</code>, kas satur novērojumus tikai no Austrumu un Rietumu parauglaukumiem. Tomēr apskatot ar funkciju <code>str()</code> jaunizveidotās datu tabulas struktūru redzams, ka joprojām tiek uzskatīts, ka kolonnā <code>paraug</code> ir trīs iespējamie līmeņi. Lai “nomestu” nevajadzīgo faktora līmeni, jāizmanto funkcija <code>droplevels()</code>. Pēc šīs darbības kolonnai <code>paraug</code> paliek tikai divi līmeņi.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niedr2&lt;-niedr[niedr$paraug==<span class="st">&quot;Austr&quot;</span> |<span class="st"> </span>niedr$paraug==<span class="st">&quot;Riet&quot;</span>,]
+<span class="kw">str</span>(niedr2)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    34 obs. of  3 variables:
+##  $ garums : num  31.6 23.2 39.2 37.4 21.1 37 24.7 31.3 37.4 39.7 ...
+##  $ platums: num  2.5 2.3 2.1 5.8 2.2 4.1 3.5 4.2 2.5 2.8 ...
+##  $ paraug : Factor w/ 3 levels &quot;Austr&quot;,&quot;Riet&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niedr2&lt;-<span class="kw">droplevels</span>(niedr2)
+<span class="kw">str</span>(niedr2)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    34 obs. of  3 variables:
+##  $ garums : num  31.6 23.2 39.2 37.4 21.1 37 24.7 31.3 37.4 39.7 ...
+##  $ platums: num  2.5 2.3 2.1 5.8 2.2 4.1 3.5 4.2 2.5 2.8 ...
+##  $ paraug : Factor w/ 2 levels &quot;Austr&quot;,&quot;Riet&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+<div id="divu-neatkarigu-paraugkopu-salidzinasana-ar-parametriskajam-metodem" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Divu neatkarīgu paraugkopu salīdzināšana ar parametriskajām metodēm</h3>
+<p>Paraugkopu salīdzināšanas piemēram izmantota informācija par niedru lapu garumu divos parauglaukumos. Pirmais solis paraugkoku salīdzināšanai ir to dispersiju salīdzināšana. Tam var izmantot funkciju <code>var.test()</code>, kas veic F testu divu paraugkopu dispersiju salīdzināšanai. Funkcijai kā argumenti jānorāda kolonna, kurā ir visi dati, un kolonna, kurā ir dalījuma līmeņi. Analīzes rezultātos parādās gan F vērtība (dispersiju dalījums), gan arī ticamības intervāls šim dalījumum, brīvības pakāpju skaits un atbilstošā p-vērtība.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var.test</span>(niedr2$garums~niedr2$paraug)</code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  niedr2$garums by niedr2$paraug
+## F = 0.89492, num df = 16, denom df = 16, p-value = 0.827
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.3240865 2.4711930
+## sample estimates:
+## ratio of variances 
+##          0.8949191</code></pre>
+<p><strong>Secinājums:</strong> pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span> nav statistiski būtiskas atšķirības starp abu paraugkopu dispersijām, jo p-vērtība ir lielāka par noteikto būtiskuma līmeni (0,826&gt;0,05).</p>
+<p>Vidējo aritmētisko salīdzināšanai izmanto funkciju <code>t.test()</code>, kurai arī kā argumenti jānorāda kolonna, kurā ir visi dati, un kolonna, kurā ir dalījuma līmeņi. Papildus jānorāda arī arguments <code>var.equal=TRUE</code>, lai norādītu, ka dispersijas ir homogēnas (par to pārliecinājās iepriekšējā testā.). Rezultātos norāda t-vērtību, brīvības pakāpju skaitu, atbilstošo p-vērtību. Tā pat tiek norādīts abu paraugkopu vidējais aritmētiskais, kā arī šo vidējo aritmētisko starpības ticamības intervāls.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(niedr2$garums~niedr2$paraug,<span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  niedr2$garums by niedr2$paraug
+## t = -2.4034, df = 32, p-value = 0.02221
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -13.899897  -1.147161
+## sample estimates:
+## mean in group Austr  mean in group Riet 
+##            33.52941            41.05294</code></pre>
+<p><strong>Secinājums:</strong> pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span> pastāv statistiski būtiska atšķirība starp abu paraugkopu vidējiem aritmētiskajiem, jo iegūtā p-vērtība ir zemāka par noteikto būtiskuma līmeni (0,022&lt;0,050).</p>
+<p>T-testu programmā R var arī veikt nepieņemot dispersiju vienādību (tas pat ir noklusētais uzstādījums). Šajā gadījumā t-tests tiek veikts ar Velča korekciju (mainās brīvības pakāpju skaits).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(niedr2$garums~niedr2$paraug)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  niedr2$garums by niedr2$paraug
+## t = -2.4034, df = 31.902, p-value = 0.02223
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -13.900666  -1.146392
+## sample estimates:
+## mean in group Austr  mean in group Riet 
+##            33.52941            41.05294</code></pre>
+</div>
+<div id="vairaku-neatkarigu-paraugkopu-salidzinasana-ar-parametriskajam-metodem" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Vairāku neatkarīgu paraugkopu salīdzināšana ar parametriskajām metodēm</h3>
+<p>Vairāk kā divu paraugkopu salīdzināšanas piemēram izmantota oriģinālā <code>niedr</code> datu tabula, kurā bija visi trīs parauglaukumi. Vairāku dispersiju salīdzināšanai var izmantot funkciju <code>leveneTest()</code> no paketes <code>car</code>. Arī šai funkcijai kā mainīgie jānorāda kolonna ar datiem un kolonna ar dalījuma līmeņiem. Analīzes rezultāts atšķiras no tā, ko dot <code>var.test()</code>. Rezultātā ir norādīts brīvības pakāpju skaits, iegūtā F vērtīva un atbilstošā p-vērtība (norādīta kolonnā Pr(&gt;F)).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">leveneTest</span>(niedr$platums~niedr$paraug)</code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2  0.7235 0.4904
+##       47</code></pre>
+<p><strong>Secinājums:</strong> visi trīs paraugkopu dispersijas ir homogēnas (atšķirības nav būtiskas) pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span>, jo p-vērtības ir lielāka par noradīto būtiskuma līmeņa (0,49&gt;0,05).</p>
+<p>Vidējo aritmētisko salīdzināšanai atkal jāizmanto t-tests, tikai šajā gadījumā jāizmanto funkcija <code>pairwise.t.test()</code>, kas veiks t-testus starp jebkuriem diviem līmeņiem (parauglaukumiem), kā arī vienlaicīgi pielāgos p-vērtības, lai samazinātu 1. tipa kļūdas rašānās iespēju veicot atkārtotos testus. Vēl viena šīs funkcijas īpatnība ir tā, ka mainīgo atdalīšanai izmanto komatu nevis tildes zīmi. Analīzes rezultātos norādītas p-vērtības katram no salīdzinājumiem, kā arī norādīta kāda p-vērtību pielāgošanas metode izmantota (to var mainīt).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairwise.t.test</span>(niedr$platums,niedr$paraug)</code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  niedr$platums and niedr$paraug 
+## 
+##      Austr Riet 
+## Riet 0.013 -    
+## Ziem 0.016 0.859
+## 
+## P value adjustment method: holm</code></pre>
+<p><strong>Secinājums:</strong> pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span> pastāv statistiski būtiska atšķirība starp Austrumu un Rietumu, kā arī Austrumu un Ziemeļu parauglaukumu lapu platumu vidējām vērtībām, jo atbilstošās p-vērtības ir mazākas par noteikto būtiskuma līmeni (0,013&lt;0,050 un 0,016&lt;0,050), toties nav statistiski būtiskas atšķirības starp Rietumu un Ziemeļu parauglaukumu lapu platumiem (0,859&gt;0,050).</p>
+</div>
+<div id="atkarigu-paraugkopu-salidzinasana-ar-parametriskam-metodem" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> Atkarīgu paraugkopu salīdzināšana ar parametriskām metodēm</h3>
+<p>Kā piemērs atkarīgu paraugkopu salīdzināšanai izmantots datu fails <code>rokas.txt</code>, kas satur informāciju par labās un kreisās rokas spēku 25 cilvēkiem. Tā kā ir pieejama informācija par viena un tā paša cilvēkā labās un kreisās rokas spēku, tas šādus datus attiecīgi pieņemam par atkarīgiem.</p>
+<p>Ja dati atbilst visiem pieņēmumiem, tad var izmantot T-testu modifikāciju atkarīgiem datiem. Programmā R tam izmanto atkal funkciju <code>t.test()</code>, kurai kā arguments jānorāda divas datu kolonnas, kā arī <code>paired=TRUE</code>. Galvenais nosacījums, lai datu objekts būtu sagatavots pareizi - abās kolonnās objektu secībai jābūt vienādai.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rokas&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;rokas.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
+<span class="kw">str</span>(rokas)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    25 obs. of  2 variables:
+##  $ laba  : num  32.9 39.7 26.9 38.8 58 50.6 31.4 68.7 65.2 31.8 ...
+##  $ kreisa: num  21.9 39.2 29.9 34.8 48.7 51.4 34.5 56.4 57.5 27.8 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(rokas$laba,rokas$kreisa,<span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  rokas$laba and rokas$kreisa
+## t = 4.4743, df = 24, p-value = 0.0001581
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.413454 6.546546
+## sample estimates:
+## mean of the differences 
+##                    4.48</code></pre>
+<p><strong>Secinājums:</strong> starpība starp labās un kreisās rokas vidējo spēku ir 4.48 un šī starpība ir statistiski būtiska pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span>, jo p-vērtība ir mazāka par šo būtiskuma līmeni (0,0002&lt;0,05).</p>
+<p>Ja šos pašus datus analīzē nepieņemot to atkarību, iegūst pavisam citu rezultātu - šādā gadījumā secinājums ir, ka starpība starp vidējiem aritmētiskajiem nav statistiski būtiska.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(rokas$laba,rokas$kreisa)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  rokas$laba and rokas$kreisa
+## t = 1.1261, df = 47.021, p-value = 0.2658
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -3.523473 12.483473
+## sample estimates:
+## mean of x mean of y 
+##    44.812    40.332</code></pre>
+</div>
+<div id="vienas-paraugkopas-t-tests" class="section level3">
+<h3><span class="header-section-number">7.2.5</span> Vienas paraugkopas t-tests</h3>
+<p>Funkciju <code>t.test()</code> var izmantot arī vienas paraugkopas t-testam, piemēram, ja jānoskaidro vai paraugkopa var piederēt pie ģenerālkopas, kurai ir zināms tās vidējais aritmētiskais. Šādā gadījumā kā argumenti funkcijai jānorāda vektors/kolonna, kas satur paraugkopas datus, kā arī arguments `mu= ar ģenerālkopas vidējo aritmētisko. Piemērā pārbaudīts vai niedru lapu platums varētu piederēt pie ģenerālkopas, kuras vidējā vērtība ir trīs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(niedr$platums,<span class="dt">mu=</span><span class="fl">3.0</span>)</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  niedr$platums
+## t = 3.9431, df = 49, p-value = 0.0002557
+## alternative hypothesis: true mean is not equal to 3
+## 95 percent confidence interval:
+##  3.4374 4.3466
+## sample estimates:
+## mean of x 
+##     3.892</code></pre>
+<p><strong>Secinājums:</strong> pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span> niedru lapu platums konkrētajā paraugkopā nepieder pie ģenerālkopas, kuras vidējais aritmētiskais ir 3,0 cm, jo p-vērtības ir mazāka par noteikto būtiskuma līmeni (0,0026&lt;0,05).</p>
+</div>
+<div id="divu-neatkarigu-paraugkopu-salidzinasana-ar-neparametriskajam-metodem" class="section level3">
+<h3><span class="header-section-number">7.2.6</span> Divu neatkarīgu paraugkopu salīdzināšana ar neparametriskajām metodēm</h3>
+<p>Lai veiktu divu paraukopu salīdzināšanu ar neparametriskām metodēm programmā R, ir jāizmanto funkciju <code>wilcox.test()</code>, kurai kā argumenti jānorāda kolonna ar datiem un kolonna ar dalījuma līmeņiem (tie drīkst būt divi). Piemēram izmantoti dati no datu objekta <code>niedr2</code> par niedru lapu garumu divos parauglaukumos. Atšķirībā no funkcijas  rezultātiem, šajā gadījumā norāda tikai iegūtu p-vērtību un W rādītāju, ko izmanto atšķirības būtiskuma novērtēšanai.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(niedr2$garums~niedr2$paraug)</code></pre></div>
+<pre><code>## Warning in wilcox.test.default(x = c(31.6, 23.2, 39.2, 37.4, 21.1, 37,
+## 24.7, : cannot compute exact p-value with ties</code></pre>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  niedr2$garums by niedr2$paraug
+## W = 75, p-value = 0.01745
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p><strong>Secinājums:</strong> pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span> pastāv statistiski būtiska atšķirība starp abu paraugkopu niedru lapu garumiem, jo iegūtā p-vērtība ir zemāka par noteikto būtiskuma līmeni (0,017&lt;0,050).</p>
+</div>
+<div id="divu-atkarigu-paraugkopu-salidzinasana-ar-neparametriskajam-metodem" class="section level3">
+<h3><span class="header-section-number">7.2.7</span> Divu atkarīgu paraugkopu salīdzināšana ar neparametriskajām metodēm</h3>
+<p>Atkarīgu paraugkopu salīdzināšanai ar neparametriskajām metodēm R arī izmanto funkciju <code>wilcox.test()</code>, kurai kā arguments jānorāda divas datu kolonnas, kā arī `paired=TRUE. Galvenais nosacījums, lai datu objekts būtu sagatavots pareizi - abās kolonnās objektu secībai jābūt vienādai. Piemēram izmantoti dati par labās un kreisās rokas spēku.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(rokas$laba,rokas$kreisa,<span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Warning in wilcox.test.default(rokas$laba, rokas$kreisa, paired = TRUE):
+## cannot compute exact p-value with ties</code></pre>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  rokas$laba and rokas$kreisa
+## V = 291.5, p-value = 0.0005445
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p><strong>Secinājums:</strong> starpība starp labās un kreisās rokas spēku ir statistiski būtiska pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span>, jo p-vērtība ir mazāka par šo būtiskuma līmeni (0,0006&lt;0,05).</p>
+</div>
+<div id="chi2-tests-1" class="section level3">
+<h3><span class="header-section-number">7.2.8</span> <span class="math inline">\(\chi^2\)</span> tests</h3>
+<p><span class="math inline">\(\chi^2\)</span> testa veikšanai programmā R izmanto funkciju <code>chisq.test()</code>, kurai norādāmie argumenti ir atkarīgi no tā, ko vēlas salīdzināt. Ja ir nepieciešams pārbaudīt vai empīriskais sadalījums atbilst iepriekšs zināmam teorētiskajam sadalījumam, tad jānorāda argumenti <code>x=</code>, kas satur empīrisko frekvenču vektoru, un arguments `p=, kas satur teorētiskā sadalījuma relatīvās frekvences (iespējamības). Teorētiskā sadalījuma frekvenču vektora summai jābūt vienādai ar 1.</p>
+<p>Kā piemērs pārbaudīta eksperimentā iegūto dažādu formu un krāsu ziŗnu skaita sadalījuma atbilstība sagaidāmajam sadalījumam atbilstoši Mendeļa likumiem. Sagaidāmās frekvences ir 9:3:3:1, un, lai panāktu, ka to summa būtu vienāda ar 1, tās tiek dalītas ar 16 (sagaidāmo frekvenču summa). Analīzes rezultātos parādās aprēķinātā <span class="math inline">\(\chi^2\)</span> vērtība, brīvības pakāpju skaits un atbilstošā p-vērtība.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">zirni &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">315</span>, <span class="dv">108</span>, <span class="dv">101</span>, <span class="dv">32</span>)
+teor.zirni &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">1</span>)/<span class="dv">16</span>
+<span class="kw">chisq.test</span>(<span class="dt">x =</span> zirni, <span class="dt">p =</span> teor.zirni)</code></pre></div>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  zirni
+## X-squared = 0.47002, df = 3, p-value = 0.9254</code></pre>
+<p><strong>Secinājums:</strong> eksperimentāli iegūto zirņu attiecība atbilst teorētiski sagaidāmajam sadalījumam (nav statistiski būtiskas atšķirības), jo iegūtā p-vērtība ir lielāka par būtiskuma līmeni (0,925&gt;0,05).</p>
+<p>Ja ir nepieciešams salīdzināt frekvenču sadalījumu starp divām paraugkopām, tad funkcijā <code>chisq.test()</code> kā arguments jānorāda matrice, kurā atbilstoši pa kolonnām izvietoti pirmās un otrās paraugkopas dati. Analīzes piemēram izmantoti dati par koku sadalījumu pa sugām divos parauglaukumos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">koki&lt;-<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">34</span>,<span class="dv">56</span>,<span class="dv">23</span>,<span class="dv">8</span>,<span class="dv">27</span>,<span class="dv">33</span>,<span class="dv">47</span>,<span class="dv">14</span>,<span class="dv">11</span>),<span class="dt">ncol=</span><span class="dv">2</span>)
+<span class="kw">rownames</span>(koki) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Priede&quot;</span>,<span class="st">&quot;Egle&quot;</span>,<span class="st">&quot;Bērzs&quot;</span>,<span class="st">&quot;Ozols&quot;</span>,<span class="st">&quot;Kļava&quot;</span>)
+<span class="kw">colnames</span>(koki) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Paraug A&quot;</span>,<span class="st">&quot;Paraug B&quot;</span>)
+koki</code></pre></div>
+<pre><code>##        Paraug A Paraug B
+## Priede       12       27
+## Egle         34       33
+## Bērzs        56       47
+## Ozols        23       14
+## Kļava         8       11</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(koki)</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  koki
+## X-squared = 9.2298, df = 4, p-value = 0.05561</code></pre>
+<p><strong>Secinājums:</strong> pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span> nav statistiski būtiskas atšķirības koku skaita sadalījumā pa sugām divos parauglaukumos, jo p-vērtība ir lielāka par noteikto būtiskuma līmeni (0,056&gt;0,05).</p>
+</div>
+<div id="paraugkopu-grafiska-salidzinasana" class="section level3">
+<h3><span class="header-section-number">7.2.9</span> Paraugkopu grafiskā salīdzināšana</h3>
+<p>Viens no informatīvākajiem grafikiem vairāku paraugkopu grafiskai salīdzināšanai ir Box-plot, kuru iegūst ar funkciju <code>boxplot()</code>. Kā argumenti šai funkcijai jānorāda kolonna ar datiem un kolonna ar dalījuma līmeņiem. Pēc šada grafika var spriest gan par datu izkliedi atsevišķiem dalījuma līmeņiem, gan arī par vērtību līdzību vai atšķirību (<a href="paraugkopu-salidzinasana.html#fig:pasal-016">7.1</a> attēls). Tomēr jāatceras, ka pilnīgi drošu secinājumu var izdarīt tikai veicot kādu statistisko testu.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(niedr$platums~niedr$paraug)</code></pre></div>
+<div class="figure"><span id="fig:pasal-016"></span>
+<img src="PBB_gramata_files/figure-html/pasal-016-1.png" alt="Niedru lapu platuma box-plot grafiks trīs parauglaukumiem"  />
+<p class="caption">
+Figure 7.1: Niedru lapu platuma box-plot grafiks trīs parauglaukumiem
+</p>
+</div>
+</div>
+<div id="permutaciju-un-randomizesanas-tests-paraugkopu-salidzinasanai" class="section level3">
+<h3><span class="header-section-number">7.2.10</span> Permutāciju un randomizēšanas tests paraugkopu salīdzināšanai</h3>
+<p>Gadījumos, kad nav iespējams veikt tradicionālos testus paraugkopu salīdzināšanai, vai arī ir nepieciešams salīdzināt rādītājus, kuru salīdzināšanai nav pieejams gatavs tests, ir iespējams izmantot tā sauktos permutāciju un randomizēšanas testus. Šo testu pamatdoma ir, ka divu esošo paraugkopu datus apvienu, un tad no šiem apvienotajiem datiem veido jaunas paraugkopas pēc nejaušības principa. Pēc tam tiek aprēķināts interesējošais rādītājs. Šis process tiek atkārtots daudz reizes (vismaz 200, labāk 1000 vai vēl vairāk reizes), un tad novērtē cik gadījumos iegūst tik pat ekstrēmu vai pat ekstrēmāku rādītāju kā oriģinālajos datos. Ja gadījumu skaita proporcija zemāka nekā izvēlētais būtiskuma līmenis, tad varam pieņemt, ka pastāv statistiski būtsika atšķirība. Permutāciju testu gadījumā veido visas iespējamās jaunās paraugkopas (kombinācijas).</p>
+<p>Kā piemērs izmantots vienkāršākais gadījums - vidējo aritmētisko salīdzināšana, skatoties uz to starpību. Sākotnēji izveidotas divas paraugkopas <code>par1</code> un <code>par2</code>, kas satur informāciju par niedru lapu platumu Autrumu un Rietumu parauglaukumos. Katrā no paraugkopām ir 17 novērojumi. Veicot tradicionālo t-testu, noskaidrots, ka vidējie aritmētiskie būtiski atšķiras un vidējo aritmētisko starpība ir -7,52.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">par1&lt;-niedr$garums[niedr$paraug==<span class="st">&quot;Austr&quot;</span>]
+par2&lt;-niedr$garums[niedr$paraug==<span class="st">&quot;Riet&quot;</span>]
+<span class="kw">t.test</span>(par1,par2)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  par1 and par2
+## t = -2.4034, df = 31.902, p-value = 0.02223
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -13.900666  -1.146392
+## sample estimates:
+## mean of x mean of y 
+##  33.52941  41.05294</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vid.st&lt;-<span class="kw">mean</span>(par1)-<span class="kw">mean</span>(par2)
+vid.st</code></pre></div>
+<pre><code>## [1] -7.523529</code></pre>
+<p>Permutāciju testa veikšanai, pirmkārt, izveido vektoru <code>kop</code>, kas satur abu paraugkopu datus. Otrkārt, izveido vektoru , kurā apvienos iegūtās vidējo aritmētisko starpības. Nākamais solis ir izmantot funkciju <code>for()</code>, lai veikti 999 permutācijas (jo viens atrkārtojums jau oriģinālā starpība) - ar funkciju <code>sample()</code> izvēlas 17 nejaušus skaitļus no 1 līdz 34, kas apzīmēs indeksus. Pēc tam aprēķina vidējos aritmētiskos divām jaunām paraugkopām <code>vid1</code> un <code>vid2</code> no apvienotā skaitļu vektora <code>paraug</code>, kas attiecīgi satur izvēlētos 17 skaitļus un pārējos 17 skaitļus. Pēc tam aprēķina vidējo aritmētisko starpību un saglabā vektorā <code>starpibas</code>. Beigās kā 1000. novērojumu pievieno oriģinālo vidējo aritmētisko starpību.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">76757</span>)
+kopa&lt;-<span class="kw">c</span>(par1,par2)
+starpibas&lt;-<span class="ot">NULL</span>
+for(i in <span class="dv">1</span>:<span class="dv">999</span>){
+   paraug&lt;-<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">34</span>,<span class="dv">17</span>)
+   vid1&lt;-<span class="kw">mean</span>(kopa[paraug])
+   vid2&lt;-<span class="kw">mean</span>(kopa[-paraug])
+   starpibas[i]&lt;-vid1-vid2
+}
+starpibas[<span class="dv">1000</span>]&lt;-vid.st</code></pre></div>
+<p>Apskatot iegūto vidējo aritmētisko starpību histogrammu (<a href="paraugkopu-salidzinasana.html#fig:pasal-019">7.2</a> attēls), varam redzēt, ka tā veido apmēram normālo sadalījumu, turklāt iespējamās vērtības mēdz būt lielākas nekā oriģinālojos datos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(starpibas)</code></pre></div>
+<div class="figure"><span id="fig:pasal-019"></span>
+<img src="PBB_gramata_files/figure-html/pasal-019-1.png" alt="Randomizācijas testa rezultātā iegūto vidējo aritmētisko starpības histogramma"  />
+<p class="caption">
+Figure 7.2: Randomizācijas testa rezultātā iegūto vidējo aritmētisko starpības histogramma
+</p>
+</div>
+<p>Pēdējais solis ir novērtēt cik bieži ir iegūta tik pat ekstrēma vai ekstrēmāka starpība. Tam izmanto funkciju <code>mean()</code>, kurai kā arguments likts loģiskais vaicājums - vai vektora <code>starpibas</code> vērtības ir lielākas vai vienādas ar oriģinālo vidējo aritmētisko starpību. Loģiskā vaicājuma gadījumā iegūst vektoru, kas satur TRUE vai FALSE vērtības, un funkcija <code>mean()</code> aprēķina proporciju TRUE vērtībām. Papildus izmantota funkcija <code>abs()</code>, lai skatītu absolūtās starpības un veiktu divpusējo testu. Tā kā iegūtā proporcija ir 0.03, tad pie būtiskuma līmeņa <span class="math inline">\(\alpha=0,05\)</span> varam secināt, ka pastāv statistiki būtiska atšķirība vidējos aritmētiskajos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">abs</span>(starpibas) &gt;=<span class="st"> </span><span class="kw">abs</span>(vid.st))</code></pre></div>
+<pre><code>## [1] 0.03</code></pre>
+<p>Iegūtais rezultāts katrā gadījumā var atšķirties, jo paraugkopu veidošanā iesaistīts nejaušības princips.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistiskie-raditaji-un-ticamibas-intervali.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dispersijas-analize.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+</body>
+
+</html>
