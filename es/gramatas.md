@@ -4,4 +4,4 @@ layout: page
 categories: es update
 ---
 
-* **Praktiskā biometrija** [pdf](../gramatas/praktiska_biometrija/index.html)
+* **Praktiskā biometrija** [html](../gramatas/praktiska_biometrija/index.html)
