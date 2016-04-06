@@ -16,4 +16,4 @@ Uz šo brīdi esmu līdzautors 28 zinātniskajām publikācijām. [Lūk pilns ma
 
 Ik pa laikam piedalos ar ziņojumiem dažādās konferencēs un pasākumos. [Šeit atrodams saraksts ar ziņojumiem, kurus padaru publiski pieejamus.](zinojumi.html)
 
-Lai veicinātu citu izglītošanu par R un statistisku, gatavoju arī [grāmatas, kas ir brīvi pieejamas.](manas_gramatas.html)
+Lai veicinātu citu izglītošanu par R un statistisku, gatavoju arī [grāmatas, kas ir brīvi pieejamas.](gramatas.html)
