@@ -25,7 +25,7 @@
 
 <meta name="author" content="Didzis Elferts">
 
-<meta name="date" content="2016-04-05">
+<meta name="date" content="2016-04-06">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -357,8 +357,16 @@ Figure 8.1: Gradācijas klašu box-plot attēls
 </p>
 </div>
 <p>Vēl viens variants ir izmantot funkciju <code>plotmeans()</code> no paketes <code>gplots</code>. Šī funkcija izveido grafiku, kurā attēlots katras gradācijas klases vidējais aritmētiskais un tā ticamības intervāls (<a href="dispersijas-analize.html#fig:anov-008">8.2</a> attēls). Kā papildus arguments izmantots <code>connect=FALSE</code>, lai vidējie aritmētiskie netiktu savā starpā automātiski savienoti.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gplots)
-<span class="kw">plotmeans</span>(augi$biomasa~augi$barv,<span class="dt">connect=</span><span class="ot">FALSE</span>,<span class="dt">xlab=</span><span class="st">&quot;baribas vielas&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gplots)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;gplots&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plotrix&#39;:
+## 
+##     plotCI</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     lowess</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotmeans</span>(augi$biomasa~augi$barv,<span class="dt">connect=</span><span class="ot">FALSE</span>,<span class="dt">xlab=</span><span class="st">&quot;baribas vielas&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:anov-008"></span>
 <img src="PBB_gramata_files/figure-html/anov-008-1.png" alt="Gradācijas klašu vidējo aritmētisko attēls"  />
 <p class="caption">
@@ -404,7 +412,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PBB_gramata.pdf", "PBB_gramata.epub", "PBB_gramata.mobi"],
 "toc": {
 "collapse": "subsection"
 }

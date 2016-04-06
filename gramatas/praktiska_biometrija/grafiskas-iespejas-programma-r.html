@@ -25,7 +25,7 @@
 
 <meta name="author" content="Didzis Elferts">
 
-<meta name="date" content="2016-04-05">
+<meta name="date" content="2016-04-06">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -447,7 +447,7 @@ Figure 4.12: Simbolu veidi
 <div id="virsraksti-un-teksti-pie-asim" class="section level3">
 <h3><span class="header-section-number">4.3.5</span> Virsraksti un teksti pie asīm</h3>
 <p>Virsrakstus un tekstus pie asīm var noteikt gan ar argumentiem, gan ar atsevišķām funkcijām. Kā argumenti (piemēram, funkcijai <code>plot()</code>) nāk <code>xlab=</code> (izveido parakstu zem x ass), <code>ylab=</code> (izveido parakstu zem y ass) un <code>main=</code> (izveido virsrakstu), aiz vienādības zīmes pēdiņās rakstot atbilstošo tekstu (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-013">4.13</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums,<span class="dt">main=</span><span class="st">&quot;Parastā niedre&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Kārtas skaitlis&quot;</span>,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums,<span class="dt">main=</span><span class="st">&quot;Parasta niedre&quot;</span>,<span class="dt">xlab=</span><span class="st">&quot;Kartas skaitlis&quot;</span>,
      <span class="dt">ylab=</span><span class="st">&quot;Lapas garums (cm)&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:rgraf-013"></span>
 <img src="PBB_gramata_files/figure-html/rgraf-013-1.png" alt="Grafiks, kuram teksti definēti kā argumenti"  />
@@ -459,8 +459,8 @@ Figure 4.13: Grafiks, kuram teksti definēti kā argumenti
 <p>Virsrakstu definē ar funkciju <code>title()</code>, kur pēdiņās raksta nepieciešamo tekstu.</p>
 <p>Vispārīgā gadījumā tekstus pie asīm nosaka ar funkciju <code>mtext(&quot;ko gribam redzēt&quot;, side=kurā.pusē, line=kurā.līnijā)</code>. Izvietojums (puse) atbilst asu izvietojumam (1 - x ass, 2 - y ass, 3 - augšējā ass, 4 - otrā y ass), teksta līnijas rēķina attiecībā pret asīm, tas ir, ja norādīs <code>line=1</code>, tad teksts būs pie pašas ass un, jo lielāks skaitlis, jo tālāk no ass atradīsies teksts (<a href="grafiskas-iespejas-programma-r.html#fig:rgraf-014">4.14</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(niedres$garums,<span class="dt">ann=</span><span class="ot">FALSE</span>)
-<span class="kw">title</span>(<span class="st">&quot;Parastā niedre&quot;</span>)
-<span class="kw">mtext</span>(<span class="st">&quot;Kārtas skaitlis&quot;</span>,<span class="dt">side=</span><span class="dv">1</span>,<span class="dt">line=</span><span class="dv">1</span>)
+<span class="kw">title</span>(<span class="st">&quot;Parasta niedre&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;Kartas skaitlis&quot;</span>,<span class="dt">side=</span><span class="dv">1</span>,<span class="dt">line=</span><span class="dv">1</span>)
 <span class="kw">mtext</span>(<span class="st">&quot;Lapas garums (cm)&quot;</span>,<span class="dt">side=</span><span class="dv">2</span>,<span class="dt">line=</span><span class="dv">3</span>)</code></pre></div>
 <div class="figure"><span id="fig:rgraf-014"></span>
 <img src="PBB_gramata_files/figure-html/rgraf-014-1.png" alt="Grafiks, kuram teksti definēti kā atsevišķas funkcijas"  />
@@ -637,7 +637,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PBB_gramata.pdf", "PBB_gramata.epub", "PBB_gramata.mobi"],
 "toc": {
 "collapse": "subsection"
 }

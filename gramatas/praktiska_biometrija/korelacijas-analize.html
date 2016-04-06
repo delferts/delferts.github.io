@@ -25,7 +25,7 @@
 
 <meta name="author" content="Didzis Elferts">
 
-<meta name="date" content="2016-04-05">
+<meta name="date" content="2016-04-06">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -300,8 +300,19 @@ Figure 9.2: QQ grafiki smiltāju tabulas mainīgajiem
 ## smilts  0.2213315  1.0000000 -0.5576408
 ## sunas  -0.2517885 -0.5576408  1.0000000</code></pre>
 <p>Ja ir nepieciešams uzreiz aprēķināt gan korelācijas koeficientus, gan novērtēt to būtiskumu vairākam datu kolonnām, var izmantot funkciju <code>rcor.test()</code> no paketes <code>ltm</code>. Rezultātā parādās matrica, kurā augšējā daļā ir korelācijas koeficienti, bet apakšējā daļā ir atbilstošās p-vērtības. Varam <strong>secināt</strong>, ka statistiski būtiska (pie <span class="math inline">\(\alpha=0.05\)</span>) korelācija pastāv starp pazīmēm pH un sūnu segums, kā arī smilts un sūnu segums, jo attiecīgi p vērtības ir 0,032 un &lt;0,001. Korelācija starp pH un smilts segumu nav statistiski būtiska, kaut arī p-vērtība ir ļoti tuvu kritiskajai robežai (0,06).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ltm)
-<span class="kw">rcor.test</span>(smiltaji[,<span class="dv">1</span>:<span class="dv">3</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ltm)</code></pre></div>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## Loading required package: msm</code></pre>
+<pre><code>## Warning: package &#39;msm&#39; was built under R version 3.2.4</code></pre>
+<pre><code>## 
+## Attaching package: &#39;msm&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:boot&#39;:
+## 
+##     cav</code></pre>
+<pre><code>## Loading required package: polycor</code></pre>
+<pre><code>## Loading required package: mvtnorm</code></pre>
+<pre><code>## Loading required package: sfsmisc</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rcor.test</span>(smiltaji[,<span class="dv">1</span>:<span class="dv">3</span>])</code></pre></div>
 <pre><code>## 
 ##        pH     smilts sunas 
 ## pH      *****  0.221 -0.252
@@ -420,7 +431,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PBB_gramata.pdf", "PBB_gramata.epub", "PBB_gramata.mobi"],
 "toc": {
 "collapse": "subsection"
 }
