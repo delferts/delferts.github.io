@@ -339,9 +339,8 @@ Figure 5.8: QQ grafiks niedru lapu garumam
 </p>
 </div>
 <p>Paketē <code>car</code> ir funkcija <code>qqPlot()</code>, kas arī veido QQ grafiku, tikai tas ir papildināts ar līnijām, kas parāda 95% ticamības intervālu (<a href="datu-izzinasana-un-normalitates-testi.html#fig:dano-010">5.9</a> attēls), tādējādi atvieglojot interpretāciju. Ja visi punkti atrodas starp raustītajām līnijām, tad ar 95% pārliecību var apgalvot, ka dati nāk no ģenerālkopas, kas atbilst normālajm sadalījumam.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)</code></pre></div>
-<pre><code>## Warning: package &#39;car&#39; was built under R version 3.2.4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(niedr$garums)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">qqPlot</span>(niedr$garums)</code></pre></div>
 <div class="figure"><span id="fig:dano-010"></span>
 <img src="PBB_gramata_files/figure-html/dano-010-1.png" alt="Modificēts QQ grafiks niedru lapu garuma"  />
 <p class="caption">

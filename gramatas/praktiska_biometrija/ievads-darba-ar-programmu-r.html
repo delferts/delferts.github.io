@@ -425,7 +425,7 @@ dati[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 </div>
 <div id="excel-failu-importesana" class="section level4">
 <h4><span class="header-section-number">3.2.5.2</span> Excel failu importēšana</h4>
-<p>Excel failu importēšanai programmā R ir jāizmanto papildus paketes, jo ar bāzes R funkcijām to nav iespējams izdarīt. Viens no variantiem ir izmantot paketi <code>readxl</code>.</p>
+<p>Excel failu importēšanai programmā R ir jāizmanto papildus paketes, jo ar bāzes R funkcijām to nav iespējams izdarīt. Viens no variantiem ir izmantot paketi <code>readxl</code> <span class="citation">(Wickham <a href="literatura.html#ref-wicham2016exc">2016</a>)</span>.</p>
 <p>Šajā paketē ir tikai divas funkcijas – <code>excel_sheets()</code> un <code>read_excel()</code>. Ar pirmo funkciju ir iespējams noskaidrot kādi ir lapu nosaukumi Excel failā, kuru vēlamies importēt. Otrā funkcija ir paša faila importēšanai.</p>
 <p>Pēc noklusējuma <code>read_excel()</code> importēs pirmo lapu no faila, bet to var izmainīt ar argumentu <code>sheet =</code> un norādīt, kuru lapu (pēc skaita vai pēc nosaukuma) importēt. Nākamais pieņēmums ir, ka Jūsu failā pirmā rinda satur kolonnu nosaukumus – ja tas tā nav, tad jāizmanto arguments <code>col_names =</code>. Šī funkcija visnotaļ veiksmīgi māk pati “saprast” kāda veida dati ir katrā no kolonnām, bet, ja tas neizdodas automātiski, tad jāizmanto argumentu <code>col_types =</code> un jānorāda katras kolonnas veids (<code>“blank”</code>, <code>“numeric”</code>, <code>“date”</code> vai <code>“text”</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
@@ -553,9 +553,17 @@ cars[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 <h3><span class="header-section-number">3.2.8</span> Darba vides sakārtošana</h3>
 <p>Ja darba sesijā rada dažādus objektus, pievieno daudz paketes, ar laiku var rasties apjukums par to, kādi objekti šobrīd ir aktīvi. Ar funkcijas <code>ls()</code> palīdzību, ir iespējams iegūt sarakstu ar visiem objektiem, kas šobrīd ir aktīvi:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>##  [1] &quot;cars&quot;      &quot;ceturtais&quot; &quot;dati&quot;      &quot;dati2&quot;     &quot;dati3&quot;    
-##  [6] &quot;otrais&quot;    &quot;piektais&quot;  &quot;pirmais&quot;   &quot;septitais&quot; &quot;sestais&quot;  
-## [11] &quot;tresais&quot;</code></pre>
+<pre><code>##  [1] &quot;akor&quot;       &quot;apaksa&quot;     &quot;atlikums&quot;   &quot;augi&quot;       &quot;augi2&quot;     
+##  [6] &quot;augsa&quot;      &quot;cars&quot;       &quot;ceturtais&quot;  &quot;dat&quot;        &quot;dati&quot;      
+## [11] &quot;dati2&quot;      &quot;dati3&quot;      &quot;dieta&quot;      &quot;i&quot;          &quot;jauns&quot;     
+## [16] &quot;koki&quot;       &quot;kopa&quot;       &quot;mod&quot;        &quot;mod1&quot;       &quot;mod2&quot;      
+## [21] &quot;mod3&quot;       &quot;mod4&quot;       &quot;nezales&quot;    &quot;niedr&quot;      &quot;niedr2&quot;    
+## [26] &quot;niedres&quot;    &quot;otrais&quot;     &quot;par1&quot;       &quot;par2&quot;       &quot;paraug&quot;    
+## [31] &quot;piektais&quot;   &quot;pirmais&quot;    &quot;pred.esana&quot; &quot;pred.kopa&quot;  &quot;priede&quot;    
+## [36] &quot;progn&quot;      &quot;robeza&quot;     &quot;rokas&quot;      &quot;septitais&quot;  &quot;sestais&quot;   
+## [41] &quot;smiltaji&quot;   &quot;starpibas&quot;  &quot;teor.zirni&quot; &quot;tests&quot;      &quot;tresais&quot;   
+## [46] &quot;veids1&quot;     &quot;veids2&quot;     &quot;veids3&quot;     &quot;vid.rob&quot;    &quot;vid.st&quot;    
+## [51] &quot;vid1&quot;       &quot;vid2&quot;       &quot;videjie&quot;    &quot;x&quot;          &quot;zirni&quot;</code></pre>
 <p>Lai kādu no šiem objektiem noņemtu no darba sesijas, jāizmanto funkcija , kurai kā arguments jānorāda objekts, kuru vēlaties noņemt no darba sesijas. Šī metode gan attiecas tikai uz tiem objektiem, kurus esat radījuši paši, nevis uz datu tabulām, kas atrodas paketēs.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(pirmais)</code></pre></div>
 
