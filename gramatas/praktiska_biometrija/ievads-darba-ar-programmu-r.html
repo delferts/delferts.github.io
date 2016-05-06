@@ -8,7 +8,7 @@
   <title>Praktiskā biometrija</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
-  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.65 and GitBook 2.6.7">
 
   <meta property="og:title" content="Praktiskā biometrija" />
   <meta property="og:type" content="book" />
@@ -25,14 +25,13 @@
 
 <meta name="author" content="Didzis Elferts">
 
-<meta name="date" content="2016-04-06">
+<meta name="date" content="2016-04-18">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,6 +41,7 @@ MathJax.Hub.Config({
 <link rel="prev" href="biometrija-un-datu-analize.html">
 <link rel="next" href="grafiskas-iespejas-programma-r.html">
 
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
@@ -403,7 +403,10 @@ septitais</code></pre></div>
 </div>
 <div id="datu-importesana" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Datu importēšana</h3>
-<p>R vidē ir iespējams importēt dažāda formāta datu failus (datu tabulas), piemēram, no programmām Excell, SPSS, SAS. Vienkāršākais veids ir izmantot .txt vai .csv failus. Lai importētu .txt failus, tiek izmantota funkcija <code>read.table()</code>, attiecīgi .csv failus var importēt ar funkcijām <code>read.csv()</code> un <code>read.csv2()</code>. Funkcijā norāda faila nosaukumu un ceļu uz to (<code>file=</code>). Ja pirmā tabulas rinda satur kolonnu nosaukumus, tad kā papildus arguments jānorāda <code>header=TRUE</code>. Vēl jānorāda skaitļu decimāldaļu atdalītājs (komats vai punkts), izmantojot papildus argumentu <code>dec=&quot;.&quot;</code>. Tā kā .txt failiem mēdz būt dažādi kolonnu atdalīšanas veidi, tad jānorāda atbilstošais, izmantojot papildus argumentu <code>sep=</code>, iespējamās vērtības ir <code>&quot;\t&quot;</code> - tab delimited; <code>&quot;,&quot;</code>- kolonnu atdalītājs ir komats; <code>&quot;;&quot;</code> - kolonnu atdalītājs ir semikols. Pilno ceļu uz importējamo failu var nenorādīt, ja fails atrodas darba direktorijā (Working directory) (var nomainīt ar funkciju <code>setwd()</code>.</p>
+<p>R vidē ir iespējams importēt dažāda formāta datu failus (datu tabulas), piemēram, no programmām Excell, SPSS, SAS. Vienkāršākais veids ir izmantot .txt vai .csv failus.</p>
+<div id="teksta-failu-importesana" class="section level4">
+<h4><span class="header-section-number">3.2.5.1</span> Teksta failu importēšana</h4>
+<p>Lai importētu .txt failus, tiek izmantota funkcija <code>read.table()</code>, attiecīgi .csv failus var importēt ar funkcijām <code>read.csv()</code> un <code>read.csv2()</code>. Funkcijā norāda faila nosaukumu un ceļu uz to (<code>file=</code>). Ja pirmā tabulas rinda satur kolonnu nosaukumus, tad kā papildus arguments jānorāda <code>header=TRUE</code>. Vēl jānorāda skaitļu decimāldaļu atdalītājs (komats vai punkts), izmantojot papildus argumentu <code>dec=&quot;.&quot;</code>. Tā kā .txt failiem mēdz būt dažādi kolonnu atdalīšanas veidi, tad jānorāda atbilstošais, izmantojot papildus argumentu <code>sep=</code>, iespējamās vērtības ir <code>&quot;\t&quot;</code> - tab delimited; <code>&quot;,&quot;</code>- kolonnu atdalītājs ir komats; <code>&quot;;&quot;</code> - kolonnu atdalītājs ir semikols. Pilno ceļu uz importējamo failu var nenorādīt, ja fails atrodas darba direktorijā (Working directory) (var nomainīt ar funkciju <code>setwd()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dati&lt;-<span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;niedres.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
 dati2&lt;-<span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;niedres.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
 dati3&lt;-<span class="kw">read.csv2</span>(<span class="dt">file=</span><span class="st">&quot;niedres.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">dec=</span><span class="st">&quot;.&quot;</span>)
@@ -419,6 +422,17 @@ dati[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 ## 8    31.3     4.2
 ## 9    37.4     2.5
 ## 10   39.7     2.8</code></pre>
+</div>
+<div id="excel-failu-importesana" class="section level4">
+<h4><span class="header-section-number">3.2.5.2</span> Excel failu importēšana</h4>
+<p>Excel failu importēšanai programmā R ir jāizmanto papildus paketes, jo ar bāzes R funkcijām to nav iespējams izdarīt. Viens no variantiem ir izmantot paketi <code>readxl</code> <span class="citation">(Wickham <a href="literatura.html#ref-wicham2016exc">2016</a>)</span>.</p>
+<p>Šajā paketē ir tikai divas funkcijas – <code>excel_sheets()</code> un <code>read_excel()</code>. Ar pirmo funkciju ir iespējams noskaidrot kādi ir lapu nosaukumi Excel failā, kuru vēlamies importēt. Otrā funkcija ir paša faila importēšanai.</p>
+<p>Pēc noklusējuma <code>read_excel()</code> importēs pirmo lapu no faila, bet to var izmainīt ar argumentu <code>sheet =</code> un norādīt, kuru lapu (pēc skaita vai pēc nosaukuma) importēt. Nākamais pieņēmums ir, ka Jūsu failā pirmā rinda satur kolonnu nosaukumus – ja tas tā nav, tad jāizmanto arguments <code>col_names =</code>. Šī funkcija visnotaļ veiksmīgi māk pati “saprast” kāda veida dati ir katrā no kolonnām, bet, ja tas neizdodas automātiski, tad jāizmanto argumentu <code>col_types =</code> un jānorāda katras kolonnas veids (<code>“blank”</code>, <code>“numeric”</code>, <code>“date”</code> vai <code>“text”</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
+dati.ex &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;faila.nosaukums.xlsx&quot;</span>)</code></pre></div>
+</div>
+<div id="ieklauto-datu-importesana" class="section level4">
+<h4><span class="header-section-number">3.2.5.3</span> Iekļauto datu importēšana</h4>
 <p>Pašā programmā R ir iekļautas daudzas datu tabulas, kas ir ļoti noderīgas, piemēram, lai izmēģinātu kādas funkcijas, vai arī sekotu līdzi piemēriem mācību materiāliem.</p>
 <p>Lai redzētu, kuras datu tabulas ir pieejamas konkrētajā darba sesijā (atkarīgs no pievienoto pakešu daudzuma), jāizmanto funkcija <code>data()</code>, pēc kā parādīsies jauns logs, kurā uzskaitītas pieejamās datu tabulas un to apraksts. Lai redzētu visas pieejamās datu tabulas, jāraksta <code>data(package = .packages(all.available = TRUE))</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>()
@@ -438,6 +452,7 @@ cars[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 ## 8     10   26
 ## 9     10   34
 ## 10    11   17</code></pre>
+</div>
 </div>
 <div id="datu-eksportesana" class="section level3">
 <h3><span class="header-section-number">3.2.6</span> Datu eksportēšana</h3>
@@ -538,9 +553,17 @@ cars[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 <h3><span class="header-section-number">3.2.8</span> Darba vides sakārtošana</h3>
 <p>Ja darba sesijā rada dažādus objektus, pievieno daudz paketes, ar laiku var rasties apjukums par to, kādi objekti šobrīd ir aktīvi. Ar funkcijas <code>ls()</code> palīdzību, ir iespējams iegūt sarakstu ar visiem objektiem, kas šobrīd ir aktīvi:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>##  [1] &quot;cars&quot;      &quot;ceturtais&quot; &quot;dati&quot;      &quot;dati2&quot;     &quot;dati3&quot;    
-##  [6] &quot;otrais&quot;    &quot;piektais&quot;  &quot;pirmais&quot;   &quot;septitais&quot; &quot;sestais&quot;  
-## [11] &quot;tresais&quot;</code></pre>
+<pre><code>##  [1] &quot;akor&quot;       &quot;apaksa&quot;     &quot;atlikums&quot;   &quot;augi&quot;       &quot;augi2&quot;     
+##  [6] &quot;augsa&quot;      &quot;cars&quot;       &quot;ceturtais&quot;  &quot;dat&quot;        &quot;dati&quot;      
+## [11] &quot;dati2&quot;      &quot;dati3&quot;      &quot;dieta&quot;      &quot;i&quot;          &quot;jauns&quot;     
+## [16] &quot;koki&quot;       &quot;kopa&quot;       &quot;mod&quot;        &quot;mod1&quot;       &quot;mod2&quot;      
+## [21] &quot;mod3&quot;       &quot;mod4&quot;       &quot;nezales&quot;    &quot;niedr&quot;      &quot;niedr2&quot;    
+## [26] &quot;niedres&quot;    &quot;otrais&quot;     &quot;par1&quot;       &quot;par2&quot;       &quot;paraug&quot;    
+## [31] &quot;piektais&quot;   &quot;pirmais&quot;    &quot;pred.esana&quot; &quot;pred.kopa&quot;  &quot;priede&quot;    
+## [36] &quot;progn&quot;      &quot;robeza&quot;     &quot;rokas&quot;      &quot;septitais&quot;  &quot;sestais&quot;   
+## [41] &quot;smiltaji&quot;   &quot;starpibas&quot;  &quot;teor.zirni&quot; &quot;tests&quot;      &quot;tresais&quot;   
+## [46] &quot;veids1&quot;     &quot;veids2&quot;     &quot;veids3&quot;     &quot;vid.rob&quot;    &quot;vid.st&quot;    
+## [51] &quot;vid1&quot;       &quot;vid2&quot;       &quot;videjie&quot;    &quot;x&quot;          &quot;zirni&quot;</code></pre>
 <p>Lai kādu no šiem objektiem noņemtu no darba sesijas, jāizmanto funkcija , kurai kā arguments jānorāda objekts, kuru vēlaties noņemt no darba sesijas. Šī metode gan attiecas tikai uz tiem objektiem, kurus esat radījuši paši, nevis uz datu tabulām, kas atrodas paketēs.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(pirmais)</code></pre></div>
 
@@ -555,7 +578,7 @@ cars[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 <a href="biometrija-un-datu-analize.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="grafiskas-iespejas-programma-r.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -591,7 +614,17 @@ gitbook.start({
 });
 </script>
 
-
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

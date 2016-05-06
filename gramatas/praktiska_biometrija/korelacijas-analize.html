@@ -8,7 +8,7 @@
   <title>Praktiskā biometrija</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
-  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.65 and GitBook 2.6.7">
 
   <meta property="og:title" content="Praktiskā biometrija" />
   <meta property="og:type" content="book" />
@@ -25,14 +25,13 @@
 
 <meta name="author" content="Didzis Elferts">
 
-<meta name="date" content="2016-04-06">
+<meta name="date" content="2016-04-18">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,6 +41,7 @@ MathJax.Hub.Config({
 <link rel="prev" href="dispersijas-analize.html">
 <link rel="next" href="regresijas-analize.html">
 
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
@@ -300,19 +300,8 @@ Figure 9.2: QQ grafiki smiltāju tabulas mainīgajiem
 ## smilts  0.2213315  1.0000000 -0.5576408
 ## sunas  -0.2517885 -0.5576408  1.0000000</code></pre>
 <p>Ja ir nepieciešams uzreiz aprēķināt gan korelācijas koeficientus, gan novērtēt to būtiskumu vairākam datu kolonnām, var izmantot funkciju <code>rcor.test()</code> no paketes <code>ltm</code>. Rezultātā parādās matrica, kurā augšējā daļā ir korelācijas koeficienti, bet apakšējā daļā ir atbilstošās p-vērtības. Varam <strong>secināt</strong>, ka statistiski būtiska (pie <span class="math inline">\(\alpha=0.05\)</span>) korelācija pastāv starp pazīmēm pH un sūnu segums, kā arī smilts un sūnu segums, jo attiecīgi p vērtības ir 0,032 un &lt;0,001. Korelācija starp pH un smilts segumu nav statistiski būtiska, kaut arī p-vērtība ir ļoti tuvu kritiskajai robežai (0,06).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ltm)</code></pre></div>
-<pre><code>## Loading required package: MASS</code></pre>
-<pre><code>## Loading required package: msm</code></pre>
-<pre><code>## Warning: package &#39;msm&#39; was built under R version 3.2.4</code></pre>
-<pre><code>## 
-## Attaching package: &#39;msm&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:boot&#39;:
-## 
-##     cav</code></pre>
-<pre><code>## Loading required package: polycor</code></pre>
-<pre><code>## Loading required package: mvtnorm</code></pre>
-<pre><code>## Loading required package: sfsmisc</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rcor.test</span>(smiltaji[,<span class="dv">1</span>:<span class="dv">3</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ltm)
+<span class="kw">rcor.test</span>(smiltaji[,<span class="dv">1</span>:<span class="dv">3</span>])</code></pre></div>
 <pre><code>## 
 ##        pH     smilts sunas 
 ## pH      *****  0.221 -0.252
@@ -403,7 +392,7 @@ akor</code></pre></div>
 <a href="dispersijas-analize.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="regresijas-analize.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -439,7 +428,17 @@ gitbook.start({
 });
 </script>
 
-
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

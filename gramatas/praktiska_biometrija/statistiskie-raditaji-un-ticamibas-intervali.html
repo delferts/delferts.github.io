@@ -8,7 +8,7 @@
   <title>Praktiskā biometrija</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Piemēri darbā ar programmu R, lai risinātu statistikas problēmas bioloģijā.">
-  <meta name="generator" content="bookdown 0.0.60 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.0.65 and GitBook 2.6.7">
 
   <meta property="og:title" content="Praktiskā biometrija" />
   <meta property="og:type" content="book" />
@@ -25,14 +25,13 @@
 
 <meta name="author" content="Didzis Elferts">
 
-<meta name="date" content="2016-04-06">
+<meta name="date" content="2016-04-18">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,6 +41,7 @@ MathJax.Hub.Config({
 <link rel="prev" href="datu-izzinasana-un-normalitates-testi.html">
 <link rel="next" href="paraugkopu-salidzinasana.html">
 
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
@@ -422,13 +422,8 @@ apaksa&lt;-<span class="kw">mean</span>(niedr$garums)-robeza
 <p>Atsevišķos gadījumos ticamības intervālus nepieciešams aprēķināt rādītājiem, kuriem nav izstrādātā formula, vai arī zināmiem rādītājiem nevar izmantot parastos aprēķina veidus, jo tiek pārkāpti kādi pieņēmumi par datiem, piemēram, to homogenitāti. Šādos gadījumos var izmantot tā saukto bootstrap metodi. Metodes pamātā ir tas, ka no esošajiem datiem veido daudzas jaunas paraugkopas, kuru apjoms ir vienāds ar oriģinālajiem datiem. Jaunu paraugkopu veidošana notiek pēc paraugošanas ar aizvietošanu principa, tas ir, katra no oriģinālajām vērtībām var tik izraudzīta vairāk kā vienu reizi. Pēc tam katrai no jaunajām paraugkopām aprēķina interesējošo rādītāju un tad aprēķina ticamības intervālu, piemēram, balstoties uz procentilēm.</p>
 <p>Lai izmantotu bootstrap metodi programmā R, ir izveidota tam īpaši paredzēta pakete <code>boot</code> <span class="citation">(Canty and Ripley <a href="literatura.html#ref-canty2012">2012</a>)</span>. Piemērā aprēķināts ticamības intervāls tiem pašiem niedru lapu garumiem. Sākumā ar funkciju<code>set.seed()</code> tiek panākts, lai rezultāts būtu identisks piemēram. Tālāk ir jānodefinē funkcija, kas aprēķina vēlamo rādītāju. Šo funkciju nosaucam par <code>videjie</code> un tai būs divi mainīgie - <code>data</code> un <code>indices</code>, kuru radīs funkcija <code>boot()</code>. <code>indices</code> norādīs indeksus, lai atlasītu skaitļus no mainīgā <code>data</code>. Jaunie skaitļi tiks saglabāti mainīgajā d un šim mainīgajam aprēķinās vidējo aritmētisko. Tālāk izmanto funkciju <code>boot()</code>, kurai kā argumentus norādā oriģinālo skaitļu rindu/kolonnu, aprēķināmo rādītāju (funkcija <code>videjie</code>), kā arī veidojamo paraugu skaitu (šoreiz 1000).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1234</span>)
-<span class="kw">library</span>(boot)</code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;boot&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:car&#39;:
-## 
-##     logit</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">videjie&lt;-function(data,indices){
+<span class="kw">library</span>(boot)
+videjie&lt;-function(data,indices){
    d&lt;-data[indices]
    <span class="kw">mean</span>(d)
  }
@@ -478,8 +473,10 @@ vid.rob</code></pre></div>
 <p>Grafika ar ticāmības intervāliem izveidošanai (<a href="statistiskie-raditaji-un-ticamibas-intervali.html#fig:stra-021">6.2</a> attēls) jāizmanto funkcija <code>plotCI()</code>, kurai kā argumentus jānorāda x mainīgais (šoreiz skaitļi no 1 līdz 3, jo ir trīs parauglaukumi), pēc tam jānorāda vektors ar vidējiem aritmētiskajiem, vektors ar Stjūdenta kritērija un videjā aritmētiskā reprezentācijas rādītāja reizinājumiem, kā arī var norādīt papildus argumentus grafika izskata uzlabošanai.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotrix)
 <span class="kw">plotCI</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="kw">as.vector</span>(videjie),<span class="kw">as.vector</span>(vid.rob),<span class="dt">axes=</span><span class="ot">FALSE</span>,
-       <span class="dt">xlab=</span><span class="st">&quot;Puse&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Videjais garums&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),<span class="dt">lwd=</span><span class="dv">2</span>)
-<span class="kw">axis</span>(<span class="dv">1</span>,<span class="dt">at=</span><span class="dv">1</span>:<span class="dv">3</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Z&quot;</span>))
+       <span class="dt">xlab=</span><span class="st">&quot;Puse&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Videjais garums&quot;</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50</span>),<span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## Warning in plot.xy(xy.coords(x, y), type = type, ...): &quot;axes&quot; is not a
+## graphical parameter</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">axis</span>(<span class="dv">1</span>,<span class="dt">at=</span><span class="dv">1</span>:<span class="dv">3</span>,<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Z&quot;</span>))
 <span class="kw">axis</span>(<span class="dv">2</span>,<span class="dt">at=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">10</span>))
 <span class="kw">box</span>()</code></pre></div>
 <div class="figure"><span id="fig:stra-021"></span>
@@ -500,7 +497,7 @@ Figure 6.2: Vidējais niedru lapu garums trīs parauglaukumos ar 99% ticamības 
 <a href="datu-izzinasana-un-normalitates-testi.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="paraugkopu-salidzinasana.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
-<script src="libs/gitbook-2.6.7/js/app.js"></script>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -536,7 +533,17 @@ gitbook.start({
 });
 </script>
 
-
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
