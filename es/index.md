@@ -13,7 +13,11 @@ Uz šo brīdi esmu līdzautors 30 zinātniskajām publikācijām. [Lūk pilns ma
 
 * [Biometrija](http://www.lu.lv/gribustudet/katalogs/kursu-katalogs/?user_phpfileexecutor_pi1%5Bcourse_id%5D=2BIO2309) (Bioloģijas bakalaura studiju programma)
 * [Praktiskā biometrija biologiem](http://www.lu.lv/gribustudet/katalogs/kursu-katalogs/?user_phpfileexecutor_pi1%5Bcourse_id%5D=2BIO5305) (Bioloģijas maģistra studiju programma)
+* Statistika vides zinātnē (Ģeogrāfijas un zemes zinātņu fakultātes doktorani)
 
-Ik pa laikam piedalos ar ziņojumiem dažādās konferencēs un pasākumos. [Šeit atrodams saraksts ar ziņojumiem, kurus padaru publiski pieejamus.](zinojumi.html)
+
+Ik pa laikam piedalos ar ziņojumiem dažādās konferencēs un pasākumos. [Šeit atrodams saraksts ar ziņojumiem, kurus padaru publiski pieejamus.](zinojumi.html) 
+
+Dažādu interesentu izglītošanai pasniedzu gan paša inciētus, gan pasūtītus kursus un seminārus par R programmu. [Šeit atrodams pasniegto kursu/semināru saraksts](kursi.html)
 
 Lai veicinātu citu izglītošanu par R un statistisku, gatavoju arī [grāmatas, kas ir brīvi pieejamas.](gramatas.html)
