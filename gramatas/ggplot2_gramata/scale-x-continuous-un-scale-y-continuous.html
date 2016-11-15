@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="dati.html">
+<link rel="prev" href="skalas.html">
+<link rel="next" href="koordinatu-sistemas.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -145,17 +145,65 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ievads" class="section level1">
-<h1><span class="header-section-number">Nodaļa 2</span> Ievads</h1>
-<p>Veidojot attēlus ggplot2 sistēmā, var izmantot divas funkcijas: <code>qplot()</code> vai <code>ggplot()</code>. Pirmā funkcija ir paredzēta ātrai attēla veidošanai, bet tai ir mazākas iespējas tikt modificētai, tāpēc šīs grāmatas ietvaros tā netiks izmantota. Šajā grāmatā visi piemēri balstīsies uz funkciju <code>ggplot()</code>. Šai funkcijai kā pirmais arguments ir jānorāda datu tabula/rāmis (var arī nenorādīt, bet tad tā jānorāda kā arguments <code>geom_...()</code> vai <code>stat_...()</code> funkcijās). Šis objektam būtu jābūt tādam, ko programma R uztver kā data frame. Nākamie argumenti ir x un y vērtības, kā arī citi mainīgie, ja no tiem ir jābūt atkarīgai krāsai, formai, utt. Visi mainīgie tiek norādīti funkcijā <code>aes()</code>. Ir jāatceras, ka <code>aes()</code> jānorāda tikai mainīgā (kolonnas) nosaukums, neliekot to pēdiņās, kā arī neizmantojot pieraktu <code>dati$mainigais</code>. Pieraksts ar <code>$</code> zīmi var radīt dīvainu (nepareizu rezultātu). Funkcijā <code>aes()</code> nav obligāti rakstīt <code>x=...</code> un <code>y=...</code> - trūkstot šiem argumentiem, pirmais mainīgais tiks uztverts kā x, bet otrais kā y.</p> 
+<div id="scale_x_continuous-un-scale_y_continuous" class="section level2">
+<h2><span class="header-section-number">4.1</span> scale_x_continuous() un scale_y_continuous()</h2>
+<p>x un y ass vērtību maiņai, ja tās skaitliskas (nepārtrauktas), izmanto attiecīgi funkcijas <code>scale_x_continuous()</code> un <code>scale_y_continuous()</code>. Izmantojot šīs funkcijas var mainīt asu parakstus (arguments <code>name=</code>), pozīcijas, kurās parādās skaitļi (<code>breaks=</code>) (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas1">4.1</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="st">&quot;Koncentrācija&quot;</span>,<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">400</span>,<span class="dv">500</span>))+
+<span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Uzņemtais apjoms&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:skalas1"></span>
+<img src="ggplot2_gramata_files/figure-html/skalas1-1.png" alt="Nepārtraukto asu piemērs" width="672" />
+<p class="caption">
+Attēls 4.1: Nepārtraukto asu piemērs
+</p>
 </div>
+<p>Ar argumentu <code>limits=</code> ir iespējams mainīt katras ass garumu, bet jāņem vērā, ka gadījumā, ja jaunais garums būs mazāks nekā vērtību amplitūda, tad vērtības ārpus ass garumu tiks izslēgtas no attēla (to parāda arī brīdinājums par izslēgtām vērtībām), ietekmējot attēlojumu (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas2">4.2</a> attēls). Tas īpaši attiecas uz stabiņu attēliem, vai attēliem ar trenda līniju.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">600</span>))+
+<span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50</span>))</code></pre></div>
+<pre><code>## Warning: Removed 48 rows containing missing values (geom_point).</code></pre>
+<div class="figure"><span id="fig:skalas2"></span>
+<img src="ggplot2_gramata_files/figure-html/skalas2-1.png" alt="Izmainītas nepārtrauktās ass piemērs" width="672" />
+<p class="caption">
+Attēls 4.2: Izmainītas nepārtrauktās ass piemērs
+</p>
+</div>
+<p>y un x asi ir iespējams arī pārvietot attiecīgi uz labo pusi vai uz augšu, norādot argumentu <code>position=</code> (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas3">4.3</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">position =</span> <span class="st">&quot;right&quot;</span>)+
+<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">position =</span> <span class="st">&quot;top&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:skalas3"></span>
+<img src="ggplot2_gramata_files/figure-html/skalas3-1.png" alt="Pārvietotas x un y asis" width="672" />
+<p class="caption">
+Attēls 4.3: Pārvietotas x un y asis
+</p>
+</div>
+<p>Ar argumentu <code>sec.axis=</code> gan x, gan y asij ir iespējams izveidot otro asi, bet tikai ar nosacījumu, ka otrā ass ir tieša pamatass transformāciju (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas4">4.4</a> attēls). Tas nozīmē, ka nevar izveidot otru asi, kas parāda pavisam citas vērtības.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">sec.axis =</span> <span class="kw">sec_axis</span>(~./<span class="dv">100</span>,<span class="dt">name=</span><span class="st">&quot;Otrā y ass&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:skalas4"></span>
+<img src="ggplot2_gramata_files/figure-html/skalas4-1.png" alt="Attēls ar otru y asi, kas ir pirmās transformācija" width="672" />
+<p class="caption">
+Attēls 4.4: Attēls ar otru y asi, kas ir pirmās transformācija
+</p>
+</div>
+<!-- ## scale_x_discrete() un scale_y_discrete() -->
+<!-- ## scale_colour_...() -->
+<!-- ## scale_fill_...() -->
+<!-- ## scale_alpha_...() -->
+<!-- ## scale_linetype_...() -->
+<!-- ## scale_shape_...() -->
+<!-- ## scale_size_...() -->
+
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dati.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="skalas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="koordinatu-sistemas.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -182,7 +230,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/delferts/ggplot2_gramata/edit/master/01-Ievads.Rmd",
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/03-Skalas.Rmd",
 "text": "Edit"
 },
 "download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],

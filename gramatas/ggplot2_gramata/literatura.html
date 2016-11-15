@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="dati.html">
+<link rel="prev" href="definetas-attela-temas.html">
+
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -145,17 +145,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ievads" class="section level1">
-<h1><span class="header-section-number">Nodaļa 2</span> Ievads</h1>
-<p>Veidojot attēlus ggplot2 sistēmā, var izmantot divas funkcijas: <code>qplot()</code> vai <code>ggplot()</code>. Pirmā funkcija ir paredzēta ātrai attēla veidošanai, bet tai ir mazākas iespējas tikt modificētai, tāpēc šīs grāmatas ietvaros tā netiks izmantota. Šajā grāmatā visi piemēri balstīsies uz funkciju <code>ggplot()</code>. Šai funkcijai kā pirmais arguments ir jānorāda datu tabula/rāmis (var arī nenorādīt, bet tad tā jānorāda kā arguments <code>geom_...()</code> vai <code>stat_...()</code> funkcijās). Šis objektam būtu jābūt tādam, ko programma R uztver kā data frame. Nākamie argumenti ir x un y vērtības, kā arī citi mainīgie, ja no tiem ir jābūt atkarīgai krāsai, formai, utt. Visi mainīgie tiek norādīti funkcijā <code>aes()</code>. Ir jāatceras, ka <code>aes()</code> jānorāda tikai mainīgā (kolonnas) nosaukums, neliekot to pēdiņās, kā arī neizmantojot pieraktu <code>dati$mainigais</code>. Pieraksts ar <code>$</code> zīmi var radīt dīvainu (nepareizu rezultātu). Funkcijā <code>aes()</code> nav obligāti rakstīt <code>x=...</code> un <code>y=...</code> - trūkstot šiem argumentiem, pirmais mainīgais tiks uztverts kā x, bet otrais kā y.</p> 
+<div id="literatura" class="section level1 unnumbered">
+<h1>Literatūra</h1>
+
+<div id="refs" class="references">
+<div>
+<p>Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org" class="uri">http://ggplot2.org</a>.</p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dati.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="definetas-attela-temas.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -182,7 +187,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/delferts/ggplot2_gramata/edit/master/01-Ievads.Rmd",
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/15-Literatura.Rmd",
 "text": "Edit"
 },
 "download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],
