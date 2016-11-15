@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ggplot2 grafiskā sistēma</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Šī grāmata ir par vienu no programmas R grafiskajām sistēmām - ggplot2.">
+  <meta name="generator" content="bookdown 0.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="ggplot2 grafiskā sistēma" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Šī grāmata ir par vienu no programmas R grafiskajām sistēmām - ggplot2." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ggplot2 grafiskā sistēma" />
+  
+  <meta name="twitter:description" content="Šī grāmata ir par vienu no programmas R grafiskajām sistēmām - ggplot2." />
+  
+
+<meta name="author" content="Didzis Elferts">
+
+
+<meta name="date" content="2016-11-15">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="coord-fixed.html">
+<link rel="next" href="coord-map.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p>ggplot 2 grafiskā sistēma</p></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pamatojums</a></li>
+<li class="chapter" data-level="2" data-path="ievads.html"><a href="ievads.html"><i class="fa fa-check"></i><b>2</b> Ievads</a><ul>
+<li class="chapter" data-level="2.1" data-path="dati.html"><a href="dati.html"><i class="fa fa-check"></i><b>2.1</b> Dati</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="formas.html"><a href="formas.html"><i class="fa fa-check"></i><b>3</b> Formas</a><ul>
+<li class="chapter" data-level="3.1" data-path="geom-point.html"><a href="geom-point.html"><i class="fa fa-check"></i><b>3.1</b> geom_point()</a></li>
+<li class="chapter" data-level="3.2" data-path="geom-bar.html"><a href="geom-bar.html"><i class="fa fa-check"></i><b>3.2</b> geom_bar()</a></li>
+<li class="chapter" data-level="3.3" data-path="geom-col.html"><a href="geom-col.html"><i class="fa fa-check"></i><b>3.3</b> geom_col()</a></li>
+<li class="chapter" data-level="3.4" data-path="geom-line.html"><a href="geom-line.html"><i class="fa fa-check"></i><b>3.4</b> geom_line()</a></li>
+<li class="chapter" data-level="3.5" data-path="geom-path.html"><a href="geom-path.html"><i class="fa fa-check"></i><b>3.5</b> geom_path()</a></li>
+<li class="chapter" data-level="3.6" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>3.6</b> geom_boxplot()</a></li>
+<li class="chapter" data-level="3.7" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>3.7</b> geom_count()</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-crossbar-geom-errobar-geom-linerange-un-geom-pointrange.html"><a href="geom-crossbar-geom-errobar-geom-linerange-un-geom-pointrange.html"><i class="fa fa-check"></i><b>3.8</b> geom_crossbar(), geom_errobar(), geom_ linerange() un geom_pointrange()</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-dotplo.html"><a href="geom-dotplo.html"><i class="fa fa-check"></i><b>3.9</b> geom_dotplo()</a></li>
+<li class="chapter" data-level="3.10" data-path="geom-abline.html"><a href="geom-abline.html"><i class="fa fa-check"></i><b>3.10</b> geom_abline()</a></li>
+<li class="chapter" data-level="3.11" data-path="geom-density.html"><a href="geom-density.html"><i class="fa fa-check"></i><b>3.11</b> geom_density()</a></li>
+<li class="chapter" data-level="3.12" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>3.12</b> geom_jitter()</a></li>
+<li class="chapter" data-level="3.13" data-path="geom-polygon.html"><a href="geom-polygon.html"><i class="fa fa-check"></i><b>3.13</b> geom_polygon()</a></li>
+<li class="chapter" data-level="3.14" data-path="geom-ribbon.html"><a href="geom-ribbon.html"><i class="fa fa-check"></i><b>3.14</b> geom_ribbon()</a></li>
+<li class="chapter" data-level="3.15" data-path="geom-smooth.html"><a href="geom-smooth.html"><i class="fa fa-check"></i><b>3.15</b> geom_smooth()</a></li>
+<li class="chapter" data-level="3.16" data-path="geom-violin.html"><a href="geom-violin.html"><i class="fa fa-check"></i><b>3.16</b> geom_violin()</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="skalas.html"><a href="skalas.html"><i class="fa fa-check"></i><b>4</b> Skalas</a><ul>
+<li class="chapter" data-level="4.1" data-path="scale-colour-.html"><a href="scale-colour-.html"><i class="fa fa-check"></i><b>4.1</b> scale_colour_…()</a></li>
+<li class="chapter" data-level="4.2" data-path="scale-fill-.html"><a href="scale-fill-.html"><i class="fa fa-check"></i><b>4.2</b> scale_fill_…()</a></li>
+<li class="chapter" data-level="4.3" data-path="scale-alpha-.html"><a href="scale-alpha-.html"><i class="fa fa-check"></i><b>4.3</b> scale_alpha_…()</a></li>
+<li class="chapter" data-level="4.4" data-path="scale-linetype-.html"><a href="scale-linetype-.html"><i class="fa fa-check"></i><b>4.4</b> scale_linetype_…()</a></li>
+<li class="chapter" data-level="4.5" data-path="scale-shape-.html"><a href="scale-shape-.html"><i class="fa fa-check"></i><b>4.5</b> scale_shape_…()</a></li>
+<li class="chapter" data-level="4.6" data-path="scale-size-.html"><a href="scale-size-.html"><i class="fa fa-check"></i><b>4.6</b> scale_size_…()</a></li>
+<li class="chapter" data-level="4.7" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.7</b> scale_x_discrete() un scale_y_discrete()</a></li>
+<li class="chapter" data-level="4.8" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.8</b> scale_x_continuous() un scale_y_continuous()</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a><ul>
+<li class="chapter" data-level="5.1" data-path="coord-cartesian.html"><a href="coord-cartesian.html"><i class="fa fa-check"></i><b>5.1</b> coord_cartesian()</a></li>
+<li class="chapter" data-level="5.2" data-path="coord-fixed.html"><a href="coord-fixed.html"><i class="fa fa-check"></i><b>5.2</b> coord_fixed()</a></li>
+<li class="chapter" data-level="5.3" data-path="coord-flip.html"><a href="coord-flip.html"><i class="fa fa-check"></i><b>5.3</b> coord_flip()</a></li>
+<li class="chapter" data-level="5.4" data-path="coord-map.html"><a href="coord-map.html"><i class="fa fa-check"></i><b>5.4</b> coord_map()</a></li>
+<li class="chapter" data-level="5.5" data-path="coord-polar.html"><a href="coord-polar.html"><i class="fa fa-check"></i><b>5.5</b> coord_polar()</a></li>
+<li class="chapter" data-level="5.6" data-path="coord-trans.html"><a href="coord-trans.html"><i class="fa fa-check"></i><b>5.6</b> coord_trans()</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
+<li class="chapter" data-level="6.1" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.1</b> facet_wrap()</a></li>
+<li class="chapter" data-level="6.2" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.2</b> facet_grid()</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="attela-noformesana.html"><a href="attela-noformesana.html"><i class="fa fa-check"></i><b>7</b> Attēla noformēšana</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ggplot2 grafiskā sistēma</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="coord_flip" class="section level2">
+<h2><span class="header-section-number">5.3</span> coord_flip()</h2>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="coord-fixed.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="coord-map.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/04-Koordinates.Rmd",
+"text": "Edit"
+},
+"download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
