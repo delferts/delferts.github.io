@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="geom-histogram.html">
-<link rel="next" href="skalas.html">
+<link rel="prev" href="geom-count.html">
+<link rel="next" href="geom-jitter.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -149,47 +149,54 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="geom_jitter" class="section level2">
-<h2><span class="header-section-number">3.9</span> geom_jitter()</h2>
-<p>Gadījumos, kad nepieciešams izveidot izkliedes (punktu) diagrammu, bet vērojam vērtību pārklāšanās (daudz identisku vērtību), var izmantot <code>geom_jitter()</code>, kur punktiem tiek veikta neliela nobīde x vai y (vai abu) ass virzienā, lai novērstu pārklāšanos. Šādu attēlošanas veidu sevišķi ērti izmantot, ja x vērtības ir kategorijas mainīgais, jo tad izkliede notiek tikai x ass virzienā, bet y ass virzienā redzamas reālās vērtības (<a href="geom-jitter.html#fig:jit1">3.26</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake))+<span class="kw">geom_jitter</span>()</code></pre></div>
-<div class="figure"><span id="fig:jit1"></span>
-<img src="ggplot2_gramata_files/figure-html/jit1-1.png" alt="Izkliedes diagramma, kurā x virzienā nejauši mainīts punktu izvietojums" width="672" />
+<div id="geom_histogram" class="section level2">
+<h2><span class="header-section-number">3.8</span> geom_histogram()</h2>
+<p>Histogrammas veidošanai izmanto <code>geom_histogram()</code>, kam ir nepieciešamas tikai x vērtības. Pēc noklusējuma dati tiek dalīti trīs klasēs (<a href="geom-histogram.html#fig:hist1">3.22</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(uptake)) +<span class="st"> </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<div class="figure"><span id="fig:hist1"></span>
+<img src="ggplot2_gramata_files/figure-html/hist1-1.png" alt="Histogrammas piemērs" width="672" />
 <p class="caption">
-Attēls 3.26: Izkliedes diagramma, kurā x virzienā nejauši mainīts punktu izvietojums
+Attēls 3.22: Histogrammas piemērs
 </p>
 </div>
-<p><code>geom_jitter()</code> ir labi izmantot kombinācijā ar <code>geom_boxplot()</code>, jo tādējādi gan parādās reālās vērtības, gan arī vērtību apkopojums (<a href="geom-jitter.html#fig:jit2">3.27</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake))+<span class="kw">geom_boxplot</span>()+<span class="kw">geom_jitter</span>()</code></pre></div>
-<div class="figure"><span id="fig:jit2"></span>
-<img src="ggplot2_gramata_files/figure-html/jit2-1.png" alt="Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija" width="672" />
+<p>Ar argumentu <code>binwidth=</code> ir iespējams mainīt dalījuma klases lielumu, tādēji mainot klašu skaitu un histogrammas izskatu (<a href="geom-histogram.html#fig:hist2">3.23</a> attēls). Var arī norādīt vēlamo klašu skaitu ar argumenti <code>bins=</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(uptake)) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</code></pre></div>
+<div class="figure"><span id="fig:hist2"></span>
+<img src="ggplot2_gramata_files/figure-html/hist2-1.png" alt="Histogrammas ar mainītu klases lielumu" width="672" />
 <p class="caption">
-Attēls 3.27: Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija
+Attēls 3.23: Histogrammas ar mainītu klases lielumu
 </p>
 </div>
-<p><code>geom_jitter()</code> un <code>geom_boxplot()</code> var kombinēt arī gadījumos, kad vērtībamplitūdas diagramma ir sadalīta atbilsotīs trešā mainīgā līmeņiem, bet šajā gadījumā papildus ir jānorāda arguments <code>position=position_jitterdodge()</code>, lai punktu izvietojums atbilstu reālajam vērtību sadalījumam pa līmeņiem (<a href="geom-jitter.html#fig:jit3">3.28</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake,<span class="dt">fill=</span>Treatment))+<span class="kw">geom_boxplot</span>()+
-<span class="st">      </span><span class="kw">geom_jitter</span>(<span class="dt">position=</span><span class="kw">position_jitterdodge</span>())</code></pre></div>
-<div class="figure"><span id="fig:jit3"></span>
-<img src="ggplot2_gramata_files/figure-html/jit3-1.png" alt="Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija gadījumā, kad iesaistīts trešais mainīgais dalījuma līmeņiem" width="672" />
+<p>Tā kā histogrammā parādās stabiņi, tad tiem ir iespējams mainīt gan līnijas krāsu (<code>color=</code>), gan arī aizpildījumu (<code>fill=</code>) (<a href="geom-histogram.html#fig:hist3">3.24</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(uptake)) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;green&quot;</span>,<span class="dt">fill=</span><span class="st">&quot;white&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<div class="figure"><span id="fig:hist3"></span>
+<img src="ggplot2_gramata_files/figure-html/hist3-1.png" alt="Histogrammas ar mainītu izskatu" width="672" />
 <p class="caption">
-Attēls 3.28: Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija gadījumā, kad iesaistīts trešais mainīgais dalījuma līmeņiem
+Attēls 3.24: Histogrammas ar mainītu izskatu
 </p>
 </div>
-<!-- ## geom_polygon() -->
-<!-- ## geom_ribbon() -->
-<!-- ## geom_smooth() -->
-<!-- ## geom_violin() -->
-
+<p>Norādot, ka aizpildījums ir atkarīgs no mainīgā, izveidosies histogramma, kurā katrs stabiņš sadalīts daļās atbilstoši novērojumu skaitam katrā no līmeņiem (<a href="geom-histogram.html#fig:hist4">3.25</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(uptake,<span class="dt">fill=</span>Type)) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</code></pre></div>
+<div class="figure"><span id="fig:hist4"></span>
+<img src="ggplot2_gramata_files/figure-html/hist4-1.png" alt="Histogrammas, kur aizpildījums atkarīgs no mainīgā" width="672" />
+<p class="caption">
+Attēls 3.25: Histogrammas, kur aizpildījums atkarīgs no mainīgā
+</p>
 </div>
-<!-- </div> -->
+<!-- ## geom_crossbar(), geom_errobar(), geom_ linerange() un geom_pointrange() -->
+<!-- ## geom_dotplot() -->
+<!-- ## geom_abline() -->
+<!-- ## geom_density() -->
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="geom-histogram.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="skalas.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="geom-count.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geom-jitter.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

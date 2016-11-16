@@ -26,7 +26,7 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-11-15">
+<meta name="date" content="2016-11-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
   
   
 <link rel="prev" href="geom-boxplot.html">
-<link rel="next" href="skalas.html">
+<link rel="next" href="geom-histogram.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -113,8 +113,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="geom-point.html"><a href="geom-point.html"><i class="fa fa-check"></i><b>3.1</b> geom_point()</a></li>
 <li class="chapter" data-level="3.2" data-path="geom-bar.html"><a href="geom-bar.html"><i class="fa fa-check"></i><b>3.2</b> geom_bar()</a></li>
 <li class="chapter" data-level="3.3" data-path="geom-col.html"><a href="geom-col.html"><i class="fa fa-check"></i><b>3.3</b> geom_col()</a></li>
-<li class="chapter" data-level="3.4" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>3.4</b> geom_boxplot()</a></li>
-<li class="chapter" data-level="3.5" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>3.5</b> geom_count()</a></li>
+<li class="chapter" data-level="3.4" data-path="geom-line.html"><a href="geom-line.html"><i class="fa fa-check"></i><b>3.4</b> geom_line()</a></li>
+<li class="chapter" data-level="3.5" data-path="geom-path.html"><a href="geom-path.html"><i class="fa fa-check"></i><b>3.5</b> geom_path()</a></li>
+<li class="chapter" data-level="3.6" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>3.6</b> geom_boxplot()</a></li>
+<li class="chapter" data-level="3.7" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>3.7</b> geom_count()</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-histogram.html"><a href="geom-histogram.html"><i class="fa fa-check"></i><b>3.8</b> geom_histogram()</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>3.9</b> geom_jitter()</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="skalas.html"><a href="skalas.html"><i class="fa fa-check"></i><b>4</b> Skalas</a><ul>
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
@@ -146,42 +150,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="geom_count" class="section level2">
-<h2><span class="header-section-number">3.5</span> geom_count()</h2>
-<p>Gadījumos, kad nepieciešams attēlot izkliedes diagrammu, bet ir vērojama punktu pārklāšanās (pie vienādām x un y vērtībām ir vairāki novērojumi), var izmantot <code>geom_count()</code>, kas parāda cik daudz novērojumu ir konkrētajām x un y vērtībām (<a href="geom-count.html#fig:count1">3.16</a> attēls).</p>
+<h2><span class="header-section-number">3.7</span> geom_count()</h2>
+<p>Gadījumos, kad nepieciešams attēlot izkliedes diagrammu, bet ir vērojama punktu pārklāšanās (pie vienādām x un y vērtībām ir vairāki novērojumi), var izmantot <code>geom_count()</code>, kas parāda cik daudz novērojumu ir konkrētajām x un y vērtībām (<a href="geom-count.html#fig:count1">3.20</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) +<span class="st"> </span><span class="kw">geom_count</span>()</code></pre></div>
 <div class="figure"><span id="fig:count1"></span>
 <img src="ggplot2_gramata_files/figure-html/count1-1.png" alt="Izkliedes diagramma, kur punktu lielums atkarīgs no novērojumu skaita" width="672" />
 <p class="caption">
-Attēls 3.16: Izkliedes diagramma, kur punktu lielums atkarīgs no novērojumu skaita
+Attēls 3.20: Izkliedes diagramma, kur punktu lielums atkarīgs no novērojumu skaita
 </p>
 </div>
-<p>Ja <code>aes()</code> funkcijā norāda argumentu size=..prop.., tad punktu lielums ir parāda proporciju nevis skaitu (<a href="geom-count.html#fig:count2">3.17</a> attēls).</p>
+<p>Ja <code>aes()</code> funkcijā norāda argumentu size=..prop.., tad punktu lielums ir parāda proporciju nevis skaitu (<a href="geom-count.html#fig:count2">3.21</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) +<span class="st"> </span><span class="kw">geom_count</span>(<span class="kw">aes</span>(<span class="dt">size=</span>..prop..))</code></pre></div>
 <div class="figure"><span id="fig:count2"></span>
 <img src="ggplot2_gramata_files/figure-html/count2-1.png" alt="Izkliedes diagramma, kur punktu lielums atbilst novērojumu proporcijai" width="672" />
 <p class="caption">
-Attēls 3.17: Izkliedes diagramma, kur punktu lielums atbilst novērojumu proporcijai
+Attēls 3.21: Izkliedes diagramma, kur punktu lielums atbilst novērojumu proporcijai
 </p>
 </div>
-<!-- ## geom_crossbar(), geom_errobar(), geom_ linerange() un geom_pointrange() -->
-<!-- ## geom_dotplo() -->
-<!-- ## geom_abline() -->
-<!-- ## geom_density() -->
-<!-- ## geom_jitter() -->
-<!-- ## geom_polygon() -->
-<!-- ## geom_ribbon() -->
-<!-- ## geom_smooth() -->
-<!-- ## geom_violin() -->
-
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="geom-boxplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="skalas.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="geom-histogram.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

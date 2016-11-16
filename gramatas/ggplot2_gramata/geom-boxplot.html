@@ -26,14 +26,14 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-11-15">
+<meta name="date" content="2016-11-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="geom-col.html">
+<link rel="prev" href="geom-path.html">
 <link rel="next" href="geom-count.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -113,8 +113,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="geom-point.html"><a href="geom-point.html"><i class="fa fa-check"></i><b>3.1</b> geom_point()</a></li>
 <li class="chapter" data-level="3.2" data-path="geom-bar.html"><a href="geom-bar.html"><i class="fa fa-check"></i><b>3.2</b> geom_bar()</a></li>
 <li class="chapter" data-level="3.3" data-path="geom-col.html"><a href="geom-col.html"><i class="fa fa-check"></i><b>3.3</b> geom_col()</a></li>
-<li class="chapter" data-level="3.4" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>3.4</b> geom_boxplot()</a></li>
-<li class="chapter" data-level="3.5" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>3.5</b> geom_count()</a></li>
+<li class="chapter" data-level="3.4" data-path="geom-line.html"><a href="geom-line.html"><i class="fa fa-check"></i><b>3.4</b> geom_line()</a></li>
+<li class="chapter" data-level="3.5" data-path="geom-path.html"><a href="geom-path.html"><i class="fa fa-check"></i><b>3.5</b> geom_path()</a></li>
+<li class="chapter" data-level="3.6" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>3.6</b> geom_boxplot()</a></li>
+<li class="chapter" data-level="3.7" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>3.7</b> geom_count()</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-histogram.html"><a href="geom-histogram.html"><i class="fa fa-check"></i><b>3.8</b> geom_histogram()</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>3.9</b> geom_jitter()</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="skalas.html"><a href="skalas.html"><i class="fa fa-check"></i><b>4</b> Skalas</a><ul>
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
@@ -146,37 +150,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="geom_boxplot" class="section level2">
-<h2><span class="header-section-number">3.4</span> geom_boxplot()</h2>
-<p>Vērtībamplitūdas diagrammas veidošanai izmanto <code>geom_boxplot()</code>. Šim attēla veida x vērtībām ir jābūt kvalitatīviem datiem, vai arī skaitliskiem datiem, kas pārvērsti par faktoru. y vērtībām obligāti ir jābūt skaitliskām (<a href="geom-boxplot.html#fig:boxpl1">3.12</a> attēls).</p>
+<h2><span class="header-section-number">3.6</span> geom_boxplot()</h2>
+<p>Vērtībamplitūdas diagrammas veidošanai izmanto <code>geom_boxplot()</code>. Šim attēla veida x vērtībām ir jābūt kvalitatīviem datiem, vai arī skaitliskiem datiem, kas pārvērsti par faktoru. y vērtībām obligāti ir jābūt skaitliskām (<a href="geom-boxplot.html#fig:boxpl1">3.16</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake))+<span class="kw">geom_boxplot</span>()</code></pre></div>
 <div class="figure"><span id="fig:boxpl1"></span>
 <img src="ggplot2_gramata_files/figure-html/boxpl1-1.png" alt="Vērtībamplitūdas diagrammas piemērs" width="672" />
 <p class="caption">
-Attēls 3.12: Vērtībamplitūdas diagrammas piemērs
+Attēls 3.16: Vērtībamplitūdas diagrammas piemērs
 </p>
 </div>
-<p>Līdzīgi kā stabiņu attēlam vērtībamplitūdas diagrammā var mainīt līniju un punktu krāsu (<code>color=</code>) vai arī “kastītes” aizpildījumu (<code>fill=</code>) (<a href="geom-boxplot.html#fig:boxpl2">3.13</a> attēls).</p>
+<p>Līdzīgi kā stabiņu attēlam vērtībamplitūdas diagrammā var mainīt līniju un punktu krāsu (<code>color=</code>) vai arī “kastītes” aizpildījumu (<code>fill=</code>) (<a href="geom-boxplot.html#fig:boxpl2">3.17</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake))+<span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;green&quot;</span>,<span class="dt">fill=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:boxpl2"></span>
 <img src="ggplot2_gramata_files/figure-html/boxpl2-1.png" alt="Vērtībamplitūdas diagramma ar izmainītu līniju un kastītes krāsu" width="672" />
 <p class="caption">
-Attēls 3.13: Vērtībamplitūdas diagramma ar izmainītu līniju un kastītes krāsu
+Attēls 3.17: Vērtībamplitūdas diagramma ar izmainītu līniju un kastītes krāsu
 </p>
 </div>
-<p>Izlēcēju (neraksturīgo vērtību) punktu krāsu, formu un izmēru var mainīt arī atsevišķi, izmantojot argumentus <code>outlier.color=</code>, <code>outlier.shape=</code> un <code>outlier.size=</code> (<a href="geom-boxplot.html#fig:boxpl3">3.14</a> attēls).</p>
+<p>Izlēcēju (neraksturīgo vērtību) punktu krāsu, formu un izmēru var mainīt arī atsevišķi, izmantojot argumentus <code>outlier.color=</code>, <code>outlier.shape=</code> un <code>outlier.size=</code> (<a href="geom-boxplot.html#fig:boxpl3">3.18</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake))+<span class="kw">geom_boxplot</span>(<span class="dt">outlier.color =</span> <span class="st">&quot;red&quot;</span>,<span class="dt">outlier.shape =</span> <span class="dv">13</span>,<span class="dt">outlier.size =</span> <span class="dv">3</span>)</code></pre></div>
 <div class="figure"><span id="fig:boxpl3"></span>
 <img src="ggplot2_gramata_files/figure-html/boxpl3-1.png" alt="Vērtībamplitūdas diagramma ar izmainītu izlēcēju krāsu, formu un izmēru" width="672" />
 <p class="caption">
-Attēls 3.14: Vērtībamplitūdas diagramma ar izmainītu izlēcēju krāsu, formu un izmēru
+Attēls 3.18: Vērtībamplitūdas diagramma ar izmainītu izlēcēju krāsu, formu un izmēru
 </p>
 </div>
-<p>Ja arguments <code>fill=</code> atrodas funkcijas <code>aes()</code> iekavās un tas ir atkarīgs no kāda mainīgā, tad pie katras atbilstošās x vērtības, vērtībamplitūdas diagramma tiek sadalīta tik daļās, cik līmeņi ir papildus mainīgajam, kā arī parādās atbilstošā leģenda ar izmantotajām aizpildījuma krāsām (<a href="geom-boxplot.html#fig:boxpl4">3.15</a> attēls).</p>
+<p>Ja arguments <code>fill=</code> atrodas funkcijas <code>aes()</code> iekavās un tas ir atkarīgs no kāda mainīgā, tad pie katras atbilstošās x vērtības, vērtībamplitūdas diagramma tiek sadalīta tik daļās, cik līmeņi ir papildus mainīgajam, kā arī parādās atbilstošā leģenda ar izmantotajām aizpildījuma krāsām (<a href="geom-boxplot.html#fig:boxpl4">3.19</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake,<span class="dt">fill=</span>Treatment))+<span class="kw">geom_boxplot</span>()</code></pre></div>
 <div class="figure"><span id="fig:boxpl4"></span>
 <img src="ggplot2_gramata_files/figure-html/boxpl4-1.png" alt="Vērtībamplitūdas diagramma, kurā katram faktora līmenim diagramma sadalīta daļās" width="672" />
 <p class="caption">
-Attēls 3.15: Vērtībamplitūdas diagramma, kurā katram faktora līmenim diagramma sadalīta daļās
+Attēls 3.19: Vērtībamplitūdas diagramma, kurā katram faktora līmenim diagramma sadalīta daļās
 </p>
 </div>
 </div>
@@ -185,7 +189,7 @@ Attēls 3.15: Vērtībamplitūdas diagramma, kurā katram faktora līmenim diagr
           </div>
         </div>
       </div>
-<a href="geom-col.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geom-path.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="geom-count.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
