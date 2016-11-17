@@ -26,14 +26,14 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-11-16">
+<meta name="date" content="2016-11-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="geom-histogram.html">
+<link rel="prev" href="geom-abline-geom-hline-un-geom-vline.html">
 <link rel="next" href="skalas.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -118,13 +118,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>3.6</b> geom_boxplot()</a></li>
 <li class="chapter" data-level="3.7" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>3.7</b> geom_count()</a></li>
 <li class="chapter" data-level="3.8" data-path="geom-histogram.html"><a href="geom-histogram.html"><i class="fa fa-check"></i><b>3.8</b> geom_histogram()</a></li>
-<li class="chapter" data-level="3.9" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>3.9</b> geom_jitter()</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-abline-geom-hline-un-geom-vline.html"><a href="geom-abline-geom-hline-un-geom-vline.html"><i class="fa fa-check"></i><b>3.9</b> geom_abline(), geom_hline() un geom_vline()</a></li>
+<li class="chapter" data-level="3.10" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>3.10</b> geom_jitter()</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="skalas.html"><a href="skalas.html"><i class="fa fa-check"></i><b>4</b> Skalas</a><ul>
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a></li>
-<li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a></li>
+<li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
+<li class="chapter" data-level="6.1" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.1</b> facet_grid()</a></li>
+<li class="chapter" data-level="6.2" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.2</b> facet_wrap()</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="attela-noformesana.html"><a href="attela-noformesana.html"><i class="fa fa-check"></i><b>7</b> Attēla noformēšana</a><ul>
 <li class="chapter" data-level="7.1" data-path="definetas-attela-temas.html"><a href="definetas-attela-temas.html"><i class="fa fa-check"></i><b>7.1</b> Definētās attēla tēmas</a></li>
 </ul></li>
@@ -150,30 +154,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="geom_jitter" class="section level2">
-<h2><span class="header-section-number">3.9</span> geom_jitter()</h2>
-<p>Gadījumos, kad nepieciešams izveidot izkliedes (punktu) diagrammu, bet vērojam vērtību pārklāšanās (daudz identisku vērtību), var izmantot <code>geom_jitter()</code>, kur punktiem tiek veikta neliela nobīde x vai y (vai abu) ass virzienā, lai novērstu pārklāšanos. Šādu attēlošanas veidu sevišķi ērti izmantot, ja x vērtības ir kategorijas mainīgais, jo tad izkliede notiek tikai x ass virzienā, bet y ass virzienā redzamas reālās vērtības (<a href="geom-jitter.html#fig:jit1">3.26</a> attēls).</p>
+<h2><span class="header-section-number">3.10</span> geom_jitter()</h2>
+<p>Gadījumos, kad nepieciešams izveidot izkliedes (punktu) diagrammu, bet vērojam vērtību pārklāšanās (daudz identisku vērtību), var izmantot <code>geom_jitter()</code>, kur punktiem tiek veikta neliela nobīde x vai y (vai abu) ass virzienā, lai novērstu pārklāšanos. Šādu attēlošanas veidu sevišķi ērti izmantot, ja x vērtības ir kategorijas mainīgais, jo tad izkliede notiek tikai x ass virzienā, bet y ass virzienā redzamas reālās vērtības (<a href="geom-jitter.html#fig:jit1">3.31</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake))+<span class="kw">geom_jitter</span>()</code></pre></div>
 <div class="figure"><span id="fig:jit1"></span>
 <img src="ggplot2_gramata_files/figure-html/jit1-1.png" alt="Izkliedes diagramma, kurā x virzienā nejauši mainīts punktu izvietojums" width="672" />
 <p class="caption">
-Attēls 3.26: Izkliedes diagramma, kurā x virzienā nejauši mainīts punktu izvietojums
+Attēls 3.31: Izkliedes diagramma, kurā x virzienā nejauši mainīts punktu izvietojums
 </p>
 </div>
-<p><code>geom_jitter()</code> ir labi izmantot kombinācijā ar <code>geom_boxplot()</code>, jo tādējādi gan parādās reālās vērtības, gan arī vērtību apkopojums (<a href="geom-jitter.html#fig:jit2">3.27</a> attēls).</p>
+<p><code>geom_jitter()</code> ir labi izmantot kombinācijā ar <code>geom_boxplot()</code>, jo tādējādi gan parādās reālās vērtības, gan arī vērtību apkopojums (<a href="geom-jitter.html#fig:jit2">3.32</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake))+<span class="kw">geom_boxplot</span>()+<span class="kw">geom_jitter</span>()</code></pre></div>
 <div class="figure"><span id="fig:jit2"></span>
 <img src="ggplot2_gramata_files/figure-html/jit2-1.png" alt="Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija" width="672" />
 <p class="caption">
-Attēls 3.27: Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija
+Attēls 3.32: Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija
 </p>
 </div>
-<p><code>geom_jitter()</code> un <code>geom_boxplot()</code> var kombinēt arī gadījumos, kad vērtībamplitūdas diagramma ir sadalīta atbilsotīs trešā mainīgā līmeņiem, bet šajā gadījumā papildus ir jānorāda arguments <code>position=position_jitterdodge()</code>, lai punktu izvietojums atbilstu reālajam vērtību sadalījumam pa līmeņiem (<a href="geom-jitter.html#fig:jit3">3.28</a> attēls).</p>
+<p><code>geom_jitter()</code> un <code>geom_boxplot()</code> var kombinēt arī gadījumos, kad vērtībamplitūdas diagramma ir sadalīta atbilsotīs trešā mainīgā līmeņiem, bet šajā gadījumā papildus ir jānorāda arguments <code>position=position_jitterdodge()</code>, lai punktu izvietojums atbilstu reālajam vērtību sadalījumam pa līmeņiem (<a href="geom-jitter.html#fig:jit3">3.33</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(Type,uptake,<span class="dt">fill=</span>Treatment))+<span class="kw">geom_boxplot</span>()+
 <span class="st">      </span><span class="kw">geom_jitter</span>(<span class="dt">position=</span><span class="kw">position_jitterdodge</span>())</code></pre></div>
 <div class="figure"><span id="fig:jit3"></span>
 <img src="ggplot2_gramata_files/figure-html/jit3-1.png" alt="Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija gadījumā, kad iesaistīts trešais mainīgais dalījuma līmeņiem" width="672" />
 <p class="caption">
-Attēls 3.28: Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija gadījumā, kad iesaistīts trešais mainīgais dalījuma līmeņiem
+Attēls 3.33: Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācija gadījumā, kad iesaistīts trešais mainīgais dalījuma līmeņiem
 </p>
 </div>
 <!-- ## geom_polygon() -->
@@ -188,7 +192,7 @@ Attēls 3.28: Izkliedes diagrammas un vērtībamplitūdas diagrammas kombinācij
           </div>
         </div>
       </div>
-<a href="geom-histogram.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geom-abline-geom-hline-un-geom-vline.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="skalas.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
