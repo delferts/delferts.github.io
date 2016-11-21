@@ -17,6 +17,7 @@ github_username:  delferts
 
 # Build settings
 markdown: kramdown
+paginate: 10
 
 # Analitics settings
 analytics :
@@ -25,3 +26,5 @@ analytics :
       tracking_id : 'UA-74266818-1'
   getclicky :
     site_id :
+
+gems: [jekyll-paginate]
