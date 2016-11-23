@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="formas.html">
-<link rel="next" href="geom-bar.html">
+<link rel="prev" href="scale-x-continuous-un-scale-y-continuous.html">
+<link rel="next" href="koordinatu-sistemas.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -154,67 +154,53 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="geom_point" class="section level2">
-<h2><span class="header-section-number">3.1</span> geom_point()</h2>
-<p>Ar <code>geom_point()</code> ir iespējams veidot izkliedes attēlus (scatterplot) (<a href="geom-point.html#fig:point1">3.1</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()</code></pre></div>
-<div class="figure"><span id="fig:point1"></span>
-<img src="ggplot2_gramata_files/figure-html/point1-1.png" alt="Izkliedes attēla piemērs" width="672" />
+<div id="scale_x_discrete-un-scale_y_discrete" class="section level2">
+<h2><span class="header-section-number">4.2</span> scale_x_discrete() un scale_y_discrete()</h2>
+<p>Gadījumos, kad uz x vai y ass attēlotas kategorijas mainīgā vērtības, ir jāizmanto attiecīgi funkcijas <code>scale_x_discrete()</code> un <code>scale_y_discrete()</code>, lai mainītu šo asu izskatu.</p>
+<p>Ar argumentu <code>limits=</code> ir iespējams norādīt, kuras tieši vērtības attēlot uz ass (atmest kādu no līmeņiem) (<a href="scale-x-discrete-un-scale-y-discrete.html#fig:diskr1">4.5</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv,hwy)) +<span class="st"> </span><span class="kw">geom_boxplot</span>() +
+<span class="st">      </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;f&quot;</span>,<span class="st">&quot;r&quot;</span>))</code></pre></div>
+<pre><code>## Warning: Removed 103 rows containing non-finite values (stat_boxplot).</code></pre>
+<div class="figure"><span id="fig:diskr1"></span>
+<img src="ggplot2_gramata_files/figure-html/diskr1-1.png" alt="Attēls ar kategorijas x asi, kur attēloti tikai daži līmeņi" width="672" />
 <p class="caption">
-Attēls 3.1: Izkliedes attēla piemērs
+Attēls 4.5: Attēls ar kategorijas x asi, kur attēloti tikai daži līmeņi
 </p>
 </div>
-<p>Punktiem ir iespējams mainīt krāsu (<code>color=</code>), formu (<code>shape=</code>), lielumu (<code>size=</code>) un caurspīdīgumu (<code>alpha=</code>). Mainot šos parametrus ir jānolemj pēc kādiem principiem tas notiks - parametrs būs vienāds visiem punktiem, vai arī tas mainīsies atkarībā no kāda cita mainīgā datos.</p>
-<p>Ja parametram ir jābūt vienādam visiem punktiem, tad tas ir jānorāda ārpus funkcijas <code>aes()</code> pašā <code>geom_...()</code> vai <code>ggplot()</code> funkcijā. Toties, ja parametram ir jāmainās atkarībā no mainīgā, tad tas obligāti jāliek funkcijā <code>aes()</code>.</p>
-<p>Šajā piemērā punktu krāsa un lielums ir mainīts visiem punktiem uzreiz (<a href="geom-point.html#fig:point2">3.2</a> attēls). Krāsu var norādīt kā tās anglisko nosaukumu (tos var apskatīt ar funkciju <code>colors()</code>) vai arī izmantojot heksadecimālo kodu.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;green&quot;</span>,<span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
-<div class="figure"><span id="fig:point2"></span>
-<img src="ggplot2_gramata_files/figure-html/point2-1.png" alt="Izkliedes attēls, kurā krāsa un lielums visiem punktiem vienāds" width="672" />
+<p>Arguments <code>limits=</code> ļauj arī mainīt secību, kādā parādās līmeņi pie atbilstošās ass (<a href="scale-x-discrete-un-scale-y-discrete.html#fig:diskr2">4.6</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv,hwy)) +<span class="st"> </span><span class="kw">geom_boxplot</span>() +
+<span class="st">      </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;r&quot;</span>,<span class="st">&quot;4&quot;</span>,<span class="st">&quot;f&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:diskr2"></span>
+<img src="ggplot2_gramata_files/figure-html/diskr2-1.png" alt="Attēls ar kategorijas x asi, kur mainīta līmeņu secība" width="672" />
 <p class="caption">
-Attēls 3.2: Izkliedes attēls, kurā krāsa un lielums visiem punktiem vienāds
+Attēls 4.6: Attēls ar kategorijas x asi, kur mainīta līmeņu secība
 </p>
 </div>
-<p>Ja arguments <code>color=</code> atrodas <code>aes()</code> iekavās un tas ir atkarīgs no kāda mainīgā, tad punktu krāsa mainīsies atbilstoši vērtībām, kā arī parādīsies atbilstošā leģenda. Krāsu maiņa un leģendas veids ir atkarīgs no tā, kāda veida mainīgais ir izmantots. Ja krāsa ir atkarīga no kategorijas mainīgā, tad krāsas mainīsies diskrēti (<a href="geom-point.html#fig:point3">3.3</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type))+<span class="kw">geom_point</span>()</code></pre></div>
-<div class="figure"><span id="fig:point3"></span>
-<img src="ggplot2_gramata_files/figure-html/point3-1.png" alt="Izkliedes attēls, kurā krāsa ir atkarīga no kategorijas mainīgā" width="672" />
+<p>Līmeņu nosaukumu maiņai izmanto argumentu <code>labels=</code>, kur jānorāda jaunie līmeņu nosaukumi tādā secībā, kā tie parādās pie atbilstošās ass, vai arī jānorāda vecais un jaunais nosaukums un tad secībai nav nozīmēs (<a href="scale-x-discrete-un-scale-y-discrete.html#fig:diskr3">4.7</a> attēls). Jāņem vērā, ka arguments <code>labels=</code> nemaina līmeņu attēlojuma secību, pat ja mainīta kārtība to nosaukumiem.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv,hwy)) +<span class="st"> </span><span class="kw">geom_boxplot</span>() +
+<span class="st">      </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;4&quot;</span>=<span class="st">&quot;Četri&quot;</span>,<span class="st">&quot;r&quot;</span>=<span class="st">&quot;Pakaļējie&quot;</span>,<span class="st">&quot;f&quot;</span>=<span class="st">&quot;Priekšējie&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:diskr3"></span>
+<img src="ggplot2_gramata_files/figure-html/diskr3-1.png" alt="Attēls ar kategorijas x asi, kur mainīti līmeņu nosaukumi" width="672" />
 <p class="caption">
-Attēls 3.3: Izkliedes attēls, kurā krāsa ir atkarīga no kategorijas mainīgā
+Attēls 4.7: Attēls ar kategorijas x asi, kur mainīti līmeņu nosaukumi
 </p>
 </div>
-<p>Toties norādāt kā mainīgo tādu, kas ir skaitlisks, krāsa mainīsies kā gradients (<a href="geom-point.html#fig:point4">3.4</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>uptake))+<span class="kw">geom_point</span>()</code></pre></div>
-<div class="figure"><span id="fig:point4"></span>
-<img src="ggplot2_gramata_files/figure-html/point4-1.png" alt="Izkliedes attēls, kurā krāsa ir atkarīga no skaitliska mainīgā" width="672" />
-<p class="caption">
-Attēls 3.4: Izkliedes attēls, kurā krāsa ir atkarīga no skaitliska mainīgā
-</p>
+<!-- ## scale_colour_...() -->
+<!-- ## scale_fill_...() -->
+<!-- ## scale_alpha_...() -->
+<!-- ## scale_linetype_...() -->
+<!-- ## scale_shape_...() -->
+<!-- ## scale_size_...() -->
+
 </div>
-<p>Punktu forma var mainīties tikai atkarībā no kategorijas mainīgā (<a href="geom-point.html#fig:point5">3.5</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">shape=</span>Type))+<span class="kw">geom_point</span>()</code></pre></div>
-<div class="figure"><span id="fig:point5"></span>
-<img src="ggplot2_gramata_files/figure-html/point5-1.png" alt="Izkliedes attēls, kurā forma ir atkarīga no kategorijas mainīgā" width="672" />
-<p class="caption">
-Attēls 3.5: Izkliedes attēls, kurā forma ir atkarīga no kategorijas mainīgā
-</p>
-</div>
-<p>Ir iespējams panākt arī, ka, piemēram, punktu forma mainās atkarībā no viena mainīgā, bet krāsa atkarībā no cita mainīgā. Šajā gadījumā parādīsies arī divas leģendas (<a href="geom-point.html#fig:point6">3.6</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">shape=</span>Type,<span class="dt">color=</span>Treatment))+<span class="kw">geom_point</span>()</code></pre></div>
-<div class="figure"><span id="fig:point6"></span>
-<img src="ggplot2_gramata_files/figure-html/point6-1.png" alt="Izkliedes attēls, kurā forma un krāsa ir atkarīga no dažādiem kategorijas mainīgajiem" width="672" />
-<p class="caption">
-Attēls 3.6: Izkliedes attēls, kurā forma un krāsa ir atkarīga no dažādiem kategorijas mainīgajiem
-</p>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="formas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="geom-bar.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="scale-x-continuous-un-scale-y-continuous.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="koordinatu-sistemas.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -241,7 +227,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/delferts/ggplot2_gramata/edit/master/02-Formas.Rmd",
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/03-Skalas.Rmd",
 "text": "Edit"
 },
 "download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],
