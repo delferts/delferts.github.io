@@ -16,6 +16,8 @@ categories: es
 
 1. **Ustups, D., Bergstrom, U., Florin, A.B., Kruze, E., Zilniece, D., Elferts, D., Knospina, E., Uzars, D., 2016.** Diet overlap between juvenile flatfish and the invasive round goby in the central Baltic Sea. Journal of Sea Research, 107(1): 121-129. [(link)](http://www.sciencedirect.com/science/article/pii/S1385110115300216)
 
+1. **Vinogradovs, I., Nikodemus, O., Tabors, G., Krūze, I., Elferts, D., 2016.** Assessment of factors of landscape change in mosaic type landscape: a case study of Vidzeme, Latvia. Environmental protection engineering, 19: 212-217. [(pdf)](http://old.konferencijos.vgtu.lt/jmk.aainz.vgtu.lt/public_html/index.php/conference/2016/paper/view/263/105)
+
 1. **Krumme, U., Grinvalds, K., Zagars, M., Elferts, D., Ikejima, K., Tongnunui, P., 2015.** Tidal, diel and lunar patterns in intertidal and subtidal mangrove creek fish assemblages from southwest Thailand. Environmental Biology of Fishes, 98: 1671-1693.[(link)](http://link.springer.com/article/10.1007/s10641-015-0393-5)
 
 1. **Liepiņa, L., Dimbiere, A., Laime, B., Tjarve, D., Elferts, D., Tabors, G., Brūmelis, G., 2015.** Arbuscular mycorrhizal colonization in roots of sand dune plants in relation to soil factors. Environmental and Experimental Biology, 13: 139-145. [(pdf)](http://eeb.lu.lv/EEB/201510/EEB_13_Liepina.pdf)
