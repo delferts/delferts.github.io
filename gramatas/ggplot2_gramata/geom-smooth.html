@@ -8,7 +8,7 @@
   <title>ggplot2 grafiskā sistēma</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="Šī grāmata ir par vienu no programmas R grafiskajām sistēmām - ggplot2.">
-  <meta name="generator" content="bookdown 0.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
 
   <meta property="og:title" content="ggplot2 grafiskā sistēma" />
   <meta property="og:type" content="book" />
@@ -26,14 +26,14 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-11-15">
+<meta name="date" content="2016-12-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="geom-ribbon.html">
+<link rel="prev" href="geom-jitter.html">
 <link rel="next" href="geom-violin.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -107,6 +107,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pamatojums</a></li>
 <li class="chapter" data-level="2" data-path="ievads.html"><a href="ievads.html"><i class="fa fa-check"></i><b>2</b> Ievads</a><ul>
 <li class="chapter" data-level="2.1" data-path="dati.html"><a href="dati.html"><i class="fa fa-check"></i><b>2.1</b> Dati</a></li>
+<li class="chapter" data-level="2.2" data-path="attelu-saglabasana.html"><a href="attelu-saglabasana.html"><i class="fa fa-check"></i><b>2.2</b> Attēlu saglabāšana</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="formas.html"><a href="formas.html"><i class="fa fa-check"></i><b>3</b> Formas</a><ul>
 <li class="chapter" data-level="3.1" data-path="geom-point.html"><a href="geom-point.html"><i class="fa fa-check"></i><b>3.1</b> geom_point()</a></li>
@@ -116,39 +117,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5" data-path="geom-path.html"><a href="geom-path.html"><i class="fa fa-check"></i><b>3.5</b> geom_path()</a></li>
 <li class="chapter" data-level="3.6" data-path="geom-boxplot.html"><a href="geom-boxplot.html"><i class="fa fa-check"></i><b>3.6</b> geom_boxplot()</a></li>
 <li class="chapter" data-level="3.7" data-path="geom-count.html"><a href="geom-count.html"><i class="fa fa-check"></i><b>3.7</b> geom_count()</a></li>
-<li class="chapter" data-level="3.8" data-path="geom-crossbar-geom-errobar-geom-linerange-un-geom-pointrange.html"><a href="geom-crossbar-geom-errobar-geom-linerange-un-geom-pointrange.html"><i class="fa fa-check"></i><b>3.8</b> geom_crossbar(), geom_errobar(), geom_ linerange() un geom_pointrange()</a></li>
-<li class="chapter" data-level="3.9" data-path="geom-dotplo.html"><a href="geom-dotplo.html"><i class="fa fa-check"></i><b>3.9</b> geom_dotplo()</a></li>
-<li class="chapter" data-level="3.10" data-path="geom-abline.html"><a href="geom-abline.html"><i class="fa fa-check"></i><b>3.10</b> geom_abline()</a></li>
-<li class="chapter" data-level="3.11" data-path="geom-density.html"><a href="geom-density.html"><i class="fa fa-check"></i><b>3.11</b> geom_density()</a></li>
-<li class="chapter" data-level="3.12" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>3.12</b> geom_jitter()</a></li>
-<li class="chapter" data-level="3.13" data-path="geom-polygon.html"><a href="geom-polygon.html"><i class="fa fa-check"></i><b>3.13</b> geom_polygon()</a></li>
-<li class="chapter" data-level="3.14" data-path="geom-ribbon.html"><a href="geom-ribbon.html"><i class="fa fa-check"></i><b>3.14</b> geom_ribbon()</a></li>
-<li class="chapter" data-level="3.15" data-path="geom-smooth.html"><a href="geom-smooth.html"><i class="fa fa-check"></i><b>3.15</b> geom_smooth()</a></li>
-<li class="chapter" data-level="3.16" data-path="geom-violin.html"><a href="geom-violin.html"><i class="fa fa-check"></i><b>3.16</b> geom_violin()</a></li>
+<li class="chapter" data-level="3.8" data-path="geom-histogram.html"><a href="geom-histogram.html"><i class="fa fa-check"></i><b>3.8</b> geom_histogram()</a></li>
+<li class="chapter" data-level="3.9" data-path="geom-abline-geom-hline-un-geom-vline.html"><a href="geom-abline-geom-hline-un-geom-vline.html"><i class="fa fa-check"></i><b>3.9</b> geom_abline(), geom_hline() un geom_vline()</a></li>
+<li class="chapter" data-level="3.10" data-path="geom-jitter.html"><a href="geom-jitter.html"><i class="fa fa-check"></i><b>3.10</b> geom_jitter()</a></li>
+<li class="chapter" data-level="3.11" data-path="geom-smooth.html"><a href="geom-smooth.html"><i class="fa fa-check"></i><b>3.11</b> geom_smooth()</a></li>
+<li class="chapter" data-level="3.12" data-path="geom-violin.html"><a href="geom-violin.html"><i class="fa fa-check"></i><b>3.12</b> geom_violin()</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="skalas.html"><a href="skalas.html"><i class="fa fa-check"></i><b>4</b> Skalas</a><ul>
-<li class="chapter" data-level="4.1" data-path="scale-colour-.html"><a href="scale-colour-.html"><i class="fa fa-check"></i><b>4.1</b> scale_colour_…()</a></li>
-<li class="chapter" data-level="4.2" data-path="scale-fill-.html"><a href="scale-fill-.html"><i class="fa fa-check"></i><b>4.2</b> scale_fill_…()</a></li>
-<li class="chapter" data-level="4.3" data-path="scale-alpha-.html"><a href="scale-alpha-.html"><i class="fa fa-check"></i><b>4.3</b> scale_alpha_…()</a></li>
-<li class="chapter" data-level="4.4" data-path="scale-linetype-.html"><a href="scale-linetype-.html"><i class="fa fa-check"></i><b>4.4</b> scale_linetype_…()</a></li>
-<li class="chapter" data-level="4.5" data-path="scale-shape-.html"><a href="scale-shape-.html"><i class="fa fa-check"></i><b>4.5</b> scale_shape_…()</a></li>
-<li class="chapter" data-level="4.6" data-path="scale-size-.html"><a href="scale-size-.html"><i class="fa fa-check"></i><b>4.6</b> scale_size_…()</a></li>
-<li class="chapter" data-level="4.7" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.7</b> scale_x_discrete() un scale_y_discrete()</a></li>
-<li class="chapter" data-level="4.8" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.8</b> scale_x_continuous() un scale_y_continuous()</a></li>
+<li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
+<li class="chapter" data-level="4.2" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.2</b> scale_x_discrete() un scale_y_discrete()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a><ul>
-<li class="chapter" data-level="5.1" data-path="coord-cartesian.html"><a href="coord-cartesian.html"><i class="fa fa-check"></i><b>5.1</b> coord_cartesian()</a></li>
-<li class="chapter" data-level="5.2" data-path="coord-fixed.html"><a href="coord-fixed.html"><i class="fa fa-check"></i><b>5.2</b> coord_fixed()</a></li>
-<li class="chapter" data-level="5.3" data-path="coord-flip.html"><a href="coord-flip.html"><i class="fa fa-check"></i><b>5.3</b> coord_flip()</a></li>
-<li class="chapter" data-level="5.4" data-path="coord-map.html"><a href="coord-map.html"><i class="fa fa-check"></i><b>5.4</b> coord_map()</a></li>
-<li class="chapter" data-level="5.5" data-path="coord-polar.html"><a href="coord-polar.html"><i class="fa fa-check"></i><b>5.5</b> coord_polar()</a></li>
-<li class="chapter" data-level="5.6" data-path="coord-trans.html"><a href="coord-trans.html"><i class="fa fa-check"></i><b>5.6</b> coord_trans()</a></li>
-</ul></li>
+<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a></li>
 <li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
-<li class="chapter" data-level="6.1" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.1</b> facet_wrap()</a></li>
-<li class="chapter" data-level="6.2" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.2</b> facet_grid()</a></li>
+<li class="chapter" data-level="6.1" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.1</b> facet_grid()</a></li>
+<li class="chapter" data-level="6.2" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.2</b> facet_wrap()</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="attela-noformesana.html"><a href="attela-noformesana.html"><i class="fa fa-check"></i><b>7</b> Attēla noformēšana</a></li>
+<li class="chapter" data-level="7" data-path="attela-noformesana.html"><a href="attela-noformesana.html"><i class="fa fa-check"></i><b>7</b> Attēla noformēšana</a><ul>
+<li class="chapter" data-level="7.1" data-path="definetas-attela-temas.html"><a href="definetas-attela-temas.html"><i class="fa fa-check"></i><b>7.1</b> Definētās attēla tēmas</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatūra</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -170,14 +157,60 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="geom_smooth" class="section level2">
-<h2><span class="header-section-number">3.15</span> geom_smooth()</h2>
+<h2><span class="header-section-number">3.11</span> geom_smooth()</h2>
+<p>Ja ir vēlme attēlam pievienot trenda līniju, tad jāizmanto <code>geom_smooth()</code>. Pēc noklusējuma izveidojas izlīdzīnātā trenda līnija un tās ticamības intervāls ar metodi loess (<a href="geom-smooth.html#fig:smoo1">3.34</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">geom_smooth</span>()</code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<div class="figure"><span id="fig:smoo1"></span>
+<img src="ggplot2_gramata_files/figure-html/smoo1-1.png" alt="Izkliedes diagrammas ar pievienotu trenda līniju" width="672" />
+<p class="caption">
+Attēls 3.34: Izkliedes diagrammas ar pievienotu trenda līniju
+</p>
+</div>
+<p>Lineārās trenda līnijas pievienošanai, jānorāda arguments <code>method=&quot;lm&quot;</code> (<a href="geom-smooth.html#fig:smoo2">3.35</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:smoo2"></span>
+<img src="ggplot2_gramata_files/figure-html/smoo2-1.png" alt="Izkliedes diagrammas ar pievienotu lineāro trenda līniju" width="672" />
+<p class="caption">
+Attēls 3.35: Izkliedes diagrammas ar pievienotu lineāro trenda līniju
+</p>
+</div>
+<p>Ar argumentu <code>se=FALSE</code> var noņemt ticamības intervālu (<a href="geom-smooth.html#fig:smoo3">3.36</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>)</code></pre></div>
+<div class="figure"><span id="fig:smoo3"></span>
+<img src="ggplot2_gramata_files/figure-html/smoo3-1.png" alt="Izkliedes diagrammas ar pievienotu lineāro trenda līniju, toties bez ticamības intervāla" width="672" />
+<p class="caption">
+Attēls 3.36: Izkliedes diagrammas ar pievienotu lineāro trenda līniju, toties bez ticamības intervāla
+</p>
+</div>
+<p>Trenda līnijas krāsu maina ar argumentu <code>color=</code>, bet ticamības intervāla aizpildījumu ar argumentu <code>fill=</code>. Ja vienu vai abus no šiem argumentiem norāda <code>aes()</code> iekavās un tas ir atkarīgs no kāda mainīgā, tad trenda līnijas tiek izveidotas katram līmenim (<a href="geom-smooth.html#fig:smoo4">3.37</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>,<span class="kw">aes</span>(<span class="dt">color=</span>Type,<span class="dt">fill=</span>Type))</code></pre></div>
+<div class="figure"><span id="fig:smoo4"></span>
+<img src="ggplot2_gramata_files/figure-html/smoo4-1.png" alt="Izkliedes diagrammas ar pievienotu lineāro trenda līniju dažādiem līmeņiem" width="672" />
+<p class="caption">
+Attēls 3.37: Izkliedes diagrammas ar pievienotu lineāro trenda līniju dažādiem līmeņiem
+</p>
+</div>
+<p>Trenda līniju var veidot ne tikai izmantojot esošo formulu <code>y ~ x</code>, bet arī izmantojot kādu citu saistību starp abiem mainīgajiem. Šajā gadījumā jāizmanto arguments <code>formula =</code> un jālieto apzīmējumi x un y, nevis oriģinālie mainīgo nosaukumi (<a href="geom-smooth.html#fig:smoo5">3.38</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<span class="st">      </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>,<span class="dt">formula =</span> y ~<span class="st"> </span>x +<span class="st"> </span><span class="kw">I</span>(x^<span class="dv">2</span>))</code></pre></div>
+<div class="figure"><span id="fig:smoo5"></span>
+<img src="ggplot2_gramata_files/figure-html/smoo5-1.png" alt="Izkliedes diagrammas ar pievienotu īpašu trenda līniju" width="672" />
+<p class="caption">
+Attēls 3.38: Izkliedes diagrammas ar pievienotu īpašu trenda līniju
+</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="geom-ribbon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geom-jitter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="geom-violin.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -191,6 +224,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "google": false,
