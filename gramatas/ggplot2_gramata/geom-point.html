@@ -26,7 +26,7 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-12-01">
+<meta name="date" content="2016-12-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -127,7 +127,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
 <li class="chapter" data-level="4.2" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.2</b> scale_x_discrete() un scale_y_discrete()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a></li>
+<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a><ul>
+<li class="chapter" data-level="5.1" data-path="coord-cartesian.html"><a href="coord-cartesian.html"><i class="fa fa-check"></i><b>5.1</b> coord_cartesian()</a></li>
+<li class="chapter" data-level="5.2" data-path="coord-fixed.html"><a href="coord-fixed.html"><i class="fa fa-check"></i><b>5.2</b> coord_fixed()</a></li>
+<li class="chapter" data-level="5.3" data-path="coord-flip.html"><a href="coord-flip.html"><i class="fa fa-check"></i><b>5.3</b> coord_flip()</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
 <li class="chapter" data-level="6.1" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.1</b> facet_grid()</a></li>
 <li class="chapter" data-level="6.2" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.2</b> facet_wrap()</a></li>
@@ -160,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">3.1</span> geom_point()</h2>
 <p>Ar <code>geom_point()</code> ir iespējams veidot izkliedes attēlus (scatterplot) (<a href="geom-point.html#fig:point1">3.1</a> attēls).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()</code></pre></div>
+<span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure"><span id="fig:point1"></span>
 <img src="ggplot2_gramata_files/figure-html/point1-1.png" alt="Izkliedes attēla piemērs" width="672" />
 <p class="caption">
@@ -170,7 +174,7 @@ Attēls 3.1: Izkliedes attēla piemērs
 <p>Punktiem ir iespējams mainīt krāsu (<code>color=</code>), formu (<code>shape=</code>), lielumu (<code>size=</code>) un caurspīdīgumu (<code>alpha=</code>). Mainot šos parametrus ir jānolemj pēc kādiem principiem tas notiks - parametrs būs vienāds visiem punktiem, vai arī tas mainīsies atkarībā no kāda cita mainīgā datos.</p>
 <p>Ja parametram ir jābūt vienādam visiem punktiem, tad tas ir jānorāda ārpus funkcijas <code>aes()</code> pašā <code>geom_...()</code> vai <code>ggplot()</code> funkcijā. Toties, ja parametram ir jāmainās atkarībā no mainīgā, tad tas obligāti jāliek funkcijā <code>aes()</code>.</p>
 <p>Šajā piemērā punktu krāsa un lielums ir mainīts visiem punktiem uzreiz (<a href="geom-point.html#fig:point2">3.2</a> attēls). Krāsu var norādīt kā tās anglisko nosaukumu (tos var apskatīt ar funkciju <code>colors()</code>) vai arī izmantojot heksadecimālo kodu.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;green&quot;</span>,<span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;green&quot;</span>,<span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
 <div class="figure"><span id="fig:point2"></span>
 <img src="ggplot2_gramata_files/figure-html/point2-1.png" alt="Izkliedes attēls, kurā krāsa un lielums visiem punktiem vienāds" width="672" />
 <p class="caption">
@@ -178,7 +182,7 @@ Attēls 3.2: Izkliedes attēls, kurā krāsa un lielums visiem punktiem vienāds
 </p>
 </div>
 <p>Ja arguments <code>color=</code> atrodas <code>aes()</code> iekavās un tas ir atkarīgs no kāda mainīgā, tad punktu krāsa mainīsies atbilstoši vērtībām, kā arī parādīsies atbilstošā leģenda. Krāsu maiņa un leģendas veids ir atkarīgs no tā, kāda veida mainīgais ir izmantots. Ja krāsa ir atkarīga no kategorijas mainīgā, tad krāsas mainīsies diskrēti (<a href="geom-point.html#fig:point3">3.3</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type))+<span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure"><span id="fig:point3"></span>
 <img src="ggplot2_gramata_files/figure-html/point3-1.png" alt="Izkliedes attēls, kurā krāsa ir atkarīga no kategorijas mainīgā" width="672" />
 <p class="caption">
@@ -186,7 +190,7 @@ Attēls 3.3: Izkliedes attēls, kurā krāsa ir atkarīga no kategorijas mainīg
 </p>
 </div>
 <p>Toties norādāt kā mainīgo tādu, kas ir skaitlisks, krāsa mainīsies kā gradients (<a href="geom-point.html#fig:point4">3.4</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>uptake))+<span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>uptake)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure"><span id="fig:point4"></span>
 <img src="ggplot2_gramata_files/figure-html/point4-1.png" alt="Izkliedes attēls, kurā krāsa ir atkarīga no skaitliska mainīgā" width="672" />
 <p class="caption">
@@ -194,7 +198,7 @@ Attēls 3.4: Izkliedes attēls, kurā krāsa ir atkarīga no skaitliska mainīg�
 </p>
 </div>
 <p>Punktu forma var mainīties tikai atkarībā no kategorijas mainīgā (<a href="geom-point.html#fig:point5">3.5</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">shape=</span>Type))+<span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">shape=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure"><span id="fig:point5"></span>
 <img src="ggplot2_gramata_files/figure-html/point5-1.png" alt="Izkliedes attēls, kurā forma ir atkarīga no kategorijas mainīgā" width="672" />
 <p class="caption">
@@ -202,7 +206,8 @@ Attēls 3.5: Izkliedes attēls, kurā forma ir atkarīga no kategorijas mainīg�
 </p>
 </div>
 <p>Ir iespējams panākt arī, ka, piemēram, punktu forma mainās atkarībā no viena mainīgā, bet krāsa atkarībā no cita mainīgā. Šajā gadījumā parādīsies arī divas leģendas (<a href="geom-point.html#fig:point6">3.6</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">shape=</span>Type,<span class="dt">color=</span>Treatment))+<span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">shape=</span>Type,<span class="dt">color=</span>Treatment)) +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure"><span id="fig:point6"></span>
 <img src="ggplot2_gramata_files/figure-html/point6-1.png" alt="Izkliedes attēls, kurā forma un krāsa ir atkarīga no dažādiem kategorijas mainīgajiem" width="672" />
 <p class="caption">

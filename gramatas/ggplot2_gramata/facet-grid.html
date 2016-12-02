@@ -26,7 +26,7 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-12-01">
+<meta name="date" content="2016-12-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -127,7 +127,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
 <li class="chapter" data-level="4.2" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.2</b> scale_x_discrete() un scale_y_discrete()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a></li>
+<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a><ul>
+<li class="chapter" data-level="5.1" data-path="coord-cartesian.html"><a href="coord-cartesian.html"><i class="fa fa-check"></i><b>5.1</b> coord_cartesian()</a></li>
+<li class="chapter" data-level="5.2" data-path="coord-fixed.html"><a href="coord-fixed.html"><i class="fa fa-check"></i><b>5.2</b> coord_fixed()</a></li>
+<li class="chapter" data-level="5.3" data-path="coord-flip.html"><a href="coord-flip.html"><i class="fa fa-check"></i><b>5.3</b> coord_flip()</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
 <li class="chapter" data-level="6.1" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.1</b> facet_grid()</a></li>
 <li class="chapter" data-level="6.2" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.2</b> facet_wrap()</a></li>
@@ -160,7 +164,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">6.1</span> facet_grid()</h2>
 <p>Izmantojot funkciju <code>facet_grid()</code>, var norādīt divus mainīgos pēc kuriem dalīt datus. Pirmais mainīgais (pirms tildes zīmes) norāda dalījumu rindās, bet otrais mainīgais aiz tildes zīmes norāda dalījumu kolonnās. Ja ir vēlme dalīt tikai vienā dimensijā, tad neizmantotās dimensijas (mainīgā) vietā jānorāda “.”.</p>
 <p>Pirmajā piemēra attēls sadalīts mazākos attēlos balstoties tikai uz mainīgo <code>Type</code> kolonnās (<a href="facet-grid.html#fig:grid1">6.1</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">facet_grid</span>(.~Type)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">facet_grid</span>(.~Type)</code></pre></div>
 <div class="figure"><span id="fig:grid1"></span>
 <img src="ggplot2_gramata_files/figure-html/grid1-1.png" alt="Attēla sadalīšana kolonnās balstoties uz vienu mainīgo" width="672" />
 <p class="caption">
@@ -168,7 +173,8 @@ Attēls 6.1: Attēla sadalīšana kolonnās balstoties uz vienu mainīgo
 </p>
 </div>
 <p>Norādot mainīgo Treatment pirms tildes zīmes, izveidojas attēls, kas sadalīts rindās atbilstoši šī mainīgā līmeņiem (<a href="facet-grid.html#fig:grid2">6.2</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">facet_grid</span>(Treatment~.)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">facet_grid</span>(Treatment~.)</code></pre></div>
 <div class="figure"><span id="fig:grid2"></span>
 <img src="ggplot2_gramata_files/figure-html/grid2-1.png" alt="Attēla sadalīšana rindās balstoties uz vienu mainīgo" width="672" />
 <p class="caption">
@@ -176,7 +182,8 @@ Attēls 6.2: Attēla sadalīšana rindās balstoties uz vienu mainīgo
 </p>
 </div>
 <p>Norādot abus divus mainīgos, izveidojas attēls, kurā mazie attēliņi ir atbilstošo mainīgo līmeņu kombinācijas (<a href="facet-grid.html#fig:grid3">6.3</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">facet_grid</span>(Treatment~Type)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">facet_grid</span>(Treatment~Type)</code></pre></div>
 <div class="figure"><span id="fig:grid3"></span>
 <img src="ggplot2_gramata_files/figure-html/grid3-1.png" alt="Attēla sadalīšana balstoties uz diviem mainīgiem" width="672" />
 <p class="caption">
@@ -184,7 +191,7 @@ Attēls 6.3: Attēla sadalīšana balstoties uz diviem mainīgiem
 </p>
 </div>
 <p>Pievienojot argumentu margins = TRUE, var panākt, ka veidojas ne tikai atsevišķi mazie attēli, bet arī attēli, kuros mainīgo līmeņi skatīti kopā (<a href="facet-grid.html#fig:grid4">6.4</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">facet_grid</span>(Treatment~Type,<span class="dt">margins =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <div class="figure"><span id="fig:grid4"></span>
 <img src="ggplot2_gramata_files/figure-html/grid4-1.png" alt="Attēla sadalīšana balstoties uz diviem mainīgiem, parādot arī kopējos attēlus" width="672" />

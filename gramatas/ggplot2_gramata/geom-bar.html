@@ -26,7 +26,7 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-12-01">
+<meta name="date" content="2016-12-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -127,7 +127,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
 <li class="chapter" data-level="4.2" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.2</b> scale_x_discrete() un scale_y_discrete()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a></li>
+<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a><ul>
+<li class="chapter" data-level="5.1" data-path="coord-cartesian.html"><a href="coord-cartesian.html"><i class="fa fa-check"></i><b>5.1</b> coord_cartesian()</a></li>
+<li class="chapter" data-level="5.2" data-path="coord-fixed.html"><a href="coord-fixed.html"><i class="fa fa-check"></i><b>5.2</b> coord_fixed()</a></li>
+<li class="chapter" data-level="5.3" data-path="coord-flip.html"><a href="coord-flip.html"><i class="fa fa-check"></i><b>5.3</b> coord_flip()</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
 <li class="chapter" data-level="6.1" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.1</b> facet_grid()</a></li>
 <li class="chapter" data-level="6.2" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.2</b> facet_wrap()</a></li>
@@ -159,7 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="geom_bar" class="section level2">
 <h2><span class="header-section-number">3.2</span> geom_bar()</h2>
 <p>Stabiņu attēlus veido ar funkciju <code>geom_bar()</code>. Šai funkcijai <code>aes()</code> ir jānorāda tikai x vērtības (diskrētas), jo novērojumu skaits katrā klasē tiek saskaitīts automātiski (<code>geom_bar()</code> balstās un <code>stat_count()</code>) (<a href="geom-bar.html#fig:bar1">3.7</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv))+<span class="kw">geom_bar</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv)) +<span class="st"> </span><span class="kw">geom_bar</span>()</code></pre></div>
 <div class="figure"><span id="fig:bar1"></span>
 <img src="ggplot2_gramata_files/figure-html/bar1-1.png" alt="Stabiņu attēla piemērs" width="672" />
 <p class="caption">
@@ -167,7 +171,7 @@ Attēls 3.7: Stabiņu attēla piemērs
 </p>
 </div>
 <p>Stabiņu attēlā katram stabiņa ir iespējams mainīt krāsu (<code>color=</code>) un aizpildījumu (<code>fill=</code>). Arguments <code>color=</code> nosaka līnijas krāsu apkārt katram no stabiņiem, bet <code>fill=</code> nosaka paša stabiņa krāsu (aizpildījumu) (<a href="geom-bar.html#fig:bar2">3.8</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv))+<span class="kw">geom_bar</span>(<span class="dt">fill=</span><span class="st">&quot;white&quot;</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv)) +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill=</span><span class="st">&quot;white&quot;</span>,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:bar2"></span>
 <img src="ggplot2_gramata_files/figure-html/bar2-1.png" alt="Stabiņu attēls, kurā stabiņu krāsa un aizpildījums visiem vienāds" width="672" />
 <p class="caption">
@@ -175,7 +179,7 @@ Attēls 3.8: Stabiņu attēls, kurā stabiņu krāsa un aizpildījums visiem vie
 </p>
 </div>
 <p>Padarot aizpildījumu atkarīgu no kāda kategrijas mainīgā, izveidojas stabiņu attēls, kur pie katras x mainīgā kategorijas, stabiņš ir sadalītas pa daļām balstoties uz jauno mainīgo (<a href="geom-bar.html#fig:bar3">3.9</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv,<span class="dt">fill=</span><span class="kw">factor</span>(cyl)))+<span class="kw">geom_bar</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv,<span class="dt">fill=</span><span class="kw">factor</span>(cyl))) +<span class="st"> </span><span class="kw">geom_bar</span>()</code></pre></div>
 <div class="figure"><span id="fig:bar3"></span>
 <img src="ggplot2_gramata_files/figure-html/bar3-1.png" alt="Stabiņu attēls, kurā stabiņu aizpildījums atkarīgs no mainīgā" width="672" />
 <p class="caption">
@@ -183,7 +187,7 @@ Attēls 3.9: Stabiņu attēls, kurā stabiņu aizpildījums atkarīgs no mainīg
 </p>
 </div>
 <p>Pieliekot argumentu <code>position=&quot;dodge&quot;</code>, var panākt, ka pie katras x kategorijas stabiņi ir viens otram blakus, nevis viens virs otra (<a href="geom-bar.html#fig:bar4">3.10</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv,<span class="dt">fill=</span><span class="kw">factor</span>(cyl)))+<span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(drv,<span class="dt">fill=</span><span class="kw">factor</span>(cyl))) +<span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="st">&quot;dodge&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:bar4"></span>
 <img src="ggplot2_gramata_files/figure-html/bar4-1.png" alt="Stabiņu attēls, kurā stabiņu aizpildījums atkarīgs no mainīgā" width="672" />
 <p class="caption">

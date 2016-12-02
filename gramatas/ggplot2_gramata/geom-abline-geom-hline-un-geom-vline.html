@@ -26,7 +26,7 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-12-01">
+<meta name="date" content="2016-12-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -127,7 +127,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
 <li class="chapter" data-level="4.2" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.2</b> scale_x_discrete() un scale_y_discrete()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a></li>
+<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a><ul>
+<li class="chapter" data-level="5.1" data-path="coord-cartesian.html"><a href="coord-cartesian.html"><i class="fa fa-check"></i><b>5.1</b> coord_cartesian()</a></li>
+<li class="chapter" data-level="5.2" data-path="coord-fixed.html"><a href="coord-fixed.html"><i class="fa fa-check"></i><b>5.2</b> coord_fixed()</a></li>
+<li class="chapter" data-level="5.3" data-path="coord-flip.html"><a href="coord-flip.html"><i class="fa fa-check"></i><b>5.3</b> coord_flip()</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
 <li class="chapter" data-level="6.1" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.1</b> facet_grid()</a></li>
 <li class="chapter" data-level="6.2" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.2</b> facet_wrap()</a></li>
@@ -160,7 +164,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">3.9</span> geom_abline(), geom_hline() un geom_vline()</h2>
 <p>Ja attēlam ir nepieciešams pievienot diagonālu, horizontālu vai vertikālu līniju, tad jāizmanto attiecīgi <code>geom_abline()</code>, <code>geom_hline()</code> vai <code>geom_vline()</code>.</p>
 <p>Diagonālas līnijas pievienošanai jānorāda divas vērtības: <code>slope=</code> (norāda slīpumu) un <code>intercept=</code> (norāda, kur krusto y asi, ja x=0) (<a href="geom-abline-geom-hline-un-geom-vline.html#fig:abl1">3.26</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">5</span>, <span class="dt">slope =</span> <span class="fl">0.04</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">5</span>, <span class="dt">slope =</span> <span class="fl">0.04</span>)</code></pre></div>
 <div class="figure"><span id="fig:abl1"></span>
 <img src="ggplot2_gramata_files/figure-html/abl1-1.png" alt="Izkliedes diagramma ar pievienotu diagonālu līniju" width="672" />
 <p class="caption">
@@ -168,7 +173,8 @@ Attēls 3.26: Izkliedes diagramma ar pievienotu diagonālu līniju
 </p>
 </div>
 <p>Horizontālas līnijas pievienošanai izmanto <code>geom_hline()</code>, kurai kā arguments jānorāda <code>yintercept =</code> (kādai y vērtībai atbilst līnija) (<a href="geom-abline-geom-hline-un-geom-vline.html#fig:hor1">3.27</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">20</span>)</code></pre></div>
 <div class="figure"><span id="fig:hor1"></span>
 <img src="ggplot2_gramata_files/figure-html/hor1-1.png" alt="Izkliedes diagramma ar pievienotu horizontālu līniju" width="672" />
 <p class="caption">
@@ -176,7 +182,8 @@ Attēls 3.27: Izkliedes diagramma ar pievienotu horizontālu līniju
 </p>
 </div>
 <p>Pie argumentu <code>yintercept =</code> var norādīt arī uzreiz vairākas vērtības, kā redzultātā parādīsies vairākas līnijas (<a href="geom-abline-geom-hline-un-geom-vline.html#fig:hor2">3.28</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>))</code></pre></div>
 <div class="figure"><span id="fig:hor2"></span>
 <img src="ggplot2_gramata_files/figure-html/hor2-1.png" alt="Izkliedes diagramma ar pievienotām vairākām horizontālām līnijām" width="672" />
 <p class="caption">
@@ -194,7 +201,8 @@ Attēls 3.29: Izkliedes diagramma ar pievienotu horizontālu līniju
 </p>
 </div>
 <p>Vertikālas līnijas pievieno ar funkciju <code>geom_vline()</code> un argumentu <code>xintercept =</code> (kādai x vērtībai atbilst līnija) (<a href="geom-abline-geom-hline-un-geom-vline.html#fig:ver1">3.30</a> attēls). Pārējie darbības principi ir līdzīgi <code>geom_hline()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">500</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">500</span>)</code></pre></div>
 <div class="figure"><span id="fig:ver1"></span>
 <img src="ggplot2_gramata_files/figure-html/ver1-1.png" alt="Izkliedes diagramma ar pievienotu vertikālu līniju" width="672" />
 <p class="caption">

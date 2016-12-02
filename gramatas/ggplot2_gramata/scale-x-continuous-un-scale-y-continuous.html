@@ -26,7 +26,7 @@
 <meta name="author" content="Didzis Elferts">
 
 
-<meta name="date" content="2016-12-01">
+<meta name="date" content="2016-12-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -127,7 +127,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="scale-x-continuous-un-scale-y-continuous.html"><a href="scale-x-continuous-un-scale-y-continuous.html"><i class="fa fa-check"></i><b>4.1</b> scale_x_continuous() un scale_y_continuous()</a></li>
 <li class="chapter" data-level="4.2" data-path="scale-x-discrete-un-scale-y-discrete.html"><a href="scale-x-discrete-un-scale-y-discrete.html"><i class="fa fa-check"></i><b>4.2</b> scale_x_discrete() un scale_y_discrete()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a></li>
+<li class="chapter" data-level="5" data-path="koordinatu-sistemas.html"><a href="koordinatu-sistemas.html"><i class="fa fa-check"></i><b>5</b> Koordinātu sistēmas</a><ul>
+<li class="chapter" data-level="5.1" data-path="coord-cartesian.html"><a href="coord-cartesian.html"><i class="fa fa-check"></i><b>5.1</b> coord_cartesian()</a></li>
+<li class="chapter" data-level="5.2" data-path="coord-fixed.html"><a href="coord-fixed.html"><i class="fa fa-check"></i><b>5.2</b> coord_fixed()</a></li>
+<li class="chapter" data-level="5.3" data-path="coord-flip.html"><a href="coord-flip.html"><i class="fa fa-check"></i><b>5.3</b> coord_flip()</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="attelu-sadalisana.html"><a href="attelu-sadalisana.html"><i class="fa fa-check"></i><b>6</b> Attēlu sadalīšana</a><ul>
 <li class="chapter" data-level="6.1" data-path="facet-grid.html"><a href="facet-grid.html"><i class="fa fa-check"></i><b>6.1</b> facet_grid()</a></li>
 <li class="chapter" data-level="6.2" data-path="facet-wrap.html"><a href="facet-wrap.html"><i class="fa fa-check"></i><b>6.2</b> facet_wrap()</a></li>
@@ -159,8 +163,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="scale_x_continuous-un-scale_y_continuous" class="section level2">
 <h2><span class="header-section-number">4.1</span> scale_x_continuous() un scale_y_continuous()</h2>
 <p>x un y ass vērtību maiņai, ja tās skaitliskas (nepārtrauktas), izmanto attiecīgi funkcijas <code>scale_x_continuous()</code> un <code>scale_y_continuous()</code>. Izmantojot šīs funkcijas var mainīt asu parakstus (arguments <code>name=</code>), pozīcijas, kurās parādās skaitļi (<code>breaks=</code>) (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas1">4.1</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
-<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="st">&quot;Koncentrācija&quot;</span>,<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">400</span>,<span class="dv">500</span>))+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="st">&quot;Koncentrācija&quot;</span>,<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">400</span>,<span class="dv">500</span>)) +<span class="st"> </span>
 <span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="st">&quot;Uzņemtais apjoms&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:skalas1"></span>
 <img src="ggplot2_gramata_files/figure-html/skalas1-1.png" alt="Nepārtraukto asu piemērs" width="672" />
@@ -169,8 +173,8 @@ Attēls 4.1: Nepārtraukto asu piemērs
 </p>
 </div>
 <p>Ar argumentu <code>limits=</code> ir iespējams mainīt katras ass garumu, bet jāņem vērā, ka gadījumā, ja jaunais garums būs mazāks nekā vērtību amplitūda, tad vērtības ārpus ass garumu tiks izslēgtas no attēla (to parāda arī brīdinājums par izslēgtām vērtībām), ietekmējot attēlojumu (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas2">4.2</a> attēls). Tas īpaši attiecas uz stabiņu attēliem, vai attēliem ar trenda līniju.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
-<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">600</span>))+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">200</span>,<span class="dv">600</span>)) +<span class="st"> </span>
 <span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50</span>))</code></pre></div>
 <pre><code>## Warning: Removed 48 rows containing missing values (geom_point).</code></pre>
 <div class="figure"><span id="fig:skalas2"></span>
@@ -180,8 +184,8 @@ Attēls 4.2: Izmainītas nepārtrauktās ass piemērs
 </p>
 </div>
 <p>y un x asi ir iespējams arī pārvietot attiecīgi uz labo pusi vai uz augšu, norādot argumentu <code>position=</code> (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas3">4.3</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
-<span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">position =</span> <span class="st">&quot;right&quot;</span>)+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">position =</span> <span class="st">&quot;right&quot;</span>) +<span class="st"> </span>
 <span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">position =</span> <span class="st">&quot;top&quot;</span>)</code></pre></div>
 <div class="figure"><span id="fig:skalas3"></span>
 <img src="ggplot2_gramata_files/figure-html/skalas3-1.png" alt="Pārvietotas x un y asis" width="672" />
@@ -190,7 +194,7 @@ Attēls 4.3: Pārvietotas x un y asis
 </p>
 </div>
 <p>Ar argumentu <code>sec.axis=</code> gan x, gan y asij ir iespējams izveidot otro asi, bet tikai ar nosacījumu, ka otrā ass ir tieša pamatass transformāciju (<a href="scale-x-continuous-un-scale-y-continuous.html#fig:skalas4">4.4</a> attēls). Tas nozīmē, ka nevar izveidot otru asi, kas parāda pavisam citas vērtības.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake))+<span class="kw">geom_point</span>()+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">scale_y_continuous</span>(<span class="dt">sec.axis =</span> <span class="kw">sec_axis</span>(~./<span class="dv">100</span>,<span class="dt">name=</span><span class="st">&quot;Otrā y ass&quot;</span>))</code></pre></div>
 <div class="figure"><span id="fig:skalas4"></span>
 <img src="ggplot2_gramata_files/figure-html/skalas4-1.png" alt="Attēls ar otru y asi, kas ir pirmās transformācija" width="672" />
