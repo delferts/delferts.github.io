@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="atsevisku-attela-elementu-mainisana.html">
-
+<link rel="prev" href="definetas-attela-temas.html">
+<link rel="next" href="literatura.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -166,22 +166,108 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="literatura" class="section level1 unnumbered">
-<h1>Literatūra</h1>
+<div id="atsevisku-attela-elementu-mainisana" class="section level2">
+<h2><span class="header-section-number">7.2</span> Atsevišķu attēla elementu mainīšana</h2>
+<p>Papildus jau definētajām attēla noformējuma tēmām, ir iespējams mainīt gandrīz katru no attēla elementiem atsevišķi, izmantojot funkciju <code>theme()</code> un atbilstošo elementa nosaukumu. Pilnu sarakstu ar elementu nosaukumiem var iegūt apskatot funkcijas <code>theme()</code> palīdzības lapu.</p>
+<p>Elementu izskatu maiņa notiek pēc vienota principa - sākotnēji ir funkcija <code>theme()</code>, kurā kā arguments jānorāda maināmais elements, piemēram, <code>axis.text.x =</code> un tad nāk funkcija, kas norāda kāda izmaiņas veikt. Ir pieejamas trīs funkcijas <code>element_text()</code>, <code>element_line()</code> un <code>element_rect()</code>, kuras ir jāizraugas atbilstoši tam, kāda veida maināmais elements tas ir - teksts, līnija vai reģions (poligons). Katra elementa maiņa nav jāraksta savā <code>theme()</code> funkcijā, bet tie var būt vairāki argumenti vienā funkcijā.</p>
+<p>Teksta elementiem (<code>element_text()</code>) var mainīt teksta fontu grupu (<code>family =</code>), fonta veida (<code>face =</code>), krāsu (<code>colour =</code>), izmēru (<code>size =</code>), novietojumu horizentāli (<code>hjust =</code>) un vertikāli (<code>vjust =</code>), teksta leņķi (<code>angle =</code>), līnijas augstumu (<code>lineheight =</code>), atstarpes (<code>margin =</code>).</p>
+<p>Līniju elementiem (<code>element_line()</code>) var mainīt krāsu (<code>colour =</code>), līnijas biezumu (<code>size =</code>), līnijas veidu (<code>linetype =</code>), līnijas nobeigumu (<code>lineend =</code>) un pievienot bultu (<code>arrow =</code>).</p>
+<p>Reģiona jeb poligona elementiem (<code>element_rect()</code>) var mainīt aizpildījumu (<code>fill =</code>), krāsu līnijai apkārt reģionam (<code>colour =</code>), līnijas biezumu (<code>size =</code>) un līnijas veidu (<code>linetype =</code>).</p>
+<p>Ir pieejama arī speciāla funkcija <code>element_blank()</code>, kas no attēla noņems atbilstošo elementu, turklāt “pazudīs” arī šim elementam atvēlētā vieta, ja tas būs, piemēram, asu paraksts, vai asu apzīmējumi.</p>
+<div id="attela-virsraksts" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Attēla virsraksts</h3>
+<p>Attēla virsraksta izskatu (bet ne tā saturu) maina ar argumentu <code>plot.title =</code>.</p>
+<p>Pirmajā piemēra teksta virsraksts pārveidots zaļā krāsā, 20 fonta izmērā un slīprakstā (<a href="atsevisku-attela-elementu-mainisana.html#fig:thvir1">7.10</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;CO2 attēls&quot;</span>)+
+<span class="st">      </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">&quot;green&quot;</span>,
+                                      <span class="dt">size =</span> <span class="dv">20</span>,
+                                      <span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:thvir1"></span>
+<img src="ggplot2_gramata_files/figure-html/thvir1-1.png" alt="Attēls ar mainītu virsraksta izskatu" width="672" />
+<p class="caption">
+Attēls 7.10: Attēls ar mainītu virsraksta izskatu
+</p>
+</div>
+<p>Jaunākajā ggplot2 verijā (2.2.0) virsraksts automātiski ir novietots attēla kreisajā pusē, to var izmainīt ar argumentu <code>hjust =</code> un vērtību 0.5 (0 - kreisā mala, 1 - labā mala, 0.5 - pa vidu) (<a href="atsevisku-attela-elementu-mainisana.html#fig:thvir2">7.11</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;CO2 attēls&quot;</span>)+
+<span class="st">      </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</code></pre></div>
+<div class="figure"><span id="fig:thvir2"></span>
+<img src="ggplot2_gramata_files/figure-html/thvir2-1.png" alt="Attēls ar mainītu virsraksta novietojumu" width="672" />
+<p class="caption">
+Attēls 7.11: Attēls ar mainītu virsraksta novietojumu
+</p>
+</div>
+</div>
+<div id="asu-paraksti" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Asu paraksti</h3>
+<p>Asu parakstu maiņa notiek ar elementu <code>axis.title =</code> (abas asis vienlaicīgi), vai <code>axis.title.x =</code> un <code>axis.title.y =</code> mainot katras ass izskatu atsevišķi.</p>
+<p>Asu paraksti arī ir teksts, tāpēc izmantojama funkcija <code>element_text()</code> (<a href="atsevisku-attela-elementu-mainisana.html#fig:thasp1">7.12</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">theme</span>(<span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">15</span>,
+                                      <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:thasp1"></span>
+<img src="ggplot2_gramata_files/figure-html/thasp1-1.png" alt="Attēls ar vienādu asu parakstu noformējumu" width="672" />
+<p class="caption">
+Attēls 7.12: Attēls ar vienādu asu parakstu noformējumu
+</p>
+</div>
+<p>Izmantojot argumentus <code>axis.title.x =</code> un <code>axis.title.y =</code> var mainīt katru asi atsevišķi, piemēram, vienais asij noņemot parakstu, bet otrai to izmainot (<a href="atsevisku-attela-elementu-mainisana.html#fig:thasp2">7.13</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(),
+            <span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:thasp2"></span>
+<img src="ggplot2_gramata_files/figure-html/thasp2-1.png" alt="Attēls ar x asi bez paraksta" width="672" />
+<p class="caption">
+Attēls 7.13: Attēls ar x asi bez paraksta
+</p>
+</div>
+</div>
+<div id="asu-apzimejumi" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Asu apzīmējumi</h3>
+<p>Apzīmējumus pie asīm (skaitļus vai līmeņu nosaukumus) maina ar argumentiem <code>axis.text =</code>, <code>axis.text.x =</code>, vai <code>axis.text.y =</code> (<a href="atsevisku-attela-elementu-mainisana.html#fig:thasa1">7.14</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>),
+            <span class="dt">axis.text.y =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>))</code></pre></div>
+<div class="figure"><span id="fig:thasa1"></span>
+<img src="ggplot2_gramata_files/figure-html/thasa1-1.png" alt="Attēls ar mainītiem asu apzīmējumiem" width="672" />
+<p class="caption">
+Attēls 7.14: Attēls ar mainītiem asu apzīmējumiem
+</p>
+</div>
+</div>
+<div id="asu-linijas" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> Asu līnijas</h3>
+<p>Pēc noklusējuma vairākām tēmām nerādās asu līnijas. Tās var pievienot ar argumentu <code>axis.line =</code>, vai <code>axis.line.x =</code> un <code>axis.line.y =</code>. Tā kā tās ir līnijas, tad to izskata maiņai izmanto funkciju <code>element_line()</code> (<a href="atsevisku-attela-elementu-mainisana.html#fig:thasl1">7.15</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_line</span>(<span class="dt">linetype =</span> <span class="st">&quot;longdash&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:thasl1"></span>
+<img src="ggplot2_gramata_files/figure-html/thasl1-1.png" alt="Attēls ar asu līnijām" width="672" />
+<p class="caption">
+Attēls 7.15: Attēls ar asu līnijām
+</p>
+</div>
+<p>Asu līniju galos ir iespējams arī pievienot bultiņu ar argumentu <code>arrow =</code> un funkciju <code>arrow()</code> (<a href="atsevisku-attela-elementu-mainisana.html#fig:thasl2">7.16</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">theme</span>(<span class="dt">axis.line =</span> <span class="kw">element_line</span>(<span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">length =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&#39;mm&#39;</span>))))</code></pre></div>
+<div class="figure"><span id="fig:thasl2"></span>
+<img src="ggplot2_gramata_files/figure-html/thasl2-1.png" alt="Attēls ar bultiņām pie asīm" width="672" />
+<p class="caption">
+Attēls 7.16: Attēls ar bultiņām pie asīm
+</p>
+</div>
 
-<div id="refs" class="references">
-<div>
-<p>Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="http://ggplot2.org" class="uri">http://ggplot2.org</a>.</p>
 </div>
 </div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="atsevisku-attela-elementu-mainisana.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="definetas-attela-temas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literatura.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -209,7 +295,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/delferts/ggplot2_gramata/edit/master/15-Literatura.Rmd",
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/06-Noformesana.Rmd",
 "text": "Edit"
 },
 "download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],
