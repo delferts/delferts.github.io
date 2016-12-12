@@ -143,6 +143,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.2.2" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#asu-paraksti"><i class="fa fa-check"></i><b>7.2.2</b> Asu paraksti</a></li>
 <li class="chapter" data-level="7.2.3" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#asu-apzimejumi"><i class="fa fa-check"></i><b>7.2.3</b> Asu apzīmējumi</a></li>
 <li class="chapter" data-level="7.2.4" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#asu-linijas"><i class="fa fa-check"></i><b>7.2.4</b> Asu līnijas</a></li>
+<li class="chapter" data-level="7.2.5" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#legendas-novietojums"><i class="fa fa-check"></i><b>7.2.5</b> Leģendas novietojums</a></li>
+<li class="chapter" data-level="7.2.6" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#legendas-virsraksts"><i class="fa fa-check"></i><b>7.2.6</b> Leģendas virsraksts</a></li>
+<li class="chapter" data-level="7.2.7" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#legendas-pamatne"><i class="fa fa-check"></i><b>7.2.7</b> Leģendas pamatne</a></li>
+<li class="chapter" data-level="7.2.8" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#legendas-teksti"><i class="fa fa-check"></i><b>7.2.8</b> Leģendas teksti</a></li>
+<li class="chapter" data-level="7.2.9" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#legendas-ieraksti"><i class="fa fa-check"></i><b>7.2.9</b> Leģendas ieraksti</a></li>
+<li class="chapter" data-level="7.2.10" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#attela-ieksejas-dalas-pamatne"><i class="fa fa-check"></i><b>7.2.10</b> Attēla iekšējās daļas pamatne</a></li>
+<li class="chapter" data-level="7.2.11" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#paliglinijas-gridlines"><i class="fa fa-check"></i><b>7.2.11</b> Palīglīnijas (gridlines)</a></li>
+<li class="chapter" data-level="7.2.12" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#attela-dalu-virsraksti"><i class="fa fa-check"></i><b>7.2.12</b> Attēla daļu virsraksti</a></li>
+<li class="chapter" data-level="7.2.13" data-path="atsevisku-attela-elementu-mainisana.html"><a href="atsevisku-attela-elementu-mainisana.html#visa-attela-pamatne"><i class="fa fa-check"></i><b>7.2.13</b> Visa attēla pamatne</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatūra</a></li>
@@ -169,14 +178,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="definetas-attela-temas" class="section level2">
 <h2><span class="header-section-number">7.1</span> Definētās attēla tēmas</h2>
 <p>Paketē ggplot2 ir definētas astoņas gatavas tēmas attēla izskata maiņai. Attēlā noformējums mainās, pieskaitot klāt atbilstošo tēmas funkciju. Katrā tēmā papildus ir iespējams mainīt pamatteksta izmēru (<code>base_size=</code>) un pamatfontu (<code>base_family=</code>). Gatovos tēmu noformējumus protams var papildināt arī ar citām izmaiņām konkrētiem elementiem. Attēlos <a href="definetas-attela-temas.html#fig:theme1">7.1</a>, <a href="definetas-attela-temas.html#fig:theme2">7.2</a>, <a href="definetas-attela-temas.html#fig:theme3">7.3</a>, <a href="definetas-attela-temas.html#fig:theme4">7.4</a>, <a href="definetas-attela-temas.html#fig:theme5">7.5</a>, <a href="definetas-attela-temas.html#fig:theme6">7.6</a>, <a href="definetas-attela-temas.html#fig:theme7">7.7</a>, <a href="definetas-attela-temas.html#fig:theme8">7.8</a> un <a href="definetas-attela-temas.html#fig:theme9">7.9</a> parādīts kā izskatās sākotnējais attēls un kā tas mainās, izmantojot kādu no gatavajām tēmām.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme1"></span>
 <img src="ggplot2_gramata_files/figure-html/theme1-1.png" alt="Attēls bez papildus noformējuma" width="672" />
 <p class="caption">
 Attēls 7.1: Attēls bez papildus noformējuma
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_bw</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme2"></span>
 <img src="ggplot2_gramata_files/figure-html/theme2-1.png" alt="Attēls ar theme_bw()" width="672" />
@@ -184,7 +193,7 @@ Attēls 7.1: Attēls bez papildus noformējuma
 Attēls 7.2: Attēls ar theme_bw()
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_classic</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme3"></span>
 <img src="ggplot2_gramata_files/figure-html/theme3-1.png" alt="Attēls ar theme_classic()" width="672" />
@@ -192,7 +201,7 @@ Attēls 7.2: Attēls ar theme_bw()
 Attēls 7.3: Attēls ar theme_classic()
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_dark</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme4"></span>
 <img src="ggplot2_gramata_files/figure-html/theme4-1.png" alt="Attēls ar theme_dark()" width="672" />
@@ -200,7 +209,7 @@ Attēls 7.3: Attēls ar theme_classic()
 Attēls 7.4: Attēls ar theme_dark()
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_grey</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme5"></span>
 <img src="ggplot2_gramata_files/figure-html/theme5-1.png" alt="Attēls ar theme_grey()" width="672" />
@@ -208,7 +217,7 @@ Attēls 7.4: Attēls ar theme_dark()
 Attēls 7.5: Attēls ar theme_grey()
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_light</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme6"></span>
 <img src="ggplot2_gramata_files/figure-html/theme6-1.png" alt="Attēls ar theme_light()" width="672" />
@@ -216,7 +225,7 @@ Attēls 7.5: Attēls ar theme_grey()
 Attēls 7.6: Attēls ar theme_light()
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_linedraw</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme7"></span>
 <img src="ggplot2_gramata_files/figure-html/theme7-1.png" alt="Attēls ar theme_linedraw()" width="672" />
@@ -224,7 +233,7 @@ Attēls 7.6: Attēls ar theme_light()
 Attēls 7.7: Attēls ar theme_linedraw()
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_minimal</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme8"></span>
 <img src="ggplot2_gramata_files/figure-html/theme8-1.png" alt="Attēls ar theme_minimal()" width="672" />
@@ -232,7 +241,7 @@ Attēls 7.7: Attēls ar theme_linedraw()
 Attēls 7.8: Attēls ar theme_minimal()
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color=</span>Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2,<span class="kw">aes</span>(conc,uptake,<span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">      </span><span class="kw">theme_void</span>()</code></pre></div>
 <div class="figure"><span id="fig:theme9"></span>
 <img src="ggplot2_gramata_files/figure-html/theme9-1.png" alt="Attēls ar theme_void()" width="672" />
