@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="facet-grid.html">
-<link rel="next" href="attela-noformesana.html">
+<link rel="prev" href="scale-x-discrete-un-scale-y-discrete.html">
+<link rel="next" href="scale-alpha-.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -181,45 +181,72 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="facet_wrap" class="section level2">
-<h2><span class="header-section-number">6.2</span> facet_wrap()</h2>
-<p>`facet_wrap() gadījumā mazie attēliņi tiek novietoti viens aiz otra, ar iespēju norādīt cik rindās/kolonnās tos nepieciešams izvietot. Attēlu sadalīšanu var veikt, piemēram, ar vienu mainīgo (nav jāizmanto “.” pirms tildes) (<a href="facet-wrap.html#fig:wrap1">6.5</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~class,<span class="dt">ncol=</span><span class="dv">4</span>)</code></pre></div>
-<div class="figure"><span id="fig:wrap1"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap1-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap()" width="672" />
+<div id="scale_colour_-un-scale_fill" class="section level2">
+<h2><span class="header-section-number">4.3</span> scale_colour_…() un scale_fill…()</h2>
+<p>Gadījumos, kad formu (punktu, līniju) krāsa ir atkarīga no kāda mainīgā ar argumentu <code>colour =</code>, šo krāsu un izveidoto leģendu mainīšanai ir jāizmanto funkcijas no grupas <code>scale_colour...()</code>. Analoģiski, ja aizpildījuma krāsa ir noteikta ar argumentu <code>fill =</code>, tad jāizmanto funkcijas no grupas <code>scale_fill..()</code></p>
+<p>Krāsu (aizpildījuma) skalas veids ir atkarīgs no mainīgā veida, kas izmantots nosakot krāsu. Ja tas ir diskrēts (kategorijas), tad jāizmanto funkcija <code>scale_colour_discrete()</code> vai <code>scale_fill_discrete()</code>, kurā kā citās kategorijas skalās var norādīt nosaukumu, kas parādīsies leģendā (<code>name =</code>), kādā veidā nosaukt līmeņus leģendā (<code>labels =</code>) un kurus līmeņus parādīt attēlā (<code>limits =</code>) (<a href="scale-colour-un-scale-fill.html#fig:scol1">4.8</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy, <span class="dt">colour =</span> drv)) +<span class="st"> </span><span class="kw">geom_point</span>() +
+<span class="st">      </span><span class="kw">scale_colour_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Piedziņas veids&quot;</span>,
+                            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Visi&quot;</span>,<span class="st">&quot;Priekšējie&quot;</span>,<span class="st">&quot;Pakaļējie&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:scol1"></span>
+<img src="ggplot2_gramata_files/figure-html/scol1-1.png" alt="Izkliedes attēls ar mainītu leģendas izskatu" width="672" />
 <p class="caption">
-Attēls 6.5: Attēlā sadalīšana daļās ar facet_wrap()
+Attēls 4.8: Izkliedes attēls ar mainītu leģendas izskatu
 </p>
 </div>
-<p>Dalīšanu daļās var veikt arī ar vairākiem mainīgajiem, norādot tos aiz tildes zīmes (<a href="facet-wrap.html#fig:wrap2">6.6</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~cyl +<span class="st"> </span>drv,<span class="dt">ncol=</span><span class="dv">4</span>)</code></pre></div>
-<div class="figure"><span id="fig:wrap2"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap2-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap() un diviem mainīgiem" width="672" />
+<p>Pašu krāsu (aizpildījumu) mainīšanai var izmantot vairākas pieejas, piemēram, izmantot funkciju <code>scale_colour_hue()</code> vai <code>scale_fill_hue()</code> un mainīt trīs parametru vērtības: <code>l =</code>, <code>h =</code> un <code>c =</code>, kas attiecīgi apzīmē <em>luminance</em>, <em>hues</em> un <em>chroma</em> (<a href="scale-colour-un-scale-fill.html#fig:scol2">4.9</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy, <span class="dt">colour =</span> drv)) +<span class="st"> </span><span class="kw">geom_point</span>() +
+<span class="st">      </span><span class="kw">scale_colour_hue</span>(<span class="dt">h=</span><span class="kw">c</span>(<span class="dv">60</span>,<span class="dv">190</span>))</code></pre></div>
+<div class="figure"><span id="fig:scol2"></span>
+<img src="ggplot2_gramata_files/figure-html/scol2-1.png" alt="Izkliedes attēls, kurā mainītas krāsu gamma" width="672" />
 <p class="caption">
-Attēls 6.6: Attēlā sadalīšana daļās ar facet_wrap() un diviem mainīgiem
+Attēls 4.9: Izkliedes attēls, kurā mainītas krāsu gamma
 </p>
 </div>
-<p>Attēla sadalīšanai daļās var izmantot arī papildus funkcijas, piemēram, sadalot skaitlisku mainīgo daļās (<a href="facet-wrap.html#fig:wrap3">6.7</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~<span class="kw">cut_number</span>(displ,<span class="dv">6</span>))</code></pre></div>
-<div class="figure"><span id="fig:wrap3"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap3-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap() un dalījums balstās uz skaitlisku mainīgo, kas sadalīts intervālos" width="672" />
+<p>Gatavu krāsu palešu izmantošanai, jāizmanto funkcija <code>scale_colour_brewer()</code> vai <code>scale_fill_brewer()</code>, norādot vēlamo krāsu paleti (<code>palette =</code>) (<a href="scale-colour-un-scale-fill.html#fig:scol3">4.10</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy, <span class="dt">colour =</span> drv)) +<span class="st"> </span><span class="kw">geom_point</span>() +
+<span class="st">      </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set2&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:scol3"></span>
+<img src="ggplot2_gramata_files/figure-html/scol3-1.png" alt="Izkliedes attēls ar noteiktu krāsu paleti" width="672" />
 <p class="caption">
-Attēls 6.7: Attēlā sadalīšana daļās ar facet_wrap() un dalījums balstās uz skaitlisku mainīgo, kas sadalīts intervālos
+Attēls 4.10: Izkliedes attēls ar noteiktu krāsu paleti
 </p>
 </div>
-
+<p>Pilnīgai kontrolei pār attēla krāsām jāizmanto <code>scale_colour_manual()</code> vai <code>scale_fill_manual()</code>, kas ļauj izmantot paša izvēlētas krāsas (arguments <code>values =</code>), rakstot to angliskos nosaukumus vai izmantojot Hex kodus. Krāsu skaitam ir jābūt identiskam, līmeņu skaitam datos (<a href="scale-colour-un-scale-fill.html#fig:scol4">4.11</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(drv, <span class="dt">fill =</span> drv)) +<span class="st"> </span><span class="kw">geom_bar</span>() +
+<span class="st">      </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;black&quot;</span>,<span class="st">&quot;deepskyblue&quot;</span>))</code></pre></div>
+<div class="figure"><span id="fig:scol4"></span>
+<img src="ggplot2_gramata_files/figure-html/scol4-1.png" alt="Stabiņu attēls ar manuāli noteiktām aizpildījuma krāsām" width="672" />
+<p class="caption">
+Attēls 4.11: Stabiņu attēls ar manuāli noteiktām aizpildījuma krāsām
+</p>
 </div>
-<!-- </div> -->
+<p>Ja krāsa vai aizpildījums ir atkarīgs no skaitliska mainīgā, tad to mainīšanai var izmantot, piemēram, funkcijas <code>scale_colour_gradient()</code>, <code>scale_colour_gradient2()</code> un <code>scale_colour_gradientn()</code>, vai to analogus <code>scale_fill_gradient()</code>, <code>scale_fill_gradient2()</code> un <code>scale_fill_gradientn()</code>. Šīs funkcijas attiecīgi noteiks krāsu kā pāreju no zemākā uz augstāko toni, kā pāreju starp divām atšķirīgām krāsām, vai arī kā gradientu no vairāk kā divām krāsām (<a href="scale-colour-un-scale-fill.html#fig:scol5">4.12</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2, <span class="kw">aes</span>(conc, uptake, <span class="dt">colour =</span> uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +
+<span class="st">      </span><span class="kw">scale_colour_gradient</span>(<span class="dt">low=</span><span class="st">&quot;white&quot;</span>,<span class="dt">high =</span> <span class="st">&quot;black&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:scol5"></span>
+<img src="ggplot2_gramata_files/figure-html/scol5-1.png" alt="Izkliedes attēls, kurā krāsa mainās kā gradients" width="672" />
+<p class="caption">
+Attēls 4.12: Izkliedes attēls, kurā krāsa mainās kā gradients
+</p>
+</div>
+<p>Norādot divas ļoti atšķirīgas krāsas, veidosies pārēja no vienas krāsas uz otru krāsu ar balto pa vidu. Pēc noklusējuma baltā krāsa atbildīs vērtībām 0, bet, ja nepieciešams cits viduspunkts, tas jānorāda ar argumentu <code>midpoint =</code> (<a href="scale-colour-un-scale-fill.html#fig:scol6">4.13</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(CO2, <span class="kw">aes</span>(conc, uptake, <span class="dt">colour =</span> uptake)) +<span class="st"> </span><span class="kw">geom_point</span>() +
+<span class="st">      </span><span class="kw">scale_colour_gradient2</span>(<span class="dt">low=</span><span class="st">&quot;red&quot;</span>,<span class="dt">high =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">midpoint =</span> <span class="dv">30</span>)</code></pre></div>
+<div class="figure"><span id="fig:scol6"></span>
+<img src="ggplot2_gramata_files/figure-html/scol6-1.png" alt="Izkliedes attēls, kurā krāsa mainās kā gradients no sarkanās uz zilo" width="672" />
+<p class="caption">
+Attēls 4.13: Izkliedes attēls, kurā krāsa mainās kā gradients no sarkanās uz zilo
+</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="facet-grid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="attela-noformesana.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="scale-x-discrete-un-scale-y-discrete.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scale-alpha-.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -247,7 +274,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/delferts/ggplot2_gramata/edit/master/05-Sadalisana.Rmd",
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/03-Skalas.Rmd",
 "text": "Edit"
 },
 "download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],

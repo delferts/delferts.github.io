@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="facet-grid.html">
-<link rel="next" href="attela-noformesana.html">
+<link rel="prev" href="scale-size-.html">
+<link rel="next" href="koordinatu-sistemas.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -181,33 +181,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="facet_wrap" class="section level2">
-<h2><span class="header-section-number">6.2</span> facet_wrap()</h2>
-<p>`facet_wrap() gadījumā mazie attēliņi tiek novietoti viens aiz otra, ar iespēju norādīt cik rindās/kolonnās tos nepieciešams izvietot. Attēlu sadalīšanu var veikt, piemēram, ar vienu mainīgo (nav jāizmanto “.” pirms tildes) (<a href="facet-wrap.html#fig:wrap1">6.5</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~class,<span class="dt">ncol=</span><span class="dv">4</span>)</code></pre></div>
-<div class="figure"><span id="fig:wrap1"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap1-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap()" width="672" />
+<div id="identitates-skalas" class="section level2">
+<h2><span class="header-section-number">4.8</span> Identitātes skalas</h2>
+<p>Ir vesela grupa skalu funkciju, kuru nosaukumā pēdējais vārds ir <code>identity</code>. Šīs skalas izmanto gadījumos, kad datos ir kolonna, kuras vērtības ir jāizmanto kā reālās attēlojāmā veida iespējamās vērtības, nevis sistēmai pašai jāizdomā attēlojums šim mainīgajam. Piemērs būtu, ka datos ir kolonna ar krāsu nosaukumiem, kurus tiešā veidā ir arī jāattēlo.</p>
+<p>Piemēram izveidota datu tabula, kurā ir kolonnas <code>izmers</code> un <code>krasa</code> (ar reāliem krāsu nosaukumiem).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>:<span class="dv">3</span>,
+                 <span class="dt">y =</span> <span class="dv">1</span>:<span class="dv">3</span>,
+                 <span class="dt">izmers =</span> <span class="dv">4</span>:<span class="dv">6</span>,
+                 <span class="dt">krasa =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;brown&quot;</span>))
+df</code></pre></div>
+<pre><code>##   x y izmers  krasa
+## 1 1 1      4  green
+## 2 2 2      5 yellow
+## 3 3 3      6  brown</code></pre>
+<p>Izmantojot piemēra datus izkliedes attēlā un nosakot, ka punktu krāsa ir atkarīga no mainīgā <code>krasa</code>, redzams, ka izveidotajā attēlā un leģendā nosaukumi un krāsas nesakrīt (<a href="identitates-skalas.html#fig:side1">4.20</a> attēls), jo ggplot2 sistēma tos uztver kā vienkāršus nosaukumus, nevis reālus krāsu nosaukumus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x, y, <span class="dt">colour =</span> krasa))  +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="figure"><span id="fig:side1"></span>
+<img src="ggplot2_gramata_files/figure-html/side1-1.png" alt="Izkliedes attēls ar mainītu krāsu" width="672" />
 <p class="caption">
-Attēls 6.5: Attēlā sadalīšana daļās ar facet_wrap()
+Attēls 4.20: Izkliedes attēls ar mainītu krāsu
 </p>
 </div>
-<p>Dalīšanu daļās var veikt arī ar vairākiem mainīgajiem, norādot tos aiz tildes zīmes (<a href="facet-wrap.html#fig:wrap2">6.6</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~cyl +<span class="st"> </span>drv,<span class="dt">ncol=</span><span class="dv">4</span>)</code></pre></div>
-<div class="figure"><span id="fig:wrap2"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap2-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap() un diviem mainīgiem" width="672" />
+<p>Pievienojot funkciju <code>scale_colour_identity()</code> un <code>scale_size_identity()</code>, attēlā punktu izmērs un krāsa ir tāda, kāda tā norādīta datu tabulā, kā arī pēc noklusējuma nerādās leģenda (<a href="identitates-skalas.html#fig:side2">4.21</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(x, y, <span class="dt">colour =</span> krasa, <span class="dt">size =</span> izmers))  +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">scale_colour_identity</span>() +
+<span class="st">      </span><span class="kw">scale_size_identity</span>()</code></pre></div>
+<div class="figure"><span id="fig:side2"></span>
+<img src="ggplot2_gramata_files/figure-html/side2-1.png" alt="Izkliedes attēls ar mainītu krāsu" width="672" />
 <p class="caption">
-Attēls 6.6: Attēlā sadalīšana daļās ar facet_wrap() un diviem mainīgiem
-</p>
-</div>
-<p>Attēla sadalīšanai daļās var izmantot arī papildus funkcijas, piemēram, sadalot skaitlisku mainīgo daļās (<a href="facet-wrap.html#fig:wrap3">6.7</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~<span class="kw">cut_number</span>(displ,<span class="dv">6</span>))</code></pre></div>
-<div class="figure"><span id="fig:wrap3"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap3-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap() un dalījums balstās uz skaitlisku mainīgo, kas sadalīts intervālos" width="672" />
-<p class="caption">
-Attēls 6.7: Attēlā sadalīšana daļās ar facet_wrap() un dalījums balstās uz skaitlisku mainīgo, kas sadalīts intervālos
+Attēls 4.21: Izkliedes attēls ar mainītu krāsu
 </p>
 </div>
 
@@ -218,8 +222,8 @@ Attēls 6.7: Attēlā sadalīšana daļās ar facet_wrap() un dalījums balstās
           </div>
         </div>
       </div>
-<a href="facet-grid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="attela-noformesana.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="scale-size-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="koordinatu-sistemas.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -247,7 +251,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/delferts/ggplot2_gramata/edit/master/05-Sadalisana.Rmd",
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/03-Skalas.Rmd",
 "text": "Edit"
 },
 "download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],

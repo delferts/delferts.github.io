@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="facet-grid.html">
-<link rel="next" href="attela-noformesana.html">
+<link rel="prev" href="scale-alpha-.html">
+<link rel="next" href="scale-shape-.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -181,45 +181,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="facet_wrap" class="section level2">
-<h2><span class="header-section-number">6.2</span> facet_wrap()</h2>
-<p>`facet_wrap() gadījumā mazie attēliņi tiek novietoti viens aiz otra, ar iespēju norādīt cik rindās/kolonnās tos nepieciešams izvietot. Attēlu sadalīšanu var veikt, piemēram, ar vienu mainīgo (nav jāizmanto “.” pirms tildes) (<a href="facet-wrap.html#fig:wrap1">6.5</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~class,<span class="dt">ncol=</span><span class="dv">4</span>)</code></pre></div>
-<div class="figure"><span id="fig:wrap1"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap1-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap()" width="672" />
+<div id="scale_linetype_" class="section level2">
+<h2><span class="header-section-number">4.5</span> scale_linetype_…()</h2>
+<p>Attēlā izmantoto līniju veida ietekmēšanai izmanto funkcijas <code>scale_linetype_discrete()</code> un <code>scale_linetype_manual()</code>. Ar pirmo funkciju var ietekmēt tikai leģendu un līmeņu nosaukumus, bet manuālā skala ļauj jau definēt konkrētos līniju veidus katram no līmeņiem, tos norādot kā skaitļus no 1 līdz 6, vai to angliskos nosaukumus (<a href="scale-linetype-.html#fig:slin1">4.15</a> attēls).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy, <span class="dt">linetype =</span> drv)) +<span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_line</span>() +<span class="st"> </span>
+<span class="st">      </span><span class="kw">scale_linetype_manual</span>(<span class="st">&quot;Līnijas veids&quot;</span>,
+                            <span class="dt">values=</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">6</span>))</code></pre></div>
+<div class="figure"><span id="fig:slin1"></span>
+<img src="ggplot2_gramata_files/figure-html/slin1-1.png" alt="Līniju attēls ar mainītiem līniju veidiem" width="672" />
 <p class="caption">
-Attēls 6.5: Attēlā sadalīšana daļās ar facet_wrap()
+Attēls 4.15: Līniju attēls ar mainītiem līniju veidiem
 </p>
 </div>
-<p>Dalīšanu daļās var veikt arī ar vairākiem mainīgajiem, norādot tos aiz tildes zīmes (<a href="facet-wrap.html#fig:wrap2">6.6</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~cyl +<span class="st"> </span>drv,<span class="dt">ncol=</span><span class="dv">4</span>)</code></pre></div>
-<div class="figure"><span id="fig:wrap2"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap2-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap() un diviem mainīgiem" width="672" />
-<p class="caption">
-Attēls 6.6: Attēlā sadalīšana daļās ar facet_wrap() un diviem mainīgiem
-</p>
 </div>
-<p>Attēla sadalīšanai daļās var izmantot arī papildus funkcijas, piemēram, sadalot skaitlisku mainīgo daļās (<a href="facet-wrap.html#fig:wrap3">6.7</a> attēls).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg,<span class="kw">aes</span>(cty,hwy)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span>
-<span class="st">      </span><span class="kw">facet_wrap</span>(~<span class="kw">cut_number</span>(displ,<span class="dv">6</span>))</code></pre></div>
-<div class="figure"><span id="fig:wrap3"></span>
-<img src="ggplot2_gramata_files/figure-html/wrap3-1.png" alt="Attēlā sadalīšana daļās ar facet_wrap() un dalījums balstās uz skaitlisku mainīgo, kas sadalīts intervālos" width="672" />
-<p class="caption">
-Attēls 6.7: Attēlā sadalīšana daļās ar facet_wrap() un dalījums balstās uz skaitlisku mainīgo, kas sadalīts intervālos
-</p>
-</div>
-
-</div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="facet-grid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="attela-noformesana.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="scale-alpha-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scale-shape-.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -247,7 +229,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/delferts/ggplot2_gramata/edit/master/05-Sadalisana.Rmd",
+"link": "https://github.com/delferts/ggplot2_gramata/edit/master/03-Skalas.Rmd",
 "text": "Edit"
 },
 "download": ["ggplot2_gramata.pdf", "ggplot2_gramata.epub"],
