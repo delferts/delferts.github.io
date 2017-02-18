@@ -45,3 +45,5 @@ categories: es update
 ### Dažādi
 
 1. ["Iepriekšejo gadu novērojumu analīze un piemērotība turpmākajai izmantošanai"](../documents/Taurini_02042016.pdf) - ziņojums LEB Tauriņu vērotāju pasākumā (02.04.2016.)
+
+1. ["Tauriņu ziņojumi Dabasdati.lv - ko tie mums var pastāstīt?"](../document/Taurini_18022017.pdf) - ziņojums LEB Tauriņu vērotāju pasākumā (18.02.2017.)
