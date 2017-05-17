@@ -4,6 +4,8 @@ layout: page
 categories: es
 ---
 
+1. **Krams, I.A., Rumvolt, K., Saks, L., Krams, R., Elferts, D., Vrublevska, J., Rantala, M.J., Kecko, S., Cīrule, D., Luoto, S., Krama, T., 2017.** Reproduction compromises adaptive immunity in a cyprinid fish. Ecological Research, DOI 10.1007/s11284-017-1467-y [(link)](http://link.springer.com/article/10.1007/s11284-017-1467-y)
+
 1. **Apsīte, E., Elferts, D., Latkovska, I., 2016.** Long-term changes of Daugava River ice phenology under the impact of the cascade of hydro power plants. Proceedings of the Latvian Academy of Science. Section B, 70 (2): 71-77. [(pdf)](http://www.degruyter.com/dg/viewarticle.fullcontentlink:pdfeventlink/$002fj$002fprolas.2016.70.issue-2$002fprolas-2016-0012$002fprolas-2016-0012.pdf/prolas-2016-0012.pdf?format=INT&t:ac=j$002fprolas.2016.70.issue-2$002fprolas-2016-0012$002fprolas-2016-0012.xml)
 
 1. **Igumnova, V., Capligina, V., Krams, A., Cirule, A., Elferts, D., Pole, I., Jansone, I., Bandere, D., Ranka, R., 2016.** Genotype and allele frequencies of isoniazid-metabolizing enzymes NAT2 and GSTM1 in Latvian tuberculosis patients. Journal of Infection and Chemotherapy, 22  (7): 472-477. DOI: 10.1016/j.jiac.2016.04.003. [(link)](http://www.sciencedirect.com/science/article/pii/S1341321X16300460)
