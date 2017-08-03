@@ -4,6 +4,8 @@ layout: page
 categories: es update
 ---
 
+1. "Ievads darbā ar R un pamatstatistiskie test" un "Ievads ggplot2 grafiskajā sistēmā" - kursi Eirāzijas zālāju konferences dalībniekiem (05.07.2017)
+
 1. "Programma R" - četru tēmu kurss LU Bioloģijas fakultātes un Ģeogrāfijas un zemes zinātņu fakultātes akadēmiskajam un zinātniskajam personālam (oktobris, 2016.) ([brīvi pieejami kursa materiāli](https://github.com/delferts/R_kursi_LU))
 
 1. “Statistiskas seminārs par programmu R un statistiskajiem testiem” – apmācību cikls (15 stundas) LVMI “Silava” darbiniekiem (janvāris, 2014.)

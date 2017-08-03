@@ -5,7 +5,9 @@ categories: es
 ---
 
 
-1. **Brūmelis, G., Oļehnoviča, E., šūba, U., Treimane, A., Inne, S., Zviedre, E., Elferts, D., Dakša, M., Tjarve, D., 2017.** Bryophute and polypore richness and indicators in relation to type, age and decay stage of coarse woody debris of Picea abies. Environmental and Experimental Biology, 15: 95-103. [pdf](http://eeb.lu.lv/EEB/current/EEB_XV_Brumelis.pdf) 
+1. **Brūmelis, G., Oļehnoviča, E., šūba, U., Treimane, A., Inne, S., Zviedre, E., Elferts, D., Dakša, M., Tjarve, D., 2017.** Bryophute and polypore richness and indicators in relation to type, age and decay stage of coarse woody debris of Picea abies. Environmental and Experimental Biology, 15: 95-103. [(pdf)](http://eeb.lu.lv/EEB/current/EEB_XV_Brumelis.pdf) 
+
+1. **Kecko, S., Mihailova, A., Kangassalo, K., Elferts, D., Krama, T., Krams, R., Luoto, S., Rantala, M. J. and Krams, I. A., 2017.** Sex-specific compensatory growth in the larvae of the greater wax moth Galleria mellonella. Journal of Evolutionary Biology, doi:10.1111/jeb.13150 [(link)](http://onlinelibrary.wiley.com/doi/10.1111/jeb.13150/full)
 
 1. **Krams, I.A., Rumvolt, K., Saks, L., Krams, R., Elferts, D., Vrublevska, J., Rantala, M.J., Kecko, S., Cīrule, D., Luoto, S., Krama, T., 2017.** Reproduction compromises adaptive immunity in a cyprinid fish. Ecological Research, 32: 559-566. [(link)](https://link.springer.com/epdf/10.1007/s11284-017-1467-y?author_access_token=kH9tQmQoNg65BqPTO8p7Dfe4RwlQNchNByi7wbcMAY6eyW-Bjb476h4gpBUKG8whFBYsTFRGPAWo6Fsee9RlliPXrkb9vtvX-Or4lu_DK89D3096X7YlDvZd7Zm95AY1lNCCTy1GX0kPmCgjz-WrJA==)
 
