@@ -7,7 +7,7 @@ categories: es
 
 1. **Brūmelis, G., Oļehnoviča, E., šūba, U., Treimane, A., Inne, S., Zviedre, E., Elferts, D., Dakša, M., Tjarve, D., 2017.** Bryophute and polypore richness and indicators in relation to type, age and decay stage of coarse woody debris of Picea abies. Environmental and Experimental Biology, 15: 95-103. [(pdf)](http://eeb.lu.lv/EEB/current/EEB_XV_Brumelis.pdf) 
 
-1. **Kecko, S., Mihailova, A., Kangassalo, K., Elferts, D., Krama, T., Krams, R., Luoto, S., Rantala, M. J. and Krams, I. A., 2017.** Sex-specific compensatory growth in the larvae of the greater wax moth Galleria mellonella. Journal of Evolutionary Biology, doi:10.1111/jeb.13150 [(link)](http://onlinelibrary.wiley.com/doi/10.1111/jeb.13150/full)
+1. **Kecko, S., Mihailova, A., Kangassalo, K., Elferts, D., Krama, T., Krams, R., Luoto, S., Rantala, M. J. and Krams, I. A., 2017.** Sex-specific compensatory growth in the larvae of the greater wax moth Galleria mellonella. Journal of Evolutionary Biology, 30: 1910-1918. [(link)](http://onlinelibrary.wiley.com/doi/10.1111/jeb.13150/full)
 
 1. **Krams, I.A., Kecko, S., Jõers, P., Trakimas, G., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Inashkina, I., Gudrā, D., Fridmanis, D., Contreras-Garduño, J., Grantiņa-Ieviņa, L., Krama, T., 2017.** Microbiome symbionts and diet diversity incur costs on the immune system of insect larvae. Journal of Experimental Biology, doi:10.1242/jeb.169227 [(link)](http://jeb.biologists.org/content/early/2017/09/21/jeb.169227.article-info)
 
