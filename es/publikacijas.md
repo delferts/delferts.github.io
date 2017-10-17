@@ -4,6 +4,7 @@ layout: page
 categories: es
 ---
 
+1. **Apsīte, E., Nikodemus, O., Brūmelis, G., Lagzdiņš, A., Elferts, D., Rendenieks, Z., Klints, L., 2017.** Impact of climate variability, drainage and land-cover changes on hemiboreal streamflow. Hydrological Science Journal, doi: 10.1080/02626667.2017.1393821 [(link)](http://www.tandfonline.com/doi/abs/10.1080/02626667.2017.1393821)
 
 1. **Brūmelis, G., Oļehnoviča, E., šūba, U., Treimane, A., Inne, S., Zviedre, E., Elferts, D., Dakša, M., Tjarve, D., 2017.** Bryophute and polypore richness and indicators in relation to type, age and decay stage of coarse woody debris of Picea abies. Environmental and Experimental Biology, 15: 95-103. [(pdf)](http://eeb.lu.lv/EEB/current/EEB_XV_Brumelis.pdf) 
 
