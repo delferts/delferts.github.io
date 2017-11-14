@@ -6,20 +6,20 @@ categories: es
 
 ### Akceptētas (in press)
 
-**Cirule, D., Krama, T., Krams, R., Elferts, D., Kaasik, A., Rantala, M.J., Mierauskas, P., Luoto, S., Krams I.A.** Habitat quality affects stress responses and survival in a bird wintering under extremely low ambient temperatures.The Science of Nature.
-
 **Krams, I., Kecko, S., Inaskina, I., Trakimasi, G., Krams. R., Elferts, D., Vrublevska, J. Joers, P., Rantala, M.J, Luoto, S., Conteras-Garduno J, Jankevica, L, Meija, L., Krama, T.** Food quality affects the expression of antimicrobial peptide genes upon simulated parasite attack in the larvae of greater wax moth. Entomologia Experimentalis et Applicata.
 
 
 ### 2018
 
-37) **Vinogradovs, I., Nikodemus, O., Elferts, D., Brūmelis, G.** Assessment of site-specific drivers of farmland abandonment in mosaic-type landscapes: A case study in Vidzeme, Latvia. Agriculture, Ecosystems and Environment, 253: 113-121. [(link)](https://www.sciencedirect.com/science/article/pii/S0167880917304619)
+38) **Vinogradovs, I., Nikodemus, O., Elferts, D., Brūmelis, G.** Assessment of site-specific drivers of farmland abandonment in mosaic-type landscapes: A case study in Vidzeme, Latvia. Agriculture, Ecosystems and Environment, 253: 113-121. [(link)](https://www.sciencedirect.com/science/article/pii/S0167880917304619)
 
 ### 2017
 
-36) **Apsīte, E., Nikodemus, O., Brūmelis, G., Lagzdiņš, A., Elferts, D., Rendenieks, Z., Klints, L., 2017.** Impact of climate variability, drainage and land-cover changes on hemiboreal streamflow. Hydrological Science Journal, doi: 10.1080/02626667.2017.1393821 [(link)](http://www.tandfonline.com/doi/abs/10.1080/02626667.2017.1393821)
+37) **Apsīte, E., Nikodemus, O., Brūmelis, G., Lagzdiņš, A., Elferts, D., Rendenieks, Z., Klints, L., 2017.** Impact of climate variability, drainage and land-cover changes on hemiboreal streamflow. Hydrological Science Journal, doi: 10.1080/02626667.2017.1393821 [(link)](http://www.tandfonline.com/doi/abs/10.1080/02626667.2017.1393821)
 
-35) **Brūmelis, G., Oļehnoviča, E., šūba, U., Treimane, A., Inne, S., Zviedre, E., Elferts, D., Dakša, M., Tjarve, D., 2017.** Bryophute and polypore richness and indicators in relation to type, age and decay stage of coarse woody debris of Picea abies. Environmental and Experimental Biology, 15: 95-103. [(pdf)](http://eeb.lu.lv/EEB/current/EEB_XV_Brumelis.pdf) 
+36) **Brūmelis, G., Oļehnoviča, E., šūba, U., Treimane, A., Inne, S., Zviedre, E., Elferts, D., Dakša, M., Tjarve, D., 2017.** Bryophute and polypore richness and indicators in relation to type, age and decay stage of coarse woody debris of Picea abies. Environmental and Experimental Biology, 15: 95-103. [(pdf)](http://eeb.lu.lv/EEB/current/EEB_XV_Brumelis.pdf) 
+
+35) **Cirule, D., Krama, T., Krams, R., Elferts, D., Kaasik, A., Rantala, M.J., Mierauskas, P., Luoto, S., Krams I.A.** Habitat quality affects stress responses and survival in a bird wintering under extremely low ambient temperatures.The Science of Nature, 104 (99): 1:13. [(link)](https://link.springer.com/article/10.1007/s00114-017-1519-8)
 
 34) **Kecko, S., Mihailova, A., Kangassalo, K., Elferts, D., Krama, T., Krams, R., Luoto, S., Rantala, M. J. and Krams, I. A., 2017.** Sex-specific compensatory growth in the larvae of the greater wax moth Galleria mellonella. Journal of Evolutionary Biology, 30: 1910-1918. [(link)](http://onlinelibrary.wiley.com/doi/10.1111/jeb.13150/full)
 
