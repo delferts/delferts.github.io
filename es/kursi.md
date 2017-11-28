@@ -4,6 +4,8 @@ layout: page
 categories: es update
 ---
 
+1. "Pamatstatistiskie testi programmā R" un "Datu vizualizācija ar ggplot2" - seminārs Pārtikas drošības, dzīvnieku veselības un vides zinātniskais institūta „BIOR” darbiniekiem (28.11.2017.)
+
 1. "Ievads darbā ar R un pamatstatistiskie test" un "Ievads ggplot2 grafiskajā sistēmā" - kursi Eirāzijas zālāju konferences dalībniekiem (05.07.2017)
 
 1. "Programma R" - četru tēmu kurss LU Bioloģijas fakultātes un Ģeogrāfijas un zemes zinātņu fakultātes akadēmiskajam un zinātniskajam personālam (oktobris, 2016.) ([brīvi pieejami kursa materiāli](https://github.com/delferts/R_kursi_LU))
