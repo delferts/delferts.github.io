@@ -6,7 +6,6 @@ categories: es
 
 ### Akceptētas (in press)
 
-**Krams, I., Kecko, S., Inaskina, I., Trakimasi, G., Krams. R., Elferts, D., Vrublevska, J. Joers, P., Rantala, M.J, Luoto, S., Conteras-Garduno J, Jankevica, L, Meija, L., Krama, T.** Food quality affects the expression of antimicrobial peptide genes upon simulated parasite attack in the larvae of greater wax moth. Entomologia Experimentalis et Applicata.
 
 
 ### 2018
@@ -19,9 +18,11 @@ categories: es
 
 36) **Brūmelis, G., Oļehnoviča, E., šūba, U., Treimane, A., Inne, S., Zviedre, E., Elferts, D., Dakša, M., Tjarve, D., 2017.** Bryophute and polypore richness and indicators in relation to type, age and decay stage of coarse woody debris of Picea abies. Environmental and Experimental Biology, 15: 95-103. [(pdf)](http://eeb.lu.lv/EEB/current/EEB_XV_Brumelis.pdf) 
 
-35) **Cirule, D., Krama, T., Krams, R., Elferts, D., Kaasik, A., Rantala, M.J., Mierauskas, P., Luoto, S., Krams I.A.** Habitat quality affects stress responses and survival in a bird wintering under extremely low ambient temperatures.The Science of Nature, 104 (99): 1:13. [(link)](https://link.springer.com/article/10.1007/s00114-017-1519-8)
+35) **Cirule, D., Krama, T., Krams, R., Elferts, D., Kaasik, A., Rantala, M.J., Mierauskas, P., Luoto, S., Krams I.A., 2017.** Habitat quality affects stress responses and survival in a bird wintering under extremely low ambient temperatures.The Science of Nature, 104 (99): 1:13. [(link)](https://link.springer.com/article/10.1007/s00114-017-1519-8)
 
 34) **Kecko, S., Mihailova, A., Kangassalo, K., Elferts, D., Krama, T., Krams, R., Luoto, S., Rantala, M. J. and Krams, I. A., 2017.** Sex-specific compensatory growth in the larvae of the greater wax moth Galleria mellonella. Journal of Evolutionary Biology, 30: 1910-1918. [(link)](http://onlinelibrary.wiley.com/doi/10.1111/jeb.13150/full)
+
+34) **Krams, I., Kecko, S., Inashkina, I., Trakimas, G., Krams, R., Elferts, D., Vrublevska, J., Jõers, P., Rantala, M. J., Luoto, S., Contreras-Garduño, J., Jankevica, L., Meija, L., Krama, T., 2017.** Food quality affects the expression of antimicrobial peptide genes upon simulated parasite attack in the larvae of greater wax moth. Entomologia Experimentalis et Applicata, doi:10.1111/eea.12629. [(link)](http://onlinelibrary.wiley.com/doi/10.1111/eea.12629/full)
 
 33) **Krams, I.A., Kecko, S., Jõers, P., Trakimas, G., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Inashkina, I., Gudrā, D., Fridmanis, D., Contreras-Garduño, J., Grantiņa-Ieviņa, L., Krama, T., 2017.** Microbiome symbionts and diet diversity incur costs on the immune system of insect larvae. Journal of Experimental Biology, doi:10.1242/jeb.169227 [(link)](http://jeb.biologists.org/content/early/2017/09/21/jeb.169227.article-info)
 
