@@ -10,7 +10,9 @@ categories: es
 
 ### 2018
 
-40) **Vinogradovs, I., Nikodemus, O., Elferts, D., Brūmelis, G.** Assessment of site-specific drivers of farmland abandonment in mosaic-type landscapes: A case study in Vidzeme, Latvia. Agriculture, Ecosystems and Environment, 253: 113-121. [(link)](https://www.sciencedirect.com/science/article/pii/S0167880917304619)
+41) **Robalte, L., Jansone, D., Elferts, D., Matisons, R., Jansons, Ā., 2018.** Bilberry ramet dimensions in relation to stand age in oligotrophic conditions in Latvia. Silva Fennica, 52: 9899. [(pdf)](https://www.silvafennica.fi/pdf/article9899.pdf)
+
+40) **Vinogradovs, I., Nikodemus, O., Elferts, D., Brūmelis, G., 2018.** Assessment of site-specific drivers of farmland abandonment in mosaic-type landscapes: A case study in Vidzeme, Latvia. Agriculture, Ecosystems and Environment, 253: 113-121. [(link)](https://www.sciencedirect.com/science/article/pii/S0167880917304619)
 
 ### 2017
 
