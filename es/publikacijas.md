@@ -10,6 +10,9 @@ categories: es
 
 ### 2018
 
+
+42) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
+
 41) **Robalte, L., Jansone, D., Elferts, D., Matisons, R., Jansons, Ā., 2018.** Bilberry ramet dimensions in relation to stand age in oligotrophic conditions in Latvia. Silva Fennica, 52: 9899. [(pdf)](https://www.silvafennica.fi/pdf/article9899.pdf)
 
 40) **Vinogradovs, I., Nikodemus, O., Elferts, D., Brūmelis, G., 2018.** Assessment of site-specific drivers of farmland abandonment in mosaic-type landscapes: A case study in Vidzeme, Latvia. Agriculture, Ecosystems and Environment, 253: 113-121. [(link)](https://www.sciencedirect.com/science/article/pii/S0167880917304619)
