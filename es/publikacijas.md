@@ -11,7 +11,9 @@ categories: es
 ### 2018
 
 
-42) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
+43) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
+
+42) Krūmiņa, A., Pliss, L., Zariņa, G., Puzuka, A., Zariņa, A., Lāce, B., Elferts, D., Khrunin, A., Limborska, S., Kloviņš, J., Gailīte, L., 2018. Population genetics of Latvians in the context of admixture between north-eastern European ethnic groups. Proceedings of the Latvian Academy of Science. Section B, 72 (2): 131-151. [(pdf)](https://content.sciendo.com/downloadpdf/journals/prolas/72/3/article-p131.xml)
 
 41) **Robalte, L., Jansone, D., Elferts, D., Matisons, R., Jansons, Ā., 2018.** Bilberry ramet dimensions in relation to stand age in oligotrophic conditions in Latvia. Silva Fennica, 52: 9899. [(pdf)](https://www.silvafennica.fi/pdf/article9899.pdf)
 
