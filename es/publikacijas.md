@@ -11,9 +11,12 @@ categories: es
 ### 2018
 
 
-43) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
+44) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
 
-42) Krūmiņa, A., Pliss, L., Zariņa, G., Puzuka, A., Zariņa, A., Lāce, B., Elferts, D., Khrunin, A., Limborska, S., Kloviņš, J., Gailīte, L., 2018. Population genetics of Latvians in the context of admixture between north-eastern European ethnic groups. Proceedings of the Latvian Academy of Science. Section B, 72 (2): 131-151. [(pdf)](https://content.sciendo.com/downloadpdf/journals/prolas/72/3/article-p131.xml)
+43) Krūmiņa, A., Pliss, L., Zariņa, G., Puzuka, A., Zariņa, A., Lāce, B., Elferts, D., Khrunin, A., Limborska, S., Kloviņš, J., Gailīte, L., 2018. Population genetics of Latvians in the context of admixture between north-eastern European ethnic groups. Proceedings of the Latvian Academy of Science. Section B, 72 (2): 131-151. [(pdf)](https://content.sciendo.com/downloadpdf/journals/prolas/72/3/article-p131.xml)
+
+
+42) Poikane, S., Portielje, R., Denys, L., Elferts, D., Kelly, M., Kolada, A., Mäemets, H., Phillips, G., Søndergaard, M., Wilblby, N., van der Berg, M.S., 2018. Macrophyte assessment in European lakes: diverse approaches but convergent views of ‘good’ ecological status. Ecological Indicators, 94: 185-197. [(link)](https://www.sciencedirect.com/science/article/pii/S1470160X1830503X)
 
 41) **Robalte, L., Jansone, D., Elferts, D., Matisons, R., Jansons, Ā., 2018.** Bilberry ramet dimensions in relation to stand age in oligotrophic conditions in Latvia. Silva Fennica, 52: 9899. [(pdf)](https://www.silvafennica.fi/pdf/article9899.pdf)
 
