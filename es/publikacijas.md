@@ -11,6 +11,8 @@ categories: es
 ### 2018
 
 
+46) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
+
 45) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
 
 44) **Krūmiņa, A., Pliss, L., Zariņa, G., Puzuka, A., Zariņa, A., Lāce, B., Elferts, D., Khrunin, A., Limborska, S., Kloviņš, J., Gailīte, L., 2018.** Population genetics of Latvians in the context of admixture between north-eastern European ethnic groups. Proceedings of the Latvian Academy of Science. Section B, 72 (2): 131-151. [(pdf)](https://content.sciendo.com/downloadpdf/journals/prolas/72/3/article-p131.xml)
