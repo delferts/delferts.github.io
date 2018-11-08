@@ -4,12 +4,10 @@ layout: page
 categories: es
 ---
 
-### Akceptētas (in press)
-
-
 
 ### 2018
 
+47) **Terentjeva, M., Streikiša, M., Avsejenko, J., Trofimova, J., Kovaļenko, K., Elferts, D., Bērziņš, A., 2018.** Prevalence and antimicrobial resistance of Escherichia coli, Enterococcus spp. and the major foodborne pathogens in calves in Latvia. Foodborne Pathogens and Disease, doi: 10.1089/fpd.2018.2523 [(link)](https://doi.org/10.1089/fpd.2018.2523) 
 
 46) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
 
