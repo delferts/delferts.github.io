@@ -4,6 +4,9 @@ layout: page
 categories: es
 ---
 
+### 2019
+
+48) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
 
 ### 2018
 
