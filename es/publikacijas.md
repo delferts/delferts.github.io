@@ -6,11 +6,13 @@ categories: es
 
 ### 2019
 
-48) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
+49) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
 
 ### 2018
 
-47) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
+48) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
+
+47) **Krams, I., Luoto, S., Rubika, A., Krama, T., Elferts, D., Krams, R., Kecko, S., Skrinda, I., Moore, F.R., Rantala, M.J., 2018.** A head start for life history development? Family income mediates associations between height and immune response in men. American Journal of Physical Anthropology, DOI: 10.1002/ajpa.23754 [(link)](https://onlinelibrary.wiley.com/doi/abs/10.1002/ajpa.23754)
 
 46) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
 
