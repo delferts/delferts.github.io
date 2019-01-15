@@ -8,6 +8,8 @@ categories: es
 
 49) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
 
+50) **Matisons, R., Jansone, D., Elferts, D., Adamovičs, A., Schneck, V., Jansons, Ā., 2019.** Plasticity of response of tree-ring width of Scots pine provenances to weather extremes in Latvia. Dendrochronologia, DOI: 10.1016/j.dendro.2019.01.002 [(link)](https://doi.org/10.1016/j.dendro.2019.01.002)
+
 ### 2018
 
 48) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
