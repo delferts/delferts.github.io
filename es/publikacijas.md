@@ -8,26 +8,26 @@ categories: es
 
 50) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
 
-49) **Matisons, R., Jansone, D., Elferts, D., Adamovičs, A., Schneck, V., Jansons, Ā., 2019.** Plasticity of response of tree-ring width of Scots pine provenances to weather extremes in Latvia. Dendrochronologia, DOI: 10.1016/j.dendro.2019.01.002 [(link)](https://doi.org/10.1016/j.dendro.2019.01.002)
+49) **Krams, I., Luoto, S., Rubika, A., Krama, T., Elferts, D., Krams, R., Kecko, S., Skrinda, I., Moore, F.R., Rantala, M.J., 2019.** A head start for life history development? Family income mediates associations between height and immune response in men. American Journal of Physical Anthropology, 168: 421-427. [(link)](https://onlinelibrary.wiley.com/doi/abs/10.1002/ajpa.23754)
+
+48) **Matisons, R., Jansone, D., Elferts, D., Adamovičs, A., Schneck, V., Jansons, Ā., 2019.** Plasticity of response of tree-ring width of Scots pine provenances to weather extremes in Latvia. Dendrochronologia, DOI: 10.1016/j.dendro.2019.01.002 [(link)](https://doi.org/10.1016/j.dendro.2019.01.002)
+
+47) **Terentjeva, M., Streikiša, M., Avsejenko, J., Trofimova, J., Kovaļenko, K., Elferts, D., Bērziņš, A., 2019.** Prevalence and antimicrobial resistance of Escherichia coli, Enterococcus spp. and the major foodborne pathogens in calves in Latvia. Foodborne Pathogens and Disease, 16: 35-41. [(link)](https://doi.org/10.1089/fpd.2018.2523)
 
 ### 2018
 
-48) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
+46) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
 
-47) **Krams, I., Luoto, S., Rubika, A., Krama, T., Elferts, D., Krams, R., Kecko, S., Skrinda, I., Moore, F.R., Rantala, M.J., 2018.** A head start for life history development? Family income mediates associations between height and immune response in men. American Journal of Physical Anthropology, DOI: 10.1002/ajpa.23754 [(link)](https://onlinelibrary.wiley.com/doi/abs/10.1002/ajpa.23754)
+45) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
 
-46) **Krams, I., Trakimas, G., Kecko, S., Elferts, D., Krams, R., Luoto, S., Rantala, M.J., Mänd, M., Kuusik, A., Kekäläinen, J., Jõers, P., Kortet, R., Krama, T., 2018.** Linking organismal growth, coping styles, stress reactivity, and metabolism via responses against a selective serotonin reuptake inhibitor in an insect. Scientific Reports, 8:8599:1-12. [(pdf)](https://www.nature.com/articles/s41598-018-26722-9.pdf)
+44) **Krūmiņa, A., Pliss, L., Zariņa, G., Puzuka, A., Zariņa, A., Lāce, B., Elferts, D., Khrunin, A., Limborska, S., Kloviņš, J., Gailīte, L., 2018.** Population genetics of Latvians in the context of admixture between north-eastern European ethnic groups. Proceedings of the Latvian Academy of Science. Section B, 72 (2): 131-151. [(pdf)](https://content.sciendo.com/downloadpdf/journals/prolas/72/3/article-p131.xml)
 
-45) **Krūmiņa, A., Pliss, L., Zariņa, G., Puzuka, A., Zariņa, A., Lāce, B., Elferts, D., Khrunin, A., Limborska, S., Kloviņš, J., Gailīte, L., 2018.** Population genetics of Latvians in the context of admixture between north-eastern European ethnic groups. Proceedings of the Latvian Academy of Science. Section B, 72 (2): 131-151. [(pdf)](https://content.sciendo.com/downloadpdf/journals/prolas/72/3/article-p131.xml)
+43) **Ķēniņa, L., Elferts, D., Bāders, E., Jansons, Ā., 2018.** Carbon pools in a hemiboreal over-mature Norway spruce stands. Forests, 9 (435): 1:10. [(pdf)](http://www.mdpi.com/1999-4907/9/7/435/pdf)
 
-44) **Ķēniņa, L., Elferts, D., Bāders, E., Jansons, Ā., 2018.** Carbon pools in a hemiboreal over-mature Norway spruce stands. Forests, 9 (435): 1:10. [(pdf)](http://www.mdpi.com/1999-4907/9/7/435/pdf)
+42) **Poikane, S., Portielje, R., Denys, L., Elferts, D., Kelly, M., Kolada, A., Mäemets, H., Phillips, G., Søndergaard, M., Wilblby, N., van der Berg, M.S., 2018.** Macrophyte assessment in European lakes: diverse approaches but convergent views of ‘good’ ecological status. Ecological Indicators, 94: 185-197. [(link)](https://www.sciencedirect.com/science/article/pii/S1470160X1830503X)
 
-43) **Poikane, S., Portielje, R., Denys, L., Elferts, D., Kelly, M., Kolada, A., Mäemets, H., Phillips, G., Søndergaard, M., Wilblby, N., van der Berg, M.S., 2018.** Macrophyte assessment in European lakes: diverse approaches but convergent views of ‘good’ ecological status. Ecological Indicators, 94: 185-197. [(link)](https://www.sciencedirect.com/science/article/pii/S1470160X1830503X)
-
-42) **Robalte, L., Jansone, D., Elferts, D., Matisons, R., Jansons, Ā., 2018.** Bilberry ramet dimensions in relation to stand age in oligotrophic conditions in Latvia. Silva Fennica, 52: 9899. [(pdf)](https://www.silvafennica.fi/pdf/article9899.pdf)
-
-41) **Terentjeva, M., Streikiša, M., Avsejenko, J., Trofimova, J., Kovaļenko, K., Elferts, D., Bērziņš, A., 2018.** Prevalence and antimicrobial resistance of Escherichia coli, Enterococcus spp. and the major foodborne pathogens in calves in Latvia. Foodborne Pathogens and Disease, doi: 10.1089/fpd.2018.2523 [(link)](https://doi.org/10.1089/fpd.2018.2523) 
-
+41) **Robalte, L., Jansone, D., Elferts, D., Matisons, R., Jansons, Ā., 2018.** Bilberry ramet dimensions in relation to stand age in oligotrophic conditions in Latvia. Silva Fennica, 52: 9899. [(pdf)](https://www.silvafennica.fi/pdf/article9899.pdf)
+ 
 40) **Vinogradovs, I., Nikodemus, O., Elferts, D., Brūmelis, G., 2018.** Assessment of site-specific drivers of farmland abandonment in mosaic-type landscapes: A case study in Vidzeme, Latvia. Agriculture, Ecosystems and Environment, 253: 113-121. [(link)](https://www.sciencedirect.com/science/article/pii/S0167880917304619)
 
 ### 2017
