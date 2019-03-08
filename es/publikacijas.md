@@ -14,6 +14,8 @@ categories: es
 
 47) **Terentjeva, M., Streikiša, M., Avsejenko, J., Trofimova, J., Kovaļenko, K., Elferts, D., Bērziņš, A., 2019.** Prevalence and antimicrobial resistance of Escherichia coli, Enterococcus spp. and the major foodborne pathogens in calves in Latvia. Foodborne Pathogens and Disease, 16: 35-41. [(link)](https://doi.org/10.1089/fpd.2018.2523)
 
+47) **Trakimas, G., Krams, R., Krama, T., Kortet, R., Haque, S., Luoto, S., Eichler, I.S., Butler, D.M., Jõers, P., Hawlena, D., Rantala, M.J., Elferts, D., Contreras-Garduño, J., Krams, I., 2019.** Ecological stoichiometry: a link between developmental speed and physiological stress in an omnivorous insect. Frontiers in Behavioral Neuroscience, 13:42. [(link)](https://www.frontiersin.org/articles/10.3389/fnbeh.2019.00042/full)
+
 ### 2018
 
 46) **Bāders, E., Jansons, Ā., Matisons, R., Elferts, D., Desaine, I., 2018.** Landscape diversity for reduced risk of insect damage: a case study of spruce bud scale in Latvia. Forests, 9 (545): 1-15. [(pdf)](http://www.mdpi.com/1999-4907/9/9/545/pdf)
