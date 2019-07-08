@@ -6,13 +6,15 @@ categories: es
 
 ### 2019
 
-52) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
+53) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
 
-51) **Kitenberga, M., Drobyshev, I., Elferts, D., Matisons, R., Adamovics, A., Katrevics, J., Niklasson, M., Jansons, A., 2019.** A mixture of human and climatic effects shapes the 250-year long fire history of a semi-natural pine dominated landscape of Northern Latvia. Forest Ecology and Management, 441: 192–201. [(link)](https://doi.org/10.1016/j.foreco.2019.03.020)
+52) **Kitenberga, M., Drobyshev, I., Elferts, D., Matisons, R., Adamovics, A., Katrevics, J., Niklasson, M., Jansons, A., 2019.** A mixture of human and climatic effects shapes the 250-year long fire history of a semi-natural pine dominated landscape of Northern Latvia. Forest Ecology and Management, 441: 192–201. [(link)](https://doi.org/10.1016/j.foreco.2019.03.020)
 
-50) **Krams, I., Luoto, S., Rubika, A., Krama, T., Elferts, D., Krams, R., Kecko, S., Skrinda, I., Moore, F.R., Rantala, M.J., 2019.** A head start for life history development? Family income mediates associations between height and immune response in men. American Journal of Physical Anthropology, 168: 421-427. [(link)](https://onlinelibrary.wiley.com/doi/abs/10.1002/ajpa.23754)
+51) **Krams, I., Luoto, S., Rubika, A., Krama, T., Elferts, D., Krams, R., Kecko, S., Skrinda, I., Moore, F.R., Rantala, M.J., 2019.** A head start for life history development? Family income mediates associations between height and immune response in men. American Journal of Physical Anthropology, 168: 421-427. [(link)](https://onlinelibrary.wiley.com/doi/abs/10.1002/ajpa.23754)
 
-49) **Matisons, R., Jansone, D., Elferts, D., Adamovičs, A., Schneck, V., Jansons, Ā., 2019.** Plasticity of response of tree-ring width of Scots pine provenances to weather extremes in Latvia. Dendrochronologia, DOI: 10.1016/j.dendro.2019.01.002 [(link)](https://doi.org/10.1016/j.dendro.2019.01.002)
+50) **Matisons, R., Jansone, D., Elferts, D., Adamovičs, A., Schneck, V., Jansons, Ā., 2019.** Plasticity of response of tree-ring width of Scots pine provenances to weather extremes in Latvia. Dendrochronologia, DOI: 10.1016/j.dendro.2019.01.002 [(link)](https://doi.org/10.1016/j.dendro.2019.01.002)
+
+49) **Rendenieks, Z., Brumelis, G., Nikodemus, O., Elferts, D., 2019.** Geographic determinants of spatial patterns of *Quercus robur* forest stands in Latvia: biophysical conditions and past management. iForest, 12: 349-356. [(pdf)](https://iforest.sisef.org/pdf/?id=ifor2979-012)
 
 48) **Terentjeva, M., Streikiša, M., Avsejenko, J., Trofimova, J., Kovaļenko, K., Elferts, D., Bērziņš, A., 2019.** Prevalence and antimicrobial resistance of Escherichia coli, Enterococcus spp. and the major foodborne pathogens in calves in Latvia. Foodborne Pathogens and Disease, 16: 35-41. [(link)](https://doi.org/10.1089/fpd.2018.2523)
 
