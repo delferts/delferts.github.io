@@ -4,6 +4,11 @@ layout: page
 categories: es
 ---
 
+### 2020
+
+54) **Matisons, R., Gärtner, H., Elferts, D., Kārkliņa, A., Adamovičs, A., Jansons, Ā., 2020.** Occurrence of ‘blue’ and ‘frost’ rings reveals frost sensitivity of eastern Baltic procenances of Scots pine. Forest Ecology and Management, 457 117729. [(link)](https://www.sciencedirect.com/science/article/pii/S0378112719317748)
+
+
 ### 2019
 
 53) **Brūmelis, G., Artistova, A., Elferts, D., Kasparinskis, R., Nikodemus, O., Amatniece, V., Rendenieks, Z., 2019.** Effects of stand-level and landscape factors on understorey plant community traits in broad-leaved forest of the boreo-nemoral zone in Latvia. Forest Ecology and Management, 434: 264-278. [(link)](https://www.sciencedirect.com/science/article/pii/S037811271831644X)
