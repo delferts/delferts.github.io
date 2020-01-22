@@ -6,6 +6,8 @@ categories: es
 
 ### 2020
 
+55) **Kitenberga, M., Elferts, D., Adamovics, A., Katrevics, J., Donis, J., Baders, E., Jansons, A., 2020.** Effect of salvage logging and forest type on the post-fire regeneration of Scots pine in hemiboreal forests. New Forests, DOI: 10.1007/s11056-020-09775-5 [(link)](https://link.springer.com/article/10.1007%2Fs11056-020-09775-5)
+
 54) **Matisons, R., Gärtner, H., Elferts, D., Kārkliņa, A., Adamovičs, A., Jansons, Ā., 2020.** Occurrence of ‘blue’ and ‘frost’ rings reveals frost sensitivity of eastern Baltic procenances of Scots pine. Forest Ecology and Management, 457 117729. [(link)](https://www.sciencedirect.com/science/article/pii/S0378112719317748)
 
 
