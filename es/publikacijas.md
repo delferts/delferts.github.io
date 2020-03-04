@@ -8,6 +8,8 @@ categories: es
 
 56) **Kitenberga, M., Elferts, D., Adamovics, A., Katrevics, J., Donis, J., Baders, E., Jansons, A., 2020.** Effect of salvage logging and forest type on the post-fire regeneration of Scots pine in hemiboreal forests. New Forests, DOI: 10.1007/s11056-020-09775-5 [(link)](https://link.springer.com/article/10.1007%2Fs11056-020-09775-5)
 
+**Krams, I.A., Luoto, S., Krama, T., Krams, R., Sieving, K., Trakimas, G., Elferts, D., Rantala M.J., Goodale, E., 2020.** Egalitarian mixed-species bird groups enhance winter survival of subordinate group members but only in high-quality forests. Scientific Reports, 10: 4005. [(pdf)](https://www.nature.com/articles/s41598-020-60144-w.pdf)
+
 55) **Luguza, S., Snepsts, G., Donis, J., Desaine, I., Baders, E., Kitenberga, M., Elferts, D., Jansons, A., 2020.** Advance Regeneration of Norway Spruce and Scots Pine in Hemiboreal Forests in Latvia. Forests, 11: 215. [(pdf)](https://www.mdpi.com/1999-4907/11/2/215/pdf) 
 
 54) **Matisons, R., Gärtner, H., Elferts, D., Kārkliņa, A., Adamovičs, A., Jansons, Ā., 2020.** Occurrence of ‘blue’ and ‘frost’ rings reveals frost sensitivity of eastern Baltic procenances of Scots pine. Forest Ecology and Management, 457 117729. [(link)](https://www.sciencedirect.com/science/article/pii/S0378112719317748)
