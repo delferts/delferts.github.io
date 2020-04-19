@@ -18,7 +18,7 @@ categories: es
 
 55) **Matisons, R., Gärtner, H., Elferts, D., Kārkliņa, A., Adamovičs, A., Jansons, Ā., 2020.** Occurrence of ‘blue’ and ‘frost’ rings reveals frost sensitivity of eastern Baltic procenances of Scots pine. Forest Ecology and Management, 457:117729. [(link)](https://www.sciencedirect.com/science/article/pii/S0378112719317748)
 
-54) Snepsts, G., Kitenberga, M., Elferts, D., Donis, J., Jansons, A., 2020. Stem damage modifies the impact of wind on Norway spruces. Forests, 11: 463. [(pdf)](https://www.mdpi.com/1999-4907/11/4/463/pdf)
+54) **Snepsts, G., Kitenberga, M., Elferts, D., Donis, J., Jansons, A., 2020.** Stem damage modifies the impact of wind on Norway spruces. Forests, 11: 463. [(pdf)](https://www.mdpi.com/1999-4907/11/4/463/pdf)
 
 
 ### 2019
